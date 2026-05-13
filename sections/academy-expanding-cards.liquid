@@ -9,7 +9,7 @@
   }
 </style>
 {{ 'academy-landing.css' | asset_url | stylesheet_tag }}
-{{ 'academy-landing.js' | asset_url | script_tag }}
+<script src="{{ 'academy-landing.js' | asset_url }}" defer></script>
 
 <section class="academy-section academy-expanding-cards {{ section.settings.custom_class }}">
   {%- if section.settings.anchor_id != blank -%}

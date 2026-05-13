@@ -213,11 +213,11 @@
     {% endif %}
 
     {% if block.settings.collection != blank %}
-      {% assign products = block.settings.collection.products | limit: block.settings.products_to_show %}
-      
+      {% assign products = block.settings.collection.products %}
+
       {% if products.size > 0 %}
         <div class="ai-bestsellers__grid-{{ ai_gen_id }}">
-          {% for product in products %}
+          {% for product in products limit: block.settings.products_to_show %}
             <div class="ai-bestsellers__product-{{ ai_gen_id }}">
               <a href="{{ product.url }}" class="ai-bestsellers__image-wrapper-{{ ai_gen_id }}">
                 {% if product.featured_image %}

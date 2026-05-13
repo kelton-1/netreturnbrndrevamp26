@@ -172,12 +172,12 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
       {%- capture logo -%}
         <a class="header__logo-link" href="{{ routes.root_url }}">
           {%- if section.settings.logo != blank -%}
-            {%- capture logo_size -%}{{ section.settings.logo_max_width | at_least: section.settings.mobile_logo_max_width | times: 2 | append: 'x' }}{%- endcapture -%}
+            {%- assign logo_size = section.settings.logo_max_width | at_least: section.settings.mobile_logo_max_width | times: 2 -%}
             <span class="visually-hidden">{{ shop.name }}</span>
-            <img class="header__logo-image" fetchpriority='high' width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | img_url: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
+            <img class="header__logo-image" fetchpriority='high' width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | image_url: width: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
 
             {%- if request.page_type == 'index' and section.settings.enable_transparent_header and section.settings.transparent_logo != blank -%}
-              <img fetchpriority='high' class="header__logo-image header__logo-image--transparent" width="{{ section.settings.transparent_logo.width }}" height="{{ section.settings.transparent_logo.height }}" src="{{ section.settings.transparent_logo | img_url: logo_size }}" alt="{{ section.settings.transparent_logo.alt | escape }}">
+              <img fetchpriority='high' class="header__logo-image header__logo-image--transparent" width="{{ section.settings.transparent_logo.width }}" height="{{ section.settings.transparent_logo.height }}" src="{{ section.settings.transparent_logo | image_url: width: logo_size }}" alt="{{ section.settings.transparent_logo.alt | escape }}">
             {%- endif -%}
           {%- else -%}
             <span class="header__logo-text heading h5">{{ shop.name }}</span>
@@ -296,7 +296,7 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
             </a>
           {%- endif -%}
 
-          <a href="{{ routes.cart_url }}" {% unless settings.cart_type == 'page' or request.page_type == 'cart' %}is="toggle-link" aria-controls="mini-cart" aria-expanded="false{% endunless %}" class="header__icon-wrapper tap-area {% unless section.settings.show_icons %}hidden-desk{% endunless %}" aria-label="{{ 'header.general.cart' | t | escape }}" data-no-instant>
+          <a href="{{ routes.cart_url }}" {% unless settings.cart_type == 'page' or request.page_type == 'cart' %}is="toggle-link" aria-controls="mini-cart" aria-expanded="false"{% endunless %} class="header__icon-wrapper tap-area {% unless section.settings.show_icons %}hidden-desk{% endunless %}" aria-label="{{ 'header.general.cart' | t | escape }}" data-no-instant>
             {%- case settings.cart_icon -%}
               {%- when 'shopping_bag' -%}
                 {%- render 'icon' with 'header-cart' -%}
@@ -400,8 +400,7 @@ SEARCH DRAWER
     "@type": "Organization",
     "name": {{ shop.name | json }},
     {% if section.settings.logo %}
-      {% assign image_size = section.settings.logo.width | append: 'x' %}
-      "logo": {{ section.settings.logo | img_url: image_size | prepend: 'https:' | json }},
+      "logo": {{ section.settings.logo | image_url: width: section.settings.logo.width | prepend: 'https:' | json }},
     {% endif %}
     "url": {{ shop.url | append: page.url | json }}
   }

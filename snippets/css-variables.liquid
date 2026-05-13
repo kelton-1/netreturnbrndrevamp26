@@ -25,11 +25,11 @@ other resources, such as CSS or JS
 {%- endcomment -%}
 
 {%- unless settings.heading_font.system? -%}
-  <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+  {{ settings.heading_font | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 {%- endunless -%}
 
 {%- unless settings.text_font.system? -%}
-  <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+  {{ settings.text_font | font_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 {%- endunless -%}
 
 <style>
@@ -146,9 +146,9 @@ other resources, such as CSS or JS
     --transform-origin-end: {% if direction == 'ltr' %}right{% else %}left{% endif %};
 
     /* Other */
-    --zoom-cursor-svg-url: url({{ 'zoom-cursor.svg' | asset_url }});
-    --arrow-right-svg-url: url({{ 'arrow-right.svg' | asset_url }});
-    --arrow-left-svg-url: url({{ 'arrow-left.svg' | asset_url }});
+    --zoom-cursor-svg-url: url({{ 'zoom-cursor.svg.liquid' | asset_url }});
+    --arrow-right-svg-url: url({{ 'arrow-right.svg.liquid' | asset_url }});
+    --arrow-left-svg-url: url({{ 'arrow-left.svg.liquid' | asset_url }});
 
     /* Some useful variables that we can reuse in our CSS. Some explanation are needed for some of them:
        - container-max-width-minus-gutters: represents the container max width without the edge gutters

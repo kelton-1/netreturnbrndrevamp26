@@ -45,9 +45,9 @@
       <div class="gift-card__wrapper">
         <h1 class="gift-card__logo">
           {%- if section.settings.logo != blank -%}
-            {%- capture logo_size -%}{{ section.settings.logo_max_width | times: 2 | append: 'x' }}{%- endcapture -%}
+            {%- assign logo_width = section.settings.logo_max_width | times: 2 -%}
             <span class="visually-hidden">{{ shop.name }}</span>
-            <img class="gift-card__logo-image" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | img_url: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
+            <img class="gift-card__logo-image" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | image_url: width: logo_width }}" alt="{{ section.settings.logo.alt | escape }}">
           {%- else -%}
             <span class="heading h5 text--center">{{ shop.name }}</span>
           {%- endif -%}
@@ -57,7 +57,7 @@
           {%- if section.settings.image -%}
             {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 280px, 360px', widths: '280,360,560,720,840,1080', class: 'gift-card__image' -}}
           {%- else -%}
-            <img class="gift-card__image gift-card__image--default" src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="{{ 'gift_card.issued.illustration' | t | escape }}">
+            <img class="gift-card__image gift-card__image--default" src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="{{ 'gift_card.issued.illustration' | t | escape }}" width="570" height="325">
           {%- endif -%}
         </div>
 

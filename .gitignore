@@ -7,6 +7,7 @@ shopify-cli-home/
 !.env.example
 dist/
 tmp/
+.playwright-cli/
 *.log
 npm-debug.log*
 yarn-debug.log*
