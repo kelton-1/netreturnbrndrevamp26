@@ -1,0 +1,32 @@
+{%- liquid
+  assign desktop_image = image
+  assign mobile_source = mobile_image
+  assign image_sizes = sizes | default: '100vw'
+  assign image_widths = widths | default: '360,540,720,900,1200,1440,1800'
+  assign image_class = class | default: ''
+  assign image_alt = alt | default: desktop_image.alt | default: ''
+-%}
+{%- if desktop_image != blank -%}
+  <picture>
+    {%- if mobile_source != blank -%}
+      <source
+        media="(max-width: 767px)"
+        srcset="{{ mobile_source | image_url: width: 480 }} 480w, {{ mobile_source | image_url: width: 720 }} 720w, {{ mobile_source | image_url: width: 960 }} 960w"
+        width="{{ mobile_source.width }}"
+        height="{{ mobile_source.height }}"
+      >
+    {%- endif -%}
+    {{
+      desktop_image
+      | image_url: width: desktop_image.width
+      | image_tag:
+        loading: 'lazy',
+        sizes: image_sizes,
+        widths: image_widths,
+        alt: image_alt,
+        class: image_class
+    }}
+  </picture>
+{%- else -%}
+  {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+{%- endif -%}

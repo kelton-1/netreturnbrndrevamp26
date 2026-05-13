@@ -1,0 +1,342 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing this theme as much as we did for
+  developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+  hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+  all events, dependencies...) in the "custom.js" file, located in the Assets folder.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<!doctype html>
+
+{%- assign direction = 'ltr' -%}
+{%- case request.locale.iso_code -%}
+  {%- when 'ar' or 'arc' or 'dv' or 'fa' or 'ha' or 'he' or 'kwh' or 'ks' or 'ku' or 'ps' or 'ur' or 'yi' -%}
+    {%- assign direction = 'rtl' -%}
+{%- endcase -%}
+{%- assign tpl_handle = template | handle -%}
+
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ direction }}">
+  <head>
+    {% render 'wnw_header' %}
+    {% comment %} <script async="async" src="https://mm-uxrv.com/js/mm_f18f1911-b020-48d0-ae0d-00f656ad55da-85530283.js"></script> {% endcomment %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="{{ settings.header_background }}">
+
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    
+     {%- if canonical_url contains "tagged" or canonical_url contains "vendors?q=" or canonical_url contains "/collections/all"  or canonical_url contains "/apps/sitemap" -%}
+    <meta name="robots" content="noindex">
+    {%- endif -%}
+    
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x96' }}" type="image/png">
+    {%- endif -%}
+    <div id="fv-loading-icon">&#915;</div>
+    {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
+    {% comment %} <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com"> {% endcomment %}
+
+    {%- unless settings.heading_font.system? and settings.text_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+    {% if template contains "index" %}
+        {% render "index-css" %}
+    {% elsif template contains "collection" %}
+        {% if template contains "list-collection" %}
+            {% render 'list-collection-css' %}
+        {% else %}
+            {% render "collection-css" %}
+        {% endif %}
+    {% elsif template contains "product" %}
+        {% render "product-css" %}
+    {% else %}
+        {% render "all-css" %}
+        {% render "all-css2" %}
+    {% endif %}
+    {%- comment -%}Preload important resources{%- endcomment -%}
+    <link rel="stylesheet" data-href="{{ 'theme.css' | asset_url }}">
+    <noscript><link rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
+
+    {%- comment -%}
+      IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
+      product or collection pages). In order to keep a main JS file size minimal, the theme also lazyloads non-essential
+      libraries (such as PhotoSwipe or Flickity) and only loads them on demand.
+    {%- endcomment -%}
+    
+    {%- if request.page_type == 'product' -%}
+      {%- assign selected_media = product.selected_variant.featured_media | default: product.featured_media -%}
+
+      <link rel="preload" as="fetch" href="{{ product.url }}.js" crossorigin>
+
+      {%- if product.media.size > 1 -%}
+        <link rel="preload" as="script" href="{{ 'flickity.js' | asset_url }}">
+      {%- endif -%}
+    {%- endif -%}
+    {% render 'social-meta-tags' %}
+    {% render 'microdata-schema' %}
+    {% render 'css-variables', direction: direction %}
+    {% render 'js-variables', direction: direction %}
+
+    <link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
+    <noscript><link rel="stylesheet" href="{{ 'custom.css' | asset_url }}"></noscript>
+
+    <script>
+      var upgradePropertyLabel = null;
+    </script>
+
+    {% if template == 'page.quiz' %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
+    {% endif %}
+    {%- if request.design_mode or template contains 'cart' or template contains 'checkout' -%}
+        {{ content_for_header }}
+    {%- else -%}
+        {% capture content_for_header2 %}{{ content_for_header }}{% endcapture %}
+        {{ content_for_header2 | replace: ' async="async" ', ' type="lazyload_int" ' | replace: ' defer="defer" ', ' type="lazyload_int" ' | replace: " src=", " data-src="| replace: "DOMContentLoaded", "w3-DOMContentLoaded" | replace: "window.addEventListener('load', asyncLoad, false);", "window.addEventListener('w3-DOMContentLoaded', asyncLoad, false);" | replace: "addEventListener('load', prefetchAssets);", "addEventListener('w3-DOMContentLoaded', prefetchAssets);" | replace: 'type="module" data-', 'data-w3-type="module" type="lazyload_int" data-' | replace: "type='text/javascript' async=''", "type='lazyload_int' " | replace: 'async data-w3-type="module" type="lazyload_int"', 'data-w3-type="module"' | replace: '<script type="module">', '<script data-w3-type="module" type="lazyload_int">' | replace: "type='text/javascript' defer='defer' data-src", "type='lazyload_int' data-src" | replace: 'type="lazyload_int" data-src="https://shop.app/checkouts/internal/preloads.js', 'type="lazyload_ext" data-src="https://shop.app/checkouts/internal/preloads.js' }}
+    <script>var trekkie=[];trekkie.integrations=!0;window.BOOMR={},window.BOOMR.version=true;</script>
+    {%- endif -%}
+
+    <script type="lazyload_int" data-src="{{ 'vendor.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'theme.js' | asset_url }}"></script>
+    <script type="lazyload_int" data-src="{{ 'custom.js' | asset_url }}"></script>
+    <meta name="google-site-verification" content="s9TKsm3oL9Rkfxtxwmke_ce5Y8CUyPHQ_wDA1Oig-X0" />
+    {%- if section.settings.mobile_image -%}
+      <link rel="preload" as="image" href="{{ section.settings.mobile_image | image_url: width: 1200, format: 'webp' }}">
+    {%- endif -%}
+    {% render 'custom-css' %}
+    {% render 'app-block' %}
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "uxbqg45j6a");
+</script>
+<script>/* >> Heatmap.com :: Snippet << */(function (h,e,a,t,m,ap) { (h._heatmap_paq = []).push([ 'setTrackerUrl', (h.heatUrl = e) + a]); h.hErrorLogs=h.hErrorLogs || []; ap=t.createElement('script');  ap.src=h.heatUrl+'preprocessor.min.js?sid='+m;  ap.defer=true; t.head.appendChild(ap); ['error', 'unhandledrejection'].forEach(function (ty) {     h.addEventListener(ty, function (et) { h.hErrorLogs.push({ type: ty, event: et }); }); });})(window,'https://dashboard.heatmap.com/','heatmap.php',document,5053);</script>
+  {%- if request.page_type == 'page' -%}
+  {%- assign video_schema_page_handles = "3d-flex-screen-assembly,3d-net-assembly,adding-bounce-to-pro-turf,assembly,assembly-1,become-an-affiliate,classic-pro-assembly,copy-of-pro-series-jr-net-assembly,custom-sim-screens,extra-point-assembly,flex-screen-installation-video,frame-pads-assembly,home-series-and-pro-series-v2-side-barrier-installation,home-series-v2-assembly,home-series-v2-pro-package,horizontal-frame-pads,junior-side-barriers-assembly,large-10-pro-series-v2-assembly,large-10-v2-pro-package-assembly,large-8-pro-series-v2-assembly,large-8-v2-pro-package,large-9-pro-series-assembly,large-9-v2-pro-package,mini-pro-series-assembly,net-guardian-assembly,no-fly-zone-installation,no-fly-zone-v2-assembly,optoma-projector-installation-videos,outdoor-cover-assembly,platinum-package-assembly,platinum-turf-assembly,pro-series-jr-net-assembly,pro-series-v2-assembly,pro-series-v2-golf-package-assembly-videos,pro-turf-assembly,pro-turf-putting-cup-tees-assembly,projectot-mount-assembly,side-barriers-mini-assembly-video,sim-series-v3-assembly,simulator-kit-assembly,simulator-series-10-assembly,simulator-series-12-assembly,simulator-series-8-assembly-video,simulator-valence-assembly,split-screen-assembly,split-screen-introduction,target-2x2-assembly,top-videos,universal-side-barriers-home-series-v2-assembly-videos,universal-side-barriers-large-10-pro-series-v2-assembly-video,universal-side-barriers-large-8-pro-series-v2-assembly-video,universal-side-barriers-large-9-pro-series-v2-assembly-video,universal-side-barriers-pro-series-v2-assembly-video,valence-assembly,xl-pro-series-v2-assembly,xl-side-barriers-assembly,xl-simulator-valence-assembly,xl-v2-pro-package" | split: "," -%}
+  {%- if video_schema_page_handles contains page.handle -%}
+    {%- render 'nr-video-schema-auto' -%}
+  {%- endif -%}
+{%- endif -%}
+
+</head>
+  
+  <!-- Google Tag Manager -->
+  <script type="lazyload_int">
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WF7K2CSD');
+  </script>
+  <!-- End Google Tag Manager -->
+  
+  {%- assign feature_classes = '' -%}
+
+  {%- if settings.show_image_zoom -%}
+    {% assign feature_classes = feature_classes | append: ' features--image-zoom ' %}
+  {%- endif -%}
+
+
+
+  <body class="no-focus-outline tpl--{{ tpl_handle }} {{ feature_classes }}" data-instant-allow-query-string>
+    
+    {%- comment -%}Common SVG definitions that we are re-using in several places{%- endcomment -%}
+    <svg class="visually-hidden">
+      <linearGradient id="rating-star-gradient-half">
+        <stop offset="50%" stop-color="rgb(var(--product-star-rating))" />
+        <stop offset="50%" stop-color="rgb(var(--product-star-rating))" stop-opacity="0.4" />
+      </linearGradient>
+    </svg>
+
+    <a href="#main" class="visually-hidden skip-to-content">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    <loading-bar class="loading-bar"></loading-bar>
+
+    {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+      {%- sections 'header-group' -%}
+      {%- sections 'overlay-group' -%}
+
+      {%- unless settings.cart_type == 'page' or request.page_type == 'cart' -%}
+        {%- section 'mini-cart' -%}
+      {%- endunless -%}
+    {%- endif -%}
+
+    <div id="main" role="main" class="anchor">
+      {%- comment -%}
+      IMPLEMENTATION NOTE: on collection and search page, the theme was designed to show on mobile the filter bar and/or sort
+        by at the very top of the page. However, due to the fact that sections are isolated, I had to move the code
+        here. Then, the collection section, based on the selected settings, will eventually hide those elements in CSS
+      {%- endcomment -%}
+      {%- if request.page_type == 'collection' or request.page_type == 'search' -%}
+        {%- assign active_filters_count = 0 -%}
+
+        {%- if request.page_type == 'collection' -%}
+          {%- assign filters = collection.filters -%}
+        {%- else -%}
+          {%- assign filters = search.filters -%}
+        {%- endif -%}
+
+        {%- for filter in filters -%}
+          {%- if filter.type == 'list' -%}
+            {%- assign active_filters_count = active_filters_count | plus: filter.active_values.size -%}
+          {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+            {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign is_toolbar_collapsed = false -%}
+
+        {%- if request.page_type == 'search' and search.results.first.object_type != 'product' and search.results_count > 0 -%}
+          {%- assign is_toolbar_collapsed = true -%}
+        {%- endif -%}
+
+        <div id="mobile-facet-toolbar" class="mobile-toolbar {% if is_toolbar_collapsed %}is-collapsed{% endif %} hidden-lap-and-up">
+          <button is="toggle-button" class="mobile-toolbar__item mobile-toolbar__item--filters {% if active_filters_count > 0 %}has-filters{% endif %}" aria-expanded="false" aria-controls="facet-filters" style="display: none">
+            {%- render 'icon' with 'filters' -%}
+            <span class="mobile-toolbar__item-label">{{- 'collection.general.filters' | t -}}</span>
+          </button>
+
+          <button is="toggle-button" class="mobile-toolbar__item mobile-toolbar__item--sort" aria-expanded="false" aria-controls="sort-by-popover" style="display: none">
+            <span class="mobile-toolbar__item-label">{{- 'collection.general.sort_by' | t -}}</span>
+            {%- render 'icon' with 'chevron' -%}
+          </button>
+        </div>
+      {%- endif -%}
+
+      {{ content_for_layout }}
+    </div>
+
+    {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+      {%- sections 'footer-group' -%}
+    {%- endif -%}
+
+   <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        loading="lazy"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WF7K2CSD"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% render 'footer-app-block' %}
+    {% render 'wnw_footer' %} 
+    
+    <script type="lazyload_int">
+      document.addEventListener('octane.quiz.completed', function (e) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'quizCompleted',
+          quizName: e.detail.quiz_results_url || undefined,
+          quizAnswers: e.detail.answers,
+        });
+      });
+    </script>
+    <script type="lazyload_int">
+    (function() {
+      function loadScript(src){
+        var s = document.createElement('script');
+        s.src = src;
+        s.async = true;
+        document.body.appendChild(s);
+      }
+
+      // IntersectionObserver approach: load loox when user scrolls near the page end
+      var sentinel = document.createElement('div');
+      sentinel.id = 'loox-loader-sentinel';
+      sentinel.style.cssText = 'width:1px;height:1px;position:fixed;bottom:10px;left:0;pointer-events:none;opacity:0';
+      document.body.appendChild(sentinel);
+
+      var io = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            loadScript('https://cdn.loox.io/loox.js');
+            observer.disconnect();
+            sentinel.remove();
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: '300px', // load when user is within ~300px of bottom
+        threshold: 0
+      });
+
+      // start observing once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function(){ io.observe(sentinel); });
+      } else {
+        io.observe(sentinel);
+      }
+    })();
+    (function() {
+        function idleLoad(src, opts){
+          var load = function(){
+            var s = document.createElement('script');
+            s.src = src;
+            if (opts && opts.async) s.async = true;
+            if (opts && opts.defer) s.defer = true;
+            document.body.appendChild(s);
+          };
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(load, {timeout: 2000});
+          } else {
+            setTimeout(load, 1500);
+          }
+        }
+
+        // idle-load analytics/third-party only after first paint / idle
+        // mm-uxrv (example)
+        document.addEventListener('DOMContentLoaded', function(){
+          // load on idle so critical render isn't blocked
+          idleLoad('https://mm-uxrv.com/js/mm_f18f1911-b020-48d0-ae0d-00f656ad55da-85530283.js', {async: true});
+        });
+
+        // Facebook Pixel: idle-load instead of on window.load
+        idleLoad('https://connect.facebook.net/en_US/fbevents.js', {async: true});
+      })();
+        (function(){
+          var loaded = false;
+          function loadRedo(){
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            // Replace with the exact Redo script URL you see in the Network tab / Lighthouse.
+            s.src = 'https://cdn.redo.do/path/to/redo-widget.js';
+            s.async = true;
+            document.body.appendChild(s);
+          }
+          if ('IntersectionObserver' in window){
+            var io = new IntersectionObserver(function(entries, ob){
+              entries.forEach(function(e){
+                if (e.isIntersecting) { loadRedo(); ob.disconnect(); }
+              });
+            }, {root:null, rootMargin:'300px', threshold:0});
+            var t = document.getElementById('returns-widget-sentinel');
+            if (t) io.observe(t); else loadRedo();
+          } else {
+            // older browsers - defer load
+            setTimeout(loadRedo, 2000);
+          }
+        })();
+      </script>
+          
+          
+  </body>
+</html>

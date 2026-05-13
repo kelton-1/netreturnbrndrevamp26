@@ -1,0 +1,453 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_gtemyr": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "#ffffff",
+            "atc_button_text_color": "#101010",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "product_variations_gtemyr",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": true,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        },
+        "trust_ncFtAK": {
+          "type": "trust",
+          "settings": {
+            "icon_1": "picto-warranty",
+            "title_1": "5 Year Warranty",
+            "content_1": "<p>All Bulletproof nets are protected by an industry-leading 5 Year Warranty</p>",
+            "icon_2": "picto-customer-support",
+            "title_2": "Warranty",
+            "content_2": "<p>Add text about your product warranty</p>",
+            "icon_3": "picto-secure-payment",
+            "title_3": "Secure Payment",
+            "content_3": "<p>Add text about your payment</p>"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "trust_ncFtAK"
+      ],
+      "settings": {}
+    },
+    "rich_text_LVdb7K": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "BUNDLE AND SAVE 15%",
+        "title": "Packages Include:",
+        "content": "<p>Net</p><p>Side Barriers (Pair)</p><p>Pro Turf (6' x 10') <em>*Platinum Turf Upgrade available on Pro Package</em></p><p>Sandbags (4x)</p><p>Rubber Tees (2x)</p><p>Duffle Bag</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#101010",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_VqFWer": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/bulletproof.jpg",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "text_with_icons_wPPDRK": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_aizfmw": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-return-box",
+            "custom_icon_width": 50,
+            "title": "Instant Ball Return",
+            "content": "<p>Automatically Returns The Ball to The Golfer. No More Balls Everywhere.</p>"
+          }
+        },
+        "item_tbbbr6": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon_width": 50,
+            "title": "Easy to Assemble",
+            "content": "<p>No Tools Required with The Net Return’s “Quick Color Connect System”</p>"
+          }
+        },
+        "item_6xGxLa": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-address-pin",
+            "custom_icon_width": 50,
+            "title": "Indoor or Outdoor",
+            "content": "<p>Aircraft Grade Aluminum Frame, UV Shielded Netting and Sleeve. The Pro Series V2 is designed for the harshest of environments.</p>"
+          }
+        },
+        "item_8V7pWj": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-warranty",
+            "custom_icon_width": 50,
+            "title": "Premium Quality",
+            "content": "<p>Architecturally Stunning Design with an High Gloss Black Finished Frame and an Embroidered Sleeve, delivering both Quiet and Elegant Performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_aizfmw",
+        "item_tbbbr6",
+        "item_6xGxLa",
+        "item_8V7pWj"
+      ],
+      "disabled": true,
+      "settings": {
+        "icon_align_mobile": "center",
+        "hide_dots": false,
+        "auto_rotate": false,
+        "cycle_speed": 3,
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "rich_text_iCbjM4": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "Made for all-day use",
+        "title": "More Reps, More Durabliity",
+        "content": "<p>The Bulletproof Series is built for commercial use. The increased durability makes it perfect for driving ranges, fittings, instructors, and more.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#101010",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_nPmNbb": {
+      "type": "faq",
+      "blocks": {
+        "question_VnKiPx": {
+          "type": "question",
+          "settings": {
+            "title": "Made with Dyneema",
+            "answer": "<p>The Bulletproof Series is made entirely of Dyneema Netting. Dyneema boasts a staggering 15 times greater strength-to-weight ratio compared to steel.</p>"
+          }
+        },
+        "question_6gw7jc": {
+          "type": "question",
+          "settings": {
+            "title": "30% Lighter",
+            "answer": "<p>The Bulletproof Series is 30% lighter than traditional Nylon or Polyester Nets and is highly resistant to stretching, tearing or breaking.</p>"
+          }
+        },
+        "question_tByEJe": {
+          "type": "question",
+          "settings": {
+            "title": "Handles High Spin and Heat",
+            "answer": "<p>Bulletproof Series netting is remarkable in its ability to effectively handle the heat generated by the spin of a golf ball (up to 12,000 RPM). This netting boasts an impressive melting point, withstanding temperatures exceeding 300 degrees Fahrenheit (149 degrees Celsius)</p>"
+          }
+        },
+        "question_7KVgeh": {
+          "type": "question",
+          "settings": {
+            "title": "UV Resistant",
+            "answer": "<p>Leave outdoors in your most demanding UV environments (Arizona, Florida, California, Texas, etc.) - our Bulletproof Series is unaffected.</p>"
+          }
+        },
+        "question_z8A4qU": {
+          "type": "question",
+          "settings": {
+            "title": "Moisture and Mildew Resistant",
+            "answer": "<p>Dyneema doesn't absorb water, making it less susceptible to mold and mildew growth when used outdoors.</p>"
+          }
+        },
+        "question_DtzNqk": {
+          "type": "question",
+          "settings": {
+            "title": "Black or White Netting",
+            "answer": "<p>The Bulletproof Series Nets are available in Black or White Netting. The sleeves will always come in black.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_VnKiPx",
+        "question_6gw7jc",
+        "question_tByEJe",
+        "question_7KVgeh",
+        "question_z8A4qU",
+        "question_DtzNqk"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "image_with_text_G8DWcA": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_BjK8QA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1400x1400-pro.png",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "Golf's Bestselling Net",
+            "content": "<p>Whether you're chasing scratch or just picking up the game, The Net Return is the best tool to practice and improve your game.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_BWG4LY": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Item",
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_BjK8QA",
+        "item_BWG4LY"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_WX6Wym": {
+      "type": "gallery",
+      "blocks": {
+        "image_jfHUjV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Net_Return_Bulletproof_Net_3.png",
+            "caption": ""
+          }
+        },
+        "image_C4WQdC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Net_Return_Bulletproof_Net_1.png",
+            "caption": ""
+          }
+        },
+        "image_z4U7Hd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Net_Return_Bulletproof_Net_2.png",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_jfHUjV",
+        "image_C4WQdC",
+        "image_z4U7Hd"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": false,
+        "background": "#101010",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_RV7iBD": {
+      "type": "faq",
+      "blocks": {
+        "question_WTVeNp": {
+          "type": "question",
+          "settings": {
+            "title": "Bulletproof 8",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 8'</p><p>Height: 8'</p><p>Depth: 3'6\"</p><p>Weight: 32 lbs.</p><p><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        },
+        "question_PEAhHg": {
+          "type": "question",
+          "settings": {
+            "title": "Bulletproof 9",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 8'</p><p>Height: 9'</p><p>Depth: 3'6\"</p><p>Weight: 33 lbs.</p><p><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        },
+        "question_6fMV44": {
+          "type": "question",
+          "settings": {
+            "title": "Bulletproof 10",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 10'</p><p>Height: 8'</p><p>Depth: 3'6\"</p><p>Weight: 34 lbs.</p><p><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_WTVeNp",
+        "question_PEAhHg",
+        "question_6fMV44"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Bulletproof Series Comparison",
+        "content": "<p>Dimensions and Specifications</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "featured_collections_HzqG6E": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_9EkpBR": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "label": "Simulation",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_9EkpBR"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Bulletproof Series Add-Ons",
+        "content": "",
+        "products_count": 4,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": true,
+        "section_id": "",
+        "background": "#101010",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "rich_text_LVdb7K",
+    "image_with_text_overlay_VqFWer",
+    "text_with_icons_wPPDRK",
+    "rich_text_iCbjM4",
+    "faq_nPmNbb",
+    "image_with_text_G8DWcA",
+    "gallery_WX6Wym",
+    "faq_RV7iBD",
+    "featured_collections_HzqG6E"
+  ]
+}

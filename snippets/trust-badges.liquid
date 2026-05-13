@@ -1,0 +1,149 @@
+<div class="features">
+  <div class="feature-item" data-title="3-Year Warranty" data-content="All nets are protected by an industry-leading 3 Year Warranty">
+    <img src="https://cdn.shopify.com/s/files/1/0405/2925/files/security.png" alt="Warranty">
+    <div>3-Year Warranty</div>
+  </div>
+
+  <div class="feature-item" data-title="Free Shipping" data-content="Free Standard UPS Shipping for domestic orders (LIMITED TIME)">
+    <img src="https://cdn.shopify.com/s/files/1/0405/2925/files/box.png" alt="Shipping">
+    <div>Free Shipping</div>
+  </div>
+
+  <div class="feature-item" data-title="30-Day Returns" data-content="We offer a 30-Day Money-Back Guarantee on orders.">
+    <img src="https://cdn.shopify.com/s/files/1/0405/2925/files/return_8b012932-7682-43a8-85e5-3f2a56bc4691.png" alt="Returns">
+    <div>30-Day Returns</div>
+  </div>
+</div>
+
+<!-- Overlay -->
+<div class="modal-overlay"></div>
+
+<!-- Right Side Modal -->
+<div class="side-modal">
+  <div class="modal-header">
+    <h3 class="modal-title"></h3>
+    <span class="modal-close">&times;</span>
+  </div>
+  <div class="modal-body"></div>
+</div>
+<style>
+  .features {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.feature-item {
+  text-align: center;
+  color: #515151;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.feature-item img {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.feature-item:hover img {
+  opacity: 1;
+}
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 998;
+}
+
+/* Side Modal */
+.side-modal {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  z-index: 999;
+  padding: 20px;
+  transition: right 0.35s ease;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+}
+
+.side-modal.active {
+  right: 0;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal-close {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-body {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .side-modal {
+    width: 100%;
+  }
+}
+
+</style>
+
+<script>
+  const featureItems = document.querySelectorAll('.feature-item');
+  const modal = document.querySelector('.side-modal');
+  const overlay = document.querySelector('.modal-overlay');
+  const modalTitle = document.querySelector('.modal-title');
+  const modalBody = document.querySelector('.modal-body');
+  const closeBtn = document.querySelector('.modal-close');
+
+  featureItems.forEach(item => {
+    item.addEventListener('click', () => {
+      modalTitle.textContent = item.dataset.title;
+      modalBody.textContent = item.dataset.content;
+      modal.classList.add('active');
+      overlay.classList.add('active');
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+</script>

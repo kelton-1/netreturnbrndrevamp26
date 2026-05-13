@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "blocks": {
+        "collection_myWQab": {
+          "type": "collection",
+          "settings": {
+            "collection": "nets-1",
+            "text_color": "rgba(0,0,0,0)",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection_myWQab"
+      ],
+      "disabled": true,
+      "settings": {
+        "collections_to_show": "selected",
+        "show_collection_title": true
+      }
+    },
+    "tnr_collection_list_YD6RBt": {
+      "type": "tnr-collection-list",
+      "blocks": {
+        "collection_dCdBVt": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/nets.webp",
+            "subheading": "",
+            "title": "Nets",
+            "link_text": "",
+            "link_url": "shopify://collections/nets-1",
+            "text_color": "#000000",
+            "overlay_color": "",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_x3TQmM": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/packages.webp",
+            "subheading": "",
+            "title": "Packages",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "#000000",
+            "overlay_color": "",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_xaHxMV": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/simulation.webp",
+            "subheading": "",
+            "title": "Simulation",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "#000000",
+            "overlay_color": "",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_9GYKCx": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/accessories.webp",
+            "subheading": "",
+            "title": "Accessories",
+            "link_text": "",
+            "link_url": "",
+            "text_color": "#000000",
+            "overlay_color": "",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection_dCdBVt",
+        "collection_x3TQmM",
+        "collection_xaHxMV",
+        "collection_9GYKCx"
+      ],
+      "settings": {
+        "reveal_on_scroll": false,
+        "layout": "grid",
+        "subheading": "",
+        "title": "Shop by category",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "tnr_collection_list_YD6RBt"
+  ]
+}

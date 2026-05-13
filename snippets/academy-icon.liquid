@@ -1,0 +1,23 @@
+{%- liquid
+  assign icon_name = icon | default: block.settings.icon | default: 'none'
+  assign custom_icon_markup = custom_icon | default: block.settings.custom_icon
+  assign icon_image = image | default: block.settings.icon_image
+  assign icon_size = size | default: 'md'
+  assign icon_class = class | default: ''
+-%}
+<span class="academy-icon{% if icon_size == 'sm' %} academy-icon--sm{% endif %}{% if icon_class != blank %} {{ icon_class }}{% endif %}">
+  {%- if custom_icon_markup != blank -%}
+    {{- custom_icon_markup -}}
+  {%- elsif icon_image != blank -%}
+    {{
+      icon_image
+      | image_url: width: 120
+      | image_tag:
+        loading: 'lazy',
+        widths: '48,72,96,120',
+        alt: icon_image.alt
+    }}
+  {%- elsif icon_name != blank and icon_name != 'none' -%}
+    {%- render 'icon-guarantee', icon: icon_name, size: icon_size -%}
+  {%- endif -%}
+</span>

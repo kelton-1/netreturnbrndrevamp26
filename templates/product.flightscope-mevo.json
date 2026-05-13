@@ -1,0 +1,354 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_FRdnDU": {
+          "type": "question",
+          "settings": {
+            "title": "Dial in your Distances",
+            "answer": "<p>Train and improve your distance control, club gapping, or challenge yourself in the FS Golf app</p>"
+          }
+        },
+        "question_gYV6hJ": {
+          "type": "question",
+          "settings": {
+            "title": "Analyze Every Swing",
+            "answer": "<p>Automatically record and clip video of every shot.</p>"
+          }
+        },
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "8 Data Parameters",
+            "answer": "<p>Includes 8 full swing performance data parameters with direct spin measurements.</p><ul><li>Carry Distance</li><li>Spin Rate</li><li>Club Speed</li><li>Ball Speed</li><li>Vertical Launch</li><li>Smash Factor</li><li>Apex Height</li><li>Flight Time</li></ul>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "Practice Anywhere",
+            "answer": "<p>Use Mevo to improve on the range, on the course, and at your home with video and data on every shot</p>"
+          }
+        },
+        "question_pfNqNB": {
+          "type": "question",
+          "settings": {
+            "title": "Specifications",
+            "answer": "<p><strong>Product Dimensions: ‎ 3.5 x 1.5 x 2.4 inches; 1.76 Ounces</strong></p><p><strong>Batteries: ‎ 1 Lithium Polymer batteries required. (included)</strong></p><p><strong>Apple:</strong></p><p><strong>iPhones / iPads with:</strong></p><ul><li>iOS 14 or later</li><li>Bluetooth LE 4.0 - supports UART/Serial Port Emulation service with RX and TX characteristics</li><li>Visit Apple Support for more information.</li></ul><p><strong>Android:</strong></p><ul><li>Android 6.0 or later (devices made in 2015 or later)</li><li>Bluetooth LE 4.0 - supports UART/Serial Port Emulation service with RX and TX characteristics</li></ul>"
+          }
+        },
+        "question_gwHQFh": {
+          "type": "question",
+          "settings": {
+            "title": "User Manual",
+            "answer": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/2021_Mevo_Manual_1.pdf?v=1679055691\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/2021_Mevo_Manual_1.pdf?v=1679055691\">Download Mevo User Manual [PDF]</a></p>"
+          }
+        },
+        "question_FhfDyD": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping & Returns",
+            "answer": "<p>FREE UPS Ground Shipping in the USA. Note: There are<span style=\"text-decoration:underline\"><strong>no returns</strong></span>on this item.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_FRdnDU",
+        "question_gYV6hJ",
+        "question_L8qgfT",
+        "question_7PNgNp",
+        "question_pfNqNB",
+        "question_gwHQFh",
+        "question_FhfDyD"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Practice with Purpose",
+        "content": "<p>The FlightScope Mevo is a launch monitor that uses 3D Doppler radar technology and can be used indoors and outdoors to provide users with accurate data to help improve their golf game.</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "video_aj6Uhn": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/809034644",
+        "image": "shopify://shop_images/Screenshot_2023-03-17_at_7.19.24_AM.png",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_C7YjLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Screenshot_2023-03-17_at_6.57.02_AM_fbb828f8-7002-4a6f-80fc-b3a1d2c435f2.png",
+            "caption": ""
+          }
+        },
+        "image_wcU9ph": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Mevo_480x480_c464f404-e64d-4464-a1ea-c0af30d1fc17.webp",
+            "caption": "<h4>FS Golf App</h4><p>A customizable phone and tablet app allowing users to view data, video, and trajectories.</p>"
+          }
+        },
+        "image_dpytEA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/MevoChallenges_600x600_667b1bf9-bcc8-428c-91c6-54707b861a51.webp",
+            "caption": "<h4>Mevo Skills Challenges</h4><p>Available in the FS Golf app, Skills challenges give you the ability to practice with a purpose.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_C7YjLY",
+        "image_wcU9ph",
+        "image_dpytEA"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "multi_column_hBVWKR": {
+      "type": "multi-column",
+      "blocks": {
+        "item_aaEaHW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Mevo_480x480_c464f404-e64d-4464-a1ea-c0af30d1fc17.webp",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "FS Golf App",
+            "content": "<p>A customizable phone and tablet app allowing users to view data, video, and trajectories.</p><p><strong>Automatic Video Clipping & Storage</strong></p><p>Includes the option to set pre- and post-trigger durations.</p><p><strong>Action Video with Data Overlay</strong></p><p>Automatically creates videos that include the entire swing with corresponding data.</p><p><strong>Real-Time Performance Data</strong></p><p>Measures 8 data parameters, available immediately, including an option for text-to-speech.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_ePYyzt": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/MevoChallenges_600x600_667b1bf9-bcc8-428c-91c6-54707b861a51.webp",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Mevo Skills Challenges",
+            "content": "<p>Available in the FS Golf app, Skills challenges give you the ability to practice with a purpose.</p><p><strong>FS PGA & LPGA Challenges</strong></p><p>The FlightScope PGA/LPGA Challenges give users the ability to compare their stats against the latest Tour averages for every data parameter.</p><p><strong>FS Long Drive Competition</strong></p><p>Work on speed and distance in this Long Drive Competition.</p><p><strong>FS Range Competition</strong></p><p>Challenge your distance control skills in the Range Competition. Practice with a purpose with targeted challenges that help users practice smarter.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "item_aaEaHW",
+        "item_ePYyzt"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": true,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "large",
+        "spacing": "loose",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_EPTc3B": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_UU3VVg": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Sim Bays",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_NFb6mi": {
+          "type": "collection",
+          "settings": {
+            "collection": "pro-series-nets",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_UU3VVg",
+        "collection_NFb6mi"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Compete Your Setup",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_XCJKJW",
+    "video_aj6Uhn",
+    "gallery_QJQxqE",
+    "multi_column_hBVWKR",
+    "featured_collections_EPTc3B",
+    "1713971222a271d416"
+  ]
+}

@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "29d0fe2d-23c5-48b1-b267-c26508873654": {
+      "type": "main-page",
+      "settings": {
+        "show_title": false,
+        "page_width": "medium"
+      }
+    },
+    "slideshow_ifyDUk": {
+      "type": "slideshow",
+      "blocks": {
+        "image_VNtfRf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/new-package-slider.jpg",
+            "text_position": "middle_center",
+            "subheading": "2026 NE GOLF SHOW",
+            "title": "Home Package Giveaway",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_VNtfRf"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 4,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "forms": {
+      "type": "apps",
+      "blocks": {
+        "c4a55aeb-8703-43be-9549-0e851d1ef373": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "224905",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 0,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "c4a55aeb-8703-43be-9549-0e851d1ef373"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "rich_text_APcNry": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<p><strong>Net Return Home Package Giveaway - Terms & Conditions</strong></p><p><strong>Eligibility<br/></strong>This giveaway is open to legal residents of the United States who are 18 years of age or older. Employees of Net Return, its affiliates, advertising and promotion agencies, and immediate family members are not eligible to participate.</p><p><strong>Giveaway Period<br/></strong>The giveaway begins on Friday, March 13 and ends on Sunday, March 15. Entries submitted after the Giveaway Period will not be accepted.</p><p><strong>How to Enter<br/></strong>To enter, participants must complete the submission form by providing their First & Last Name, Phone Number, and Email Address. No purchase is necessary to enter.</p><p><strong>Prize<br/></strong>One winner will receive the Net Return Home Package, which includes:</p><p>- Home Net<br/>- Side Barriers (Pair)<br/>- Pro Turf (6' x 10')<br/>- Sandbags (4x)<br/>- Rubber Tees (2x)<br/>- Duffle Bag</p><p>The total approximate retail value of the prize is $1,399.</p><p><strong>Winner Selection<br/></strong>The winner will be randomly selected from all eligible entries received during the Giveaway Period. The drawing will be conducted on or about March 16, 2026. The odds of winning depend on the number of eligible entries received.</p><p><strong>Prize Delivery<br/></strong>The prize will be shipped to the winner’s provided address within 14 days of winner confirmation. Net Return is not responsible for any delays in shipping or delivery.</p><p><strong>Returns and Warranty<br/></strong>All returns and warranty claims will be handled in accordance with Net Return's policies.</p><p><strong>General Conditions<br/></strong>Net Return reserves the right to cancel, suspend, or modify the giveaway if fraud, technical failures, or any other factor impairs the integrity or proper functioning of the giveaway, as determined by Net Return in its sole discretion.</p><p><strong>Privacy<br/></strong>By participating, entrants agree to the collection and use of their personal information by Net Return for the purposes of administering the giveaway.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "29d0fe2d-23c5-48b1-b267-c26508873654",
+    "slideshow_ifyDUk",
+    "forms",
+    "rich_text_APcNry"
+  ]
+}

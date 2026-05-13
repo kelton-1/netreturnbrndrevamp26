@@ -1,0 +1,350 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "faq_GnNhhN": {
+      "type": "faq",
+      "blocks": {
+        "question_CVpVhP": {
+          "type": "question",
+          "settings": {
+            "title": "Full Swing KIT Launch Monitor",
+            "answer": "<p><strong>The Full Swing KIT Launch Monitor</strong> is engineered with the most advanced radar technology and a high-resolution camera to give you 16 points of data and video to see your swing in perfect clarity. Tested & trusted by Tiger Woods, made for everyone.</p><p>Machine-learning enhanced Radar paired with powerful dedicated processors for Radar and media give you the cleanest and most accurate data in the industry.</p><p>A customizable heads-up OLED display engineered to show you exactly what you want to see what happens every swing or use the free included app to see your data & video across your iPhone, iPad, Apple Watch and even hear your selected data through your bluetooth headphones.</p><p>Using the included durable case, bring it to the course and set up in under a minute. Its battery life of up to 5 hours will help you get the most out of your swing whether on the range or with a net at home in your backyard, garage or basement.  </p><p><span style=\"text-decoration:underline\">Items Included</span>:</p><p>FS Kit Launch Monitor</p><p>Charging Block</p><p>USB-C Charging Cable</p><p>Protective Travel Case</p><p><strong>Tracking:</strong> Patented, 24GHz Dual-Mode, ML Enhanced Radar</p><p><strong>Display:</strong> 5.3” Ultra-bright, Full HD (1920×1080) OLED with 16.7 million colors</p><p><strong>Camera:</strong> Full HD 1080p, 60 fps</p><p><strong>Processor:</strong> Dual-core A9</p><p><strong>Connectivity:</strong> Wi-Fi 802.11a/b/g/n/ac; Bluetooth® 5.0 BR/EDR/LE</p><p><strong>Battery:</strong> Built-in Lithium-ion 8000mAh; Approximately 5 hours of use (depending on conditions)</p><p><strong>Carry Case:</strong> Light-weight, water and impact resistant</p><p><strong>Charging Port:</strong> USB-C</p><p><strong>Charger:</strong> 45W USB-C; 110-240v, 50-60Hz</p><p><strong>Charging Cable:</strong> USB-C, 3’ (1m)</p><p><strong>Unit Dimensions:</strong> 10.23” H x 6.57” W x 2.32” D (3.74” with support leg extended); (260mm x 167mm x 59mm (95mm))</p><p><strong>Unit Weight:</strong> 4.0 lbs (1.8 Kg)</p><p><strong>Case Dimensions:</strong> 13” L x 8.11” W x 3.86” H (330mm x 206mm x 98mm)</p><p>Unit, Case, Charger Weight: 5.7 lbs (2.6 Kg)</p><p><strong>Package Dimensions:</strong> 16.5” L x 10.75” W x 4.8” H (419 mm x 273mm x 122mm)</p><p><strong>Package Weight:</strong> 8.4 lbs (3.8 Kg)</p><p><strong>Return Eligibility</strong></p><p>If you are not satisfied with your Full Swing device within the first fourteen (14) days from the date of delivery, the Full Swing device may be returned for a full refund or replacement device.</p><p>For users with a perpetual license for E6 Connect software used in conjunction with a Full Swing, if you are not satisfied with the E6 Connect software within the first fourteen (14) days from the date of activation of the perpetual license, the license may be returned for a full refund. This paragraph applies to users with a perpetual license only; all other subscription forms will not be eligible for refund.</p><p>Your Full Swing device can no longer be returned after 14 days from the date of delivery.</p><p>All returns involving devices originally received outside of the U.S. shall be arranged through your local sales channel.</p><p><strong>Returning Your Device</strong></p><p>To initiate a return of your device, you must contact Sales Support at The Net Return by telephone at +1 (973) 636 -7354 or email at sales@TheNetReturn.com. The Sales Support team will provide you with a prepaid, shipping label and Return Material Authorization (RMA) number to send the device to The Net Return. Returns without a RMA number will not be accepted by The Net Return. The unit shall be returned with all accessories, including AC adapter and cables with travel case, and in the manufacturer’s original box.</p><p><strong>Return Processing</strong></p><p>Upon receipt of a returned device, the unit shall be inspected by The Net Return. If such inspection reveals that any of the warranty exclusions provided hereinafter apply, the warranty shall be voided and a repair fee assessed. For purchases made through Affirm, separate terms and conditions instituted by Affirm will apply; payment options through Affirm can be accessed at <a href=\"https://www.affirm.com/lenders\">https://www.affirm.com/lenders.</a></p><p>iPhone® (10 and higher), running iOS 14 and higher</p><p>iPad® (7th generation and higher), running iOS 14 and higher</p><p>iPad® Air (3rd generation and higher), running iOS 14 and higher</p><p>iPad® Pro (all models), running iOS 14 and higher</p><p>Apple Watch® 3 or higher, running watchOS 7 or higher</p><p>Apple AirPods® or most any Bluetooth® headphones</p>"
+          }
+        },
+        "question_hzC7w8": {
+          "type": "question",
+          "settings": {
+            "title": "Net Return Package",
+            "answer": "<p>Net</p><p>Side Barriers (Pair)</p><p>Pro Turf (6' x 10')</p><p>Sandbags (4x)</p><p>Rubber Tees (2x)</p><p>Duffle Bag</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_CVpVhP",
+        "question_hzC7w8"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Package Includes:",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_C7YjLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITDisplayatAddress.jpg",
+            "caption": "<h4>16 Points of Data</h4><p>Tour-level accuracy across the measured data metrics that you or your instructor can review to see what you need to work on to start playing your best golf.</p>"
+          }
+        },
+        "image_pFkFdj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITOnRange.jpg",
+            "caption": "<h4>Heads-Up Display</h4><p>The only launch monitor with a customizable full-color OLED display so you can select and see what data points matter to you most, instantly.</p>"
+          }
+        },
+        "image_zaY6qe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITCarryCase.jpg",
+            "caption": "<h4>Portable</h4><p>Built to be taken to and from the course with quick & easy setup to get your practice started in under a minute.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_C7YjLY",
+        "image_pFkFdj",
+        "image_zaY6qe"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_block_93Tj36": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/tabletdispersion.jpg",
+        "subheading": "The Most Connected App in Golf",
+        "title": "Instant Customizable Feedback",
+        "content": "<p>Everything you could ask for, all included on our free, easy to use cloud-based app.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_FRdnDU": {
+          "type": "question",
+          "settings": {
+            "title": "What are the 16 club & ball data points included with KIT?",
+            "answer": "<p>There is no unlock needed for the Full Swing KIT to get the below 16 points of Club & Ball Data: carry distance, total distance, spin rate, spin axis, face angle, face to path, attack angle, launch angle, ball speed, club speed, smash factor, club path, horizontal angle, apex height, side carry distance, side total distance.</p>"
+          }
+        },
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "Does KIT work outdoors and indoors?",
+            "answer": "<p>Yes, you can bring KIT to the range, on the course, home to your backyard or indoors for accurate data collection & video recording thanks to its innovative radar and built-in high-resolution camera.<br/>With its modern design and included durable padded case, transporting the KIT to and from wherever the game takes you is easier than ever.</p>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "What are the Virtual Gameplay Software options?",
+            "answer": "<p>Every Full Swing KIT comes with multiple free options from our Full Swing app that shows your data & video, as well as e6 Connect Perpetual Package that includes 5 courses and 15 practice areas for your iPhone or iPad.<br/>Additionally, our proprietary Full Swing Golf for KIT Software package is available with our Full Swing KIT Studio with PC Packages that allows you to experience some of the world’s most iconic courses and a customizable driving range (subscription required). There are 15 courses included that range from the breathtaking Spyglass Hill to PGA TOUR stops from the TPC Network of Courses and more.</p>"
+          }
+        },
+        "question_pfNqNB": {
+          "type": "question",
+          "settings": {
+            "title": "How much space is needed to use the KIT?",
+            "answer": "<p>Outdoors you will put the KIT 10 feet behind the golf ball for best radar readings and video recording.<br/>Indoors, you will need 8-10 feet of ball flight to the screen or net and 8-10 feet of space behind the golf ball for the KIT to get your best readings & gameplay performance. For an all-in-one solution, check out our Full Swing KIT Studio Packages.</p>"
+          }
+        },
+        "question_kg8apc": {
+          "type": "question",
+          "settings": {
+            "title": "How accurate is the Full Swing KIT?",
+            "answer": "<p>The Full Swing KIT was tested & is trusted by the highest standard in golf, Tiger Woods, as well as other top PGA TOUR players like Jon Rahm.<br/>To see how accurate KIT is compared to our launch monitors seen on Tour, check out results from testing here or see for yourself thanks to our 30-day money-back guarantee.</p>"
+          }
+        },
+        "question_tjqpEd": {
+          "type": "question",
+          "settings": {
+            "title": "What is included?",
+            "answer": "<ul><li>FS Kit Launch Monitor</li><li>Charging Block</li><li>USB-C Charging Cable</li><li>Protective Travel Case</li></ul><p><strong>Tracking:</strong> Patented, 24GHz Dual-Mode, ML Enhanced Radar</p><p><strong>Display:</strong> 5.3” Ultra-bright, Full HD (1920×1080) OLED with 16.7 million colors</p><p><strong>Camera:</strong> Full HD 1080p, 60 fps</p><p><strong>Processor:</strong> Dual-core A9</p><p><strong>Connectivity:</strong> Wi-Fi 802.11a/b/g/n/ac; Bluetooth® 5.0 BR/EDR/LE</p><p><strong>Battery:</strong> Built-in Lithium-ion 8000mAh; Approximately 5 hours of use (depending on conditions)</p><p><strong>Carry Case:</strong> Light-weight, water and impact resistant</p><p><strong>Charging Port:</strong> USB-C</p><p><strong>Charger:</strong> 45W USB-C; 110-240v, 50-60Hz</p><p><strong>Charging Cable:</strong> USB-C, 3’ (1m)</p><p><strong>Unit Dimensions:</strong> 10.23” H x 6.57” W x 2.32” D (3.74” with support leg extended); (260mm x 167mm x 59mm (95mm))</p><p><strong>Unit Weight:</strong> 4.0 lbs (1.8 Kg)</p><p><strong>Case Dimensions:</strong> 13” L x 8.11” W x 3.86” H (330mm x 206mm x 98mm)</p><p>Unit, Case, Charger Weight: 5.7 lbs (2.6 Kg)</p><p><strong>Package Dimensions:</strong> 16.5” L x 10.75” W x 4.8” H (419 mm x 273mm x 122mm)</p><p><strong>Package Weight:</strong> 8.4 lbs (3.8 Kg)</p>"
+          }
+        },
+        "question_qXTU83": {
+          "type": "question",
+          "settings": {
+            "title": "Compatible Devices",
+            "answer": "<p>iPhone® (10 and higher), running iOS 14 and higher</p><p>iPad® (7th generation and higher), running iOS 14 and higher</p><p>iPad® Air (3rd generation and higher), running iOS 14 and higher</p><p>iPad® Pro (all models), running iOS 14 and higher</p><p>Apple Watch® 3 or higher, running watchOS 7 or higher</p><p>Apple AirPods® or most any Bluetooth® headphones</p>"
+          }
+        },
+        "question_TkmaW4": {
+          "type": "question",
+          "settings": {
+            "title": "Return Eligibility",
+            "answer": "<p>If you are not satisfied with your Full Swing device within the first fourteen (14) days from the date of delivery, the Full Swing device may be returned for a full refund or replacement device.</p><p>For users with a perpetual license for E6 Connect software used in conjunction with a Full Swing, if you are not satisfied with the E6 Connect software within the first fourteen (14) days from the date of activation of the perpetual license, the license may be returned for a full refund. This paragraph applies to users with a perpetual license only; all other subscription forms will not be eligible for refund.</p><p>Your Full Swing device can no longer be returned after 14 days from the date of delivery.</p><p>All returns involving devices originally received outside of the U.S. shall be arranged through your local sales channel.</p><p><strong>Returning Your Device</strong></p><p>To initiate a return of your device, you must contact Sales Support at The Net Return by telephone at +1 (973) 636 -7354 or email at sales@TheNetReturn.com. The Sales Support team will provide you with a prepaid, shipping label and Return Material Authorization (RMA) number to send the device to The Net Return. Returns without a RMA number will not be accepted by The Net Return. The unit shall be returned with all accessories, including AC adapter and cables with travel case, and in the manufacturer’s original box.</p><p><strong>Return Processing</strong></p><p>Upon receipt of a returned device, the unit shall be inspected by The Net Return. If such inspection reveals that any of the warranty exclusions provided hereinafter apply, the warranty shall be voided and a repair fee assessed. For purchases made through Affirm, separate terms and conditions instituted by Affirm will apply; payment options through Affirm can be accessed at <a href=\"https://www.affirm.com/lenders\">https://www.affirm.com/lenders.</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_FRdnDU",
+        "question_L8qgfT",
+        "question_7PNgNp",
+        "question_pfNqNB",
+        "question_kg8apc",
+        "question_tjqpEd",
+        "question_qXTU83",
+        "question_TkmaW4"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "featured_collections_XV3ze8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_wyUKfY": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-projectors",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_wyUKfY"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Computers & Projectors",
+        "content": "",
+        "products_count": 15,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_Vqmbah": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://www.youtube.com/watch?v=wkL87WYAi1s",
+        "background_type": "boxed",
+        "video_size": "medium",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_GnNhhN",
+    "video_Vqmbah",
+    "gallery_QJQxqE",
+    "image_with_text_block_93Tj36",
+    "faq_XCJKJW",
+    "1713971222a271d416",
+    "featured_collections_XV3ze8"
+  ]
+}

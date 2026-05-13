@@ -1,0 +1,84 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-card-background: {{ section.settings.banner_background }};
+    --academy-card-border: {{ section.settings.banner_border }};
+    --academy-media-radius: {{ section.settings.media_radius }}px;
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="academy-section academy-quote-banner {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    <div class="academy-quote-banner__layout academy-card">
+      <div class="academy-media-frame">
+        {%- render 'academy-picture',
+          image: section.settings.image,
+          mobile_image: section.settings.image_mobile,
+          sizes: '(max-width: 989px) 100vw, 40vw'
+        -%}
+      </div>
+
+      <div class="academy-quote-banner__quote">
+        {%- if section.settings.subheading != blank -%}
+          <p class="academy-eyebrow">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.quote != blank -%}
+          <blockquote class="academy-quote-banner__text heading font-bold">{{ section.settings.quote }}</blockquote>
+        {%- endif -%}
+        {%- if section.settings.author != blank -%}
+          <p class="academy-description">{{ section.settings.author }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <div class="academy-actions">
+            {%- render 'academy-button', label: section.settings.button_label, link: section.settings.button_link, style: section.settings.button_style -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Quote Banner",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width" },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "Student story" },
+    { "type": "textarea", "id": "quote", "label": "Quote", "default": "“This is the first home training system that actually made my practice feel structured.”" },
+    { "type": "text", "id": "author", "label": "Author", "default": "Player name, handicap, or short attribution" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "select", "id": "button_style", "label": "Button style", "default": "secondary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "range", "id": "media_radius", "label": "Image radius", "min": 0, "max": 40, "step": 2, "default": 28, "unit": "px" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#4d54ff" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+    { "type": "color", "id": "banner_background", "label": "Banner background", "default": "#4d54ff" },
+    { "type": "color", "id": "banner_border", "label": "Banner border", "default": "#7780ff" },
+    { "type": "color", "id": "color_button_text", "label": "Button text color", "default": "#4d54ff" },
+    { "type": "color", "id": "color_button_background", "label": "Button background color", "default": "#ffffff" },
+    { "type": "color_background", "id": "color_button_gradient", "label": "Button gradient" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" }
+  ],
+  "presets": [
+    { "name": "Academy Quote Banner" }
+  ]
+}
+{% endschema %}

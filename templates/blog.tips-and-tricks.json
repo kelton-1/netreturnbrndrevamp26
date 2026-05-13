@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "show_blog_title": true,
+        "show_tags": true,
+        "show_category": true,
+        "show_excerpt": true,
+        "articles_per_page": 6
+      }
+    },
+    "image_with_text_DC7JFm": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_DC7Cjp": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/bryson_masters_sale.png",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "Practice Like Bryson DeChambeau",
+            "content": "<p>Known for his scientific approach to the game, Bryson DeChambeau trains with a purpose—focusing on analytics, mechanics, and high-volume practice to build consistency. One of his most important tools? A high-quality golf net from The Net Return, which allows him to grind through hundreds of reps without leaving home.</p><p>For players who want to train like Bryson, the key is repetition and feedback. Try this: record your full swing, analyze your ball strike, and make small adjustments each session. Doing this regularly will sharpen your muscle memory and improve shot dispersion—even when you're away from the golf course.</p><p>If you're serious about results, setting up a net at home is the best way to practice golf year-round. It offers the space and structure needed to develop a repeatable, reliable golf swing—just like the pros.</p>",
+            "button_text": "Read His Story",
+            "button_link": "https://www.thenetreturn.com/pages/bryson-dechambeau-the-net-return"
+          }
+        }
+      },
+      "block_order": [
+        "item_DC7Cjp"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_hqUima": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_hy6D8L": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BulletProofEdition_5_e9831afc-94b4-40b0-b863-654e1243b70f.jpg",
+            "tab_label": "CTA",
+            "subheading": "",
+            "title": "The Net Return: Your Driving Range at Home",
+            "content": "<p>Integrate these golf tips and tricks into your weekly practice sessions and watch your confidence grow. Whether you’re refining your swing mechanics or chasing a 200 mph tee shot, The Net Return offers a highly effective way to improve your golf game from home. Check back often for the latest in instruction and elite-level insights.<br/><br/></p>",
+            "button_text": "Get Yours",
+            "button_link": "https://www.thenetreturn.com/collections/nets-1"
+          }
+        }
+      },
+      "block_order": [
+        "item_hy6D8L"
+      ],
+      "name": "Image with text",
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_DC7JFm",
+    "image_with_text_hqUima"
+  ]
+}

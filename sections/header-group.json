@@ -1,0 +1,137 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message-1": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "MASTERS SALE IS LIVE",
+            "learn_more_text": "",
+            "title": "10% Off Pro Nets, Packages, Simulators % Accessories",
+            "content": "<p> </p>",
+            "button_text": "ENTER HERE",
+            "button_link": "https://www.thenetreturn.com/pages/master-2026"
+          }
+        },
+        "message_eJJ6KU": {
+          "type": "message",
+          "settings": {
+            "text": "FREE Shipping on ALL Products - LIMITED TIME",
+            "learn_more_text": "",
+            "title": "FREE Shipping on ALL Products - LIVE from 3rd Nov, 25",
+            "content": "",
+            "button_text": "SHOP NOW",
+            "button_link": "shopify://collections/all"
+          }
+        },
+        "message_e93DxX": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "Speak to a Net Return Expert",
+            "learn_more_text": "",
+            "title": "Speak to a Net Return Expert",
+            "content": "<p>Not sure what product is right for your space? Schedule a call with one of our Net Return product experts. Call (973) 784-8238 or book a call below. </p>",
+            "button_text": "Book Now",
+            "button_link": "https://meetings.hubspot.com/tj-garske/disco-web?uuid=249dda89-4aab-440b-b37b-8998b8511cd5"
+          }
+        },
+        "message_Mhkhzw": {
+          "type": "message",
+          "settings": {
+            "text": "Take The Quiz - Find the Perfect Setup",
+            "learn_more_text": "",
+            "title": "Recommended Products Quiz",
+            "content": "<p>Take the Recommended Products Quiz to find the perfect setup for your space and needs.</p>",
+            "button_text": "Take The Quiz",
+            "button_link": "shopify://pages/quiz"
+          }
+        }
+      },
+      "block_order": [
+        "message-1",
+        "message_eJJ6KU",
+        "message_e93DxX",
+        "message_Mhkhzw"
+      ],
+      "settings": {
+        "announcement_bar_position": "sticky",
+        "announcement_text_size": "normal",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "#16a34a",
+        "text_color": "#ffffff",
+        "button_background": "#101010",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_LPeqbQ": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_item": "Shop",
+            "images_position": "left",
+            "image_1": "shopify://shop_images/560x420-angle.png",
+            "image_1_heading": "Recommendations Quiz",
+            "image_1_text": "",
+            "image_1_link": "shopify://pages/quiz",
+            "image_2": "shopify://shop_images/560x420-setup.jpg",
+            "image_2_heading": "Build Your Setup",
+            "image_2_text": "",
+            "image_2_link": "shopify://pages/build-your-setup",
+            "image_3_heading": "",
+            "image_3_text": "",
+            "image_3_link": "shopify://pages/browse-all-products",
+            "image_4_heading": "",
+            "image_4_text": "",
+            "image_4_link": "",
+            "image_5_heading": "",
+            "image_5_text": "",
+            "image_5_link": "",
+            "image_6_heading": "",
+            "image_6_text": "",
+            "image_6_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_LPeqbQ"
+      ],
+      "settings": {
+        "enable_sticky_header": true,
+        "logo": "shopify://shop_images/280x80-logo_7e46912c-82cb-43a3-9843-44c5332b6dd8.png",
+        "logo_max_width": 200,
+        "mobile_logo_max_width": 100,
+        "navigation_menu": "main-menu-2024",
+        "sidebar_navigation_menu": "",
+        "header_layout": "logo_center_navigation_inline",
+        "show_icons": false,
+        "reduce_desktop_padding": true,
+        "show_locale_selector": true,
+        "show_country_selector": false,
+        "enable_transparent_header": false,
+        "transparent_header_text_color": "#ffffff",
+        "search_menu": ""
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

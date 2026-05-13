@@ -1,0 +1,284 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_gYV6hJ": {
+          "type": "question",
+          "settings": {
+            "title": "PC Specifications",
+            "answer": "<p><strong>Processor:</strong> Intel Core i9-14900HX ( Max Turbo Boost 5.8 GHz ), 8 P-cores & 16 E-cores / 32 threads, 36MB Smart Cache</p><p><strong>Display:</strong> 15.6” QHD (2560x1440) 165Hz, Wide View Angle, 72% NTSC, G-Sync Display, Matte Finished</p><p><strong>Memory:</strong> 32GB DDR5 4800MHz</p><p><strong>Graphics Card:</strong> NVIDIA GeForce RTX 4070 Laptop GPU 8GB GDDR6 Video RAM</p><p><strong>Storage:</strong> 1TB NVMe SSD + 2TB NVMe SSD (Storage Drive)<br/></p><p><strong>Wireless Communication:</strong> Intel Dual Band Wireless Wi-Fi 6E AX211 + Bluetooth</p><p><strong>Camera:</strong> Built-in 2.0M FHD Video Camera with TNR (Temporal Noise Reduction)</p><p><strong>Operating System:</strong> Windows 11 Home</p>"
+          }
+        },
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "I/O Ports",
+            "answer": "<p>1 HDMI output Port (with HDCP)</p><p>1 Mini DisplayPort 1.4</p><p>1 DisplayPort 1.4 over USB 3.2 Gen2 port (Type C)</p><p>1 Thunderbolt 4 Port with Power Delivery DC in (Type C)</p><p>2 USB 3.2 Gen 1 Ports (Type A, 1 x powered USB port, AC/DC)</p><p>1 2-in-1 Audio Jack (Headphone / Microphone)</p><p>1 2-in-1 Audio Jack (Microphone / S/PDIF Optical output)</p><p>1 RJ-45 LAN (10/100/1000/2500Mbps)</p>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "Warranty Policy",
+            "answer": "<p>All Desktops and Laptops come with a <strong>2-year warranty</strong>.</p><ul><li>The first step is to call us. We will assist you with determining the problem. If the computer failed under normal operating conditions problem is a physical issue that was not caused by negligence and requires repair, we will, at no cost to you:</li></ul><ol><li>We will email you a ground return label to use with the box that the computer shipped to you in.</li><li>If you do not have your original box, we will ship you a box and return label. You may be thinking, ha, why keep the old box? The reason would be a faster turnaround to get your system back up and running.</li></ol><ul><li>We will repair your system within 5 business days of receiving the system and return it to you at no cost.</li><li>If there is an issue with the SSD hard drive, we will do our absolute best to save your data, but unfortunately, we cannot promise to retrieve it. (We recommend that you backup any critical data to external hard drive or cloud system regularly.)</li><li>We will reinstall the simulation software that we installed for you when we originally shipped your system.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "question_gYV6hJ",
+        "question_L8qgfT",
+        "question_7PNgNp"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Product Details",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_jF9YXj": {
+          "type": "image",
+          "settings": {
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_jF9YXj"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_7ecFRb": {
+      "type": "gallery",
+      "blocks": {
+        "image_iBAtKD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/laptop-1.jpg",
+            "caption": "<h5>PREDICTABLE<strong> PERFORMANCE</strong></h5><p><em>Ready to Play -</em> The SurfThing M2 guarantees smooth performance for your 1080p simulation experience.</p>"
+          }
+        },
+        "image_MriwGz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/laptop-2.jpg",
+            "caption": "<h5>USED BY THE PROS</h5><p><em>Ready to Work -</em> Looking to improve your game, or the game of others? The M2 is certified for use with both V1 Sports and Swing Catalyst cameras and software.</p>"
+          }
+        },
+        "image_TG6ejC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/laptop-3.jpg",
+            "caption": "<h5>NO SACRIFICES</h5><p><em>Ready to Game - </em>The M2 comes packed with the most powerful 14th Gen Intel mobile processor and the RTX 4070 graphics card, offering smooth gaming performance at home or on the go.</p>"
+          }
+        },
+        "image_B8jkBH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/laptop-4.jpg",
+            "caption": "<h5>BACKLIT KEYBOARD</h5><p><em>See in the Dark - </em>Never miss a key in your simulator or gaming den.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_iBAtKD",
+        "image_MriwGz",
+        "image_TG6ejC",
+        "image_B8jkBH"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_EPTc3B": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_NFb6mi": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-sim-bay",
+            "label": "Sim Bay Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_UU3VVg": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-net-package",
+            "label": "Net Sim Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_NFb6mi",
+        "collection_UU3VVg"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Compete Your Setup",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_XCJKJW",
+    "gallery_QJQxqE",
+    "gallery_7ecFRb",
+    "featured_collections_EPTc3B",
+    "1713971222a271d416"
+  ]
+}

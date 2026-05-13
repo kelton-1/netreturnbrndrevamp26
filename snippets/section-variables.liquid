@@ -1,0 +1,16 @@
+{%- liquid
+  assign section_text = section.settings.color_text | default: settings.text_color
+  assign section_background = section.settings.color_background | default: settings.background
+  assign section_gradient = section.settings.gradient_background | default: section.settings.color_background | default: settings.background
+  assign section_accent = section.settings.color_accent | default: section.settings.color_button_background | default: section.settings.card_border | default: section.settings.banner_border | default: section.settings.form_border | default: section.settings.panel_border | default: section.settings.accordion_border | default: settings.primary_button_background
+  assign button_background = section.settings.color_button_background | default: settings.primary_button_background
+  assign button_text = section.settings.color_button_text | default: settings.primary_button_text_color
+-%}
+--color-foreground: {{ section_text.red }} {{ section_text.green }} {{ section_text.blue }};
+--color-background: {{ section_background.red }} {{ section_background.green }} {{ section_background.blue }};
+--color-highlight: {{ section_accent.red }} {{ section_accent.green }} {{ section_accent.blue }};
+--gradient-background: {{ section_gradient }};
+--academy-accent: rgb({{ section_accent.red }} {{ section_accent.green }} {{ section_accent.blue }});
+--academy-button-background: {{ button_background }};
+--academy-button-text: {{ button_text }};
+--academy-button-gradient: {{ section.settings.color_button_gradient | default: 'none' }};

@@ -1,0 +1,115 @@
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "settings": [
+    {
+      "type": "text",
+      "id": "small_text",
+      "label": "Small Heading",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "Why Choose Us"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="why-choose-us">
+  <div class="why-choose-us__container">
+
+    <div class="compare-text mb-30">
+      <span class="compare-label">{{ section.settings.small_text }}</span>
+
+      <div class="compare-heading-row">
+        <h3 class="compare-heading">{{ section.settings.heading }}</h3>
+      </div>
+    </div>
+
+    <div class="why-choose-us__content">
+       <ul class="tick-list">
+            <li>Automatic ball return saves time and increases practice efficiency</li>
+            <li>High-quality construction trusted by professional golfers</li>
+            <li>Comes with an industry-leading 3-year warranty</li>
+            <li>Free shipping and 30-day returns</li>
+            <li>Expert customer support</li>
+            <li>Easy setup no special tools required</li>
+        </ul>
+      </div>
+
+  </div>
+</section>
+
+<style>
+/* Section */
+.why-choose-us {
+  padding: 60px 20px;
+}
+
+/* 80% Container */
+.why-choose-us__container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Headings */
+.compare-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #089f5e;
+  letter-spacing: 1px;
+}
+
+.compare-heading {
+  font-size: 28px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Content */
+.why-choose-us__content {
+  margin-top: 30px;
+}
+
+/* Tick List */
+.tick-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tick-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.tick-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #1a9c5b;
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .why-choose-us__container {
+    width: 100%;
+  }
+
+  .compare-heading {
+    font-size: 24px;
+  }
+}
+</style>

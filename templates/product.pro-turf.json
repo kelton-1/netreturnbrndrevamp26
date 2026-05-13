@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_tH4fqU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "product_variations_tH4fqU",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "video_t8jk7X": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "Product Overview",
+        "video_url": "https://vimeo.com/257524310",
+        "image": "shopify://shop_images/Pro_Turf_c3666f70-053b-4262-91a5-7d4299035411.jpg",
+        "background_type": "boxed",
+        "video_size": "auto",
+        "autoplay": false,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_EJFPb7": {
+      "type": "faq",
+      "blocks": {
+        "question_zLCJTM": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use the Pro Turf both for hitting and putting practice?",
+            "answer": "<p>Yes—the Net Return Pro Turf is specifically designed for both full swings and short game work. As a golf hitting mat, it features a fairway-style artificial turf surface designed to simulate realistic turf interaction, giving players consistent feel and feedback on every shot. </p><p>When you switch to putting practice, the same surface offers a smooth, consistent roll with a Stimp speed of around 10, which mimics a medium-fast green. This dual-purpose capability allows players to move easily between drills without repositioning equipment—that’s ideal for golfers building the ultimate practice area with limited space but high expectations.</p>"
+          }
+        },
+        "question_McXdpW": {
+          "type": "question",
+          "settings": {
+            "title": "How can I improve the bounce or feel of the turf on hard surfaces like concrete or wood?",
+            "answer": "<p>If your Pro Turf feels too firm on concrete or a similarly hard surface, a simple upgrade can significantly improve your experience. Place six 2’x2’ puzzle-style foam tiles underneath the hitting zone to transform your setup into a durable golf practice mat with enhanced shock absorption and feel. </p><p>This method adds softness and rebound to the turf while keeping the rest of the surface stable for accurate indoor golf turf ball return. It’s an inexpensive way to boost performance conditions, especially if you practice frequently in an indoor or garage environment. Bounce, comfort, and club response will all benefit instantly.</p>"
+          }
+        },
+        "question_Va7Hag": {
+          "type": "question",
+          "settings": {
+            "title": "Does the Pro Turf work with all Net Return golf nets and simulators?",
+            "answer": "<p>Absolutely. The Net Return Pro Turf is built to pair perfectly with any of our golf nets and golf simulator enclosures, including the Pro Series, Home Series, and Simulator Series. Its 6’ x 10’ footprint matches standard hitting area dimensions, and its easy-to-assemble, roll-out design makes setup fast and frustration-free. No matter what kind of setup you prefer, this portable golf mat delivers effortless compatibility and high performance. </p>"
+          }
+        },
+        "question_iRMw9R": {
+          "type": "question",
+          "settings": {
+            "title": "Is the Pro Turf suitable for indoor and outdoor use, and how should I care for it?",
+            "answer": "<p>Yes—the Pro Turf works well with indoor and outdoor setups, but for longevity, it’s best to store it indoors when not in use. The surface is made from high-quality artificial turf and includes a foam backing that resists wear over time. Regular maintenance is simple: sweep, vacuum, or shake off loose debris after use. If needed, spot clean with mild soap and water. To preserve its shape and feel, roll it up and store it in a dry location. </p><p>With proper care, your Net Return Pro Turf will serve as a premium golf hitting mat through thousands of reps.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zLCJTM",
+        "question_McXdpW",
+        "question_Va7Hag",
+        "question_iRMw9R"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "title": "You may also like",
+        "recommendations_count": 4,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "video_t8jk7X",
+    "faq_EJFPb7",
+    "product-recommendations",
+    "1713971222a271d416"
+  ]
+}

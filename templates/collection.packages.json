@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_block_7KExXY": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/new-package-slider.png",
+        "subheading": "",
+        "title": "Packages",
+        "content": "<p>Includes: Net, Side Barriers, Pro Turf, Sandbags, Rubber Tees, and a Duffle Bag</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 30,
+        "quick_links": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": true,
+        "show_color_swatch": false,
+        "open_first_filter_group": false,
+        "filter_position": "drawer",
+        "promotion_position": "top",
+        "promotion_height": "medium"
+      }
+    },
+    "featured_collections_PY7E6G": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_Vq6Yf6": {
+          "type": "collection",
+          "settings": {
+            "collection": "pro-series-packages",
+            "label": "Pro Series",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_akzwr4": {
+          "type": "collection",
+          "settings": {
+            "collection": "home-series-packages",
+            "label": "HOME SERIES",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_jT3dVe": {
+          "type": "collection",
+          "settings": {
+            "collection": "no-fly-zone-packages",
+            "label": "NO FLY ZONE",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_Vq6Yf6",
+        "collection_akzwr4",
+        "collection_jT3dVe"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "accordion_content_4c8Vry": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_knzekQ": {
+          "type": "item",
+          "settings": {
+            "title": "What is included in The Net Return's golf packages?",
+            "icon": "none",
+            "content": "<p>Our golf packages are designed to provide everything you need for a complete practice experience. Each golf practice package includes one of our premium nets, side barriers for added safety, a Pro Turf mat for a realistic hitting surface, and essential accessories like sandbags, rubber tees, and a convenient duffle bag for portability. No matter which option you select, you can be assured of top performance and ease of use, which is why we feel confident in saying that these are the best golf practice packages available.</p>",
+            "page": ""
+          }
+        },
+        "item_g8cLW4": {
+          "type": "item",
+          "settings": {
+            "title": "What is the difference between the Pro Series and Home Series golf nets?",
+            "icon": "none",
+            "content": "<p>The Pro Series golf net and Home Series golf net are both built with durable materials, but they are designed for different needs:</p><ul><li><strong>Pro Series Golf Net:</strong> Designed for high-intensity use, it is ideal for both commercial and home settings. The Pro Series is a larger, more robust product, and perfect for users who want a net that can handle repeated, powerful shots.</li><li><strong>Home Series Golf Net:</strong> A more compact and affordable option, the Home Series is perfect for smaller spaces and casual practice sessions. It’s an excellent choice for golfers focused on golf practice at home in a convenient way.</li></ul><p>Both series feature an easy-setup golf net design and instant ball return for efficiency and convenience.</p>",
+            "page": ""
+          }
+        },
+        "item_ggDc86": {
+          "type": "item",
+          "settings": {
+            "title": "What size golf net should I buy?",
+            "icon": "none",
+            "content": "<p>The right size depends on your available space and practice needs. If you're setting up in a smaller area, like a basement or garage, our Home Series golf net options are ideal for those environments. For outdoor spaces or commercial use, consider the Pro Series golf net with larger dimensions to accommodate powerful shots and broader practice sessions.</p><p>We recommend measuring your space carefully and considering factors like ceiling height for indoor setups or ground stability for outdoor use. Whether you're setting up a small portable golf net for a tight space or need a full golf net setup for the yard, we have the ideal size for you.</p>",
+            "page": ""
+          }
+        },
+        "item_Enrgyr": {
+          "type": "item",
+          "settings": {
+            "title": "How do I set up a golf net?",
+            "icon": "none",
+            "content": "<p>Setting up one of our nets is incredibly easy, thanks to our Quick Color Connect System. This easy setup golf net requires no tools and can be assembled in minutes. Each package comes with detailed instructions, and you can also check out real customer examples on our<a href=\"https://www.thenetreturn.com/pages/setups\"> <span style=\"text-decoration:underline\">Setups</span></a> page for inspiration.</p><p>Our golf nets with accessories are designed for maximum convenience, so whether you're setting up indoors or outdoors, the process is straightforward and stress-free.</p>",
+            "page": ""
+          }
+        },
+        "item_7LneMf": {
+          "type": "item",
+          "settings": {
+            "title": "Do you offer free shipping?",
+            "icon": "check_mark",
+            "content": "<p>Yes, we offer free standard UPS shipping on <strong>domestic orders over $650</strong>. This means that all our golf packages qualify for free shipping.</p>",
+            "page": ""
+          }
+        },
+        "item_g6aw8W": {
+          "type": "item",
+          "settings": {
+            "title": "Where should I put my golf net?",
+            "icon": "none",
+            "content": "<p>Our nets are versatile and can be used both indoors and outdoors, depending on your space and preferences. Ideal locations include:</p><ul><li><strong>Indoor setups:</strong> Basements, garages, or spare rooms with enough clearance to perform a full swing comfortably. Select a Mini package for added flexibility in tight spaces.</li><li><strong>Outdoor setups:</strong> Yards, patios, or driveways. Pair your golf net setup with side barriers for added safety when practicing in open spaces.</li></ul><p>No matter where you place your net, our products are designed for durability and portability, ensuring they function reliably in any setting.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_knzekQ",
+        "item_g8cLW4",
+        "item_ggDc86",
+        "item_Enrgyr",
+        "item_7LneMf",
+        "item_g6aw8W"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Golf Packages Frequently asked questions",
+        "content": "<p>Our golf practice packages combine convenience, quality, and performance, giving you everything you need to improve your game. Whether you're setting up a complete golf practice set in your backyard or just need a mini golf net with mat for the basement, our packages are built to deliver. With free shipping on qualifying orders, easy setup, and the ability to practice anytime, anywhere, there’s no better choice for golf practice at home or on the go.</p>",
+        "image": "shopify://shop_images/1500x1500-new-package.jpg",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "align_content": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "image_with_text_block_7KExXY",
+    "collection-banner",
+    "main",
+    "featured_collections_PY7E6G",
+    "accordion_content_4c8Vry"
+  ]
+}

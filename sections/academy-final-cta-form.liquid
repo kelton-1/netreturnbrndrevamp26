@@ -1,0 +1,83 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-card-background: {{ section.settings.form_background }};
+    --academy-card-border: {{ section.settings.form_border }};
+    --academy-media-radius: {{ section.settings.media_radius }}px;
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="academy-section academy-final-cta {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    <div class="academy-final-cta__stack">
+      <div class="academy-media-frame">
+        {%- render 'academy-picture',
+          image: section.settings.image,
+          mobile_image: section.settings.image_mobile,
+          sizes: '100vw'
+        -%}
+      </div>
+
+      <div class="academy-final-cta__body">
+        {%- if section.settings.subheading != blank -%}
+          <p class="academy-eyebrow">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="academy-title heading font-bold {{ section.settings.heading_size }}">
+            {{- section.settings.heading -}}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+        {%- if section.settings.description != blank -%}
+          <div class="academy-description rte">{{ section.settings.description }}</div>
+        {%- endif -%}
+        {%- if section.settings.form_embed != blank -%}
+          <div class="academy-final-cta__form academy-card">
+            {{- section.settings.form_embed -}}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Final CTA Form",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width" },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "Ready to train?" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Start your Academy plan and get the next step in your inbox." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h2", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }, { "value": "div", "label": "Div" }] },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "title-lg tracking-heading", "options": [{ "value": "title-xl tracking-heading", "label": "XL" }, { "value": "title-lg tracking-heading", "label": "Large" }, { "value": "title-md", "label": "Medium" }] },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Use a form embed field for HubSpot, Klaviyo, or any app embed you want to place beneath the final CTA image.</p>" },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "liquid", "id": "form_embed", "label": "Form embed" },
+    { "type": "range", "id": "media_radius", "label": "Image radius", "min": 0, "max": 40, "step": 2, "default": 32, "unit": "px" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#101818" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+    { "type": "color", "id": "form_background", "label": "Form background", "default": "#163129" },
+    { "type": "color", "id": "form_border", "label": "Form border", "default": "#2d5a4d" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" }
+  ],
+  "presets": [
+    { "name": "Academy Final CTA Form" }
+  ]
+}
+{% endschema %}

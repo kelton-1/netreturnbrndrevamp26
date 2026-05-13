@@ -1,0 +1,176 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "timeline_66XaEf": {
+      "type": "timeline",
+      "blocks": {
+        "item_nat3LG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nr-story-1.jpg",
+            "label": "1987",
+            "title": "It was 1987, and my twin brother Matt was a punter in college...",
+            "content": "<p>In 1987, Paul’s twin brother Matt, a college punter, grew tired of chasing footballs in their Montclair, NJ neighborhood. He constructed a punting net in their parents' backyard, pioneering the \"S\" shaped frame design and ball return feature that defines The Net Return today. Post-college, life events like marriage and relocation put their dream of creating the ultimate sports training net on hold. Matt moved to Myrtle Beach, S.C., embracing golf, while Paul settled in Glen Rock.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_K4MbVx": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nr-story-3.jpg",
+            "label": "",
+            "title": "Continued Development",
+            "content": "<p>The Crawley family worked diligently to craft the best sports net possible. Their unique design gave them the opportunity to cater to various sports beyond football, including soccer, baseball, softball, lacrosse, and golf - a feature that proved useful as the next generation of multi-sport athletes filled the family tree.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_nMmdgm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nr-story-2.jpg",
+            "label": "",
+            "title": "First and foremost in our minds was quality.",
+            "content": "<p>We moved from a PVC frame design, to steel (too heavy) and ultimately to what comprises the frame today – tubular aluminum. Significant changes were also made to the netting, transitioning away from the traditional nylon used in the majority of today’s sport nets to heavyweight polyester. This change provides significant benefits in strength, durability, UV protection and safety.</p><p>After thousands of hours field testing the product with training facilities, high schools, colleges, professional sport teams, parents and athletes – rapid setup and breakdown also became a priority. This feedback led to the development of the Push Button “Quick Color Connect System”</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_nat3LG",
+        "item_K4MbVx",
+        "item_nMmdgm"
+      ],
+      "settings": {
+        "subheading": "Our Story",
+        "title": "The Concept",
+        "text_position": "middle",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "item_background": "rgba(0,0,0,0)",
+        "item_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "timeline_Gd3HLT": {
+      "type": "timeline",
+      "blocks": {
+        "item_Hz3Udy": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/ProSeries_45deg.jpeg",
+            "label": "2008",
+            "title": "Introducing the Pro Series",
+            "content": "<p>In 2008, The Net Return officially unveiled the Pro Series at the PGA Merchandise Show in January, the world’s largest golf industry show. The response was overwhelmingly positive. This was good news… the bad news was The Net Return team lacked clarity on key elements for scaling, pricing and manufacturing.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_AKX88c": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nr-ny-5.jpg",
+            "label": "2010",
+            "title": "Our goal was (and still is) to produce the best training nets in the world.",
+            "content": "<p>After the success at the PGA Show, the team recognized the demand for high-quality training nets and decided to establish their own production facility to control quality when manufacturers continued to fall short of The Net Return premium standards.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_Hz3Udy",
+        "item_AKX88c"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Continued Innovation",
+        "text_position": "middle",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "item_background": "rgba(0,0,0,0)",
+        "item_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "timeline_4X4KK3": {
+      "type": "timeline",
+      "blocks": {
+        "item_WpYRmf": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Post6-carousel-1.jpg",
+            "label": "2024",
+            "title": "Where Better Begins",
+            "content": "<p>In April of 2024, The Net Return embraced a fresh, modern rebrand to reflect its commitment to innovation and athlete development. With a new look and the launch of cutting-edge technology integrations, the company continues to empower athletes of all levels to elevate their game through high-quality, multifunctional training tools, seamlessly blending tradition with the future of <a href=\"https://www.thenetreturn.com/pages/bryson-dechambeau-the-net-return\" title=\"https://www.thenetreturn.com/pages/bryson-dechambeau-the-net-return\">athlete performance</a>.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_WpYRmf"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Moving Forward",
+        "text_position": "middle",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "item_background": "rgba(0,0,0,0)",
+        "item_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "logo_list_yEMQL6": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_79Yiag": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/NR_efe27b10-7cbd-48a5-a2ae-bc7e1db06f8d.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_79Yiag"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "",
+        "button_text": "",
+        "button_link": "",
+        "stack_logos": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "timeline_66XaEf",
+    "timeline_Gd3HLT",
+    "timeline_4X4KK3",
+    "logo_list_yEMQL6"
+  ]
+}

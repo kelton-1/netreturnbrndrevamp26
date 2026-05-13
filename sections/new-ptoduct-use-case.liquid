@@ -1,0 +1,239 @@
+<section id="usecases-{{ section.id }}">
+  {% comment %} <div class="practice-header w3_bg">
+      {% if product.metafields.custom.perfect_for_every_setting != blank %}
+        <div class="content-block">
+          {% if product.metafields.custom.perfect_for_every_setting != blank %}
+            <h2>{{ product.metafields.custom.perfect_for_every_setting }}</h2>
+          {% endif %}
+
+          {% if product.metafields.custom.perfect_for_every_setting_description != blank %}
+            <p>{{ product.metafields.custom.perfect_for_every_setting_description | metafield_tag }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+  </div> {% endcomment %}
+
+  <div class="accordion spec-card">
+
+    <!-- Accordion 1: Perfect for Every Practice Setting -->
+    {% comment %} <div class="accordion-item">
+      <button class="accordion-header" style="border-bottom: 1px solid #eee;">
+        Ideal Use Cases
+        <span class="icon">
+          <svg class="accordion-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </button>
+      <div class="accordion-body">
+        <div class="use-list">
+          <div class="use-item">
+            <span>🏢</span>
+            <div>
+              <h4>Apartment Dwellers</h4>
+              <p>Compact size fits balconies and small spaces. Safe for indoor use with proper clearance.</p>
+            </div>
+          </div>
+
+          <div class="use-item">
+            <span>🌳</span>
+            <div>
+              <h4>Backyard Practice</h4>
+              <p>Perfect for residential yards. Weatherproof mesh handles outdoor conditions for years.</p>
+            </div>
+          </div>
+
+          <div class="use-item">
+            <span>🚗</span>
+            <div>
+              <h4>Garage Training</h4>
+              <p>Ideal for covered garages. Maximizes practice time regardless of weather.</p>
+            </div>
+          </div>
+
+          <div class="use-item">
+            <span>🖥️</span>
+            <div>
+              <h4>Simulator Integration</h4>
+              <p>Compatible with major golf simulator systems. Ball return doesn't interfere with sensors.</p>
+            </div>
+          </div>
+
+          <div class="use-item">
+            <span>🏌️</span>
+            <div>
+              <h4>Professional Training</h4>
+              <p>Used by PGA instructors and coaches for consistent practice environments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+
+    <!-- Accordion 2: Why Choose Pro Series? -->
+    {% if product.metafields.custom.why_choose_the_net_return != blank %}
+      <div class="accordion-item">
+        <button class="accordion-header">
+          Why Choose The Net Return
+          <span class="icon">
+            <svg class="accordion-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+
+        <div class="accordion-body">
+          <ul class="why-list">
+            {% for item in product.metafields.custom.why_choose_the_net_return.value %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+{% endif %}
+
+
+  </div>
+</section>
+
+<style>
+  #usecases-{{ section.id }} {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    color: #222;
+  }
+
+  /* Accordion styles */
+  #usecases-{{ section.id }} .accordion-item {
+    border: 0px solid #eee;
+    border-radius: 12px;
+    margin-bottom: 0px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  #usecases-{{ section.id }} .accordion-header {
+    {% comment %} background: #f9f9f9; {% endcomment %}
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #222;
+  }
+
+  #usecases-{{ section.id }} .accordion-header .accordion-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  #usecases-{{ section.id }} .accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  #usecases-{{ section.id }} .accordion-body {
+    padding: 0 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  #usecases-{{ section.id }} .accordion-body p,
+  #usecases-{{ section.id }} .accordion-body ul {
+    margin: 20px 0;
+  }
+
+  #usecases-{{ section.id }} .use-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 30px;
+  }
+
+  #usecases-{{ section.id }} .use-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  #usecases-{{ section.id }} .use-item span {
+    color: #18a26b;
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 6px;
+  }
+
+  #usecases-{{ section.id }} .use-item h4 {
+    margin: 0 0 4px;
+    font-size: 15px;
+  }
+
+  #usecases-{{ section.id }} .use-item p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  #usecases-{{ section.id }} .why-list {
+    padding-left: 10px;
+  }
+
+  #usecases-{{ section.id }} .why-list li {
+    list-style: none;
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  #usecases-{{ section.id }} .why-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #18a26b;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    #usecases-{{ section.id }} .use-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('#usecases-{{ section.id }} .accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const body = header.nextElementSibling;
+      header.classList.toggle('active');
+      if (body.style.maxHeight) {
+        body.style.maxHeight = null;
+        body.style.padding = "0 20px";
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px";
+        body.style.padding = "20px";
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "product Use Cases",
+  "settings": [],
+  "presets": [
+    {
+      "name": "product Use Cases",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

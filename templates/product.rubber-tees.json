@@ -1,0 +1,219 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_tH4fqU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "product_variations_tH4fqU",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "video_t8jk7X": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Product Overview",
+        "video_url": "https://vimeo.com/257524310",
+        "image": "shopify://shop_images/Pro_Turf_c3666f70-053b-4262-91a5-7d4299035411.jpg",
+        "background_type": "boxed",
+        "video_size": "auto",
+        "autoplay": false,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_EJFPb7": {
+      "type": "faq",
+      "blocks": {
+        "question_zLCJTM": {
+          "type": "question",
+          "settings": {
+            "title": "Are the rubber tees compatible with all hitting mats?",
+            "answer": "<p>Our rubber golf tees are designed to fit perfectly with <a href=\"https://www.thenetreturn.com/products/copy-of-large-turfs\"><span style=\"text-decoration:underline\">The Net Return Pro Turf</span></a>, but they can also be used with most other commercial-grade hitting mats. The key is having a durable surface where a snug hole can be drilled to hold the tee in place. Once installed, the tee stays stable during swings, giving you reliable feedback and performance.</p>"
+          }
+        },
+        "question_McXdpW": {
+          "type": "question",
+          "settings": {
+            "title": "What tee heights are included in the set?",
+            "answer": "<p>Each set of practice golf tees includes two different tee heights, allowing you to work on a variety of shots. One tee is ideal for irons or fairway woods, while the taller option provides the perfect setup for drivers. </p><p>Having both sizes means you can move easily between clubs without constantly adjusting your mat or setup. This versatility is why golfers consider these some of the best golf tees for mats when looking for a more complete training solution at home or on the range.</p>"
+          }
+        },
+        "question_Va7Hag": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use real golf balls with these tees?",
+            "answer": "<p>Absolutely. These flexible golf tees are built to handle real golf balls, so your practice sessions feel just like they would on the course. The tees are made from high-quality rubber that absorbs impact and flexes naturally, reducing resistance and wear on both the tee and the ball. </p><p>That means you get a truer ball flight, more accurate practice, and confidence that carries directly into your game. For players seeking dependable golf tees for real balls, these are an ideal choice.</p>"
+          }
+        },
+        "question_iRMw9R": {
+          "type": "question",
+          "settings": {
+            "title": "Do the tees stay upright after impact?",
+            "answer": "<p>Yes. The tees are engineered from tough, pliable rubber that bends slightly when struck and then snaps back into place, ready for your next shot. This resilience eliminates the need to constantly reset your tee, which saves you time and keeps your rhythm consistent during practice. Compared to wood or plastic options that break or fall over, these practice golf tees are built for repeat use and long-lasting performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zLCJTM",
+        "question_McXdpW",
+        "question_Va7Hag",
+        "question_iRMw9R"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "title": "You may also like",
+        "recommendations_count": 4,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "video_t8jk7X",
+    "faq_EJFPb7",
+    "product-recommendations",
+    "1713971222a271d416"
+  ]
+}

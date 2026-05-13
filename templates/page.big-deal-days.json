@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_XhMJDL": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/backyard-home.png",
+        "subheading": "10/8 -10/11",
+        "title": "Prime Big Deal Days",
+        "content": "<p>Save up to $150 on select products</p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "image_with_text_block_kNPrw7": {
+      "type": "image-with-text-block",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/2160x1560-setup.jpg",
+        "subheading": "",
+        "title": "2024 Father's Day Gift Guide",
+        "content": "<p>Shop our collection of products for the perfect gift for Father's Day.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_dD993F": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_PxAJTr": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Pro Net",
+            "subheading": "Practice Made Possible",
+            "title": "Save $100 on Pro Series Net",
+            "content": "<p>Expertly designed to handle any golf swing with ease. The Pro Series is the standard in quality, safety, and durability, guaranteeing an exceptional experience.</p>",
+            "button_text": "Shop Pro Net",
+            "button_link": "shopify://products/pro-series-golf-net"
+          }
+        },
+        "item_izTnQw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-BD.jpg",
+            "tab_label": "Pro Package",
+            "subheading": "EVERYTHING YOU NEED TO IMPROVE YOUR GAME",
+            "title": "Save $150 on Pro Package",
+            "content": "<p>Includes: Pro Net, Side Barriers, Pro Turf, Sandbags, Rubber Tees, and a Duffle Bag</p>",
+            "button_text": "Shop Pro Package",
+            "button_link": "shopify://products/pro-package-golf-net-setup"
+          }
+        }
+      },
+      "block_order": [
+        "item_PxAJTr",
+        "item_izTnQw"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Fih4r8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_9MDFLg": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-net-package",
+            "label": "Net Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_fhGg9N": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-sim-bay",
+            "label": "Simulator Bay Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_9MDFLg",
+        "collection_fhGg9N"
+      ],
+      "settings": {
+        "subheading": "Go to the next level",
+        "title": "Simulator Packages",
+        "content": "",
+        "products_count": 10,
+        "products_per_row": 3,
+        "stack_products": true,
+        "show_cta": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_h3xx4K": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x640-practice.png",
+        "subheading": "Improve Your Practice. Improve Your Game.",
+        "title": "Build Your Setup",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collections_idDaNR": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_eRBXQt": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_RX3fpR": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_TwJCxR": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_bwTML8": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_eRBXQt",
+        "collection_RX3fpR",
+        "collection_TwJCxR",
+        "collection_bwTML8"
+      ],
+      "settings": {
+        "subheading": "Already have a Net Return?",
+        "title": "Add a Launch Monitor",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_rWnbEw": {
+      "type": "gallery",
+      "blocks": {
+        "image_iqYpY7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-2.jpg",
+            "caption": ""
+          }
+        },
+        "image_93QPKh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_LVmEk6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-coast.jpg",
+            "caption": ""
+          }
+        },
+        "image_HgMLJ6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-pool.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_iqYpY7",
+        "image_93QPKh",
+        "image_LVmEk6",
+        "image_HgMLJ6"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_XhMJDL",
+    "image_with_text_block_kNPrw7",
+    "main",
+    "image_with_text_dD993F",
+    "featured_collections_Fih4r8",
+    "image_with_text_overlay_h3xx4K",
+    "featured_collections_idDaNR",
+    "gallery_rWnbEw"
+  ]
+}

@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category_JF4Wqg": {
+          "type": "category",
+          "settings": {
+            "title": "Nets"
+          }
+        },
+        "question_zqg4Nx": {
+          "type": "question",
+          "settings": {
+            "title": "What size Net Return should I buy?",
+            "answer": "<p>We want to ensure that your net fits your space perfectly. We recommend measuring your space and referring to the Minimum Room Dimensions listed in the product details section.</p><p><a href=\"/pages/compare\" title=\"Compare\">Find Your Fit</a></p>"
+          }
+        },
+        "question_aWRHYT": {
+          "type": "question",
+          "settings": {
+            "title": "What's the difference between the Home and Pro Series?",
+            "answer": "<p>The <strong>Home Series</strong> and <strong>Pro Series</strong> nets share the same premium construction, including a durable aluminum frame, UV-protected polyester sleeve, and commercial-grade netting. The only difference is their sizes.</p><p><strong>Pro Series:</strong></p><p><strong>Pro</strong> - 8’ x 7’6 x 3’6</p><p><strong>Pro 8 </strong>- 8’ x 8’ x 3’6</p><p><strong>Pro 9</strong> - 9’ x 8’ x 3’6</p><p><strong>Pro 10</strong> - 10’ x 8’ x 3’6</p><p><strong>Pro XL</strong> - 10’ x 9’6 x 3’6</p><p><strong>Home Series: </strong></p><p><strong>Home</strong> - 7’ x 7’ x 3’6</p><p><strong>Mini</strong> - 5’ x 6’ x 3’6</p><p><strong>Junior</strong> - 4’6 x 4’6 x 2’4</p><p>The Pro Series has more size options for those needing a larger hitting area.</p>"
+          }
+        },
+        "question_fzxXAb": {
+          "type": "question",
+          "settings": {
+            "title": "Can I use my Net Return indoors or outdoors?",
+            "answer": "<p>Yes! Net Returns are crafted for both indoor and outdoor settings, with the exception of the Simulator series. The Simulator series is meant exclusively for indoor golf simulation setups.</p><p>Our frames use 1.5’ tubular aluminum, powder coated for durability. The stainless-steel push buttons ensure longevity and reliable performance. Our netting and the UV-protected sleeve are made of 100% polyester, further enhancing the longevity of the product and making it suitable for outdoor use. Our accessories and turf are also suitable for indoor and outdoor use.</p><p>If you plan to leave your net outside permanently, we recommend using an <a href=\"https://www.thenetreturn.com/products/outdoor-cover\"><span style=\"text-decoration:underline\">outdoor cover</span></a> for extra protection against harsh weather.</p>"
+          }
+        },
+        "category_HGzcVH": {
+          "type": "category",
+          "settings": {
+            "title": "Packages"
+          }
+        },
+        "question_CrK7KV": {
+          "type": "question",
+          "settings": {
+            "title": "What all is included in a Net Return Package?",
+            "answer": "<p>Net Return Packages include a Net, Side Barriers, Turf, 4 Sandbags, 2 Rubber Tees, and a Duffle Bag.</p>"
+          }
+        },
+        "category_63QCTH": {
+          "type": "category",
+          "settings": {
+            "title": "Simulation"
+          }
+        },
+        "question_3wAELt": {
+          "type": "question",
+          "settings": {
+            "title": "What's the difference between the Net Return Simulator Series golf bay and the regular Net Return nets?",
+            "answer": "<p>A <a href=\"https://www.thenetreturn.com/collections/simulation/?simulator-bays\" title=\"https://www.thenetreturn.com/collections/simulation/?simulator-bays\">Simulator Series Golf Bay</a> is exclusively designed for indoor use and more practical for stationary settings.</p><p>In contrast, a Home or Pro Series net is more portable and versatile, suitable for both indoor and outdoor use, and equipped for multisport activities.</p>"
+          }
+        },
+        "question_kUfUfG": {
+          "type": "question",
+          "settings": {
+            "title": "Can I turn my Home or Pro Series into a golf simulator?",
+            "answer": "<p>Yes, we offer Sim Kits for both the Home and Pro Series, allowing you to attach a simulator screen and darkening <a href=\"https://www.thenetreturn.com/products/simulator-valence\"><span style=\"text-decoration:underline\">valance</span></a> to your net. This is a great option for golfers who want a hybrid setup for both traditional and simulator-based practice. Explore our line of Simulator kits tailored to your specific Pro or Home Series net for a seamless conversion.</p>"
+          }
+        },
+        "category_LcTY6A": {
+          "type": "category",
+          "settings": {
+            "title": "Other"
+          }
+        },
+        "question_h4Tjkh": {
+          "type": "question",
+          "settings": {
+            "title": "What is the warranty on a Net Return net?",
+            "answer": "<ul><li><strong>Home and Pro Series Nets:</strong> 3 years or 250,000 shots (whichever comes first)</li><li><strong>Simulator screens, Net Guardians, covers, and accessories:</strong> 1-year warranty</li></ul><p>In addition, our modular design ensures that replacement parts are always available. If a frame tube bends or a net is damaged, you can purchase individual components rather than replacing the entire system. If you need a replacement, send us a photo of the damaged part to ensure you receive the correct version.</p>"
+          }
+        },
+        "question_kmnmHJ": {
+          "type": "question",
+          "settings": {
+            "title": "How do I set up my Net Return product?",
+            "answer": "<p>Setting up your Net Return product is quick and easy, with most nets assembling in under five minutes without the need for tools. Follow these steps for a seamless setup:</p><ol><li><strong>Unpack the components</strong> and lay out the aluminum frame pieces according to the instruction manual.</li><li><strong>Connect the frame tubes</strong> using the Quick Color Connect System, ensuring a secure fit.</li><li><strong>Attach the netting</strong> by sliding the polyester sleeve over the frame.</li><li><strong>If using side barriers</strong>, connect them securely to the net.</li><li><strong>For outdoor use</strong>, position the net on stable ground and consider adding sandbags for extra stability in windy conditions.</li><li><strong>For simulator setups</strong>, attach the Sim Kit screen and darkening valance to your net.</li></ol><p>Need additional help? Visit our <a href=\"https://www.thenetreturn.com/pages/assembly\"><span style=\"text-decoration:underline\">Assembly</span></a> page for detailed instructions on how to set up your net.</p>"
+          }
+        },
+        "question_ixyDqX": {
+          "type": "question",
+          "settings": {
+            "title": "Why choose The Net Return for golf nets and turf?",
+            "answer": "<p>With over a decade of innovation and engineering, we have become the industry leader in premium golf nets, trusted by professionals like Bryson DeChambeau as well as instructors and home golfers worldwide. Here are a few reasons why:</p><ul><li><strong>Automatic Ball Return:</strong> Our golf nets return the ball automatically, eliminating setup hassle and maximizing practice time.</li><li><strong>Durability You Can Count On:</strong> Every Home net and Pro net is constructed with aircraft-grade aluminum and commercial-grade netting, designed to handle high-impact shots up to 250 mph.</li><li><strong>Multi-Sport Use:</strong> Unlike many other golf nets on the market, ours can also be used for soccer, baseball, and other sports, making them ideal for families.</li><li><strong>Simulator Compatibility:</strong> With optional Sim Kits, you can transform your Pro or Home net into a full golf simulator setup.</li><li><strong>Portable and Easy to Set Up:</strong> Our nets can be assembled in minutes without tools, making them perfect for home use, garages, and outdoor setups.</li></ul><p>With a commitment to quality, innovation, and customer satisfaction, The Net Return continues to set the standard for golf nets and training equipment.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_JF4Wqg",
+        "question_zqg4Nx",
+        "question_aWRHYT",
+        "question_fzxXAb",
+        "category_HGzcVH",
+        "question_CrK7KV",
+        "category_63QCTH",
+        "question_3wAELt",
+        "question_kUfUfG",
+        "category_LcTY6A",
+        "question_h4Tjkh",
+        "question_kmnmHJ",
+        "question_ixyDqX"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "title": "",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_chNgB4": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/4KQNWWev_Q4?si=AjAy_c44jHYdOKhD",
+        "image": "shopify://shop_images/Screenshot_2025-03-10_at_2.51.44_PM.png",
+        "background_type": "boxed",
+        "video_size": "small",
+        "autoplay": false,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq",
+    "video_chNgB4"
+  ]
+}

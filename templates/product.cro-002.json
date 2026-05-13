@@ -1,0 +1,521 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product-cro",
+      "blocks": {
+        "product_variations_cro": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Select Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "cro_payment": {
+          "type": "cro_payment_icons",
+          "settings": {}
+        },
+        "cro_bryson": {
+          "type": "cro_bryson_quote",
+          "settings": {
+            "avatar": "shopify://shop_images/image_22.png",
+            "name": "Bryson DeChambeau",
+            "quote": "I've been using Net Return since I was 15 years old. There is not another net out there that I would trust."
+          }
+        },
+        "cro_avail": {
+          "type": "cro_availability",
+          "settings": {
+            "available_text": "Available",
+            "in_stock_text": "In Stock & Ready to Ship"
+          }
+        },
+        "cro_trust": {
+          "type": "cro_trust_cards",
+          "settings": {
+            "card_icon_1": "shopify://shop_images/warranty_2.png",
+            "card_title_1": "3 - Year Warranty",
+            "card_desc_1": "Industry-leading 3-year warranty included on all nets.",
+            "card_icon_2": "shopify://shop_images/retun.png",
+            "card_title_2": "30-Day Money-Back Guarantee",
+            "card_desc_2": "Try it for 30 days, risk-free. Not satisfied? Get your money back.",
+            "card_icon_3": "shopify://shop_images/fast-delivery_2_1.png",
+            "card_title_3": "Free Shipping",
+            "card_desc_3": "FREE Shipping on ALL Products - LIMITED TIME"
+          }
+        },
+        "cro_features": {
+          "type": "cro_feature_grid",
+          "settings": {
+            "feat_image_1": "shopify://shop_images/automatic-ball.png",
+            "feat_video_1": "https://cdn.shopify.com/videos/c/o/v/d96c2df520ec4650822405b09d2b1e9d.mp4",
+            "feat_caption_1": "Automatic ball return",
+            "feat_image_2": "shopify://shop_images/225-mph.png",
+            "feat_video_2": "https://cdn.shopify.com/videos/c/o/v/1530ad16fde1423e9cc1637e70e9e889.mp4",
+            "feat_caption_2": "Handles 225 MPH ball speeds",
+            "feat_image_3": "shopify://shop_images/indoor-outdoors.png",
+            "feat_video_3": "https://cdn.shopify.com/videos/c/o/v/11355214e8f3406fab98651f8726ce2a.mp4",
+            "feat_caption_3": "Indoors or Outdoors",
+            "feat_image_4": "shopify://shop_images/assemble_ec357c5a-ec4d-426e-9c48-10b3f905fb65.png",
+            "feat_video_4": "https://cdn.shopify.com/videos/c/o/v/b2ec830a3fbb4a898e4393161ce1487b.mp4",
+            "feat_caption_4": "Assemble < 5 mins"
+          }
+        },
+        "cro_tabs": {
+          "type": "cro_accordions",
+          "settings": {
+            "tab_2_title": "Simulator Compatibility",
+            "tab_2_content": "<p>The Net Return works seamlessly with all major launch monitors and simulator systems. FlightScope, Foresight, Full Swing, Garmin, Uneekor and more. Whether you’re building a full simulator room and adding our Simulator Kit to your net, or just want accurate feedback in your garage off the monitor, iPad or TV, The Net Return gives you a stable, dependable foundation for any simulator setup.</p>",
+            "tab_3_title": "Shipping & Delivery",
+            "tab_3_content": "<p>Shipping is fast, FREE, and hassle‑free. Your Net Return arrives in a compact, easy‑to-handle box with everything you need inside.<br/><br/>No hidden fees, no unexpected charges, and no complicated delivery process.</p>",
+            "tab_4_title": "Your Net Return Guarantee ",
+            "tab_4_content": "<p>Every Net Return is backed by a 3‑year warranty and a 30‑day money‑back guarantee.<br/><br/>If anything isn’t right, whether it’s a manufacturing issue or you simply decide it’s not the right fit, you’re fully protected.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "product_variations_cro",
+        "quantity_selector",
+        "buy_buttons",
+        "cro_payment",
+        "cro_bryson",
+        "cro_avail",
+        "cro_trust",
+        "cro_features",
+        "cro_tabs"
+      ],
+      "custom_css": [
+        ".cro-pdp__trust-copy {margin: 0 0 14px; font-size: 13px; font-weight: 600; color: #3f3f3f; display: none;}"
+      ],
+      "settings": {
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "show_thumbnails_on_mobile": true,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide",
+        "expert_url": ""
+      }
+    },
+    "text_with_icons_wPPDRK": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_aizfmw": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-return-box",
+            "custom_icon": "shopify://shop_images/return_96cb5c62-1e6b-49ee-963e-a44943dd3ce1.png",
+            "custom_icon_width": 200,
+            "title": "Instant Ball Return",
+            "content": "<p>Patented S-Shape Design absorbs the force of the ball and returns it gently back to you.</p>"
+          }
+        },
+        "item_tbbbr6": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/assembly.png",
+            "custom_icon_width": 50,
+            "title": "Easy to Assemble",
+            "content": "<p>No tools required. Our Quick Color Connect System makes setup easy.</p>"
+          }
+        },
+        "item_6xGxLa": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-address-pin",
+            "custom_icon": "shopify://shop_images/location.png",
+            "custom_icon_width": 50,
+            "title": "Indoor or Outdoor",
+            "content": "<p>UV shielded netting and aircraft quality aluminum frame built to withstand any environment.</p>"
+          }
+        },
+        "item_8V7pWj": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-warranty",
+            "custom_icon": "shopify://shop_images/quality.png",
+            "custom_icon_width": 50,
+            "title": "Premium Quality",
+            "content": "<p>High gloss black frame and embroidered sleeve, delivering both quiet and elegant performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_aizfmw",
+        "item_tbbbr6",
+        "item_6xGxLa",
+        "item_8V7pWj"
+      ],
+      "settings": {
+        "icon_align_mobile": "center",
+        "hide_dots": false,
+        "auto_rotate": false,
+        "cycle_speed": 3,
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "vm_feature_DJtRiX": {
+      "type": "vm-feature",
+      "blocks": {
+        "product_VVUDbX": {
+          "type": "product",
+          "settings": {
+            "product": "pro-turf-golf-practice-mat"
+          }
+        },
+        "product_QjtPLR": {
+          "type": "product",
+          "settings": {
+            "product": "universal-side-barriers"
+          }
+        },
+        "product_czHxFy": {
+          "type": "product",
+          "settings": {
+            "product": "no-fly-zone-v2"
+          }
+        },
+        "product_6AHTFp": {
+          "type": "product",
+          "settings": {
+            "product": "no-fly-zone-v2-side-barriers"
+          }
+        },
+        "product_G6LW9D": {
+          "type": "product",
+          "settings": {
+            "product": "no-fly-zone-v2-kits"
+          }
+        }
+      },
+      "block_order": [
+        "product_VVUDbX",
+        "product_QjtPLR",
+        "product_czHxFy",
+        "product_6AHTFp",
+        "product_G6LW9D"
+      ],
+      "settings": {
+        "kicker": "",
+        "title": "Bundle & Save",
+        "sub": "",
+        "show_promo_pill": false,
+        "show_visual_discount": true,
+        "show_inline_note": false,
+        "promo_code": "",
+        "promo_percent": 5,
+        "show_starting_from_tag": true,
+        "starting_from_product": "universal-side-barriers",
+        "starting_from_text": "",
+        "card_min": 200,
+        "card_max": 240,
+        "legal_note": ""
+      }
+    },
+    "faq_story": {
+      "type": "cro-faq-story",
+      "blocks": {
+        "question_story_1": {
+          "type": "question",
+          "settings": {
+            "title": "Does it work with launch monitors?",
+            "answer": "<p>Absolutely.</p><ul><li><a href=\"https://www.thenetreturn.com/collections/flightscope\" target=\"_blank\">FlightScope</a></li><li><a href=\"https://www.thenetreturn.com/collections/foresight\" target=\"_blank\">Foresight</a></li><li><a href=\"https://www.thenetreturn.com/collections/fullswing\" target=\"_blank\">Full Swing</a></li><li><a href=\"https://www.thenetreturn.com/collections/garmin\" target=\"_blank\">Garmin</a></li><li><a href=\"https://www.thenetreturn.com/collections/uneekor\" target=\"_blank\">Uneekor</a> </li><li>and more</li></ul><p>The frame clicks together. The net attaches with <strong>color</strong>‑coded straps. It’s designed so anyone can assemble it without frustration.And if you ever want to move it, it packs down just as easily.</p><p>If you can swing a club comfortably, you can almost always fit a Net Return.</p><p>It’s designed to work in:</p><ul><li>garages</li><li>spare rooms</li><li><strong>backyards</strong></li></ul>"
+          }
+        },
+        "question_story_2": {
+          "type": "question",
+          "settings": {
+            "title": "How long will it actually last?",
+            "answer": "<p>Longer than anything else in its category.</p><p>The frame is made from <strong>commercial‑grade aluminium</strong>. The netting is UV‑treated, weather‑resistant, and designed to <strong>absorb ball speeds up to 250mph</strong>.</p><p>Most customers tell us the same thing:</p><p>“It feels like something I’ll own for life.”</p>"
+          }
+        },
+        "question_story_3": {
+          "type": "question",
+          "settings": {
+            "title": "Is it actually easy to set up?",
+            "answer": "<p>Yes.</p><p>Most golfers set it up in 5–10 minutes without tools.</p><p>The frame clicks together. The net connects with color coded push buttons. It’s designed so anyone can assemble it without frustration.</p><p>And if you ever want to move it, it packs down just as easily.</p>"
+          }
+        },
+        "question_story_4": {
+          "type": "question",
+          "settings": {
+            "title": "Will it fit in my space?",
+            "answer": "<p>If you can swing a club comfortably, you can almost always fit a Net Return.</p><p>It’s designed to work in:</p><ul><li>garages</li><li>spare rooms</li><li>back gardens</li><li>studios</li><li>sheds</li><li>offices</li></ul><p>If you’re unsure, you’re always welcome to contact our team and speak to an expert.</p>"
+          }
+        },
+        "question_story_5": {
+          "type": "question",
+          "settings": {
+            "title": " Is it safe to use indoors?",
+            "answer": "<p>Yes.</p><p>The Net Return is engineered to <strong>return the ball safely back to your feet</strong> every time. </p><p>No ricochets. No unpredictable rebounds. No damage to walls or ceilings.</p><p>This is one of the biggest reasons golfers choose it over cheaper alternatives.</p>"
+          }
+        },
+        "question_story_6": {
+          "type": "question",
+          "settings": {
+            "title": " Is it loud?",
+            "answer": "<p>Surprisingly quiet. </p><p>The net absorbs the ball rather than slapping it back.</p><p>Most golfers say they can practice early in the morning or late at night without disturbing anyone.</p>"
+          }
+        },
+        "question_QPbecy": {
+          "type": "question",
+          "settings": {
+            "title": "Can it handle real golf balls?",
+            "answer": "<p>Yes — that’s exactly what it’s built for.</p><p>You can hit full‑speed drivers, wedges, and everything in between. </p><p>Indoors or outdoors.</p>"
+          }
+        },
+        "question_HBnBAw": {
+          "type": "question",
+          "settings": {
+            "title": "Why do so many pros use it?",
+            "answer": "<p>Because it’s consistent.</p><p>Because it’s safe.</p><p>Because it lasts.</p><p>And because it gives you the same reliable feedback every single session.</p><p>When you’re working on your game, consistency matters.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_story_1",
+        "question_story_2",
+        "question_story_3",
+        "question_story_4",
+        "question_story_5",
+        "question_story_6",
+        "question_QPbecy",
+        "question_HBnBAw"
+      ],
+      "settings": {
+        "title": "Premium Practice. Zero Fluff.",
+        "content": "<p><strong>Trusted by home golfers, coaches, and pros alike.</strong></p><p>Expertly engineered for serious practice with automatic ball return, premium materials, and no gimmicks.</p>",
+        "show_navigation": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "reviews_intro": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "Join 50,000+ Happy Customers",
+        "content": "<p>Trusted by golfers everywhere and backed by thousands of verified reviews, The Net Return is built for home practice that actually lasts.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "loox_carousel": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1600,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "basic",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": false
+      }
+    },
+    "loox_gallery": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_dynamic_section_TQzh3L": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "aggregated": true,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_dynamic_section_TQzh3L"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": false
+      }
+    },
+    "gallery_WX6Wym": {
+      "type": "gallery",
+      "blocks": {
+        "image_z4U7Hd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-home.png",
+            "caption": ""
+          }
+        },
+        "image_jfHUjV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-patio.jpg",
+            "caption": ""
+          }
+        },
+        "image_BizqWe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_C4WQdC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-backyard.png",
+            "caption": ""
+          }
+        },
+        "image_3GLjix": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-6.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_z4U7Hd",
+        "image_jfHUjV",
+        "image_BizqWe",
+        "image_C4WQdC",
+        "image_3GLjix"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "compare_models_table_cro": {
+      "type": "compare-models-table",
+      "settings": {
+        "small_text": "COMPARE MODELS",
+        "heading": "Not sure which net to choose?"
+      }
+    },
+    "upgrade_cta": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/package-slider_4003c44c-47a8-4b29-b674-b87eb0e6fad0.jpg",
+        "subheading": "Upgrade your setup",
+        "title": "Upgrade to a Package",
+        "content": "<p>Add turf, side barriers, and the extras that turn a net into a complete practice station.</p>",
+        "button_text": "Shop Packages",
+        "button_link": "shopify://products/pro-package-golf-net-setup",
+        "link_style": "button",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#00994d",
+        "button_text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 32
+      }
+    },
+    "image_with_text_block_X66BNa": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/1500x1800-4.jpg",
+        "subheading": "Bryson DeChambeau",
+        "title": "Trusted by the Pros",
+        "content": "<p>\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "#ffffff",
+        "text_color": "#101010",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "text_with_icons_wPPDRK",
+    "vm_feature_DJtRiX",
+    "faq_story",
+    "reviews_intro",
+    "loox_carousel",
+    "loox_gallery",
+    "gallery_WX6Wym",
+    "compare_models_table_cro",
+    "upgrade_cta",
+    "image_with_text_block_X66BNa"
+  ]
+}

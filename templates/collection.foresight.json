@@ -1,0 +1,286 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_overlay_F9xFKi": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/nrxforesight.png",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "image_with_text_block_bBbGkY": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/simbay-slider.jpg",
+        "subheading": "",
+        "title": "Foresight",
+        "content": "<p>Pair your Net Return with a Foresight Launch Monitor to build the ultimate at-home experience. </p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_gXV9p9": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_LX4CkG": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_LX4CkG"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Launch Monitors",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_breLdH": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/EyeMiniRenderingVideoFinal1920x1080.mp4",
+        "video_url": "https://www.youtube.com/watch?v=LkZesI5B14M&list=TLGGq4W2-R8q6cUxNjA1MjAyNA&t=5s",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_BTGyy6": {
+      "type": "faq",
+      "blocks": {
+        "question_NrcCg4": {
+          "type": "question",
+          "settings": {
+            "title": "What do I need to build an at-home golf simulator?",
+            "answer": "<p><strong>Sim Bay Or Net: </strong>There are a variety of ways to use a golf simulator, but they all require something to hit the ball into. To jumpstart the process of building the perfect at-home simulator start with a Net Return or Sim Bay. Our company offer a wide range of models and brands to create the perfect setup.</p><p><strong>Launch Monitor + Software: </strong>A device that measures various aspects of a golf swing, such as club speed, ball speed, launch angle, and spin rate.This provides feedback to golfers and simulates real-world golfing conditions for training and entertainment purposes.</p><p><strong>Projector or TV: </strong>Displays the simulated golf course environment and ball flight data, enhancing the overall experience and providing visual feedback during practice sessions.</p>"
+          }
+        },
+        "question_LGEbLa": {
+          "type": "question",
+          "settings": {
+            "title": "What if I already have a Net Return net and I want to add simulation?",
+            "answer": "<p>If you already own a Net Return and wish to incorporate simulation capabilities, our Sim Add-Ons allow you to upgrade your existing setup by adding accessories like the Sim Screen and Valence components.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_NrcCg4",
+        "question_LGEbLa"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#f4f4f4"
+      }
+    },
+    "featured_collections_i6f8Y7": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_6kwYXM": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Sim Bays",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_7zmhM3": {
+          "type": "collection",
+          "settings": {
+            "collection": "nets-1",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_6kwYXM",
+        "collection_7zmhM3"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Complete Your Setup",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "#f4f4f4",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 30,
+        "quick_links": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_color_swatch": true,
+        "open_first_filter_group": false,
+        "filter_position": "always_visible",
+        "promotion_position": "top",
+        "promotion_height": "small"
+      }
+    },
+    "featured_collections_cQ6eJM": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_ryJpcW": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-accessories",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_ryJpcW"
+      ],
+      "settings": {
+        "subheading": "add simulation to a net",
+        "title": "Sim Add-Ons",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_FDkGTA": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/fs-slider.jpg",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_left",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "video_J7N4W7": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/nr_foresight_assembly_v2 (1080p).mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_overlay_F9xFKi",
+    "image_with_text_block_bBbGkY",
+    "featured_collections_gXV9p9",
+    "video_breLdH",
+    "faq_BTGyy6",
+    "featured_collections_i6f8Y7",
+    "collection-banner",
+    "main",
+    "featured_collections_cQ6eJM",
+    "image_with_text_overlay_FDkGTA",
+    "video_J7N4W7"
+  ]
+}

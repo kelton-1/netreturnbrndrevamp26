@@ -1,0 +1,282 @@
+{%- comment -%}
+VIDEO SCHEMA (AUTO) - The Net Return
+- Generates JSON-LD VideoObject schema for embedded videos (YouTube + self-hosted <video>) on specific Pages.
+- Designed to avoid Google "missing required field" errors by only outputting schema when it can populate the required properties.
+{%- endcomment -%}
+
+{%- liquid
+  assign _video_schema_upload_dt = page.published_at | default: page.created_at | default: 'now' | date: "%Y-%m-%dT%H:%M:%S%z"
+-%}
+
+<script>
+/**
+ * Auto VideoObject schema injector (YouTube + HTML5 <video>).
+ * Output: one VideoObject per detected video, connected to the current WebPage.
+ */
+(function() {
+  function onReady(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn, { once: true });
+    else fn();
+  }
+
+  function uniq(arr) {
+    var seen = Object.create(null);
+    var out = [];
+    for (var i = 0; i < arr.length; i++) {
+      var v = arr[i];
+      if (!v || seen[v]) continue;
+      seen[v] = true;
+      out.push(v);
+    }
+    return out;
+  }
+
+  function cleanText(s) {
+    if (!s) return "";
+    return String(s).replace(/\s+/g, " ").trim();
+  }
+
+  function getMeta(nameOrProp) {
+    var el =
+      document.querySelector('meta[name="' + nameOrProp + '"]') ||
+      document.querySelector('meta[property="' + nameOrProp + '"]');
+    return el && el.content ? cleanText(el.content) : "";
+  }
+
+  function getPageTitle() {
+    return (
+      cleanText(getMeta("og:title")) ||
+      cleanText((document.querySelector("h1") || {}).textContent) ||
+      cleanText(document.title) ||
+      "Video"
+    );
+  }
+
+  function getPageDescription() {
+    return (
+      cleanText(getMeta("description")) ||
+      cleanText(getMeta("og:description")) ||
+      ""
+    );
+  }
+
+  function normalizeISO(iso) {
+    if (!iso) return "";
+    // Convert trailing +HHMM / -HHMM to +HH:MM / -HH:MM
+    return String(iso).replace(/([+-]\d{2})(\d{2})$/, "$1:$2");
+  }
+
+  // Extract YouTube ID from a variety of URL formats
+  function extractYouTubeId(url) {
+    if (!url) return "";
+    try {
+      var u = new URL(url, window.location.href);
+      var host = (u.hostname || "").toLowerCase();
+
+      // youtu.be/<id>
+      if (host === "youtu.be") {
+        var p = (u.pathname || "").split("/").filter(Boolean);
+        return p[0] || "";
+      }
+
+      // youtube.com/watch?v=<id>
+      if (host.indexOf("youtube.com") !== -1) {
+        if (u.searchParams && u.searchParams.get("v")) return u.searchParams.get("v") || "";
+        // youtube.com/embed/<id>
+        var m = (u.pathname || "").match(/\/embed\/([^/?#]+)/i);
+        if (m && m[1]) return m[1];
+        // youtube.com/shorts/<id>
+        var s = (u.pathname || "").match(/\/shorts\/([^/?#]+)/i);
+        if (s && s[1]) return s[1];
+      }
+
+      // youtube-nocookie.com/embed/<id>
+      if (host.indexOf("youtube-nocookie.com") !== -1) {
+        var n = (u.pathname || "").match(/\/embed\/([^/?#]+)/i);
+        if (n && n[1]) return n[1];
+      }
+
+      return "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function youtubeThumb(id) {
+    // hqdefault is the safest (maxres may 404 on some videos).
+    return "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+  }
+
+  function absoluteUrl(url) {
+    if (!url) return "";
+    try { return new URL(url, window.location.href).href; } catch (e) { return ""; }
+  }
+
+  function detectYouTubeEmbeds() {
+    var urls = [];
+
+    // 1) Real iframes already in DOM
+    var iframes = document.querySelectorAll('iframe[src*="youtube.com"], iframe[src*="youtube-nocookie.com"], iframe[src*="youtu.be"]');
+    for (var i = 0; i < iframes.length; i++) {
+      urls.push(iframes[i].getAttribute("src") || "");
+    }
+
+    // 2) Shopify deferred-media templates (iframe often sits in <template>)
+    var templates = document.querySelectorAll("deferred-media template");
+    for (var t = 0; t < templates.length; t++) {
+      var html = templates[t].innerHTML || "";
+      // find src="..."
+      var re = /src\s*=\s*["']([^"']+)["']/gi;
+      var match;
+      while ((match = re.exec(html))) {
+        var src = match[1] || "";
+        if (src.indexOf("youtube") !== -1 || src.indexOf("youtu.be") !== -1) {
+          urls.push(src);
+        }
+      }
+    }
+
+    // 3) Link fallbacks
+    var links = document.querySelectorAll('a[href*="youtube.com/watch"], a[href*="youtu.be/"], a[href*="youtube.com/embed"], a[href*="youtube-nocookie.com/embed"]');
+    for (var l = 0; l < links.length; l++) {
+      urls.push(links[l].getAttribute("href") || "");
+    }
+
+    // Normalize to IDs
+    var ids = [];
+    for (var u = 0; u < urls.length; u++) {
+      var id = extractYouTubeId(urls[u]);
+      if (id) ids.push(id);
+    }
+
+    return uniq(ids);
+  }
+
+  function detectHTML5Videos() {
+    var videos = [];
+    var els = document.querySelectorAll("video");
+    for (var i = 0; i < els.length; i++) {
+      var v = els[i];
+      var poster = v.getAttribute("poster") || "";
+      var src = v.currentSrc || v.getAttribute("src") || "";
+      if (!src) {
+        var sourceEl = v.querySelector("source");
+        if (sourceEl) src = sourceEl.getAttribute("src") || "";
+      }
+      videos.push({
+        poster: poster,
+        src: src,
+        title: v.getAttribute("title") || v.getAttribute("aria-label") || ""
+      });
+    }
+    return videos;
+  }
+
+  function buildSchema() {
+    var pageUrl = absoluteUrl(window.location.href.split("#")[0]);
+    if (!pageUrl) return null;
+
+    var pageId = pageUrl + "#webpage";
+    var pageTitle = getPageTitle();
+    var pageDesc = getPageDescription();
+
+    var uploadDate = normalizeISO("{{ _video_schema_upload_dt }}");
+    // Hard stop if uploadDate can't be produced (required)
+    if (!uploadDate) return null;
+
+    var graph = [];
+
+    // WebPage node (helps connect VideoObject -> page)
+    graph.push({
+      "@type": "WebPage",
+      "@id": pageId,
+      "url": pageUrl,
+      "name": pageTitle,
+      "description": pageDesc || undefined
+    });
+
+    // YouTube videos
+    var ytIds = detectYouTubeEmbeds();
+    for (var i = 0; i < ytIds.length; i++) {
+      var id = ytIds[i];
+      var embedUrl = "https://www.youtube.com/embed/" + id;
+      var thumb = youtubeThumb(id);
+
+      // Required fields for Google: name, thumbnailUrl, uploadDate citeturn10view1
+      graph.push({
+        "@type": "VideoObject",
+        "@id": pageUrl + "#video-youtube-" + (i + 1),
+        "name": ytIds.length === 1 ? pageTitle : (pageTitle + " (Video " + (i + 1) + ")"),
+        "description": pageDesc || pageTitle,
+        "thumbnailUrl": [thumb],
+        "uploadDate": uploadDate,
+        "embedUrl": embedUrl,
+        "mainEntityOfPage": { "@id": pageId },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Net Return",
+          "url": "https://www.thenetreturn.com/"
+        },
+        "isFamilyFriendly": true
+      });
+    }
+
+    // Self-hosted HTML5 videos
+    var html5 = detectHTML5Videos();
+    for (var j = 0; j < html5.length; j++) {
+      var hv = html5[j];
+      var src = absoluteUrl(hv.src);
+      var poster = absoluteUrl(hv.poster);
+
+      // Need thumbnailUrl + uploadDate + name to avoid errors
+      if (!src || !poster) continue;
+
+      graph.push({
+        "@type": "VideoObject",
+        "@id": pageUrl + "#video-html5-" + (j + 1),
+        "name": cleanText(hv.title) || (html5.length === 1 ? pageTitle : (pageTitle + " (Video " + (j + 1) + ")")),
+        "description": pageDesc || pageTitle,
+        "thumbnailUrl": [poster],
+        "uploadDate": uploadDate,
+        "contentUrl": src,
+        "mainEntityOfPage": { "@id": pageId },
+        "publisher": {
+          "@type": "Organization",
+          "name": "The Net Return",
+          "url": "https://www.thenetreturn.com/"
+        },
+        "isFamilyFriendly": true
+      });
+    }
+
+    // If no videos detected, do not output a schema block at all
+    if (graph.length <= 1) return null;
+
+    return {
+      "@context": "https://schema.org",
+      "@graph": graph
+    };
+  }
+
+  function inject(schema) {
+    if (!schema) return;
+    var json = JSON.stringify(schema);
+    var id = "nr-video-schema-jsonld";
+    if (document.getElementById(id)) return;
+
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.id = id;
+    s.text = json;
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  onReady(function() {
+    try {
+      inject(buildSchema());
+    } catch (e) {
+      // Intentionally swallow to avoid breaking the page.
+    }
+  });
+})();
+</script>

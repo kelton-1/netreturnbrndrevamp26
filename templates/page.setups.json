@@ -1,0 +1,281 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "rich_text_pRQmzQ": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "Get Better, Wherever",
+        "title": "Setups",
+        "content": "<p>Check out how our customers transformed their spaces with The Net Return.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_yLqKXf": {
+      "type": "gallery",
+      "blocks": {
+        "image_9QVLgz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-7_00504a3e-a208-44da-bdc6-ebc0ee0ff95d.jpg",
+            "caption": ""
+          }
+        },
+        "image_X8geJE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-3_b74da4bb-10df-47bf-8a99-fcb2cf12e91e.jpg",
+            "caption": ""
+          }
+        },
+        "image_DRztXQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-15_43607f6d-c4ab-4e55-93d7-11c75cc7f98e.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_9QVLgz",
+        "image_X8geJE",
+        "image_DRztXQ"
+      ],
+      "settings": {
+        "subheading": "Garage/Basement",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_xHRCWz": {
+      "type": "gallery",
+      "blocks": {
+        "image_HthatY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-2.jpg",
+            "caption": ""
+          }
+        },
+        "image_LjbAWy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-12.jpg",
+            "caption": ""
+          }
+        },
+        "image_rEw6F9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-13.jpg",
+            "caption": ""
+          }
+        },
+        "image_zhbAQF": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-19.jpg",
+            "caption": ""
+          }
+        },
+        "image_jMDNqC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-25.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_HthatY",
+        "image_LjbAWy",
+        "image_rEw6F9",
+        "image_zhbAQF",
+        "image_jMDNqC"
+      ],
+      "settings": {
+        "subheading": "Backyard",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_Qhy7c6": {
+      "type": "gallery",
+      "blocks": {
+        "image_wfQPPP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-15.jpg",
+            "caption": ""
+          }
+        },
+        "image_7ipd9Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-6.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_wfQPPP",
+        "image_7ipd9Y"
+      ],
+      "settings": {
+        "subheading": "Rooftop",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_4aLrBX": {
+      "type": "gallery",
+      "blocks": {
+        "image_Hii6mp": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-17.jpg",
+            "caption": ""
+          }
+        },
+        "image_6ahb6F": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-16.jpg",
+            "caption": ""
+          }
+        },
+        "image_E67ptk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-6_20566da9-5568-4450-a03e-67c7ebd9881d.jpg",
+            "caption": ""
+          }
+        },
+        "image_zkTyFM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-4_a85973a0-fa9a-4dd1-86de-ef4b09501fcb.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_Hii6mp",
+        "image_6ahb6F",
+        "image_E67ptk",
+        "image_zkTyFM"
+      ],
+      "settings": {
+        "subheading": "Scenic",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_kd6mE9": {
+      "type": "gallery",
+      "blocks": {
+        "image_NLCT76": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-24.jpg",
+            "caption": ""
+          }
+        },
+        "image_CU7pPg": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-8_94c5c3a8-2057-4e35-bbe1-4aec769c358e.jpg",
+            "caption": ""
+          }
+        },
+        "image_LGwj3w": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-9_f138de55-f1e6-468f-ba67-c482e072cb4e.jpg",
+            "caption": ""
+          }
+        },
+        "image_g3M8fn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-10_96abef09-57c7-4a0d-a00a-05b008098849.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_NLCT76",
+        "image_CU7pPg",
+        "image_LGwj3w",
+        "image_g3M8fn"
+      ],
+      "settings": {
+        "subheading": "Simulation",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_Lmr3zB": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<p><strong>Have a cool setup? </strong>Send a pic of your space for a chance to be featured on our channels.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_pRQmzQ",
+    "gallery_yLqKXf",
+    "gallery_xHRCWz",
+    "gallery_Qhy7c6",
+    "gallery_4aLrBX",
+    "gallery_kd6mE9",
+    "rich_text_Lmr3zB"
+  ]
+}

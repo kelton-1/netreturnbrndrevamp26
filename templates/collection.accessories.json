@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 30,
+        "quick_links": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": true,
+        "show_color_swatch": false,
+        "open_first_filter_group": false,
+        "filter_position": "always_visible",
+        "promotion_position": "top",
+        "promotion_height": "medium"
+      }
+    },
+    "custom_liquid_bemFi6": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"essentials\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_ymMFHx": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_c7gyiW": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-essentials",
+            "label": "Essentials",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_c7gyiW"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Essentials",
+        "content": "",
+        "products_count": 10,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "essentials",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_ckfgWN": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"safety\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_AxtPEw": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_JjVTfi": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-safety",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_JjVTfi"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Safety",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "safety",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_CYBnTU": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"simulation\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_MD4thK": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_V9XmbN": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-simulation",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_V9XmbN"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Simulation",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "simulation",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_XnkfYe": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"training\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_rX8fjL": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_df3KfU": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-training-aids",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_df3KfU"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Training Aids",
+        "content": "",
+        "products_count": 14,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "other",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_zUDQfp": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"other\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_UVaqUf": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_8rRAVh": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-other",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_8rRAVh"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Other",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "other",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "accordion_content_KqmjxA": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_qyNFnH": {
+          "type": "item",
+          "settings": {
+            "title": "What are the most common accessories to buy for a golf net?",
+            "icon": "check_mark",
+            "content": "<p>The most popular golf net accessories include our <a href=\"/products/net-guardian\" title=\"Net Guardian\">Net Guardian</a>, which protects high-impact areas and extends the life of your net.<a href=\"/products/copy-of-universal-side-barriers-pro-home-series-v2\" title=\"Side Barriers\"> Side barriers</a> are another essential element to ensure safety during practice by containing stray shots. For those using their net outdoors, <a href=\"/products/sandbags\" title=\"Sandbags\">sandbags</a> are must-have golf accessories that provide added stability. To enhance your practice sessions further, a putting aid or precision target are popular golf net upgrades that help sharpen your aim.</p>",
+            "page": ""
+          }
+        },
+        "item_VKe8Kh": {
+          "type": "item",
+          "settings": {
+            "title": "Can I buy an outdoor cover for my golf net?",
+            "icon": "check_mark",
+            "content": "<p>Yes, The Net Return offers a durable <a href=\"/products/outdoor-cover\" title=\"Outdoor Cover\">golf net outdoor cover</a> designed to protect your net from weather elements like rain, UV rays, and debris. This lightweight polyester cover is easy to use and essential for preserving the quality and performance of your net during outdoor use. It is a must for anyone who frequently uses their net outdoors, ensuring it lasts for many seasons to come.</p>",
+            "page": ""
+          }
+        },
+        "item_jqxGMQ": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "What accessories can help improve putting?",
+            "icon": "check_mark",
+            "content": "<p>For golfers looking to sharpen their short game, putting mats and putting aids are indispensable. The Net Return offers high-quality golf training aids like the Putting Cup and Flag, which replicate on-course conditions for realistic practice. These home golf accessories are portable and easy to set up, making them ideal for indoor or outdoor use. These tools are not just helpful golf equipment—they’re essential for building confidence and consistency on the green.</p>",
+            "page": ""
+          }
+        },
+        "item_nEMHj6": {
+          "type": "item",
+          "settings": {
+            "title": "How can I make my golf practice sessions more realistic?",
+            "icon": "check_mark",
+            "content": "<p>To make your practice sessions more realistic, incorporate golf practice tools like The Net Return’s Pro Turf or Platinum Turf, which provide a lifelike hitting surface. Pair your net with golf accessories such as a precision target to simulate real gameplay scenarios. Our golf simulator kits can generate detailed analysis and feedback to make your training environment immersive and effective. </p><p>The Net Return’s line of golf net accessories is designed to optimize your training experience. From durable protective covers to precision putting aids, these accessories deliver unmatched performance and value for both home and professional setups. Equip yourself with the best golf accessories to enhance every aspect of your game.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_qyNFnH",
+        "item_VKe8Kh",
+        "item_jqxGMQ",
+        "item_nEMHj6"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "About our accessories",
+        "content": "<p>The Net Return’s golf accessories are designed to take your training to the next level, no matter where you’ve set up your practice site. From essential golf gear like turf mats and protective covers to golf training aids for improving accuracy and convenience, these tools can accommodate the needs of both beginners and professionals. Durable and versatile, they ensure you get the most out of your practice sessions, making them must-have golf accessories for every golfer.</p>",
+        "image": "shopify://shop_images/2160x1200-poolside.jpg",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "align_content": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "main",
+    "custom_liquid_bemFi6",
+    "featured_collections_ymMFHx",
+    "custom_liquid_ckfgWN",
+    "featured_collections_AxtPEw",
+    "custom_liquid_CYBnTU",
+    "featured_collections_MD4thK",
+    "custom_liquid_XnkfYe",
+    "featured_collections_rX8fjL",
+    "custom_liquid_zUDQfp",
+    "featured_collections_UVaqUf",
+    "accordion_content_KqmjxA"
+  ]
+}

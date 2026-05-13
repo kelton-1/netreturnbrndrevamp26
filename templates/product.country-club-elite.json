@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "text_e8WJrm": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.secondary_text.value }}</p>"
+          }
+        },
+        "product_variations_tH4fqU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "text_e8WJrm",
+        "product_variations_tH4fqU",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "faq_XaJcG6": {
+      "type": "faq",
+      "blocks": {
+        "question_8ti8ec": {
+          "type": "question",
+          "settings": {
+            "title": "What makes the Country Club Elite® Hitting Mat stand out among other golf mats?",
+            "answer": "<p>Unlike traditional mats that feel either too soft or overly firm, the Country Club Elite® Hitting Mat—manufactured by Real Feel Golf Mats—is engineered to replicate the sensation of real turf. Its dense, commercial-grade fiber system allows golfers to use real tees. Best of all, the mat minimizes shock to your joints and delivers instant feedback on off-center hits. </p><p>If you hit the ball fat, this mat doesn't mask the mistake—it lets you feel it, encouraging better technique over time. It’s more than a typical golf hitting mat—it’s a trusted training tool used by instructors, golf ranges, and serious players nationwide.</p>"
+          }
+        },
+        "question_L7DWGe": {
+          "type": "question",
+          "settings": {
+            "title": "Is the mat suitable for both indoor and outdoor use?",
+            "answer": "<p>Absolutely. The Country Club Elite® Hitting Mat is designed for versatility and consistent performance across a range of environments. Indoors, it pairs effortlessly with various golf simulators, making it ideal for garage bays and pro swing studios alike. Outdoors, its heavy-duty construction withstands repetitive practice on hard or soft surfaces. </p><p>Despite its premium build, it is a highly portable golf mat, as it’s compact enough to transport and store with ease. No matter if you’re practicing at home or setting up on the range, this golf hitting mat delivers results you can trust.</p>"
+          }
+        },
+        "question_AQnNfd": {
+          "type": "question",
+          "settings": {
+            "title": "How does the mat simulate real fairway conditions?",
+            "answer": "<p>Thanks to its proprietary turf blend and carefully engineered fiber depth, the Country Club Elite® Hitting Mat allows your club head to interact with the surface like it would on natural grass. The mat eliminates unrealistic bounce and offers a level of resistance that mirrors how a real fairway responds to downward strikes. </p><p>Its True Divot Action® technology provides feedback that reveals whether you’ve struck the ball fat, helping golfers develop better contact and improve consistency. It’s a powerful tool for refining your swing and reinforcing proper ball-first impact.</p>"
+          }
+        },
+        "question_RAHQYx": {
+          "type": "question",
+          "settings": {
+            "title": "What is the recommended maintenance for the Country Club Elite® Hitting Mat?",
+            "answer": "<p>Maintaining your Country Club Elite® Hitting Mat is easy. After each practice session, brush or shake off grass fragments and debris to keep the turf upright and even. If used outside, store it in a dry location to prevent unnecessary wear from moisture or prolonged sun exposure. </p><p>While this product is built to last, taking a few simple steps will help it retain its premium feel for years to come. With basic upkeep, your Country Club t-turf will remain a dependable accessory for your practice sessions—indoors, outdoors, or on the road.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_8ti8ec",
+        "question_L7DWGe",
+        "question_AQnNfd",
+        "question_RAHQYx"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "title": "You may also like",
+        "recommendations_count": 4,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_XaJcG6",
+    "product-recommendations",
+    "1713971222a271d416"
+  ]
+}

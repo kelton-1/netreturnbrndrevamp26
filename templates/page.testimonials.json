@@ -1,0 +1,104 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "rich_text_hJGbwY": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "content": "<p>We’re incredibly grateful for the thousands of golfers who’ve taken the time to share their experiences with The Net Return. From detailed assembly reviews to training breakthroughs, your feedback shapes how we continue to serve the golf community. Our customers agree: The Net Return is the best golf net on the market. You can check out the fast-growing collection of The Net Return testimonials below.</p><p></p><p></p><p>Trusted by golfers everywhere and backed by pros and home users alike, our nets consistently earn five-star ratings for their durability, convenience, and performance. With over 1,000 reviews and counting, it’s clear that our products deliver reliable results—indoors, outdoors, and everywhere in between. No matter where you’re practicing—whether it’s a garage, a backyard, or part of a home golf simulator setup—The Net Return is designed to bring the golf course to you.</p><p>From two-time U.S. Open winner <a href=\"https://www.thenetreturn.com/pages/bryson-dechambeau-the-net-return\" title=\"Bryson DeChambeau x The Net Return\">Bryson DeChambeau</a> to long drive legend Kyle Berkshire and top coaches like Chris Como, our nets are trusted by a dynamic range of athletes and creators. The list of prominent names who continue to benefit from The Net Return systems includes Michelle Wie, Averee Dovsek, Bobby Ray, Bobby Bradley, Cassandra Marie, Gabi Powell, Kaira Martin, Seb Twaddell, Matt Stubbs, Sara Winter, and Jeremy Nowak.</p><p>These pros and influencers use The Net Return’s practice packages and accessories in a variety of settings: Bryson and Bobby Bradley power through high-speed training sessions, while social media creators like Averee and Cassandra film engaging content from their home golf simulator setups. </p><p>Coaches like Chris Como use our golf training nets to help players sharpen fundamentals, and athletes like Michelle Wie incorporate our systems into everyday golf practice at home. The versatility of our nets allows them to fit effortlessly into professional studios, indoor training bays, and suburban backyards alike.</p><p>Ready to start your journey? Join a growing community of golfers who are improving their game with a high-quality setup that works anywhere—so you can golf at home or even on the road. Because if it works for the pros, it will work for your game too.</p><p>Your experience matters—whether you’re a total beginner or a total pro, we’d love to hear from you. Look over the golf net reviews already posted, and when you’re ready, leave your own. </p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971175fed41a19": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_qfcdN4": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "only_photos": false,
+            "hide_thumbnails": true,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_qfcdN4"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "image_with_text_block_LPzyD8": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/1500x1800-4.jpg",
+        "subheading": "Bryson DeChambeau",
+        "title": "Trusted by the Pros",
+        "content": "<p>\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_GnARmc": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/5NnjyvzynQQ?si=sURW73LcKLxSRn-T",
+        "image": "shopify://shop_images/Kyle_Berkshire.png",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": false,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_hJGbwY",
+    "1713971175fed41a19",
+    "image_with_text_block_LPzyD8",
+    "video_GnARmc"
+  ]
+}

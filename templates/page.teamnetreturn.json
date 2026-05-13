@@ -1,0 +1,102 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_block_FqBhtH": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/indoor.png",
+        "mobile_image": "shopify://shop_images/indoor.png",
+        "subheading": "",
+        "title": "Join Team Net Return",
+        "content": "<p>With three different ways to join Team Net Return, there’s something for everyone!</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "#101010",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_Y6zTij": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "20% Commission",
+        "title": "Certified Partner Program",
+        "content": "<p><em>Perfect for retailers, boutique businesses, dropshippers and pro shops</em></p>",
+        "button_text": "Apply Here",
+        "button_link": "shopify://pages/certified-partner-program",
+        "background_type": "boxed",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#f4f4f4",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_iQnDX4": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "UP TO 10% Commission",
+        "title": "Affiliate Program",
+        "content": "<p><em>Perfect for golf pros, coaches, instructors, ambassadors and influencers</em></p>",
+        "button_text": "Apply Here",
+        "button_link": "shopify://pages/affiliate-program",
+        "background_type": "boxed",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#f4f4f4",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_nHDVXf": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "HELP RAISE MONEY FOR YOUR ORGANIZATION",
+        "title": "Fundraiser Program",
+        "content": "<p><em>Perfect for teams, associations and charity tournaments</em></p>",
+        "button_text": "Apply Here",
+        "button_link": "shopify://pages/fundraiser-program",
+        "background_type": "boxed",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "#f4f4f4",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_block_FqBhtH",
+    "rich_text_Y6zTij",
+    "rich_text_iQnDX4",
+    "rich_text_nHDVXf"
+  ]
+}

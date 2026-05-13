@@ -1,0 +1,631 @@
+{% doc %}
+  @prompt
+    Create a horizontal scrolling product carousel that displays products in a single row with swipe functionality. The carousel should show multiple products at once with smooth horizontal scrolling, allow touch/swipe gestures on mobile, and include navigation arrows for desktop. Products should display with images, titles, and prices in a clean layout with appropriate spacing between items., can you make it a collection to choose from and not individual products?
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-product-carousel-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-product-carousel__header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.heading_alignment }};
+    margin-bottom: 30px;
+  }
+
+  .ai-product-carousel__heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0;
+  }
+
+  .ai-product-carousel__wrapper-{{ ai_gen_id }} {
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .ai-product-carousel__container-{{ ai_gen_id }} {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .ai-product-carousel__container-{{ ai_gen_id }}::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ai-product-carousel__container-{{ ai_gen_id }}.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+
+  .ai-product-carousel__track-{{ ai_gen_id }} {
+    display: flex;
+    gap: {{ block.settings.product_spacing }}px;
+    padding: 10px 0;
+  }
+
+  .ai-product-carousel__item-{{ ai_gen_id }} {
+    flex: 0 0 {{ block.settings.product_width_mobile }}px;
+    min-width: {{ block.settings.product_width_mobile }}px;
+  }
+
+  .ai-product-carousel__card-{{ ai_gen_id }} {
+    background: {{ block.settings.card_background }};
+    border-radius: {{ block.settings.card_border_radius }}px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ai-product-carousel__card-{{ ai_gen_id }}:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .ai-product-carousel__image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background: #f4f4f4;
+    overflow: hidden;
+  }
+
+  .ai-product-carousel__image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ai-product-carousel__image-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+  }
+
+  .ai-product-carousel__image-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  .ai-product-carousel__content-{{ ai_gen_id }} {
+    padding: {{ block.settings.card_padding }}px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ai-product-carousel__title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_title_size }}px;
+    color: {{ block.settings.product_title_color }};
+    margin: 0 0 8px;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ai-product-carousel__price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_price_size }}px;
+    color: {{ block.settings.product_price_color }};
+    font-weight: 600;
+    margin-top: auto;
+  }
+
+  .ai-product-carousel__price--compare-{{ ai_gen_id }} {
+    text-decoration: line-through;
+    opacity: 0.6;
+    margin-right: 8px;
+    font-weight: 400;
+  }
+
+  .ai-product-carousel__price--sale-{{ ai_gen_id }} {
+    color: {{ block.settings.sale_price_color }};
+  }
+
+  .ai-product-carousel__nav-{{ ai_gen_id }} {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: {{ block.settings.arrow_background }};
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    opacity: 0.9;
+  }
+
+  .ai-product-carousel__nav-{{ ai_gen_id }}:hover {
+    opacity: 1;
+    background: {{ block.settings.arrow_hover_background }};
+  }
+
+  .ai-product-carousel__nav-{{ ai_gen_id }}:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .ai-product-carousel__nav--prev-{{ ai_gen_id }} {
+    left: 0;
+  }
+
+  .ai-product-carousel__nav--next-{{ ai_gen_id }} {
+    right: 0;
+  }
+
+  .ai-product-carousel__nav-{{ ai_gen_id }} svg {
+    width: 20px;
+    height: 20px;
+    stroke: {{ block.settings.arrow_color }};
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ai-product-carousel__item-{{ ai_gen_id }} {
+      flex: 0 0 {{ block.settings.product_width_desktop }}px;
+      min-width: {{ block.settings.product_width_desktop }}px;
+    }
+
+    .ai-product-carousel__wrapper-{{ ai_gen_id }} {
+      padding: 0 60px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-product-carousel__nav-{{ ai_gen_id }} {
+      display: none;
+    }
+  }
+{% endstyle %}
+
+<product-carousel-{{ ai_gen_id }}
+  class="ai-product-carousel-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {% if block.settings.heading != blank %}
+    <div class="ai-product-carousel__header-{{ ai_gen_id }}">
+      <h2 class="ai-product-carousel__heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+    </div>
+  {% endif %}
+
+  <div class="ai-product-carousel__wrapper-{{ ai_gen_id }}">
+    <button
+      class="ai-product-carousel__nav-{{ ai_gen_id }} ai-product-carousel__nav--prev-{{ ai_gen_id }}"
+      aria-label="Previous products"
+      data-nav="prev"
+    >
+      <svg viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div
+      class="ai-product-carousel__container-{{ ai_gen_id }}"
+      data-carousel-container
+    >
+      <div class="ai-product-carousel__track-{{ ai_gen_id }}">
+        {% if block.settings.collection != blank %}
+          {% assign products = block.settings.collection.products %}
+          {% if block.settings.product_limit > 0 %}
+            {% assign products = products | slice: 0, block.settings.product_limit %}
+          {% endif %}
+
+          {% for product in products %}
+            <div class="ai-product-carousel__item-{{ ai_gen_id }}">
+              <a
+                href="{{ product.url }}"
+                class="ai-product-carousel__card-{{ ai_gen_id }}"
+              >
+                <div class="ai-product-carousel__image-wrapper-{{ ai_gen_id }}">
+                  {% if product.featured_image %}
+                    <img
+                      src="{{ product.featured_image | image_url: width: 600 }}"
+                      alt="{{ product.featured_image.alt | escape }}"
+                      class="ai-product-carousel__image-{{ ai_gen_id }}"
+                      loading="lazy"
+                      width="600"
+                      height="600"
+                    >
+                  {% else %}
+                    <div class="ai-product-carousel__image-placeholder-{{ ai_gen_id }}">
+                      {{ 'product-1' | placeholder_svg_tag }}
+                    </div>
+                  {% endif %}
+                </div>
+
+                <div class="ai-product-carousel__content-{{ ai_gen_id }}">
+                  <h3 class="ai-product-carousel__title-{{ ai_gen_id }}">
+                    {{ product.title }}
+                  </h3>
+
+                  <div class="ai-product-carousel__price-{{ ai_gen_id }}">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="ai-product-carousel__price--compare-{{ ai_gen_id }}">
+                        {{ product.compare_at_price | money }}
+                      </span>
+                      <span class="ai-product-carousel__price--sale-{{ ai_gen_id }}">
+                        {{ product.price | money }}
+                      </span>
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          {% for i in (1..8) %}
+            <div class="ai-product-carousel__item-{{ ai_gen_id }}">
+              <div class="ai-product-carousel__card-{{ ai_gen_id }}">
+                <div class="ai-product-carousel__image-wrapper-{{ ai_gen_id }}">
+                  <div class="ai-product-carousel__image-placeholder-{{ ai_gen_id }}">
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  </div>
+                </div>
+                <div class="ai-product-carousel__content-{{ ai_gen_id }}">
+                  <h3 class="ai-product-carousel__title-{{ ai_gen_id }}">
+                    Product title
+                  </h3>
+                  <div class="ai-product-carousel__price-{{ ai_gen_id }}">
+                    $0.00
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    <button
+      class="ai-product-carousel__nav-{{ ai_gen_id }} ai-product-carousel__nav--next-{{ ai_gen_id }}"
+      aria-label="Next products"
+      data-nav="next"
+    >
+      <svg viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</product-carousel-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ProductCarousel{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.container = null;
+        this.prevButton = null;
+        this.nextButton = null;
+        this.isDragging = false;
+        this.startX = 0;
+        this.scrollLeft = 0;
+      }
+
+      connectedCallback() {
+        this.container = this.querySelector('[data-carousel-container]');
+        this.prevButton = this.querySelector('[data-nav="prev"]');
+        this.nextButton = this.querySelector('[data-nav="next"]');
+
+        if (!this.container) return;
+
+        this.setupNavigation();
+        this.setupDragScroll();
+        this.updateNavigationState();
+      }
+
+      setupNavigation() {
+        this.prevButton.addEventListener('click', () => this.scroll('prev'));
+        this.nextButton.addEventListener('click', () => this.scroll('next'));
+
+        this.container.addEventListener('scroll', () => {
+          this.updateNavigationState();
+        });
+      }
+
+      setupDragScroll() {
+        this.container.addEventListener('mousedown', (e) => {
+          this.isDragging = true;
+          this.container.classList.add('is-dragging');
+          this.startX = e.pageX - this.container.offsetLeft;
+          this.scrollLeft = this.container.scrollLeft;
+        });
+
+        this.container.addEventListener('mouseleave', () => {
+          this.isDragging = false;
+          this.container.classList.remove('is-dragging');
+        });
+
+        this.container.addEventListener('mouseup', () => {
+          this.isDragging = false;
+          this.container.classList.remove('is-dragging');
+        });
+
+        this.container.addEventListener('mousemove', (e) => {
+          if (!this.isDragging) return;
+          e.preventDefault();
+          const x = e.pageX - this.container.offsetLeft;
+          const walk = (x - this.startX) * 2;
+          this.container.scrollLeft = this.scrollLeft - walk;
+        });
+
+        this.container.addEventListener('touchstart', (e) => {
+          this.startX = e.touches[0].pageX - this.container.offsetLeft;
+          this.scrollLeft = this.container.scrollLeft;
+        }, { passive: true });
+
+        this.container.addEventListener('touchmove', (e) => {
+          const x = e.touches[0].pageX - this.container.offsetLeft;
+          const walk = (x - this.startX) * 1.5;
+          this.container.scrollLeft = this.scrollLeft - walk;
+        }, { passive: true });
+      }
+
+      scroll(direction) {
+        const scrollAmount = this.container.offsetWidth * 0.8;
+        const targetScroll = direction === 'next'
+          ? this.container.scrollLeft + scrollAmount
+          : this.container.scrollLeft - scrollAmount;
+
+        this.container.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth'
+        });
+      }
+
+      updateNavigationState() {
+        const isAtStart = this.container.scrollLeft <= 0;
+        const isAtEnd = this.container.scrollLeft + this.container.offsetWidth >= this.container.scrollWidth - 1;
+
+        this.prevButton.disabled = isAtStart;
+        this.nextButton.disabled = isAtEnd;
+      }
+    }
+
+    customElements.define('product-carousel-{{ ai_gen_id }}', ProductCarousel{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Product carousel",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured products"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_limit",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "label": "Maximum products to show",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "product_width_mobile",
+      "min": 150,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Product width (mobile)",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "product_width_desktop",
+      "min": 200,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "label": "Product width (desktop)",
+      "default": 280
+    },
+    {
+      "type": "range",
+      "id": "product_spacing",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "label": "Spacing between products",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Product card"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading size",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#101010"
+    },
+    {
+      "type": "range",
+      "id": "product_title_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Product title size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "product_title_color",
+      "label": "Product title color",
+      "default": "#101010"
+    },
+    {
+      "type": "range",
+      "id": "product_price_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Product price size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "product_price_color",
+      "label": "Product price color",
+      "default": "#101010"
+    },
+    {
+      "type": "color",
+      "id": "sale_price_color",
+      "label": "Sale price color",
+      "default": "#00994d"
+    },
+    {
+      "type": "header",
+      "content": "Navigation arrows"
+    },
+    {
+      "type": "color",
+      "id": "arrow_background",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_hover_background",
+      "label": "Hover background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow color",
+      "default": "#101010"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product carousel"
+    }
+  ]
+}
+{% endschema %}

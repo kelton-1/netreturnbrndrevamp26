@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "bfcm": {
+      "type": "master-2026",
+      "settings": {
+        "hero_image": "shopify://shop_images/Masters_Sale_4_8229d236-cda3-41cd-a167-bbd7ffb3a111.png",
+        "kicker": "Master's Sale 2026",
+        "hero_title": "10% OFF",
+        "hero_sub": "Tuesday, April 7-Sunday, April 12, 2026. Save 10% on Pro Nets, Pro Packages, Simulator Bays, and accessories.",
+        "coupon_text": "No code needed. Discount is automatically applied at checkout.",
+        "coupon_code": "",
+        "hero_cta_label": "",
+        "hero_cta_url": "/collections/all",
+        "compare_sizes_url": "https://www.thenetreturn.com/pages/compare",
+        "nets_collection": "pro-series-nets",
+        "nets_limit": 12,
+        "nets_show_compare": true,
+        "nets_show_badge": true,
+        "packages_collection": "pro-series-packages",
+        "packages_limit": 12,
+        "packages_show_compare": false,
+        "packages_show_badge": false,
+        "accessories_collection": "bfcm-accessories",
+        "acc_subheading": "",
+        "accessories_limit": 12,
+        "accessories_show_compare": false,
+        "accessories_show_badge": false,
+        "acc_extra_offer": "",
+        "acc_extra_offer_url": "",
+        "sim_bays_collection": "sim-bays",
+        "sim_bays_limit": 12,
+        "sim_bays_show_compare": true,
+        "sim_bays_show_badge": true,
+        "sim_bundles_title": "Shop Simulator Bundles",
+        "sim_bundles_collection": "",
+        "sim_bundles_limit": 12,
+        "sim_bundles_show_compare": true,
+        "sim_bundles_show_badge": true,
+        "simulators_collection": "",
+        "simulators_limit": 12,
+        "simulators_show_compare": true,
+        "price_overrides": "",
+        "call_headline": "Talk to a Net Return Expert",
+        "call_sub": "Need help choosing the right setup? Speak to one of our experts to find the best fit for your space and goals.",
+        "call_label": "Schedule a call",
+        "call_url": "https://meetings.hubspot.com/tj-garske/disco-web?uuid=249dda89-4aab-440b-b37b-8998b8511cd5",
+        "call_target": "_self",
+        "reviews": ""
+      }
+    },
+    "176313683804b93921": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_MVQNXE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#ffffff",
+            "textColor": "#ffffff",
+            "itemBackgroundColor": "#191919",
+            "starsColor": "",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "offset-dark",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_MVQNXE"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "bfcm",
+    "176313683804b93921"
+  ]
+}

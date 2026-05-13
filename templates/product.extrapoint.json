@@ -1,0 +1,432 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "faq_xR3dK9": {
+      "type": "faq",
+      "blocks": {
+        "question_M4ETCf": {
+          "type": "question",
+          "settings": {
+            "title": "Specifications",
+            "answer": "<ul><li>Width: 4'</li><li>Height: 7' 6\"</li><li>Depth: 3' 6\"</li><li>Weight: 45 lbs.</li></ul><p>30 Day Money Back Guarantee / Full 3 Year Warranty</p><p><strong>Proudly Manufactured in the USA</strong></p><p><em>Not available in stores.</em></p>"
+          }
+        },
+        "question_weGWLw": {
+          "type": "question",
+          "settings": {
+            "title": "Kick n' Catch",
+            "answer": "<p><strong>The Kick n' Catch feature </strong>is a velcro adjustment that allows for Footballs to be caught in the front pocket, never touching the ground. This feature eliminates kicking wet, muddy or waterlogged Footballs.</p>"
+          }
+        },
+        "question_pyFWnB": {
+          "type": "question",
+          "settings": {
+            "title": "What's Included?",
+            "answer": "<p><strong>Also Includes our Rugged Wheeled Duffle Bag </strong>making transportation to and from practice and game fields a breeze.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_M4ETCf",
+        "question_weGWLw",
+        "question_pyFWnB"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Extra Point Features",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "video_NXaMHJ": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/ExtraPoinKickingNet_4k.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_HYxDYE": {
+      "type": "rich-text",
+      "name": "Rich text",
+      "settings": {
+        "subheading": "",
+        "title": "Why Kickers Love This Net",
+        "content": "<p>The Extra Point Kicking Net is trusted by athletes and coaches across all levels of football because it delivers what serious players need most: performance, durability, and efficiency. Built with heavy-duty materials and engineered for repetition, this backyard football net helps players maximize reps and reduce downtime. The instant ball return system means fewer interruptions between kicks during warm-ups, live practices, or focused solo drills. </p><p>With thousands of uses logged by NFL & NCAA teams, high schools, and trainers, it’s widely considered one of the best football kicking nets available today. No matter if you're training for field goals, punts, or extra point practice, this is the kicking training net designed to deliver results.</p><h2>Portable and Easy to Set Up</h2><p>No tools. No hassle. The Extra Point Kicking Net features The Net Return’s Quick Color Connect System™, a smart, intuitive assembly system that allows you to set up or take down the net in under five minutes. Each tube is color-coded and click-connects securely, making this football kicking net setup a breeze whether you're on the field, at home, or between games. </p><p>Weighing just 45 pounds, it’s light enough to carry but sturdy enough for repeated kicks and punts. The net packs easily into a rugged wheeled duffle bag, perfect for players and coaches who need a portable football net that travels well and holds up season after season.</p><h2>Train Anywhere – Field or Backyard</h2><p>This extra point football net is versatile enough to fit a variety of training spaces. Use it on the practice field, in a gym, or set it up in your driveway or backyard for after-hours reps. The compact footprint makes it well suited for both indoor and outdoor use, while its weather-resistant construction ensures year-round reliability. </p><p>Whether you’re a solo kicker working in a garage or a part of a team warming up on the sideline, this portable football net can always be relied on to support your practice sessions. It’s the ideal practice net for football players looking to train more often in more places.</p><h2>Built for All Skill Levels</h2><p>From youth leagues to professional football teams, this kicker practice net supports development at every level. Private coaches love it for its versatility and speed of setup, while parents appreciate how it enables practicing football at home without the need for a full field. It’s a valuable addition to any football training program—it doesn’t matter if you’re just starting with field goal kicking or refining high-level punting technique. </p><p>Used by high schools, collegiate teams, and national programs alike, this American football kicking net is more than just gear—it’s foundational football equipment for kickers and long snappers who want to train smarter, longer, and more effectively.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "logo_list_XKcgMA": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_gy6PTM": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/nfl.jpg",
+            "link": ""
+          }
+        },
+        "logo_HqwnaV": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/ncaa.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_gy6PTM",
+        "logo_HqwnaV"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "Trusted by the pros",
+        "button_text": "",
+        "button_link": "",
+        "stack_logos": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_NDH8Nr": {
+      "type": "gallery",
+      "blocks": {
+        "image_BzqwTN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-3.jpg",
+            "caption": ""
+          }
+        },
+        "image_Mi6AmM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-4.jpg",
+            "caption": ""
+          }
+        },
+        "image_VLVazA": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-2.jpg",
+            "caption": ""
+          }
+        },
+        "image_8W4Nz4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/XP-11.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BzqwTN",
+        "image_Mi6AmM",
+        "image_VLVazA",
+        "image_8W4Nz4"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_af4QcD": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "Want to customize your Extra Point?",
+        "content": "<p>Add your team logos, colors, and more.</p>",
+        "button_text": "Customize",
+        "button_link": "shopify://products/custom-extra-point-net",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_YiQ9Nr": {
+      "type": "gallery",
+      "blocks": {
+        "image_j9DGkc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/XP-9.jpg",
+            "caption": ""
+          }
+        },
+        "image_4ae8t3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-1.jpg",
+            "caption": ""
+          }
+        },
+        "image_nLhLJn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_Pa7fJ4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/nr-xp-6.jpg",
+            "caption": ""
+          }
+        },
+        "image_rfthPn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/XP-7.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_j9DGkc",
+        "image_4ae8t3",
+        "image_nLhLJn",
+        "image_Pa7fJ4",
+        "image_rfthPn"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "accordion_content_6jzpCi": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_KDVMyH": {
+          "type": "item",
+          "settings": {
+            "title": "Why make an Extra Point Net?",
+            "icon": "check_mark",
+            "content": "<p>The Extra Point Kicking Net was developed to meet a real need in football kicking practice—a net designed specifically for kickers, punters, and long snappers. Most nets on the market are generic and can’t withstand the repetitive impact of focused kicker practice. This extra point net is built for serious training, offering automatic ball return, elite durability, and a compact, portable size. It’s an excellent accessory for anyone looking to improve their punting or field goal kicking without needing a full field or catching partner.</p>",
+            "page": ""
+          }
+        },
+        "item_BH4ByK": {
+          "type": "item",
+          "settings": {
+            "title": "Where can I use the Extra Point Net?",
+            "icon": "check_mark",
+            "content": "<p>The Extra Point Net is engineered for total versatility—use it on the practice field, in the backyard, your garage, or even in a large indoor gym. Its compact size and portability make it an ideal solution for athletes who want to train year-round without needing a full team facility. With our <a href=\"https://www.thenetreturn.com/products/outdoor-cover\"><span style=\"text-decoration:underline\">Outdoor Cover</span></a>, you can even leave your net outside without fear of adverse weather conditions.</p><p>Other suitable training environments include:</p><ul><li>Sideline warm-up areas during games</li><li>Indoor sports facilities or turf domes</li><li>School parking lots or blacktops</li><li>College recreation centers and field houses</li><li>Rooftops or urban settings with limited space</li></ul><p>No matter where you set it up, this football net for backyard and field use helps you get in meaningful reps. It’s one of the best options available for a solo kicker net setup that delivers real results.</p>",
+            "page": ""
+          }
+        },
+        "item_hV3Gax": {
+          "type": "item",
+          "settings": {
+            "title": "Is the Extra Point Net easy to install?",
+            "icon": "check_mark",
+            "content": "<p>Yes—setup is quick, intuitive, and completely tool-free. Thanks to the Quick Color Connect System™, each frame piece is color-coded and clicks into place in under five minutes. You don’t need tools, extra hands, or a long instruction manual. </p><p>Whether you're a coach setting up a net for extra point practice or a busy parent helping your little athlete train in the backyard, it could hardly be easier to set up this equipment. The compact frame and durable design also means that it’s easy to disassemble and store—another reason why it's one of the most user-friendly football practice nets on the market.</p>",
+            "page": ""
+          }
+        },
+        "item_kUFatN": {
+          "type": "item",
+          "settings": {
+            "title": "Do you offer free shipping on the Extra Point Net?",
+            "icon": "check_mark",
+            "content": "<p>Yes! All Extra Point Football Net orders over $650 qualify for free ground shipping within the continental U.S. That includes everything you need for a complete, portable kicking net football setup—perfect for personal use or team training. We believe serious kicker practice net tools should be both accessible and reliable, and we aim to make that experience seamless from order to delivery. Get your field goal practice net without extra fees or complicated logistics, and start training smarter from your backyard, garage, or wherever you want to set up.</p>",
+            "page": ""
+          }
+        },
+        "item_MMni7D": {
+          "type": "item",
+          "settings": {
+            "title": "Who is the Extra Point Net best for?",
+            "icon": "check_mark",
+            "content": "<p>The Extra Point Net is built for a wide range of athletes. It’s a fantastic piece of equipment for youth football players just learning their form, high school and college kickers sharpening their accuracy, and coaches or parents supporting skill development at home. This football practice net is also trusted by private instructors working with serious recruits and specialists. </p><p>From developing fundamentals to preparing for competitive play, it’s the most dependable kicking and punting net in its class. If you're looking for the best football kicking net for performance, portability, and long-term value, this one checks every box.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_KDVMyH",
+        "item_BH4ByK",
+        "item_hV3Gax",
+        "item_kUFatN",
+        "item_MMni7D"
+      ],
+      "name": "Accordion content",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Frequently Asked Questions",
+        "content": "",
+        "image": "shopify://shop_images/extra_point_custom_net.png",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "align_content": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "image_with_text_overlay_nYLQKJ": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/XP-8.jpg",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_xR3dK9",
+    "product-content",
+    "video_NXaMHJ",
+    "rich_text_HYxDYE",
+    "logo_list_XKcgMA",
+    "gallery_NDH8Nr",
+    "rich_text_af4QcD",
+    "gallery_YiQ9Nr",
+    "accordion_content_6jzpCi",
+    "image_with_text_overlay_nYLQKJ"
+  ]
+}

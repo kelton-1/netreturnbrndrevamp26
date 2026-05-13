@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "rich_text_FLH67F": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "Subheading",
+        "title": "Shipping",
+        "content": "<p><strong>USA:</strong></p><p>All orders shipping within the United States qualify for FREE UPS Ground Shipping over $300.</p><p><strong>Outside the USA: </strong></p><p>All orders shipping outside the USA will be calculated at checkout. </p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_pCUePm": {
+      "type": "faq",
+      "blocks": {
+        "question_VRxHq3": {
+          "type": "question",
+          "settings": {
+            "title": "FAQ",
+            "answer": "<p><a href=\"/pages/faq\" title=\"FAQ\">Net Return - Frequently Asked Questions</a></p>"
+          }
+        },
+        "question_y3nDLb": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping",
+            "answer": "<p><strong>USA:</strong></p><p>All orders shipping within the Continental United States qualify for FREE UPS Ground Shipping.</p><p><strong>Outside the USA: </strong></p><p>All orders shipping outside the USA, Hawaii and Alaska, will be calculated at checkout. </p>"
+          }
+        },
+        "question_FPqXeg": {
+          "type": "question",
+          "settings": {
+            "title": "Returns",
+            "answer": "<p>We offer a 30-Day Money Back Guarantee on undamaged products. Customers are responsible for any shipping costs involved in the return process, which will include a 15% restocking fee. Items must be returned within 14 days of starting your return process.<br/><br/>Please complete the form below, and send all items to the following address:</p><p>The Net Return, LLC.<br/>280 9th Ave.<br/>Unit #4<br/>Hawthorne, NJ 07506</p><p>(973) 636-7354</p><p><a href=\"https://paulthenet.returnscenter.com/\" target=\"_blank\" title=\"https://paulthenet.returnscenter.com/\">Start Your Return</a></p>"
+          }
+        },
+        "question_haK74q": {
+          "type": "question",
+          "settings": {
+            "title": "Warranty",
+            "answer": "<p>We offer a 250,000 shots or 3-year warranty on nets, whichever comes first. All of our nets have a modular design, so we can quickly and easily provide specific replacement parts necessary to resolve any issues.</p><p>Golf simulator screens are covered for one (1) year from the date of purchase.</p><p><strong>To Obtain Warranty Service:</strong></p><p>Contact us at support@thenetreturn.com.</p><p><em>You will need to provide us with proof of purchase and a description of the defect. We may also ask you to provide photographs or other evidence of the defect. We will then evaluate the claim and determine whether it is covered by this limited warranty.<br/><br/></em><a href=\"https://www.thenetreturn.com/pages/waranty-policy\" title=\"https://www.thenetreturn.com/pages/waranty-policy\"><strong>Warranty Policy</strong></a></p>"
+          }
+        },
+        "question_PyjwQW": {
+          "type": "question",
+          "settings": {
+            "title": "Product Usage Guidelines",
+            "answer": "<ul><li>Inspect the golf balls you are using and avoid using scuffed or damaged golf ball. These imperfections can cause the ball to act as a knife and can ultimately rip the net.</li><li>Inspect your net for wear and tear such as fraying. We highly recommend you purchase a Net Guardian if your shots are repeatedly hitting the same spot to increase net longevity.</li><li>Avoid leaving the net return outdoors in inclement weather. We also recommend laying our nets down flat during instances of strong winds.</li><li>Ensure your practice area is free and clear of people and objects to prevent injury.</li><li>We recommend pushing excess netting underneath the net towards the back of the frame to ensure proper ball return and reduce premature wear.</li><li>While our <a href=\"https://www.thenetreturn.com/collections/bulletproof\" title=\"https://www.thenetreturn.com/collections/bulletproof\">Bulletproof</a> nets are made of DyneemaⓇ and can withstand ball speeds of over 250 mph, they are not bulletproof. Do not attempt to fire a bullet through a Bulletproof net.</li></ul>"
+          }
+        },
+        "question_77NMhj": {
+          "type": "question",
+          "settings": {
+            "title": "International Distributors",
+            "answer": "<p>Interested in purchasing a Net Return and are located outside of North America? Please see below for information about our exclusive international distributors.</p><h3><strong>Australia + New Zealand + Asia Pacific</strong></h3><p><a href=\"https://thenetreturn.com.au/\" target=\"_blank\" title=\"https://thenetreturn.com.au/\">https://thenetreturn.com.au/<br/></a><a href=\"tel:+61 2 8102 7876\" title=\"tel:+61 2 8102 7876\">+61 2 8102 7876</a> (outside Australia)<br/><a href=\"tel:02 8102 7876\" title=\"tel:02 8102 7876 \">02 8102 7876</a> (within Australia)<br/><a href=\"mailto:info@thenetreturn.com.au\" title=\"mailto:info@thenetreturn.com.au\">info@thenetreturn.com.au</a><strong><br/></strong></p><h3><strong>Canada</strong></h3><p><a href=\"https://www.thenetreturn.ca/\" title=\"https://www.thenetreturn.ca/\">https://www.thenetreturn.ca/</a><a href=\"https://thenetreturn.com.au/\" target=\"_blank\" title=\"https://thenetreturn.com.au/\"><br/></a><a href=\"tel:1-877-586-7723\" title=\"tel:1-877-586-7723\">1-877-586-7723</a><br/><a href=\"mailto:customercare@thenetreturn.ca\" title=\"mailto:customercare@thenetreturn.ca\">customercare@thenetreturn.ca</a><strong><br/></strong></p><h3><strong>Europe + UK</strong></h3><p><a href=\"https://www.thenetreturneurope.eu/\" title=\"https://www.thenetreturneurope.eu/\">https://www.thenetreturneurope.eu/</a><a href=\"https://thenetreturn.com.au/\" target=\"_blank\" title=\"https://thenetreturn.com.au/\"><br/></a><a href=\"tel:(+352)%C2%A020 600 870\" title=\"tel:(+352) 20 600 870\">(+352) 20 600 870</a><br/><a href=\"mailto:support@thenetreturneurope.eu\" title=\"mailto:support@thenetreturneurope.eu\">support@thenetreturneurope.eu<br/></a></p><h3><strong>South Africa</strong></h3><p><a href=\"https://www.theproshop.co.za/\" title=\"https://www.theproshop.co.za/\">https://www.theproshop.co.za/</a><a href=\"https://thenetreturn.com.au/\" target=\"_blank\" title=\"https://thenetreturn.com.au/\"><br/></a><a href=\"tel:(011) 563 5011\" title=\"tel:(011) 563 5011\">(011) 563 5011</a><br/><a href=\"mailto:Info@theproshop.co.za\" title=\"mailto:Info@theproshop.co.za\">Info@theproshop.co.za</a></p><p></p>"
+          }
+        },
+        "question_M6qnkz": {
+          "type": "question",
+          "settings": {
+            "title": "Military & First Responders Discount",
+            "answer": "<p>Thank you for your service. Please take advantage of our partnership with GovX to save up to 10% on your order.</p><p><strong>This offer is eligible for:</strong></p><ul><li>Current & former U.S. military</li><li>Military spouses & dependents</li><li>First responders including law enforcement, fire, and EMS</li><li>Federal, state, and local government employees</li><li>Teachers (K-12 and University teachers/staff)</li></ul><p><a href=\"/pages/govx-id-military-discount\" title=\"GovX ID Military Discount\">Explore Our Military & First Responders Discount</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_VRxHq3",
+        "question_y3nDLb",
+        "question_FPqXeg",
+        "question_haK74q",
+        "question_PyjwQW",
+        "question_77NMhj",
+        "question_M6qnkz"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Support",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_FLH67F",
+    "faq_pCUePm"
+  ]
+}

@@ -1,0 +1,187 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_block_tBL3ML": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/1500x1800-1.jpg",
+        "subheading": "",
+        "title": "Ambassador Program",
+        "content": "<p>Join Team Net Return's Ambassador Program and earn 10% for every sale you refer. Share our premium nets with your network and get paid. Sign up now!</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "multi_column_mcWhFz": {
+      "type": "multi-column",
+      "blocks": {
+        "item_nqEpgF": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Get a Custom URL",
+            "content": "<p>Get a Custom Referral URL<strong> </strong>to share with your network.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_jfEp9m": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Refer Your Network",
+            "content": "<p>Share your Custom URL<strong> </strong>with your network of potential customers. This URL will take your referral to The Net Return website.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_AEYPVD": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Get Paid",
+            "content": "<p>When your referral clicks on your link and orders from The Net Return website, you get a 10% Commission on that order.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "item_nqEpgF",
+        "item_jfEp9m",
+        "item_AEYPVD"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "Sell Nets, Get Paid",
+        "title": "How It Works",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "large",
+        "desktop_item_size": "large",
+        "spacing": "loose",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_F9nC3X": {
+      "type": "faq",
+      "blocks": {
+        "question_crYGeb": {
+          "type": "question",
+          "settings": {
+            "title": "Apply as an Ambassador",
+            "answer": "<p>Questions? Please email <a href=\"mailto:%22brandon@thenetreturn.com%22\" title=\"mailto:&quot;brandon@thenetreturn.com&quot;\">brandon@thenetreturn.com</a>.</p>"
+          }
+        },
+        "question_ytGgtz": {
+          "type": "question",
+          "settings": {
+            "title": "Application Review",
+            "answer": "<p>We will review your application within 24-48 hours, and upon approval, you will be notified by email.</p>"
+          }
+        },
+        "question_eVcf7t": {
+          "type": "question",
+          "settings": {
+            "title": "Approval",
+            "answer": "<p>Upon approval, you will receive an email with your affiliate url.</p>"
+          }
+        },
+        "question_NXNNjH": {
+          "type": "question",
+          "settings": {
+            "title": "Marketing Assets",
+            "answer": "<p>Upon Approval, you will receive a link to access our library of ambassador assets, including photos, videos and graphics you can use in you marketing, website, blog & emails.</p>"
+          }
+        },
+        "question_UxqttJ": {
+          "type": "question",
+          "settings": {
+            "title": "Terms & Conditions",
+            "answer": "<p>By registering as an ambassador with The Net Return, you agree to the following terms and conditions:</p><ol><li><strong>Termination Rights:</strong> The Net Return reserves the right to terminate any ambassador at its sole discretion.</li><li><strong>Grounds for Removal:</strong> Ambassadors may be removed for posting content that contradicts the brand and messaging The Net Return aims to portray.</li><li><strong>Prohibited Promo Code Usage:</strong> The use of promo codes on coupon code websites is strictly prohibited. Any ambassador found to be abusing this policy will be removed from the program.</li><li><strong>Referral Conversion Approval:</strong> Referrals generated through prohibited means, such as promo code websites, will be denied. The Net Return reserves the right to approve or deny any referral conversion that it deems to be in violation of these terms and conditions.</li></ol><p>By participating in The Net Return Ambassador Program, you agree to comply with these terms and understand that violations may result in termination of your ambassador status.</p>"
+          }
+        },
+        "question_nKdDgf": {
+          "type": "question",
+          "settings": {
+            "title": "Questions",
+            "answer": "<p>Questions? Please email <a href=\"mailto:%22paul@thenetreturn.com%22\" target=\"_blank\" title=\"mailto:&quot;paul@thenetreturn.com&quot;\">paul@thenetreturn.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_crYGeb",
+        "question_ytGgtz",
+        "question_eVcf7t",
+        "question_NXNNjH",
+        "question_UxqttJ",
+        "question_nKdDgf"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Application Process",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "custom_liquid_JnJD9g": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<p id=\"refersion\"><script type=\"text/javascript\" src=\"//cdn.refersion.com/iframe.js\"></script>\n<div id=\"refersion-iframe-goes-here\" data-frame-url=\"https://thenetreturn.refersion.com/affiliate/registration\"></div>",
+        "add_vertical_spacing": true,
+        "disable_editor_execution": true,
+        "background_type": "boxed",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_block_tBL3ML",
+    "multi_column_mcWhFz",
+    "faq_F9nC3X",
+    "custom_liquid_JnJD9g"
+  ]
+}

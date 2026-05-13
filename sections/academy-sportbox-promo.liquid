@@ -1,0 +1,101 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-media-radius: {{ section.settings.media_radius }}px;
+    --academy-card-background: {{ section.settings.badge_background }};
+    --academy-card-border: {{ section.settings.badge_border }};
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="academy-section academy-sportbox {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    <div class="academy-sportbox__layout">
+      <div class="academy-sportbox__media-stack">
+        <div class="academy-media-frame">
+          {%- render 'academy-picture',
+            image: section.settings.image,
+            mobile_image: section.settings.image_mobile,
+            sizes: '(max-width: 989px) 100vw, 46vw'
+          -%}
+        </div>
+
+        {%- if section.settings.badge_image != blank or section.settings.badge_heading != blank or section.settings.badge_text != blank -%}
+          <div class="academy-sportbox__badge-card academy-card" style="left: 20px; bottom: 20px; max-width: 220px; padding: 18px;">
+            {%- if section.settings.badge_image != blank -%}
+              {{
+                section.settings.badge_image
+                | image_url: width: 160
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '60,90,120,160',
+                  alt: section.settings.badge_image.alt,
+                  class: 'academy-training__badge-image'
+              }}
+            {%- endif -%}
+            {%- if section.settings.badge_heading != blank -%}
+              <p class="heading font-medium text-lg">{{ section.settings.badge_heading }}</p>
+            {%- endif -%}
+            {%- if section.settings.badge_text != blank -%}
+              <div class="academy-description rte">{{ section.settings.badge_text }}</div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        {%- render 'academy-heading', section: section -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Sportbox Promo",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width" },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "Sportbox AI x Net Return" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Pair intelligent feedback with a training setup you already trust." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h2", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }, { "value": "div", "label": "Div" }] },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "title-lg tracking-heading", "options": [{ "value": "title-xl tracking-heading", "label": "XL" }, { "value": "title-lg tracking-heading", "label": "Large" }, { "value": "title-md", "label": "Medium" }] },
+    { "type": "select", "id": "heading_alignment", "label": "Heading alignment", "default": "left", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }] },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Use this two-column section for a collaboration announcement, partner feature, or product integration story.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Learn more" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "select", "id": "button_style", "label": "Button style", "default": "primary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "image_picker", "id": "badge_image", "label": "Badge image" },
+    { "type": "text", "id": "badge_heading", "label": "Badge heading", "default": "Integrated analysis" },
+    { "type": "richtext", "id": "badge_text", "label": "Badge text", "default": "<p>Use this small callout for the partner benefit or proof point.</p>" },
+    { "type": "range", "id": "media_radius", "label": "Media radius", "min": 0, "max": 40, "step": 2, "default": 32, "unit": "px" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#0f1715" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+    { "type": "color", "id": "color_button_text", "label": "Button text color", "default": "#0f1715" },
+    { "type": "color", "id": "color_button_background", "label": "Button background color", "default": "#b8ff2c" },
+    { "type": "color_background", "id": "color_button_gradient", "label": "Button gradient" },
+    { "type": "color", "id": "badge_background", "label": "Badge background", "default": "#163129" },
+    { "type": "color", "id": "badge_border", "label": "Badge border", "default": "#2d5a4d" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" }
+  ],
+  "presets": [
+    { "name": "Academy Sportbox Promo" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,202 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_tH4fqU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "product_variations_tH4fqU",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "faq_EJFPb7": {
+      "type": "faq",
+      "blocks": {
+        "question_zLCJTM": {
+          "type": "question",
+          "settings": {
+            "title": "Can I leave my golf net outdoors permanently with the cover on?",
+            "answer": "<p>Yes—if you plan to leave your golf practice net outdoors permanently, The Net Return Outdoor Cover is highly recommended. It adds protection from prolonged UV exposure, rain, snow, and airborne debris between your practice sessions. While The Net Return’s high-quality golf nets are built to withstand the elements, covering them ensures longer-lasting performance and reduces wear on the sleeve and frame. </p><p>This premium golf net storage solution helps prevent issues such as fabric fading, moisture damage, and corrosion. For best results, use the cover during extended periods of non-use or severe weather.<br/><br/></p>"
+          }
+        },
+        "question_McXdpW": {
+          "type": "question",
+          "settings": {
+            "title": "What parts of the net system does the Outdoor Cover protect?",
+            "answer": "<p>The Net Return Outdoor Cover is engineered to protect the three core elements of your system: the frame, the netting, and the sleeve. Its UV-resistant polyester shell shields the structure from harmful sun exposure, while its weather-blocking design keeps rain and snow off the hitting net and frame. This means your golf training installation will stay in peak condition, even after being left outside for extended periods. </p>"
+          }
+        },
+        "question_Va7Hag": {
+          "type": "question",
+          "settings": {
+            "title": "How is the Outdoor Cover secured to the frame during use?",
+            "answer": "<p>Installing the Net Return Outdoor Cover is simple, fast, and effective. The lightweight design features full-length zippers for easy draping over the net, while integrated flexcord wraps allow you to cinch the cover snugly around the frame. </p><p>Two reinforced booties attach to the bottom of the frame, locking the cover in place to prevent shifting in wind or rain. This ensures your UV-resistant golf net cover stays secure in most weather conditions. You won’t need tools or extra hardware—just zip, wrap, and secure.</p>"
+          }
+        },
+        "question_iRMw9R": {
+          "type": "question",
+          "settings": {
+            "title": "Is the cover compatible with accessories like side barriers or frame pads?",
+            "answer": "<p>The Net Return Outdoor Cover is designed to fit snugly over a standard net and frame setup. To achieve a secure, weatherproof fit, it’s best to remove Net Return accessories such as side barriers, No Fly Zones, or horizontal frame pads before covering your net. These add-ons may interfere with the zippers and stretch cords that keep the cover tight to the frame. </p><p>For complete storage protection, strip your setup down to the core net and frame before installing the cover. It’s the most effective way to shield your home golf system from the elements while relieving you of the need to dismantle the entire structure whenever bad weather is approaching.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_zLCJTM",
+        "question_McXdpW",
+        "question_Va7Hag",
+        "question_iRMw9R"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "title": "You may also like",
+        "recommendations_count": 4,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_EJFPb7",
+    "product-recommendations",
+    "1713971222a271d416"
+  ]
+}

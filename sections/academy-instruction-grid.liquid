@@ -1,0 +1,118 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-card-background: {{ section.settings.card_background }};
+    --academy-card-border: {{ section.settings.card_border }};
+    --academy-media-radius: {{ section.settings.media_radius }}px;
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="academy-section academy-instruction-grid {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    {%- render 'academy-heading', section: section -%}
+
+    <div class="academy-instruction-grid__grid">
+      {%- for block in section.blocks -%}
+        <div class="academy-instruction-grid__card academy-card" {{ block.shopify_attributes }}>
+          <div class="academy-media-frame">
+            {%- render 'academy-picture',
+              image: block.settings.image,
+              mobile_image: block.settings.image_mobile,
+              sizes: '(max-width: 989px) 100vw, 31vw'
+            -%}
+          </div>
+          <div class="academy-instruction-grid__card-copy">
+            {%- if block.settings.kicker != blank -%}
+              <p class="academy-eyebrow">{{ block.settings.kicker | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h3 class="heading font-bold text-2xl">{{ block.settings.heading }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <div class="academy-description rte">
+                {{- block.settings.text -}}
+              </div>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <div class="academy-actions">
+                {%- render 'academy-button', label: block.settings.button_label, link: block.settings.button_link, style: block.settings.button_style -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.bottom_button_label != blank -%}
+      <div class="academy-actions" style="margin-top: 28px;">
+        {%- render 'academy-button', label: section.settings.bottom_button_label, link: section.settings.bottom_button_link, style: section.settings.bottom_button_style -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Instruction Grid",
+  "max_blocks": 6,
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width" },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "PGA-level instruction" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Built by coaches who know how to turn reps into scores." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h2", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }, { "value": "div", "label": "Div" }] },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "title-lg tracking-heading", "options": [{ "value": "title-xl tracking-heading", "label": "XL" }, { "value": "title-lg tracking-heading", "label": "Large" }, { "value": "title-md", "label": "Medium" }] },
+    { "type": "select", "id": "heading_alignment", "label": "Heading alignment", "default": "left", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }] },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Use three-column cards with imagery, supporting text, and a section-level CTA beneath the grid.</p>" },
+    { "type": "text", "id": "bottom_button_label", "label": "Bottom CTA label", "default": "See the full coaching team" },
+    { "type": "url", "id": "bottom_button_link", "label": "Bottom CTA link" },
+    { "type": "select", "id": "bottom_button_style", "label": "Bottom CTA style", "default": "primary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "range", "id": "media_radius", "label": "Image radius", "min": 0, "max": 40, "step": 2, "default": 24, "unit": "px" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#101818" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#163129" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#2d5a4d" },
+    { "type": "color", "id": "color_button_text", "label": "Button text color", "default": "#101818" },
+    { "type": "color", "id": "color_button_background", "label": "Button background color", "default": "#b8ff2c" },
+    { "type": "color_background", "id": "color_button_gradient", "label": "Button gradient" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Instruction card",
+      "settings": [
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "Coach series" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Lead your practice with clear coaching." },
+        { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Use this card for coach bios, instructional pillars, or curriculum modules.</p>" },
+        { "type": "text", "id": "button_label", "label": "Button label" },
+        { "type": "url", "id": "button_link", "label": "Button link" },
+        { "type": "select", "id": "button_style", "label": "Button style", "default": "secondary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+        { "type": "image_picker", "id": "image", "label": "Desktop image" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Academy Instruction Grid",
+      "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }]
+    }
+  ]
+}
+{% endschema %}

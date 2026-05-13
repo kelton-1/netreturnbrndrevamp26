@@ -1,0 +1,52 @@
+<style>
+    body.tpl--index .shopify-section--slideshow slide-show.slideshow slide-show-item:nth-child(1) {
+        visibility: visible !important;
+    }
+    .product.product--thumbnails-bottom product-media#levar_photo_box .product__media-list-wrapper flickity-carousel .product__media-item:nth-child(1) img,
+    .shopify-section--featured-collections product-item.product-item[reveal],image-with-text-overlay .image-overlay__image-wrapper img.image-overlay__image[reveal]{
+        opacity: 1 !important;
+    } 
+    #main > .shopify-section--image-with-text-block:nth-child(1) image-with-text-block *,
+    #main > .shopify-section--image-with-text-block:nth-child(2) image-with-text-block *,
+    #main > .shopify-section--image-with-text-block:nth-child(1) .image-with-text-block__image-wrapper > img[reveal],
+    #main > .shopify-section--image-with-text-block:nth-child(1) .image-with-text-block__image-wrapper > img[reveal] {
+        opacity: 1 !important;
+        animation:none !important;
+    }
+    html:not(.w3_user) .list-collections__item-image-wrapper [reveal],html:not(.w3_user) .list-collections__item-info [reveal]{
+        opacity: 1 !important;
+        transition: transform .5s;
+        transform: translateZ(0);
+    }
+    html:not(.w3_user) .product.product--thumbnails-bottom product-media#levar_photo_box:not(.became-visible) .product__media-list-wrapper .product__media-item:not(is-selected):nth-child(n+2) {
+        display: none;
+    }
+    {% unless template contains 'collection' %}
+        html:not(.w3_user) .shopify-section--featured-collections .featured-collections product-list product-item.product-item img{
+            opacity:0;
+        }  
+    {% endunless %}
+    
+    @media(max-width:767px){
+        body.tpl--index section.tnr-collection-list .hidden-lap-and-up > collection-list > scrollable-content .list-collections__item-list > a:nth-child(1) img[reveal] {
+            opacity: 1 !important;
+        }
+    }
+    @media(min-width:1200px){
+        .product.product--thumbnails-bottom product-media#levar_photo_box:not(.became-visible) .product__media-nav scroll-shadow button.product__thumbnail-item{
+            opacity: 1;
+        }
+        .product.product--thumbnails-bottom product-media#levar_photo_box .levar-buttons-wrapper{
+            display: flex;
+        }
+    }
+    html:not(.mainopt):not(.w3_user ), html:not(.mainopt):not(.w3_user ) *  {
+        font-family: unset !important;
+    } 
+    html:not(.mainopt) body.tpl--index section.tnr-collection-list .hidden-lap-and-up > collection-list > scrollable-content .list-collections__item-list > a img[reveal] {
+        opacity: 0 !important;
+    }
+    {% comment %} body.tpl--index .shopify-section--slideshow slide-show.slideshow slide-show-item:nth-child(1) [reveal] {
+        opacity: 1;
+    } {% endcomment %}
+</style>

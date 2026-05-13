@@ -1,0 +1,156 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-media-radius: {{ section.settings.media_radius }}px;
+    --academy-card-background: {{ section.settings.badge_background }};
+    --academy-card-border: {{ section.settings.badge_border }};
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section id="academy-hero-{{ section.id }}" class="academy-section academy-hero {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    <div class="academy-hero__layout">
+      <div class="academy-hero__copy">
+        {%- if section.settings.subheading != blank -%}
+          <p class="academy-eyebrow">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="academy-title heading font-bold {{ section.settings.heading_size }}">
+            {{- section.settings.heading -}}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="academy-description rte">
+            {{- section.settings.description -}}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.badge_text != blank -%}
+          <div class="academy-badge">
+            {%- if section.settings.badge_icon != blank -%}
+              {{
+                section.settings.badge_icon
+                | image_url: width: 80
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '40,60,80',
+                  alt: section.settings.badge_icon.alt
+              }}
+            {%- endif -%}
+            <span>{{ section.settings.badge_text }}</span>
+          </div>
+        {%- endif -%}
+
+        <div class="academy-actions">
+          {%- render 'academy-button', label: section.settings.button_label, link: section.settings.button_link, style: section.settings.button_style -%}
+          {%- render 'academy-button', label: section.settings.secondary_button_label, link: section.settings.secondary_button_link, style: section.settings.secondary_button_style -%}
+        </div>
+
+        {%- if section.settings.store_badge_1_label != blank or section.settings.store_badge_2_label != blank -%}
+          <div class="academy-hero__store-row">
+            {%- for index in (1..2) -%}
+              {%- liquid
+                assign label_key = 'store_badge_' | append: index | append: '_label'
+                assign link_key = 'store_badge_' | append: index | append: '_link'
+                assign image_key = 'store_badge_' | append: index | append: '_icon'
+                assign label_value = section.settings[label_key]
+                assign link_value = section.settings[link_key]
+                assign image_value = section.settings[image_key]
+              -%}
+              {%- if label_value != blank -%}
+                <a
+                  class="academy-hero__store-link"
+                  {% if link_value == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ link_value }}"
+                  {% endif %}
+                >
+                  {%- if image_value != blank -%}
+                    {{
+                      image_value
+                      | image_url: width: 80
+                      | image_tag:
+                        loading: 'lazy',
+                        widths: '40,60,80',
+                        alt: image_value.alt
+                    }}
+                  {%- endif -%}
+                  <span>{{ label_value }}</span>
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="academy-media-frame">
+        {%- render 'academy-picture',
+          image: section.settings.image,
+          mobile_image: section.settings.image_mobile,
+          sizes: '(max-width: 989px) 100vw, 50vw'
+        -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Hero",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": true },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "Structured instruction." },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Everything you need to improve from home." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h1", "options": [{ "value": "h1", "label": "H1" }, { "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }, { "value": "div", "label": "Div" }] },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "title-xl tracking-heading", "options": [{ "value": "title-xl tracking-heading", "label": "XL" }, { "value": "title-lg tracking-heading", "label": "Large" }, { "value": "title-md", "label": "Medium" }, { "value": "text-2xl lg:text-3xl", "label": "Small" }] },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>Use this hero to introduce the Academy with a strong promise, supporting copy, and two calls to action.</p>" },
+    { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Backed by elite coaches and trusted at home." },
+    { "type": "image_picker", "id": "badge_icon", "label": "Badge icon" },
+    { "type": "text", "id": "button_label", "label": "Primary button label", "default": "Join the Academy" },
+    { "type": "url", "id": "button_link", "label": "Primary button link" },
+    { "type": "select", "id": "button_style", "label": "Primary button style", "default": "primary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "text", "id": "secondary_button_label", "label": "Secondary button label", "default": "Watch preview" },
+    { "type": "url", "id": "secondary_button_link", "label": "Secondary button link" },
+    { "type": "select", "id": "secondary_button_style", "label": "Secondary button style", "default": "secondary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "text", "id": "store_badge_1_label", "label": "Store badge 1 label", "default": "Available in app" },
+    { "type": "url", "id": "store_badge_1_link", "label": "Store badge 1 link" },
+    { "type": "image_picker", "id": "store_badge_1_icon", "label": "Store badge 1 icon" },
+    { "type": "text", "id": "store_badge_2_label", "label": "Store badge 2 label", "default": "Compatible with home setup" },
+    { "type": "url", "id": "store_badge_2_link", "label": "Store badge 2 link" },
+    { "type": "image_picker", "id": "store_badge_2_icon", "label": "Store badge 2 icon" },
+    { "type": "image_picker", "id": "image", "label": "Desktop image" },
+    { "type": "image_picker", "id": "image_mobile", "label": "Mobile image" },
+    { "type": "range", "id": "media_radius", "label": "Media radius", "min": 0, "max": 40, "step": 2, "default": 32, "unit": "px" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#0f1715" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient", "default": "linear-gradient(180deg, rgba(15, 23, 21, 1), rgba(19, 45, 34, 1) 100%)" },
+    { "type": "color", "id": "color_button_text", "label": "Button text color", "default": "#0f1715" },
+    { "type": "color", "id": "color_button_background", "label": "Button background color", "default": "#b8ff2c" },
+    { "type": "color_background", "id": "color_button_gradient", "label": "Button gradient" },
+    { "type": "color", "id": "badge_background", "label": "Badge background", "default": "#17332e" },
+    { "type": "color", "id": "badge_border", "label": "Badge border", "default": "#315d55" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 200, "step": 4, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 200, "step": 4, "default": 88, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 160, "step": 4, "default": 56, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 160, "step": 4, "default": 56, "unit": "px" }
+  ],
+  "presets": [
+    { "name": "Academy Hero" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,675 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_Xqzptn": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/2000x1000.png",
+            "mobile_image": "shopify://shop_images/Socials_1.png",
+            "text_position": "bottom_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "https://www.thenetreturn.com/pages/master-2026",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_dVHiPV": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/image_0b4da264-fac0-43cd-a65e-b45f57b51974.png",
+            "mobile_image": "shopify://shop_images/Mobile_6.png",
+            "text_position": "bottom_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "shopify://collections/azalea",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#101010",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "slide-1": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/bryson-posed.png",
+            "mobile_image": "shopify://shop_images/1080x1500-bryson-posed.png",
+            "text_position": "middle_left",
+            "subheading": "Bryson Dechambeau",
+            "title": "Trusted by the Pros",
+            "button_1_text": "Shop Nets",
+            "button_1_link": "shopify://collections/nets-1",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#00994d",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 5
+          }
+        },
+        "image_ktJUCw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/brysonwin-2160x1080.jpg",
+            "mobile_image": "shopify://shop_images/brysonwin-1080x1500.jpg",
+            "text_position": "middle_left",
+            "subheading": "Bryson Dechambeau - 2024 U.S. Open Champion",
+            "title": "Trusted by the Champion",
+            "button_1_text": "Shop Nets",
+            "button_1_link": "shopify://collections/nets-1",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#00994d",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 20
+          }
+        },
+        "image_9xPJfV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/front-home2.png",
+            "mobile_image": "shopify://shop_images/1080x1500-home.png",
+            "text_position": "middle_left",
+            "subheading": "Where Better Begins",
+            "title": "The #1 Net in Golf",
+            "button_1_text": "Shop Nets",
+            "button_1_link": "shopify://collections/nets-1",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#00994d",
+            "button_text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 22
+          }
+        }
+      },
+      "block_order": [
+        "image_Xqzptn",
+        "image_dVHiPV",
+        "slide-1",
+        "image_ktJUCw",
+        "image_9xPJfV"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "trust_bar_DdPqga": {
+      "type": "trust-bar",
+      "name": "Trust bar",
+      "settings": {}
+    },
+    "17621461567133e3c2": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_af24d37_YB8jBj": {
+          "type": "ai_gen_block_af24d37",
+          "settings": {
+            "message": "Free Shipping on All Products — Limited time. Shop now →",
+            "link_url": "",
+            "background_color": "#101010",
+            "text_color": "#ffffff",
+            "accent_color": "#16a34a"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_af24d37_YB8jBj"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "1732595390d1c0d5bd": {
+      "type": "apps",
+      "blocks": {
+        "hextom_timer_bar_ctb_custom_placement_dDeYTB": {
+          "type": "shopify://apps/hextom-timer-bar/blocks/ctb-custom-placement/f7b88b6e-2e87-46bc-87a9-3e3638a24fa9",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "hextom_timer_bar_ctb_custom_placement_dDeYTB"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "theme_banner_ELtemE": {
+      "type": "theme-banner",
+      "blocks": {
+        "slide_iRWwpJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/front-home2.webp",
+            "kicker": "TRENDING #1",
+            "heading": "The Golf Practice Net That Sends Every Ball Back",
+            "richtext": "<p><strong>Authentic ball return, genuine ball speeds, quick 60-second setup - indoor or outdoor.</strong></p>",
+            "button_label": "Shop Golf Nets",
+            "button_link": "shopify://collections/nets-1",
+            "image_position": "left",
+            "text_position": "right",
+            "image_focal": "right center"
+          }
+        },
+        "slide_Jxqhbw": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/brysonwin-2160x1080.webp",
+            "kicker": "TRENDING #1",
+            "heading": "Trusted by Coaches, Loved by Home Golfers",
+            "richtext": "<p><strong>Training-grade durability with service that actually answers.</strong></p>",
+            "button_label": "Buy Nets",
+            "button_link": "shopify://collections/nets-sims",
+            "image_position": "left",
+            "text_position": "right",
+            "image_focal": "left center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_iRWwpJ",
+        "slide_Jxqhbw"
+      ],
+      "disabled": true,
+      "name": "Image + Text Slideshow",
+      "settings": {
+        "show_arrows": true,
+        "show_dots": true,
+        "brand_green": "#0a8f44",
+        "brand_black": "#000000",
+        "band_bg": "rgba(0,0,0,0)",
+        "side_padding": 20,
+        "text_max_width": 420,
+        "grid_gap": 2,
+        "min_vh_desktop": 95,
+        "autoplay_ms": 8000
+      }
+    },
+    "badge_scroller_crWTND": {
+      "type": "badge-scroller",
+      "disabled": true,
+      "name": "Badge Scroller",
+      "settings": {}
+    },
+    "176557648414d76531": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_74536a9_zQN8y8": {
+          "type": "ai_gen_block_74536a9",
+          "settings": {
+            "heading": "Best Sellers",
+            "heading_alignment": "left",
+            "collection": "best-sellers-bfcm",
+            "products_limit": 12,
+            "show_vendor": false,
+            "show_badge": true,
+            "badge_text": "Best Seller",
+            "badge_background": "#17a349",
+            "badge_text_color": "#ffffff",
+            "show_starting_from_tag": true,
+            "starting_from_product": "universal-side-barriers",
+            "starting_from_text": "",
+            "button_text": "Add to cart",
+            "button_border_radius": 10,
+            "button_background": "#00994d",
+            "button_hover_background": "#007a3d",
+            "button_text_color": "#ffffff",
+            "heading_size": 28,
+            "card_spacing": 32,
+            "card_border_radius": 4,
+            "background_color": "#ffffff",
+            "card_background": "#ffffff",
+            "heading_color": "#101010",
+            "text_color": "#101010",
+            "sale_color": "#00994d",
+            "arrow_background": "#ffffff",
+            "arrow_hover_background": "#f4f4f4",
+            "arrow_color": "#101010"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_74536a9_zQN8y8"
+      ],
+      "settings": {}
+    },
+    "tnr_collection_list_VRWxpC": {
+      "type": "tnr-collection-list",
+      "blocks": {
+        "collection_WmkzBw": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/nets.webp",
+            "subheading": "",
+            "title": "Nets",
+            "link_text": "",
+            "link_url": "shopify://collections/nets-1",
+            "text_color": "#191919",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_jDkEcc": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/packages.webp",
+            "subheading": "",
+            "title": "Packages",
+            "link_text": "",
+            "link_url": "shopify://collections/packages",
+            "text_color": "#191919",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_R3eYAB": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/newsim.jpg",
+            "subheading": "",
+            "title": "Simulation",
+            "link_text": "",
+            "link_url": "shopify://collections/simulation",
+            "text_color": "#191919",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0
+          }
+        },
+        "collection_MdhEjm": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "image": "shopify://shop_images/accessories.webp",
+            "subheading": "",
+            "title": "Accessories",
+            "link_text": "",
+            "link_url": "shopify://collections/general-accessories",
+            "text_color": "#191919",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "collection_WmkzBw",
+        "collection_jDkEcc",
+        "collection_R3eYAB",
+        "collection_MdhEjm"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "layout": "grid",
+        "subheading": "",
+        "title": "",
+        "background": "#ffffff",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_49RaHd": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/newlogo-3dspin.mp4",
+        "video_url": "",
+        "background_type": "boxed",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "blocks": {
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1400x1400-back.png",
+            "tab_label": "Pro Series",
+            "subheading": "Best Sellers",
+            "title": "Pro Series",
+            "content": "<p>Expertly designed to handle any golf swing with ease. The Pro Series is the epitome of quality, safety, and durability, guaranteeing an exceptional experience.</p>",
+            "button_text": "Shop Pro Series",
+            "button_link": "shopify://products/pro-series-golf-net"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1400x1400-simtj.png",
+            "tab_label": "Sim Series",
+            "subheading": "Best Sellers",
+            "title": "Sim Series",
+            "content": "<p>Integrating the quality and convenience of a Net Return with the elevated experience of a simulator to create a functional and easy to assemble hitting bay.</p>",
+            "button_text": "Shop Sim Series",
+            "button_link": "shopify://products/simulator-bay-8-golf-simulator-setup"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "text_with_icons_BQA78q": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_gMihGm": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-return-box",
+            "custom_icon_width": 200,
+            "title": "Instant Ball Return",
+            "content": ""
+          }
+        },
+        "item_NhEtBA": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon_width": 200,
+            "title": "Easy to Assemble",
+            "content": ""
+          }
+        },
+        "item_EcxThm": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-address-pin",
+            "custom_icon_width": 200,
+            "title": "Indoor or Outdoor",
+            "content": ""
+          }
+        },
+        "item_48t3ia": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-warranty",
+            "custom_icon_width": 200,
+            "title": "Premium Design",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_gMihGm",
+        "item_NhEtBA",
+        "item_EcxThm",
+        "item_48t3ia"
+      ],
+      "settings": {
+        "icon_align_mobile": "left",
+        "hide_dots": true,
+        "auto_rotate": true,
+        "cycle_speed": 3,
+        "background": "#000000",
+        "text_color": "#ffffff"
+      }
+    },
+    "image_with_text_overlay_YtBHJk": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x850-setup.jpg",
+        "subheading": "",
+        "title": "Build Your Practice Setup",
+        "content": "",
+        "button_text": "Get Started",
+        "button_link": "shopify://pages/build-your-setup",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#00994d",
+        "button_text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 25
+      }
+    },
+    "image_with_text_8dmRyz": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_nr33fH": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/return.png",
+            "tab_label": "Instant Ball Return",
+            "subheading": "",
+            "title": "Instant Ball Return",
+            "content": "<p>Our patented S-Shape Design absorbs the force of the ball and returns it gently back to you.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_Xqq8Yn": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/assemble.png",
+            "tab_label": "Quick Assembly",
+            "subheading": "",
+            "title": "Quick Assembly",
+            "content": "<p>Assemble or disassemble in under 10 minutes with our push-button Quick Color Connect System</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_nr33fH",
+        "item_Xqq8Yn"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "both",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "#ffffff",
+        "text_color": "#101010",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_tkbxXR": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "Need more info?",
+        "title": "Find The Perfect Setup",
+        "content": "",
+        "button_text": "take the quiz",
+        "button_link": "https://www.thenetreturn.com/pages/quiz",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_FUPQcD": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x850-simroom_38e95a9b-e968-4f98-a9f5-b386f8731f08.png",
+        "subheading": "",
+        "title": "Simulation",
+        "content": "<p>The Optimal Path to Reaching Your Goals</p>",
+        "button_text": "Shop Simulation",
+        "button_link": "shopify://collections/simulation",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#00994d",
+        "button_text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 50
+      }
+    },
+    "image_with_text_block_9YtgJ7": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/1500x1800-4.jpg",
+        "subheading": "BRYSON DECHAMBEAU",
+        "title": "Trusted by the Pros",
+        "content": "<p>\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"</p>",
+        "button_text": "BRYSON collection",
+        "button_link": "shopify://pages/bryson-dechambeau-the-net-return",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "#ffffff",
+        "text_color": "#101010",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_dN76e7": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/949289364?share=copy",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "blog_posts_GXwHk8": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "blog": "tips-tricks",
+        "subheading": "Practice Like a Pro with Net Return",
+        "title": "Tips & Tricks",
+        "articles_count": 3,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": false,
+        "background": "#ffffff",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "17139716501e2e2a7b": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_Bh8JYp": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 4,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#101010",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_Bh8JYp"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "trust_bar_DdPqga",
+    "17621461567133e3c2",
+    "1732595390d1c0d5bd",
+    "theme_banner_ELtemE",
+    "badge_scroller_crWTND",
+    "176557648414d76531",
+    "tnr_collection_list_VRWxpC",
+    "video_49RaHd",
+    "image-with-text",
+    "text_with_icons_BQA78q",
+    "image_with_text_overlay_YtBHJk",
+    "image_with_text_8dmRyz",
+    "rich_text_tkbxXR",
+    "image_with_text_overlay_FUPQcD",
+    "image_with_text_block_9YtgJ7",
+    "video_dN76e7",
+    "blog_posts_GXwHk8",
+    "17139716501e2e2a7b"
+  ]
+}

@@ -1,0 +1,405 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_aBaEqf": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_Y7ReaE": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/NEGSlogo-square.png",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "10% OFF SITEWIDE",
+            "content": "<p><strong>use code NEGS10 at checkout</strong></p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_Y7ReaE"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_XhMJDL": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x850-setup.png",
+        "subheading": "",
+        "title": "2024 Father's Day Gift Guide",
+        "content": "<p>Shop our collection of products for the perfect Father's Day gift.</p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "image_with_text_block_kNPrw7": {
+      "type": "image-with-text-block",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/2160x1560-setup.jpg",
+        "subheading": "",
+        "title": "2024 Father's Day Gift Guide",
+        "content": "<p>Shop our collection of products for the perfect gift for Father's Day.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_dD993F": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_izTnQw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-new-package.jpg",
+            "tab_label": "Pro Package",
+            "subheading": "Let's Make This Easy",
+            "title": "Everything You Need",
+            "content": "<p>Includes: Net, Side Barriers, Pro Turf, Sandbags, Rubber Tees, and a Duffle Bag</p>",
+            "button_text": "Shop Pro Package",
+            "button_link": "shopify://products/pro-package-golf-net-setup"
+          }
+        }
+      },
+      "block_order": [
+        "item_izTnQw"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_WnUBmi": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/tnr-fathersday-3.jpg",
+        "subheading": "For The Dads...",
+        "title": "Who love the game and want to pass it on",
+        "content": "<p>The Net Return is a premium golf and multisport net that offers the whole family a fun way to enhance their games together.</p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 25
+      }
+    },
+    "image_with_text_overlay_h3xx4K": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x640-practice.png",
+        "subheading": "Improve Your Practice. Improve Your Game.",
+        "title": "Build Your Setup",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collections_VDbgJM": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_CQXCzp": {
+          "type": "collection",
+          "settings": {
+            "collection": "nets-1",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_VcCqLm": {
+          "type": "collection",
+          "settings": {
+            "collection": "packages",
+            "label": "Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_CQXCzp",
+        "collection_VcCqLm"
+      ],
+      "settings": {
+        "subheading": "Exclusive Deals",
+        "title": "Featured Nets and Packages",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_rWnbEw": {
+      "type": "gallery",
+      "blocks": {
+        "image_93QPKh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_LVmEk6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-coast.jpg",
+            "caption": ""
+          }
+        },
+        "image_HgMLJ6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-pool.jpg",
+            "caption": ""
+          }
+        },
+        "image_fekCm7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-1.jpg",
+            "caption": ""
+          }
+        },
+        "image_iqYpY7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-2.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_93QPKh",
+        "image_LVmEk6",
+        "image_HgMLJ6",
+        "image_fekCm7",
+        "image_iqYpY7"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Fih4r8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_thBU9n": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Simulator Series",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_k3YniE": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "FlightScope",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Kp9Jih": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "Uneekor",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_V6wPNh": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "Full Swing",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_UnRQC8": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_thBU9n",
+        "collection_k3YniE",
+        "collection_Kp9Jih",
+        "collection_V6wPNh",
+        "collection_UnRQC8"
+      ],
+      "settings": {
+        "subheading": "portable solution for",
+        "title": "SIMULATORS",
+        "content": "",
+        "products_count": 4,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Azd3VL": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_rAgxBJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-essentials",
+            "label": "Essentials",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_9qzcMX": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-safety",
+            "label": "Safety",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_qP7fgX": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-simulation",
+            "label": "Simulation",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_rAgxBJ",
+        "collection_9qzcMX",
+        "collection_qP7fgX"
+      ],
+      "settings": {
+        "subheading": "A Little Something Extra",
+        "title": "Complete the setup",
+        "content": "",
+        "products_count": 12,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "image_with_text_aBaEqf",
+    "image_with_text_overlay_XhMJDL",
+    "image_with_text_block_kNPrw7",
+    "main",
+    "image_with_text_dD993F",
+    "image_with_text_overlay_WnUBmi",
+    "image_with_text_overlay_h3xx4K",
+    "featured_collections_VDbgJM",
+    "gallery_rWnbEw",
+    "featured_collections_Fih4r8",
+    "featured_collections_Azd3VL"
+  ]
+}

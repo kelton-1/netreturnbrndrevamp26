@@ -1,0 +1,218 @@
+{% doc %}
+  @prompt
+    Create a single, full-width announcement bar for Shopify. Height 44px desktop / 40px mobile, center-aligned text, one line only, responsive. Background #0B0B0B (solid black), text #FFFFFF, accent/CTA underlines in #16A34A. Message default: “Free Shipping on All Products — from 3 Nov. Limited time. Shop now →”. Include an optional link for “Shop now”. Add a subtle 2px bottom border in #16A34A. Provide a small “×” close button on the right; remember dismissal in localStorage for 7 days. Hide on checkout pages. No shadows, no gradients, uniform padding (12px). Font inherits theme. Accessible contrast AA+.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-announcement-bar-{{ ai_gen_id }} {
+    position: relative;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    border-bottom: 2px solid {{ block.settings.accent_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    height: 44px;
+    box-sizing: border-box;
+  }
+
+  .ai-announcement-bar-{{ ai_gen_id }}.ai-announcement-bar-hidden-{{ ai_gen_id }} {
+    display: none;
+  }
+
+  .ai-announcement-bar-content-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding: 0 40px;
+  }
+
+  .ai-announcement-bar-content-{{ ai_gen_id }} a {
+    color: {{ block.settings.text_color }};
+    text-decoration: underline;
+    text-decoration-color: {{ block.settings.accent_color }};
+    text-underline-offset: 2px;
+  }
+
+  .ai-announcement-bar-content-{{ ai_gen_id }} a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  .ai-announcement-bar-close-{{ ai_gen_id }} {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: {{ block.settings.text_color }};
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+    font-size: 20px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+
+  .ai-announcement-bar-close-{{ ai_gen_id }}:hover {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-announcement-bar-{{ ai_gen_id }} {
+      height: 40px;
+    }
+
+    .ai-announcement-bar-content-{{ ai_gen_id }} {
+      font-size: 13px;
+      padding: 0 35px;
+    }
+  }
+{% endstyle %}
+
+<announcement-bar-{{ ai_gen_id }}
+  class="ai-announcement-bar-{{ ai_gen_id }}"
+  data-storage-key="ai-announcement-bar-{{ ai_gen_id }}-dismissed"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-announcement-bar-content-{{ ai_gen_id }}">
+    {% if block.settings.link_url != blank %}
+      <a href="{{ block.settings.link_url }}">{{ block.settings.message }}</a>
+    {% else %}
+      {{ block.settings.message }}
+    {% endif %}
+  </div>
+  <button
+    class="ai-announcement-bar-close-{{ ai_gen_id }}"
+    aria-label="Close announcement"
+  >
+    ×
+  </button>
+</announcement-bar-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class AnnouncementBar{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.storageKey = this.getAttribute('data-storage-key');
+        this.expiryDays = 7;
+      }
+
+      connectedCallback() {
+        if (this.isCheckoutPage()) {
+          this.hide();
+          return;
+        }
+
+        if (this.isDismissed()) {
+          this.hide();
+          return;
+        }
+
+        this.setupCloseButton();
+      }
+
+      isCheckoutPage() {
+        return window.location.pathname.includes('/checkouts/') || 
+               window.location.pathname.includes('/checkout');
+      }
+
+      isDismissed() {
+        const dismissedData = localStorage.getItem(this.storageKey);
+        if (!dismissedData) return false;
+
+        try {
+          const data = JSON.parse(dismissedData);
+          const now = new Date().getTime();
+          return now < data.expiry;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      setDismissed() {
+        const now = new Date().getTime();
+        const expiry = now + (this.expiryDays * 24 * 60 * 60 * 1000);
+        const data = {
+          expiry: expiry
+        };
+        localStorage.setItem(this.storageKey, JSON.stringify(data));
+      }
+
+      hide() {
+        this.classList.add('ai-announcement-bar-hidden-{{ ai_gen_id }}');
+      }
+
+      setupCloseButton() {
+        const closeButton = this.querySelector('.ai-announcement-bar-close-{{ ai_gen_id }}');
+        if (closeButton) {
+          closeButton.addEventListener('click', () => {
+            this.setDismissed();
+            this.hide();
+          });
+        }
+      }
+    }
+
+    customElements.define('announcement-bar-{{ ai_gen_id }}', AnnouncementBar{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "message",
+      "label": "Message",
+      "default": "Free Shipping on All Products — from 3 Nov. Limited time. Shop now →"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#0B0B0B"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#16A34A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

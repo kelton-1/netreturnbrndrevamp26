@@ -1,0 +1,74 @@
+User-agent: *
+isallow: /admin
+Disallow: /cart
+Disallow: /carts
+Disallow: /checkout
+Disallow: /checkouts/
+Disallow: /orders
+Disallow: /account
+Disallow: /search
+Disallow: /policies/
+Disallow: /a/downloads/-/*
+Disallow: /*?*oseid=*
+Disallow: /*preview_theme_id*
+Disallow: /*preview_script_id*
+Disallow: /recommendations/products
+Disallow: /.well-known/shopify/
+Disallow: /apple-app-site-association
+Disallow: /cdn/wpm/
+Disallow: /web-pixels
+Disallow: /services/login_with_shop
+Disallow: /*?sort_by=
+Disallow: /*?filter.
+Disallow: /*?variant=
+
+Sitemap: https://www.thenetreturn.com/sitemap.xml
+
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /orders
+Disallow: /search
+
+
+# Google Ads Bot
+User-agent: AdsBot-Google
+Allow: /
+Disallow: /checkout
+Disallow: /cart
+
+
+# Bing & Microsoft AI
+User-agent: Bingbot
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+
+
+# Apple Bot (Siri / Spotlight)
+User-agent: Applebot
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+
+
+# Block aggressive crawlers
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+# Pinterest
+User-agent: Pinterest
+Allow: /
+

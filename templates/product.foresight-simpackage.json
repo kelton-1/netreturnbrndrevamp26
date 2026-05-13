@@ -1,0 +1,352 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_C7YjLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITDisplayatAddress.jpg",
+            "caption": "<h4>16 Points of Data</h4><p>Tour-level accuracy across the measured data metrics that you or your instructor can review to see what you need to work on to start playing your best golf.</p>"
+          }
+        },
+        "image_pFkFdj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITOnRange.jpg",
+            "caption": "<h4>Heads-Up Display</h4><p>The only launch monitor with a customizable full-color OLED display so you can select and see what data points matter to you most, instantly.</p>"
+          }
+        },
+        "image_zaY6qe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITCarryCase.jpg",
+            "caption": "<h4>Portable</h4><p>Built to be taken to and from the course with quick & easy setup to get your practice started in under a minute.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_C7YjLY",
+        "image_pFkFdj",
+        "image_zaY6qe"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_block_93Tj36": {
+      "type": "image-with-text-block",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/tabletdispersion.jpg",
+        "subheading": "The Most Connected App in Golf",
+        "title": "Instant Customizable Feedback",
+        "content": "<p>Everything you could ask for, all included on our free, easy to use cloud-based app.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_KTcPaF": {
+      "type": "faq",
+      "blocks": {
+        "question_ABbVy6": {
+          "type": "question",
+          "settings": {
+            "title": "Foresight GC3",
+            "answer": "<h2>EVERYTHING YOU NEED TO CHANGE YOUR GAME.<br/></h2><p>As the newest addition to the storied line of GC launch monitors, the GC3 delivers everything you need to take your game to a whole new level. Use it outdoors on the course—or the range—for instant game-performance feedback. Use it indoors for the ultimate golf simulation experience. No other launch monitor delivers this level of accuracy, versatility, and portability for the price.</p><h2>SIMULATION READY.<br/></h2><p>A full suite of gaming & performance simulation software is included, so you can turn your home into the ultimate golfer's paradise. <br/></p><h2>INCLUDES OUR ALL-NEW FSX PLAY SOFTWARE.</h2><p>Experience the game like never before—with hyper-realistic gameplay powered by an all-new graphics engine. Rich textures, 3D grass and foliage, enhanced lighting, updated UI and more provide for our best simulation experience yet.</p><p>PLEASE NOTE: After 24 hours, a fee of $250 will be incurred by the customer for order cancellation of this product purchase.</p><p>What data the GC3 measures:</p><p>Ball Speed</p><p>Horizontal & Vertical Launch Angles</p><p>Total Spin</p><p>Side Spin / Spin Axis</p><p>Carry Distance</p><p>Club Head Speed</p><p>Smash Factor</p><p>Angle of Attack</p><p>Club Path</p><p>Each bundle comes with:</p><p>GC3 Launch Monitor</p><p><strong>NEW: FSX Play Software</strong> including the all-new <strong>La Jolla Pines</strong> Golf Course (when it becomes available)</p><p>FSX 2020 Software License with 10 courses </p><p>FSX Pro Performance Software</p><p>Foresight Sports Performance App </p><p>1-Year Warranty</p><p>Power Adapter & Cable</p><p>USB-C Cable</p><p>Alignment Stick</p><p>Club Markers</p><p>Courses included:</p><p>La Jolla Pines</p><p>Blue Bayou Golf and Fishing Club</p><p>Broken Tree Golf Course<br/></p><p>Linfield National Golf Club</p><p>Teton Pines Golf Course<br/></p><p>Willow Crest Golf Club</p><p>The Farms Golf Club<br/></p><p>Beaver Hills Country Club</p><p>Tall Pines<br/></p><p>Butterfield Country Club (Red/Blue)</p><p>Kinsale Golf and Fitness Club</p><p>FSX Play Compatible Courses:</p><p>La Jolla Pines</p><p>Blue Bayou Golf and Fishing Club</p><p>Butterfield Country Club (Red/Blue)</p><p>Linfield National Golf Club</p><p>Willow Crest Golf Club</p><p>GC3 Specifications:<strong>Technology:</strong> Triscopic High-Speed Camera System<strong>Dimensions:</strong> 6\"(w) x 5\"(d) x 12\"(h)<strong>Weight:</strong> 5lbs / 2.3kg<strong>Battery:</strong>Lithium-Ion</p><p><strong>Data Interface:</strong> USB Type C / WiFi / Ethernet</p><p><strong>Display:</strong>Transflective LCD Touch Screen<em>GC3 orders will ship within 4-6 weeks</em></p><p><strong>Return Eligibility</strong></p><p><strong>This product can not be returned!!!</strong></p>"
+          }
+        },
+        "question_wPaPRH": {
+          "type": "question",
+          "settings": {
+            "title": "Net Return Simulator Bay",
+            "answer": "<p><strong>Framing</strong> - High gloss, black aluminum, powder-coated frame.</p><p><strong>Valance</strong> - Enhances the projector image by darkening the screen.</p><p><strong>Netting</strong> - Entire bay is sewn with our high impact netting</p><p><strong>Screen </strong>- Floating super white HD screen that absorbs sound and minimizes ball rebound.</p><p><strong>Side Barriers</strong> - Ensures stray balls remain in the hitting area for maximum protection.</p>"
+          }
+        },
+        "question_PBp3Lm": {
+          "type": "question",
+          "settings": {
+            "title": "Pro Turf",
+            "answer": "<p>The Pro Turf is designed exclusively for The Net Return. Pro Turf is 6’ wide x 10’ long</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_ABbVy6",
+        "question_wPaPRH",
+        "question_PBp3Lm"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Package Includes:",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "image_with_text_overlay_xAtHad": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/Foresight_-_Pro_Package_Indoors_-_Main_Website_Slider_6ce4fa4e-4ee4-4e2e-8b3f-dd2539f5432e.jpg",
+        "subheading": "",
+        "title": "Everything you need to change your game",
+        "content": "<p>As the newest addition to the storied line of GC launch monitors, the GC3 delivers everything you need to take your game to a whole new level. Use it outdoors on the course—or the range—for instant game-performance feedback. Use it indoors for the ultimate golf simulation experience. No other launch monitor delivers this level of accuracy, versatility, and portability for the price. </p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "Simulation Ready",
+            "answer": "<p>A full suite of gaming & performance simulation software is included, so you can turn your home into the ultimate golfer's paradise.</p>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "FSX Play Software",
+            "answer": "<p>Experience the game like never before—with hyper-realistic gameplay powered by an all-new graphics engine. Rich textures, 3D grass and foliage, enhanced lighting, updated UI and more provide for our best simulation experience yet.</p><p>Courses included:</p><ul><li>La Jolla Pines</li><li>Blue Bayou Golf and Fishing Club</li><li>Broken Tree Golf Course</li><li>Linfield National Golf Club</li><li>Teton Pines Golf Course</li><li>Willow Crest Golf Club</li><li>The Farms Golf Club</li><li>Beaver Hills Country Club</li><li>Tall Pines</li><li>Butterfield Country Club (Red/Blue)</li><li>Kinsale Golf and Fitness Club</li></ul><p></p><p>FSX Play Compatible Courses:</p><ul><li>La Jolla Pines</li><li>Blue Bayou Golf and Fishing Club</li><li>Butterfield Country Club (Red/Blue)</li><li>Linfield National Golf Club</li><li>Willow Crest Golf Club</li></ul><p>PLEASE NOTE: After 24 hours, a fee of $250 will be incurred by the customer for order cancellation of this product purchase.</p>"
+          }
+        },
+        "question_pfNqNB": {
+          "type": "question",
+          "settings": {
+            "title": "Measurements",
+            "answer": "<ul><li>Ball Speed</li><li>Horizontal & Vertical Launch Angles</li><li>Total Spin</li><li>Side Spin / Spin Axis</li><li>Carry Distance</li><li>Club Head Speed</li><li>Smash Factor</li><li>Angle of Attack</li><li>Club Path</li></ul>"
+          }
+        },
+        "question_mVxCqr": {
+          "type": "question",
+          "settings": {
+            "title": "What's Included?",
+            "answer": "<p>Each bundle comes with:</p><ul><li>GC3 Launch Monitor</li><li><strong>NEW: FSX Play Software</strong> including the all-new <strong>La Jolla Pines</strong> Golf Course (when it becomes available)</li><li>FSX 2020 Software License with 10 courses</li><li>FSX Pro Performance Software</li><li>Foresight Sports Performance App</li><li>1-Year Warranty</li><li>Power Adapter & Cable</li><li>USB-C Cable</li><li>Alignment Stick</li><li>Club Markers</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "question_L8qgfT",
+        "question_7PNgNp",
+        "question_pfNqNB",
+        "question_mVxCqr"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "GC3",
+        "content": "<p>The Golf Foresight GC3 Essentials Plus Bundle Package is a complete golf simulation solution designed for serious golfers.</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "featured_collections_XV3ze8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_wyUKfY": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-projectors",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_wyUKfY"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Computers & Projectors",
+        "content": "",
+        "products_count": 15,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_wehjpy": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/nr_foresight_assembly_v2 (1080p).mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "gallery_QJQxqE",
+    "image_with_text_block_93Tj36",
+    "faq_KTcPaF",
+    "image_with_text_overlay_xAtHad",
+    "faq_XCJKJW",
+    "1713971222a271d416",
+    "featured_collections_XV3ze8",
+    "video_wehjpy"
+  ]
+}

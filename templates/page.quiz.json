@@ -1,0 +1,111 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "product_quiz_cBjXH8": {
+      "type": "product-quiz",
+      "blocks": {
+        "item_i6DEf7": {
+          "type": "item",
+          "settings": {
+            "title": "What sport are you practicing for?",
+            "options": "Golf\nFootball\nMultisport",
+            "step_ids": ""
+          }
+        },
+        "item_nEyVd8": {
+          "type": "item",
+          "settings": {
+            "title": "Where are you going to use your setup?",
+            "options": "Yard\nGarage\nBasement\nCommercial\nOther",
+            "step_ids": "multisport-1 golf-1"
+          }
+        },
+        "item_KHRW4m": {
+          "type": "item",
+          "settings": {
+            "title": "What is your handicap?",
+            "options": "Scratch\n1-5\n5-10\n10-15\n15+",
+            "step_ids": "golf-2"
+          }
+        },
+        "item_Rqep64": {
+          "type": "item",
+          "settings": {
+            "title": "What practice experience are you looking for?",
+            "options": "net-only:Net Only\nw-launch-monitor:Net w/ Launch Monitor\nfull:Full Sim Setup",
+            "step_ids": "golf-3"
+          }
+        },
+        "item_7WKiPi": {
+          "type": "item",
+          "settings": {
+            "title": "What level do you play?",
+            "options": "Youth\nHigh School\nCollege\nPro",
+            "step_ids": "footbal-1"
+          }
+        },
+        "item_Gr6khf": {
+          "type": "item",
+          "settings": {
+            "title": "Is this for team or personal use?",
+            "options": "Personal\nTeam",
+            "step_ids": "footbal-2"
+          }
+        },
+        "item_f43dLU": {
+          "type": "item",
+          "settings": {
+            "title": "Would you like to personalize your net with colors and logos?",
+            "options": "Yes\nNo",
+            "step_ids": "footbal-3"
+          }
+        }
+      },
+      "block_order": [
+        "item_i6DEf7",
+        "item_nEyVd8",
+        "item_KHRW4m",
+        "item_Rqep64",
+        "item_7WKiPi",
+        "item_Gr6khf",
+        "item_f43dLU"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Find the perfect practice setup",
+        "content": "",
+        "button_text": "GET STARTED",
+        "res_subheading": "Find the perfect practice setup",
+        "res_title": "Recommended products",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product_quiz_cBjXH8"
+  ]
+}

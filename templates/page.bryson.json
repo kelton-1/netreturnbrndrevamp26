@@ -1,0 +1,444 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_DP4ayq": {
+      "type": "slideshow",
+      "blocks": {
+        "image_kpnq6r": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/brysonwin-2160x1080.jpg",
+            "mobile_image": "shopify://shop_images/brysonwin-1080x1500.jpg",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "BRYSON DECHAMBEAU - 2020 & 2024 U.S. OPEN CHAMPION",
+            "button_1_text": "Shop Bryson's Net",
+            "button_1_link": "shopify://products/pro-series-golf-net",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 7
+          }
+        }
+      },
+      "block_order": [
+        "image_kpnq6r"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_html_KLB7cf": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "html": "<h1 style=\"text-align: center;font-size:40px;\">Bryson's Favorite Golf Net</h1>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "timeline_rBxGD4": {
+      "type": "timeline",
+      "blocks": {
+        "item_tjmQTA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-bdtimeline1.jpg",
+            "label": "2024",
+            "title": "Major Win #2",
+            "content": "<p>Finishing at -6, Bryson wins a thrilling U.S. Open at Pinehurst - securing his 2nd major championship.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_PL4UWh": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-bdtimeline2.jpg",
+            "label": "2020",
+            "title": "Major Win #1",
+            "content": "<p>The only player under par for the tournament (-6), Bryson wins the 2020 U.S. Open at Winged Foot by 6 shots.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_tnfcnA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-bdtimeline3.jpg",
+            "label": "2020",
+            "title": "Team Net Return",
+            "content": "<p>Bryson officially joins Team Net Return as an ambassador after over a decade of trusting our product to improve his game.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_YjjWRd": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-bdtimeline4.jpg",
+            "label": "2009",
+            "title": "The Journey Begins",
+            "content": "<p>As an up-and-coming amateur golfer in California, Bryson's dad buys him a Net Return to work on his game.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_tjmQTA",
+        "item_PL4UWh",
+        "item_tnfcnA",
+        "item_YjjWRd"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "text_position": "middle",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "item_background": "rgba(0,0,0,0)",
+        "item_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_Wb7ijH": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/brysonwin-noshortcuts.jpg",
+        "subheading": "",
+        "title": "There are no shortcuts.",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "middle_right",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 9
+      }
+    },
+    "promotion_blocks_yTRUrN": {
+      "type": "promotion-blocks",
+      "blocks": {
+        "quote_XpkDTf": {
+          "type": "quote",
+          "settings": {
+            "highlight": true,
+            "subheading": "",
+            "content": "\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"",
+            "author": "Bryson DeChambeau",
+            "background": "#ffffff",
+            "text_color": "#101010"
+          }
+        }
+      },
+      "block_order": [
+        "quote_XpkDTf"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "section_size": "small",
+        "stack_on_mobile": true,
+        "background": "#ffffff",
+        "text_color": "#101010"
+      }
+    },
+    "image_with_text_dD993F": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_izTnQw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-BD.jpg",
+            "tab_label": "Pro Package",
+            "subheading": "Practice Like a Pro",
+            "title": "Bryson's Favorite",
+            "content": "<p>Includes: Net, Side Barriers, Pro Turf, Sandbags, Rubber Tees, and a Duffle Bag</p>",
+            "button_text": "Shop Pro Package",
+            "button_link": "shopify://products/pro-package-golf-net-setup"
+          }
+        }
+      },
+      "block_order": [
+        "item_izTnQw"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "both",
+        "image_position": "left",
+        "text_alignment": "left",
+        "cycle_speed": 8,
+        "accent_background": "#101010",
+        "text_color": "#ffffff",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_h3xx4K": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x640-practice.png",
+        "subheading": "Improve Your Practice. Improve Your Game.",
+        "title": "Build Your Setup",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "featured_collections_VDbgJM": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_CQXCzp": {
+          "type": "collection",
+          "settings": {
+            "collection": "nets-1",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_VcCqLm": {
+          "type": "collection",
+          "settings": {
+            "collection": "packages",
+            "label": "Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_CQXCzp",
+        "collection_VcCqLm"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Featured Nets and Packages",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_FYfr8G": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://vimeo.com/949289364?share=copy",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Fih4r8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_thBU9n": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Simulator Series",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_k3YniE": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "FlightScope",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Kp9Jih": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "Uneekor",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_V6wPNh": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "Full Swing",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_UnRQC8": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_thBU9n",
+        "collection_k3YniE",
+        "collection_Kp9Jih",
+        "collection_V6wPNh",
+        "collection_UnRQC8"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "For the dad who...",
+        "title": "Wants it all",
+        "content": "",
+        "products_count": 4,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "blog_posts_Xp6xrx": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "tips-tricks",
+        "subheading": "Practice Like The PRos",
+        "title": "Tips & Tricks",
+        "articles_count": 3,
+        "stack_mobile": false,
+        "show_category": true,
+        "show_excerpt": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Azd3VL": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_rAgxBJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-essentials",
+            "label": "Essentials",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_9qzcMX": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-safety",
+            "label": "Safety",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_qP7fgX": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-simulation",
+            "label": "Simulation",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_rAgxBJ",
+        "collection_9qzcMX",
+        "collection_qP7fgX"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "A Little Something Extra",
+        "title": "Complete the setup",
+        "content": "",
+        "products_count": 12,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "slideshow_DP4ayq",
+    "custom_html_KLB7cf",
+    "main",
+    "timeline_rBxGD4",
+    "image_with_text_overlay_Wb7ijH",
+    "promotion_blocks_yTRUrN",
+    "image_with_text_dD993F",
+    "image_with_text_overlay_h3xx4K",
+    "featured_collections_VDbgJM",
+    "video_FYfr8G",
+    "featured_collections_Fih4r8",
+    "blog_posts_Xp6xrx",
+    "featured_collections_Azd3VL"
+  ]
+}

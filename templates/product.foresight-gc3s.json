@@ -1,0 +1,324 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_C7YjLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITDisplayatAddress.jpg",
+            "caption": "<h4>16 Points of Data</h4><p>Tour-level accuracy across the measured data metrics that you or your instructor can review to see what you need to work on to start playing your best golf.</p>"
+          }
+        },
+        "image_pFkFdj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITOnRange.jpg",
+            "caption": "<h4>Heads-Up Display</h4><p>The only launch monitor with a customizable full-color OLED display so you can select and see what data points matter to you most, instantly.</p>"
+          }
+        },
+        "image_zaY6qe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSKITCarryCase.jpg",
+            "caption": "<h4>Portable</h4><p>Built to be taken to and from the course with quick & easy setup to get your practice started in under a minute.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_C7YjLY",
+        "image_pFkFdj",
+        "image_zaY6qe"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_block_93Tj36": {
+      "type": "image-with-text-block",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/tabletdispersion.jpg",
+        "subheading": "The Most Connected App in Golf",
+        "title": "Instant Customizable Feedback",
+        "content": "<p>Everything you could ask for, all included on our free, easy to use cloud-based app.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_xAtHad": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/Foresight_-_Pro_Package_Indoors_-_Main_Website_Slider_6ce4fa4e-4ee4-4e2e-8b3f-dd2539f5432e.jpg",
+        "subheading": "",
+        "title": "Everything you need to change your game",
+        "content": "<p>The GC3S redefines your game with our first subscription-based launch monitor, offering advanced analytics at an approachable price point. Use it on the range for precision practice or on the course for instant feedback tailored to improve your swing. Indoors, unlock next-level simulation for immersive gameplay. This unit combines unmatched accuracy, portability, and the all-new, revolutionary LINK-Enabled technology for a complete, game-enhancing experience.</p>",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "Simulation Ready",
+            "answer": "<p>A full suite of gaming & performance simulation software is included, so you can turn your home into the ultimate golfer's paradise.</p>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "FSX Play Software",
+            "answer": "<p>Experience the game like never before—with hyper-realistic gameplay powered by an all-new graphics engine. Rich textures, 3D grass and foliage, enhanced lighting, updated UI and more provide for our best simulation experience yet.</p><p>Courses included:</p><ul><li>La Jolla Pines</li><li>Blue Bayou Golf and Fishing Club</li><li>Broken Tree Golf Course</li><li>Linfield National Golf Club</li><li>Teton Pines Golf Course</li><li>Willow Crest Golf Club</li><li>The Farms Golf Club</li><li>Beaver Hills Country Club</li><li>Tall Pines</li><li>Butterfield Country Club (Red/Blue)</li><li>Kinsale Golf and Fitness Club</li></ul><p></p><p>FSX Play Compatible Courses:</p><ul><li>La Jolla Pines</li><li>Blue Bayou Golf and Fishing Club</li><li>Butterfield Country Club (Red/Blue)</li><li>Linfield National Golf Club</li><li>Willow Crest Golf Club</li></ul><p>PLEASE NOTE: After 24 hours, a fee of $250 will be incurred by the customer for order cancellation of this product purchase.</p>"
+          }
+        },
+        "question_pfNqNB": {
+          "type": "question",
+          "settings": {
+            "title": "Measurements",
+            "answer": "<ul><li>Ball Speed</li><li>Horizontal & Vertical Launch Angles</li><li>Total Spin</li><li>Side Spin / Spin Axis</li><li>Carry Distance</li><li>Club Head Speed</li><li>Smash Factor</li><li>Angle of Attack</li><li>Club Path</li></ul>"
+          }
+        },
+        "question_mVxCqr": {
+          "type": "question",
+          "settings": {
+            "title": "What's Included?",
+            "answer": "<p>Each bundle comes with:</p><ul><li>GC3 Launch Monitor</li><li><strong>NEW: FSX Play Software</strong> including the all-new <strong>La Jolla Pines</strong> Golf Course (when it becomes available)</li><li>FSX 2020 Software License with 10 courses</li><li>FSX Pro Performance Software</li><li>Foresight Sports Performance App</li><li>1-Year Warranty</li><li>Power Adapter & Cable</li><li>USB-C Cable</li><li>Alignment Stick</li><li>Club Markers</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "question_L8qgfT",
+        "question_7PNgNp",
+        "question_pfNqNB",
+        "question_mVxCqr"
+      ],
+      "disabled": true,
+      "settings": {
+        "show_navigation": false,
+        "title": "GC3",
+        "content": "<p>The Golf Foresight GC3 Essentials Plus Bundle Package is a complete golf simulation solution designed for serious golfers.</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "featured_collections_EPTc3B": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_UU3VVg": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Sim Bays",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_NFb6mi": {
+          "type": "collection",
+          "settings": {
+            "collection": "pro-series-nets",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_UU3VVg",
+        "collection_NFb6mi"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Compete Your Setup",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "video_fLzDBm": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/nr_foresight_assembly_v2 (1080p).mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "gallery_QJQxqE",
+    "image_with_text_block_93Tj36",
+    "image_with_text_overlay_xAtHad",
+    "faq_XCJKJW",
+    "featured_collections_EPTc3B",
+    "1713971222a271d416",
+    "video_fLzDBm"
+  ]
+}

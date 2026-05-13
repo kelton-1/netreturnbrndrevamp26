@@ -1,0 +1,76 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "page.resellers.json",
+  "context": {
+    "market": "all-b2b"
+  },
+  "sections": {
+    "main": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "featured_collections_b2b_RHrVxh": {
+      "settings": {
+        "subheading": "",
+        "title": "B2B Portal"
+      },
+      "blocks": {
+        "collection_bjf8wY": {
+          "settings": {
+            "collection": "nets-including-bulletproof",
+            "label": "Nets"
+          }
+        },
+        "collection_nHwme": {
+          "type": "collection",
+          "disabled": false,
+          "settings": {
+            "collection": "packages-including-bulletproof",
+            "label": "Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_EnRDh": {
+          "type": "collection",
+          "disabled": false,
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Simulation",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_dqDjT": {
+          "type": "collection",
+          "disabled": false,
+          "settings": {
+            "collection": "general-accessories",
+            "label": "Accessories",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_bjf8wY",
+        "collection_nHwme",
+        "collection_EnRDh",
+        "collection_dqDjT"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "featured_collections_b2b_RHrVxh"
+  ]
+}

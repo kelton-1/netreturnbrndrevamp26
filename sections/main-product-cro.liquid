@@ -1,0 +1,345 @@
+{{ 'levar.css' | asset_url | stylesheet_tag: preload: true }}
+<script type="text/javascript">
+  window.levar_onload_variant_id = {{ product.selected_or_first_available_variant.id | json }};
+  window.onload = function() {
+    setTimeout(function() {
+      var levARBtns = document.getElementsByClassName('levar-button');
+      for (let i = 0; i < levARBtns.length; i++) {
+        levARBtns[i].classList.remove('levar-active');
+      }
+    }, 3000);
+  };
+</script>
+
+{%- assign secondary_text = product.metafields.custom.secondary_text.value | default: '' -%}
+{%- assign net_depth = product.metafields.custom.net_depth.value | default: '' -%}
+{%- assign sold_out_notice = product.metafields.custom.sold_out_notice -%}
+{%- assign product_form_id = 'product-form-' | append: section.id | append: '-' | append: product.id -%}
+{%- assign quote_block = section.blocks | where: 'type', 'cro_bryson_quote' | first -%}
+
+{%- unless template.suffix contains 'quick-buy' -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      {%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
+      {%- if buy_buttons_block.settings.show_payment_button -%}
+        {%- if buy_buttons_block.settings.atc_button_background == 'rgba(0,0,0,0)' -%}{%- assign secondary_button_background = settings.secondary_button_background -%}{%- else -%}{%- assign secondary_button_background = buy_buttons_block.settings.atc_button_background -%}{%- endif -%}
+        {%- if buy_buttons_block.settings.atc_button_text_color == 'rgba(0,0,0,0)' -%}{%- assign secondary_button_text_color = settings.secondary_button_text_color -%}{%- else -%}{%- assign secondary_button_text_color = buy_buttons_block.settings.atc_button_text_color -%}{%- endif -%}
+        {%- if buy_buttons_block.settings.buy_now_button_background == 'rgba(0,0,0,0)' -%}{%- assign primary_button_background = settings.primary_button_background -%}{%- else -%}{%- assign primary_button_background = buy_buttons_block.settings.buy_now_button_background -%}{%- endif -%}
+        {%- if buy_buttons_block.settings.buy_now_button_text_color == 'rgba(0,0,0,0)' -%}{%- assign primary_button_text_color = settings.primary_button_text_color -%}{%- else -%}{%- assign primary_button_text_color = buy_buttons_block.settings.buy_now_button_text_color -%}{%- endif -%}
+      {%- else -%}
+        {%- if buy_buttons_block.settings.atc_button_background == 'rgba(0,0,0,0)' -%}{%- assign primary_button_background = settings.primary_button_background -%}{%- else -%}{%- assign primary_button_background = buy_buttons_block.settings.atc_button_background -%}{%- endif -%}
+        {%- if buy_buttons_block.settings.atc_button_text_color == 'rgba(0,0,0,0)' -%}{%- assign primary_button_text_color = settings.primary_button_text_color -%}{%- else -%}{%- assign primary_button_text_color = buy_buttons_block.settings.atc_button_text_color -%}{%- endif -%}
+      {%- endif -%}
+      --primary-button-background: {{ primary_button_background.red }}, {{ primary_button_background.green }}, {{ primary_button_background.blue }};
+      --primary-button-text-color: {{ primary_button_text_color.red }}, {{ primary_button_text_color.green }}, {{ primary_button_text_color.blue }};
+      --secondary-button-background: {{ secondary_button_background.red }}, {{ secondary_button_background.green }}, {{ secondary_button_background.blue }};
+      --secondary-button-text-color: {{ secondary_button_text_color.red }}, {{ secondary_button_text_color.green }}, {{ secondary_button_text_color.blue }};
+    }
+  </style>
+
+  <section class="cro-pdp">
+    {%- if section.settings.show_sticky_add_to_cart and product.available -%}
+      {%- render 'product-sticky-form', product: product -%}
+    {%- endif -%}
+
+    <div class="container">
+      <nav aria-label="{{ 'general.breadcrumb.title' | t }}" class="breadcrumb text--xsmall text--subdued hidden-phone">
+        <ol class="breadcrumb__list" role="list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t }}</a></li>
+          {%- if collection -%}<li class="breadcrumb__item"><a class="breadcrumb__link" href="{{ collection.url }}">{{ collection.title }}</a></li>{%- endif -%}
+          <li class="breadcrumb__item"><span class="breadcrumb__link" aria-current="page">{{ product.title }}</span></li>
+        </ol>
+      </nav>
+
+      <div class="product product--thumbnails-{{ section.settings.desktop_thumbnails_position }} cro-pdp__hero">
+        <div class="cro-pdp__media-col">
+          {%- render 'product-media',
+            product: product,
+            use_cro_002_gallery: true,
+            cro_002_images: product.metafields.custom.cro_002_images.value,
+            cro_002_visible_media_positions: product.metafields.custom.cro_002_visible_media_positions.value
+          -%}
+        </div>
+
+        <div class="product__info cro-pdp__info-col">
+          <product-meta form-id="{{ product_form_id }}" price-class="price--large" class="product-meta">
+            <div class="cro-pdp__title-row">
+              <h1 class="product-meta__title heading h3 mt-0 cro-pdp__title">{{ product.title }}</h1>
+            </div>
+            <a href="#shopify-section-loox_carousel" class="cro-pdp__reviews-link">
+              <div style="{{ jm_style }}" class="jdgm-widget jdgm-preview-badge cro-pdp__reviews" data-id="{{ product.id }}" data-auto-install="false">
+                {{ product.metafields.judgeme.badge }}
+                <span class="reivew-count">{{ product.metafields.reviews.rating.value }} ({{ shop.metafields.judgeme.all_reviews_count }} reviews)</span>
+              </div>
+            </a>
+            <p class="golfer-trust cro-pdp__trust-copy">50,000+ golfers trust this net</p>
+            <div class="price-and-help cro-pdp__price-row">
+              <div class="product-meta__price-list-container mt-7 cro-pdp__price-wrap" role="region" aria-live="polite">
+                <div class="price-list" data-product-price-list>
+                  {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
+                    <span class="price price--highlight price--large"><span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>{%- if settings.currency_code_enabled -%}{{ product.selected_or_first_available_variant.price | money_with_currency }}{%- else -%}{{ product.selected_or_first_available_variant.price | money }}{%- endif -%}</span>
+                    <span class="price price--compare"><span class="visually-hidden">{{ 'product.general.regular_price' | t }}</span>{%- if settings.currency_code_enabled -%}{{ product.selected_or_first_available_variant.compare_at_price | money_with_currency }}{%- else -%}{{ product.selected_or_first_available_variant.compare_at_price | money }}{%- endif -%}</span>
+                  {%- else -%}
+                    <span class="price price--large"><span class="visually-hidden">{{ 'product.general.sale_price' | t }}</span>{%- if settings.currency_code_enabled -%}{{ product.selected_or_first_available_variant.price | money_with_currency }}{%- else -%}{{ product.selected_or_first_available_variant.price | money }}{%- endif -%}</span>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+            {%- if quote_block != blank -%}
+              <div class="cro-quote-card cro-pdp__quote" {{ quote_block.shopify_attributes }}>
+                <div class="cro-quote-avatar">
+                  {%- if quote_block.settings.avatar != blank -%}
+                    {{ quote_block.settings.avatar | image_url: width: 96 | image_tag: loading: 'lazy', class: 'cro-quote-img' }}
+                  {%- else -%}
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#e8e8e8"/><circle cx="24" cy="20" r="7" fill="#bbb"/><path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#bbb"/></svg>
+                  {%- endif -%}
+                </div>
+                <div class="cro-quote-content">
+                  <strong class="cro-quote-name">{{ quote_block.settings.name | default: 'Bryson DeChambeau' }}</strong>
+                  <p class="cro-quote-text">"{{ quote_block.settings.quote }}"</p>
+                </div>
+              </div>
+            {%- endif -%}
+            {%- if product.available == false and sold_out_notice != blank -%}<div class="product-item-meta__size back-instock-text">{{ sold_out_notice }}</div>{%- endif -%}
+            <product-payment-terms form-id="{{ product_form_id }}" class="cro-pdp__payment-terms">
+              {%- assign product_installment_form_id = 'product-installment-form-' | append: section.id | append: '-' | append: product.id -%}
+              {%- form 'product', product, id: product_installment_form_id -%}<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">{{ form | payment_terms }}{%- endform -%}
+            </product-payment-terms>
+          </product-meta>
+
+          {%- if secondary_text != blank or net_depth != blank -%}
+            <div class="cro-pdp__size-info">
+              <span>Select Net Size: <strong>{{ product.title }}</strong></span>
+              {%- if secondary_text != blank -%}
+                <span>Dimensions: <strong>{{ secondary_text }}</strong></span>
+              {%- endif -%}
+              {%- if net_depth != blank -%}
+                <span>Net Depth: <strong>{{ net_depth }}</strong></span>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Renders product-form-cro which handles all blocks including CRO types {%- endcomment -%}
+          {%- render 'product-form-cro', product: product, update_url: true -%}
+        </div>
+      </div>
+    </div>
+  </section>
+{%- endunless -%}
+
+<style>
+  .cro-pdp{padding-bottom:16px}
+  .cro-pdp__hero{align-items:flex-start;gap:42px}
+  .cro-pdp__media-col{position:relative;padding-top:16px;align-self:flex-start}
+  .cro-pdp__info-col{padding-top:8px}
+  .cro-pdp__title-row{display:block;margin-bottom:6px}
+  .cro-pdp__title{margin-bottom:6px}
+  .cro-pdp__reviews-link{display:inline-block;margin-bottom:6px;text-decoration:none;color:inherit}
+  .cro-pdp__reviews{margin-bottom:0;cursor:pointer}
+  .cro-pdp__trust-copy{margin:0 0 14px;font-size:13px;font-weight:600;color:#3f3f3f}
+  .cro-pdp__price-row{display:flex;align-items:flex-start;justify-content:flex-start;gap:18px;margin-bottom:8px}
+  .cro-pdp__price-wrap{margin-top:0 !important}
+  .cro-pdp__price-wrap .price--large{font-size:34px;line-height:1.05;letter-spacing:-.03em}
+  .cro-pdp__quote{margin-top:6px}
+  .cro-pdp__payment-terms{display:block;margin-bottom:10px}
+  .cro-pdp__size-info{display:flex;align-items:center;gap:20px;margin:12px 0 16px;font-size:14px;color:#333}
+  .cro-pdp .product__view-in-space{margin:14px 0 12px}
+
+  #shopify-section-reviews_intro .section__header{max-width:740px;margin:0 auto 24px;text-align:center}
+  #shopify-section-loox_carousel .shopify-section,
+  #shopify-section-loox_gallery .shopify-section{margin-top:0}
+  #shopify-section-loox_gallery{padding-top:0}
+  #shopify-section-loox_gallery .section{padding-top:0}
+
+  @media(max-width:999px){
+    .cro-pdp__hero{gap:24px}
+    .cro-pdp__price-wrap .price--large{font-size:30px}
+    .cro-pdp__media-col{position:relative;top:auto}
+  }
+
+  @media(max-width:767px){
+    .cro-pdp__media-col{padding-top:12px}
+    .cro-pdp__size-info{flex-direction:column;align-items:flex-start;gap:4px}
+    .cro-pdp__price-row{display:block}
+    .cro-pdp__price-wrap .price--large{font-size:28px}
+    .cro-pdp .product__view-in-space{display:none !important}
+    .cro-pdp .product__media-nav{
+      margin-top:4px;
+    }
+    .cro-pdp .product__thumbnail-scroll-shadow{
+      display:block;
+      width:100%;
+    }
+    .cro-pdp .product__thumbnail-list{
+      overflow-x:auto;
+      padding:0 2px;
+    }
+    .cro-pdp .product__thumbnail-list-inner{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+    }
+    .cro-pdp .product__thumbnail-item{
+      flex:0 0 64px;
+      width:64px;
+      margin:0;
+      padding:0 2px;
+      background:transparent;
+      box-shadow:none;
+      border-radius:0;
+    }
+    .cro-pdp .product__thumbnail{
+      width:64px;
+    }
+    .cro-pdp .product__thumbnail:after,
+    .cro-pdp .product__thumbnail-item[aria-current] .product__thumbnail:after{
+      display:none !important;
+      opacity:0 !important;
+    }
+    .cro-pdp .levar-buttons-wrapper{
+      display:block !important;
+      margin:16px 0 14px;
+    }
+    .cro-pdp #levar-player{
+      display:none !important;
+    }
+    .cro-pdp #levar-direct-qr-button{
+      display:flex !important;
+      width:100%;
+    }
+  }
+
+  @media(min-width:1000px){
+    .cro-pdp__media-col{position:sticky;top:104px}
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Product page (CRO)",
+  "class": "shopify-section--main-product shopify-section--main-product-cro",
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "variant_picker", "name": "Variant picker", "limit": 1,
+      "settings": [
+        { "type": "checkbox", "id": "hide_sold_out_variants", "label": "Hide sold out variants", "default": false },
+        { "type": "select", "id": "selector_mode", "label": "Selector type", "options": [{ "value": "block", "label": "Block" }, { "value": "dropdown", "label": "Dropdown" }], "default": "block" },
+        { "type": "select", "id": "color_mode", "label": "Color selector type", "options": [{ "value": "swatch", "label": "Swatch" }, { "value": "none", "label": "None" }], "default": "swatch" },
+        { "type": "text", "id": "variant_image_options", "label": "Show variant image for options" },
+        { "type": "page", "id": "size_chart_page", "label": "Size chart page" },
+        { "type": "checkbox", "id": "hide_option_labels", "label": "Hide option labels", "default": false }
+      ]
+    },
+    { "type": "quantity_selector", "name": "Quantity selector", "limit": 1 },
+    {
+      "type": "buy_buttons", "name": "Buy buttons", "limit": 1,
+      "settings": [
+        { "type": "checkbox", "id": "show_payment_button", "label": "Show dynamic checkout button", "default": false },
+        { "type": "checkbox", "id": "show_gift_card_recipient", "label": "Show recipient form", "default": true },
+        { "type": "color", "id": "atc_button_background", "label": "ATC background", "default": "rgba(0,0,0,0)" },
+        { "type": "color", "id": "atc_button_text_color", "label": "ATC text color", "default": "rgba(0,0,0,0)" },
+        { "type": "color", "id": "buy_now_button_background", "label": "Buy now background", "default": "rgba(0,0,0,0)" },
+        { "type": "color", "id": "buy_now_button_text_color", "label": "Buy now text color", "default": "rgba(0,0,0,0)" }
+      ]
+    },
+    { "type": "text", "name": "Text", "settings": [{ "type": "richtext", "id": "text", "label": "Text" }] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [{ "type": "text", "id": "title", "label": "Title" }, { "type": "liquid", "id": "liquid", "label": "Liquid" }] },
+    {
+      "type": "product_variations", "name": "Variant Products (Meta)", "limit": 1,
+      "settings": [
+        { "type": "text", "id": "option_name", "label": "Option name", "default": "Select Net Size" },
+        { "type": "text", "id": "option_value_metafield", "label": "Option value metafield", "default": "custom.variant_name" },
+        { "type": "product_list", "id": "products", "label": "Products" },
+        { "type": "select", "id": "color_mode", "label": "Selector type", "options": [{ "value": "block", "label": "Block" }], "default": "block" }
+      ]
+    },
+    {
+      "type": "cro_payment_icons", "name": "CRO: Payment Icons", "limit": 1,
+      "settings": []
+    },
+    {
+      "type": "cro_bryson_quote", "name": "CRO: Endorsement Quote", "limit": 1,
+      "settings": [
+        { "type": "image_picker", "id": "avatar", "label": "Avatar image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Bryson DeChambeau" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "I've been using Net Return since I was 15 years old. There is not another net out there that I would trust." }
+      ]
+    },
+    {
+      "type": "cro_availability", "name": "CRO: Availability Bar", "limit": 1,
+      "settings": [
+        { "type": "text", "id": "available_text", "label": "Available label", "default": "Available" },
+        { "type": "text", "id": "in_stock_text", "label": "In stock label", "default": "In Stock & Ready to Ship" }
+      ]
+    },
+    {
+      "type": "cro_trust_cards", "name": "CRO: Trust Cards", "limit": 1,
+      "settings": [
+        { "type": "image_picker", "id": "card_icon_1", "label": "Card 1 icon" },
+        { "type": "text", "id": "card_title_1", "label": "Card 1 title", "default": "3 - Year Warranty" },
+        { "type": "text", "id": "card_desc_1", "label": "Card 1 description", "default": "Industry-leading 3-year warranty included on all nets." },
+        { "type": "image_picker", "id": "card_icon_2", "label": "Card 2 icon" },
+        { "type": "text", "id": "card_title_2", "label": "Card 2 title", "default": "30-Day Money-Back Guarantee" },
+        { "type": "text", "id": "card_desc_2", "label": "Card 2 description", "default": "Try it for 30 days, risk-free. Not satisfied? Get your money back." },
+        { "type": "image_picker", "id": "card_icon_3", "label": "Card 3 icon" },
+        { "type": "text", "id": "card_title_3", "label": "Card 3 title", "default": "Free Shipping" },
+        { "type": "text", "id": "card_desc_3", "label": "Card 3 description", "default": "FREE Shipping on ALL Products - LIMITED TIME" }
+      ]
+    },
+    {
+      "type": "cro_feature_grid", "name": "CRO: Feature Media", "limit": 1,
+      "settings": [
+        { "type": "header", "content": "Feature 1" },
+        { "type": "image_picker", "id": "feat_image_1", "label": "Image 1" },
+        { "type": "url", "id": "feat_video_1", "label": "Video 1 URL (.mp4 from Files)" },
+        { "type": "text", "id": "feat_caption_1", "label": "Caption 1", "default": "Automatic ball return" },
+        { "type": "header", "content": "Feature 2" },
+        { "type": "image_picker", "id": "feat_image_2", "label": "Image 2" },
+        { "type": "url", "id": "feat_video_2", "label": "Video 2 URL (.mp4 from Files)" },
+        { "type": "text", "id": "feat_caption_2", "label": "Caption 2", "default": "Handles 225 MPH ball speeds" },
+        { "type": "header", "content": "Feature 3" },
+        { "type": "image_picker", "id": "feat_image_3", "label": "Image 3" },
+        { "type": "url", "id": "feat_video_3", "label": "Video 3 URL (.mp4 from Files)" },
+        { "type": "text", "id": "feat_caption_3", "label": "Caption 3", "default": "Indoors or Outdoors" },
+        { "type": "header", "content": "Feature 4" },
+        { "type": "image_picker", "id": "feat_image_4", "label": "Image 4" },
+        { "type": "url", "id": "feat_video_4", "label": "Video 4 URL (.mp4 from Files)" },
+        { "type": "text", "id": "feat_caption_4", "label": "Caption 4", "default": "Assemble < 5 mins" }
+      ]
+    },
+    {
+      "type": "cro_accordions", "name": "CRO: Accordions", "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Description tab auto-populates from the product description." },
+        { "type": "text", "id": "tab_2_title", "label": "Tab 2 title", "default": "Why You'll Love Net Return" },
+        { "type": "richtext", "id": "tab_2_content", "label": "Tab 2 content", "default": "<p>The Net Return is the #1 selling golf net. Our patented S-Shape design returns the ball back to you after every shot.</p>" },
+        { "type": "text", "id": "tab_3_title", "label": "Tab 3 title", "default": "Shipping & Delivery" },
+        { "type": "richtext", "id": "tab_3_content", "label": "Tab 3 content", "default": "<p>FREE Standard UPS Shipping on all domestic orders. Ships within 1-2 business days.</p>" },
+        { "type": "text", "id": "tab_4_title", "label": "Tab 4 title", "default": "Exchange & Return" },
+        { "type": "richtext", "id": "tab_4_content", "label": "Tab 4 content", "default": "<p>We offer a 30-Day Money-Back Guarantee on all orders.</p>" }
+      ]
+    }
+  ],
+  "settings": [
+    { "type": "header", "content": "General" },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false },
+    { "type": "checkbox", "id": "show_sku", "label": "Show SKU", "default": false },
+    { "type": "checkbox", "id": "show_taxes_included", "label": "Show taxes included", "default": false },
+    { "type": "checkbox", "id": "show_product_rating", "label": "Show product rating", "default": false },
+    { "type": "checkbox", "id": "show_sticky_add_to_cart", "label": "Show sticky add to cart", "default": true },
+    { "type": "checkbox", "id": "show_share_buttons", "label": "Show share buttons", "default": false },
+    { "type": "page", "id": "help_page", "label": "Help page" },
+    { "type": "header", "content": "Media" },
+    { "type": "checkbox", "id": "enable_video_autoplay", "label": "Enable video autoplay", "default": true },
+    { "type": "checkbox", "id": "enable_video_looping", "label": "Enable video looping", "default": true },
+    { "type": "checkbox", "id": "enable_image_zoom", "label": "Enable image zoom", "default": false },
+    { "type": "checkbox", "id": "show_thumbnails_on_mobile", "label": "Show thumbnails on mobile", "default": false },
+    { "type": "select", "id": "desktop_thumbnails_position", "label": "Desktop thumbnails position", "options": [{ "value": "left", "label": "Left" }, { "value": "bottom", "label": "Bottom" }], "default": "bottom" },
+    { "type": "select", "id": "transition_effect", "label": "Transition effect", "options": [{ "value": "slide", "label": "Slide" }, { "value": "fade", "label": "Fade" }], "default": "slide" },
+    { "type": "header", "content": "CRO Settings" },
+    { "type": "url", "id": "expert_url", "label": "Expert booking URL" }
+  ]
+}
+{% endschema %}

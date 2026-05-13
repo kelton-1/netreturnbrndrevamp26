@@ -1,0 +1,716 @@
+{% comment %}
+  Spring Sale 2026 Landing Page — The Net Return
+  Section: /sections/spring-2026.liquid
+{% endcomment %}
+
+<section id="bfcm-{{ section.id }}" class="bfcm">
+  {%- assign nets_pct = 10 -%}
+  {%- assign packages_pct = 10 -%}
+  {%- assign acc_pct = 10 -%}
+  {%- assign simbays_pct = 10 -%}
+  {%- assign sims_pct = 0 -%}
+
+  {% if section.settings.hero_image %}
+    <div class="bfcm__hero-media">
+      {{ section.settings.hero_image | image_url: width: 2560 | image_tag: loading: 'lazy', widths: '1200,1600,1920,2560', alt: section.settings.hero_title }}
+    </div>
+  {% endif %}
+
+  <div class="bfcm__hero-copy">
+    {% if section.settings.kicker != blank %}<p class="bfcm__kicker">{{ section.settings.kicker }}</p>{% endif %}
+    <h1 class="bfcm__title">{{ section.settings.hero_title }}</h1>
+    {% if section.settings.hero_sub %}<p class="bfcm__sub">{{ section.settings.hero_sub }}</p>{% endif %}
+
+    <div class="bfcm__return-pill" role="note" aria-label="Spring sale savings">
+      <span class="bfcm__return-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="4" width="18" height="16" rx="3" stroke="#111" stroke-width="1.5"/>
+          <path d="M3 9h18" stroke="#111" stroke-width="1.5"/>
+          <circle cx="8.5" cy="13.5" r="1.4" fill="#111"/>
+          <circle cx="12"  cy="13.5" r="1.4" fill="#111"/>
+          <circle cx="15.5" cy="13.5" r="1.4" fill="#111"/>
+        </svg>
+      </span>
+      <span class="bfcm__return-text">
+        <strong>Spring Sale 2026 is live now. Save on nets, packages, sim bays, and accessories while offers last.</strong>
+      </span>
+    </div>
+
+    {% if section.settings.coupon_text != blank %}
+      <div class="bfcm__coupon-pill" role="note" aria-label="Spring sale coupon code">
+        <span class="bfcm__coupon-copy">{{ section.settings.coupon_text }}</span>
+        {% if section.settings.coupon_code != blank %}
+          <span class="bfcm__coupon-code">{{ section.settings.coupon_code }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if section.settings.hero_cta_label != blank %}
+      <a class="btn btn--primary" href="{{ section.settings.hero_cta_url | default: '#' }}">{{ section.settings.hero_cta_label }}</a>
+    {% endif %}
+  </div>
+
+  {%- comment -%} Helper: global manual overrides lines {%- endcomment -%}
+  {% assign _ov_lines = section.settings.price_overrides | default: '' | replace: '\r','' | split: '\n' %}
+
+  {% assign _dummy = '' %}
+
+  <div class="bfcm__container">
+    {%- comment -%} SHOP NETS {%- endcomment -%}
+    {% if section.settings.nets_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">
+          Shop Nets
+          <span class="tag tag--white tag--tight"><strong>10% OFF</strong></span>
+        </h2>
+
+        <a class="chip chip--white"
+          href="{{ section.settings.compare_sizes_url | default: 'https://www.thenetreturn.com/pages/compare' }}"
+          target="_blank" rel="noopener">Compare sizes</a>
+      </div>
+
+      <div class="bfcm-slider" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+          {% for product in section.settings.nets_collection.products limit: section.settings.nets_limit %}
+            {% assign ov_price = '' %}{% assign ov_compare = '' %}{% assign use_manual = false %}
+            {% for line in _ov_lines %}
+              {% assign line = line | strip %}
+              {% if line != '' %}
+                {% assign parts = line | split: '|' %}
+                {% assign h = parts[0] | strip %}
+                {% if h == product.handle %}
+                  {% assign ov_price   = parts[1] | default: '' | strip %}
+                  {% assign ov_compare = parts[2] | default: '' | strip %}
+                  {% if ov_price != '' %}{% assign use_manual = true %}{% endif %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% assign show_badge = false %}{% assign pct = 0 %}
+            {% if use_manual and ov_compare != '' %}
+              {% assign mp = ov_price   | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mc = ov_compare | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mp_num = mp | plus: 0 %}{% assign mc_num = mc | plus: 0 %}
+              {% assign diff = mc_num | minus: mp_num %}
+              {% if mc_num > 0 and diff > 0 %}
+                {% assign pct = diff | times: 100 | divided_by: mc_num | round %}
+                {% assign show_badge = true %}
+              {% endif %}
+            {% endif %}
+            {% if show_badge == false and product.compare_at_price_max and product.compare_at_price_max > product.price %}
+              {% assign diff = product.compare_at_price_max | minus: product.price %}
+              {% assign pct  = diff | times: 100 | divided_by: product.compare_at_price_max | round %}
+              {% assign show_badge = true %}
+            {% endif %}
+
+            <a href="{{ product.url }}" class="bfcm-card">
+              {% if section.settings.nets_show_badge and show_badge %}<span class="bfcm-badge">Save {{ pct }}%</span>{% endif %}
+              <div class="bfcm-card__img">
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+              </div>
+              <div class="bfcm-card__meta">
+                <h3 class="bfcm-card__title">{{ product.title }}</h3>
+
+                <div class="bfcm-card__prices bfcm-card__prices--promo">
+                  <span class="price price--promo">
+                    {% if use_manual %}
+                      {{ ov_price }}
+                    {% else %}
+                      {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                    {% endif %}
+                  </span>
+                  {% if section.settings.nets_show_compare %}
+                    {% if use_manual %}
+                      {% if ov_compare != '' %}<span class="compare">{{ ov_compare }}</span>{% endif %}
+                    {% else %}
+                      {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                        <span class="compare">
+                          {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+
+    {%- comment -%} SHOP PACKAGES {%- endcomment -%}
+    {% if section.settings.packages_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">
+          Shop Packages
+          <span class="tag tag--white tag--tight"><strong>10% OFF</strong></span>
+        </h2>
+      </div>
+
+      <div class="bfcm-slider" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+          {% for product in section.settings.packages_collection.products limit: section.settings.packages_limit %}
+            {% assign ov_price = '' %}{% assign ov_compare = '' %}{% assign use_manual = false %}
+            {% for line in _ov_lines %}
+              {% assign line = line | strip %}
+              {% if line != '' %}
+                {% assign parts = line | split: '|' %}
+                {% assign h = parts[0] | strip %}
+                {% if h == product.handle %}
+                  {% assign ov_price   = parts[1] | default: '' | strip %}
+                  {% assign ov_compare = parts[2] | default: '' | strip %}
+                  {% if ov_price != '' %}{% assign use_manual = true %}{% endif %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% assign show_badge = false %}{% assign pct = 0 %}
+            {% if use_manual and ov_compare != '' %}
+              {% assign mp = ov_price   | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mc = ov_compare | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mp_num = mp | plus: 0 %}{% assign mc_num = mc | plus: 0 %}
+              {% assign diff = mc_num | minus: mp_num %}
+              {% if mc_num > 0 and diff > 0 %}
+                {% assign pct = diff | times: 100 | divided_by: mc_num | round %}
+                {% assign show_badge = true %}
+              {% endif %}
+            {% endif %}
+            {% if show_badge == false and product.compare_at_price_max and product.compare_at_price_max > product.price %}
+              {% assign diff = product.compare_at_price_max | minus: product.price %}
+              {% assign pct  = diff | times: 100 | divided_by: product.compare_at_price_max | round %}
+              {% assign show_badge = true %}
+            {% endif %}
+
+            <a href="{{ product.url }}" class="bfcm-card">
+              {% if section.settings.packages_show_badge and show_badge %}<span class="bfcm-badge">Save {{ pct }}%</span>{% endif %}
+              <div class="bfcm-card__img">
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+              </div>
+              <div class="bfcm-card__meta">
+                <h3 class="bfcm-card__title">{{ product.title }}</h3>
+
+                <div class="bfcm-card__prices bfcm-card__prices--promo">
+                  <span class="price price--promo">
+                    {% if use_manual %}
+                      {{ ov_price }}
+                    {% else %}
+                      {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                    {% endif %}
+                  </span>
+                  {% if section.settings.packages_show_compare %}
+                    {% if use_manual %}
+                      {% if ov_compare != '' %}<span class="compare">{{ ov_compare }}</span>{% endif %}
+                    {% else %}
+                      {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                        <span class="compare">
+                          {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  {%- comment -%} CTA {%- endcomment -%}
+  <div class="bfcm-cta bfcm-cta--bleed">
+    <div class="bfcm-cta__inner">
+      <div class="bfcm-cta__copy">
+        <h3>{{ section.settings.call_headline }}</h3>
+        {% if section.settings.call_sub %}<p>{{ section.settings.call_sub }}</p>{% endif %}
+      </div>
+      <a class="btn btn--primary btn--lg bfcm-cta__btn"
+         href="{{ section.settings.call_url | default: '#' }}"
+         target="{{ section.settings.call_target | default: '_self' }}">{{ section.settings.call_label }}</a>
+    </div>
+  </div>
+
+  <div class="bfcm__container">
+    {%- comment -%} ACCESSORIES — collection-driven {%- endcomment -%}
+    {% if section.settings.accessories_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">
+          Shop Accessories
+          <span class="tag tag--white tag--tight"><strong>10% OFF</strong></span>
+        </h2>
+
+        {%- comment -%} Accessories extra offer chip (customizable, like Compare sizes) {%- endcomment -%}
+        {% if section.settings.acc_extra_offer != blank %}
+          {% if section.settings.acc_extra_offer_url != blank %}
+            <a class="chip chip--white" href="{{ section.settings.acc_extra_offer_url }}" target="_blank" rel="noopener">{{ section.settings.acc_extra_offer }}</a>
+          {% else %}
+            <span class="chip chip--white">{{ section.settings.acc_extra_offer }}</span>
+          {% endif %}
+        {% endif %}
+
+        {% if section.settings.acc_subheading != blank %}
+          <p class="bfcm__subnote">{{ section.settings.acc_subheading }}</p>
+        {% endif %}
+      </div>
+
+      <div class="bfcm-slider" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+
+          {% for product in section.settings.accessories_collection.products limit: section.settings.accessories_limit %}
+              {% assign ov_price = '' %}{% assign ov_compare = '' %}{% assign use_manual = false %}
+              {% for line in _ov_lines %}
+                {% assign line = line | strip %}
+                {% if line != '' %}
+                  {% assign parts = line | split: '|' %}
+                  {% assign h = parts[0] | strip %}
+                  {% if h == product.handle %}
+                    {% assign ov_price   = parts[1] | default: '' | strip %}
+                    {% assign ov_compare = parts[2] | default: '' | strip %}
+                    {% if ov_price != '' %}{% assign use_manual = true %}{% endif %}
+                    {% break %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              {% assign has_compare = false %}{% assign pct = 0 %}
+              {% if use_manual and ov_compare != '' %}
+                {% assign mp = ov_price   | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+                {% assign mc = ov_compare | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+                {% assign mp_num = mp | plus: 0 %}{% assign mc_num = mc | plus: 0 %}
+                {% assign diff = mc_num | minus: mp_num %}
+                {% if mc_num > 0 and diff > 0 %}
+                  {% assign pct = diff | times: 100 | divided_by: mc_num | round %}
+                  {% assign has_compare = true %}
+                {% endif %}
+              {% endif %}
+              {% if has_compare == false and product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                {% assign diff = product.compare_at_price_max | minus: product.price %}
+                {% assign pct  = diff | times: 100 | divided_by: product.compare_at_price_max | round %}
+                {% assign has_compare = true %}
+              {% endif %}
+
+              <a href="{{ product.url }}" class="bfcm-card">
+                {% if section.settings.accessories_show_badge and has_compare %}<span class="bfcm-badge">Save {{ pct }}%</span>{% endif %}
+                <div class="bfcm-card__img">
+                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+                </div>
+                <div class="bfcm-card__meta">
+                  <h3 class="bfcm-card__title">{{ product.title }}</h3>
+                  <div class="bfcm-card__prices bfcm-card__prices--promo">
+                    <span class="price price--promo">
+                      {% if use_manual %}
+                        {{ ov_price }}
+                      {% else %}
+                        {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                      {% endif %}
+                    </span>
+                    {% if section.settings.accessories_show_compare %}
+                      {% if use_manual %}
+                        {% if ov_compare != '' %}<span class="compare">{{ ov_compare }}</span>{% endif %}
+                      {% else %}
+                        {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                          <span class="compare">
+                            {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                          </span>
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+          {% endfor %}
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+
+    {%- comment -%} SIM BAYS — with % badge + optional manual override via price_overrides {%- endcomment -%}
+    {% if section.settings.sim_bays_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">
+          Shop Sim Bays
+          <span class="tag tag--white tag--tight"><strong>10% OFF</strong></span>
+        </h2>
+      </div>
+      <div class="bfcm-slider bfcm-slider--simbays" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+          {% for product in section.settings.sim_bays_collection.products limit: section.settings.sim_bays_limit %}
+            {% assign ov_price = '' %}{% assign ov_compare = '' %}{% assign use_manual = false %}
+            {% for line in _ov_lines %}
+              {% assign line = line | strip %}
+              {% if line != '' %}
+                {% assign parts = line | split: '|' %}
+                {% assign h = parts[0] | strip %}
+                {% if h == product.handle %}
+                  {% assign ov_price   = parts[1] | default: '' | strip %}
+                  {% assign ov_compare = parts[2] | default: '' | strip %}
+                  {% if ov_price != '' %}{% assign use_manual = true %}{% endif %}
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% assign has_compare = false %}{% assign pct = 0 %}
+            {% if use_manual and ov_compare != '' %}
+              {% assign mp = ov_price   | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mc = ov_compare | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+              {% assign mp_num = mp | plus: 0 %}{% assign mc_num = mc | plus: 0 %}
+              {% assign diff = mc_num | minus: mp_num %}
+              {% if mc_num > 0 and diff > 0 %}
+                {% assign pct = diff | times: 100 | divided_by: mc_num | round %}
+                {% assign has_compare = true %}
+              {% endif %}
+            {% endif %}
+            {% if has_compare == false and product.compare_at_price_max and product.compare_at_price_max > product.price %}
+              {% assign diff = product.compare_at_price_max | minus: product.price %}
+              {% assign pct  = diff | times: 100 | divided_by: product.compare_at_price_max | round %}
+              {% assign has_compare = true %}
+            {% endif %}
+
+            <a href="{{ product.url }}" class="bfcm-card">
+              {% if section.settings.sim_bays_show_badge and has_compare %}<span class="bfcm-badge">Save {{ pct }}%</span>{% endif %}
+              <div class="bfcm-card__img">
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+              </div>
+              <div class="bfcm-card__meta">
+                <h3 class="bfcm-card__title">{{ product.title }}</h3>
+
+                <div class="bfcm-card__prices bfcm-card__prices--promo">
+                  <span class="price price--promo">
+                    {% if use_manual %}
+                      {{ ov_price }}
+                    {% else %}
+                      {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                    {% endif %}
+                  </span>
+                  {% if section.settings.sim_bays_show_compare %}
+                    {% if use_manual %}
+                      {% if ov_compare != '' %}<span class="compare">{{ ov_compare }}</span>{% endif %}
+                    {% else %}
+                      {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                        <span class="compare">
+                          {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                        </span>
+                      {% endif %}
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+
+    {%- comment -%} SIMULATOR BUNDLES — collection-driven {%- endcomment -%}
+    {% if section.settings.sim_bundles_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">
+          {{ section.settings.sim_bundles_title | default: 'Shop Simulator Bundles' }}
+        </h2>
+      </div>
+      <div class="bfcm-slider" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+          {% for product in section.settings.sim_bundles_collection.products limit: section.settings.sim_bundles_limit %}
+              {% assign ov_price = '' %}{% assign ov_compare = '' %}{% assign use_manual = false %}
+              {% for line in _ov_lines %}
+                {% assign line = line | strip %}
+                {% if line != '' %}
+                  {% assign parts = line | split: '|' %}
+                  {% assign h = parts[0] | strip %}
+                  {% if h == product.handle %}
+                    {% assign ov_price   = parts[1] | default: '' | strip %}
+                    {% assign ov_compare = parts[2] | default: '' | strip %}
+                    {% if ov_price != '' %}{% assign use_manual = true %}{% endif %}
+                    {% break %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              {% assign has_compare = false %}{% assign pct = 0 %}
+              {% if use_manual and ov_compare != '' %}
+                {% assign mp = ov_price   | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+                {% assign mc = ov_compare | remove:'$' | remove:'₹' | remove:'€' | remove:'£' | remove:',' | remove:' ' | replace: '.','' %}
+                {% assign mp_num = mp | plus: 0 %}{% assign mc_num = mc | plus: 0 %}
+                {% assign diff = mc_num | minus: mp_num %}
+                {% if mc_num > 0 and diff > 0 %}
+                  {% assign pct = diff | times: 100 | divided_by: mc_num | round %}
+                  {% assign has_compare = true %}
+                {% endif %}
+              {% endif %}
+              {% if has_compare == false and product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                {% assign diff = product.compare_at_price_max | minus: product.price %}
+                {% assign pct  = diff | times: 100 | divided_by: product.compare_at_price_max | round %}
+                {% assign has_compare = true %}
+              {% endif %}
+
+              <a href="{{ product.url }}" class="bfcm-card">
+                {% if section.settings.sim_bundles_show_badge and has_compare %}<span class="bfcm-badge">Save {{ pct }}%</span>{% endif %}
+                <div class="bfcm-card__img">
+                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+                </div>
+                <div class="bfcm-card__meta">
+                  <h3 class="bfcm-card__title">{{ product.title }}</h3>
+                  <div class="bfcm-card__prices bfcm-card__prices--promo">
+                    <span class="price price--promo">
+                      {% if use_manual %}
+                        {{ ov_price }}
+                      {% else %}
+                        {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                      {% endif %}
+                    </span>
+                    {% if section.settings.sim_bundles_show_compare %}
+                      {% if use_manual %}
+                        {% if ov_compare != '' %}<span class="compare">{{ ov_compare }}</span>{% endif %}
+                      {% else %}
+                        {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                          <span class="compare">
+                            {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                          </span>
+                        {% endif %}
+                      {% endif %}
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+          {% endfor %}
+
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+
+    {%- comment -%} SIMULATORS (unchanged layout) {%- endcomment -%}
+    {% if section.settings.simulators_collection != blank %}
+    <div class="bfcm__row">
+      <div class="bfcm__row-head">
+        <h2 class="bfcm__row-title">Shop Simulators</h2>
+      </div>
+      <div class="bfcm-slider" data-slider>
+        <button class="bfcm-nav bfcm-nav--prev" aria-label="Previous">{% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}</button>
+        <div class="bfcm-track" data-track>
+          {% for product in section.settings.simulators_collection.products limit: section.settings.simulators_limit %}
+            <a href="{{ product.url }}" class="bfcm-card">
+              <div class="bfcm-card__img">
+                {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+              </div>
+              <div class="bfcm-card__meta">
+                <h3 class="bfcm-card__title">{{ product.title }}</h3>
+                <div class="bfcm-card__prices">
+                  <span class="price">
+                    {% if settings.currency_code_enabled %}{{ product.price | money_with_currency }}{% else %}{{ product.price | money }}{% endif %}
+                  </span>
+                  {% if section.settings.simulators_show_compare %}
+                    {% if product.compare_at_price_max and product.compare_at_price_max > product.price %}
+                      <span class="compare">
+                        {% if settings.currency_code_enabled %}{{ product.compare_at_price_max | money_with_currency }}{% else %}{{ product.compare_at_price_max | money }}{% endif %}
+                      </span>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+        <button class="bfcm-nav bfcm-nav--next" aria-label="Next">{% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}</button>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if section.settings.reviews != blank %}
+      <div class="bfcm-reviews rte">{{ section.settings.reviews }}</div>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  .bfcm{--green:#00994d;--bg:#000;--card:#0f0f0f;--border:#1c1c1c;--text:#fff}
+  .bfcm{background:var(--bg);color:var(--text)}
+  .bfcm__container{max-width:1280px;margin:0 auto;padding:0 clamp(16px,5vw,48px) 56px}
+  .bfcm__row{margin:44px 0 34px}
+  .bfcm__hero-media{margin:0 auto 14px;max-width:1440px;padding:0 clamp(8px,3vw,24px)}
+  .bfcm__hero-media img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--border);background:#0a0a0a}
+  .bfcm__hero-copy{max-width:980px;margin:0 auto;padding:8px 16px 8px;text-align:center}
+  .bfcm__kicker{letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin:0 0 8px}
+  .bfcm__title{font-size:clamp(30px,5.2vw,56px);margin:0 0 6px}
+  .bfcm__sub{opacity:.88;margin:0 0 14px;font-size:clamp(14px,2vw,18px)}
+  .btn{display:inline-block;border-radius:999px;font-weight:800;white-space:nowrap}
+  .btn--primary{background:var(--green);color:#fff;padding:.75rem 1.15rem}
+  .btn--lg{font-size:1.05rem;padding:.9rem 1.35rem}
+  .btn--light{background:#fff;color:#111;padding:.7rem 1.1rem;border-radius:999px;font-weight:800}
+  #bfcm-{{ section.id }} .bfcm__return-pill{font-family:"Lato", Arial, sans-serif;display:inline-flex;align-items:center;gap:10px;margin:6px auto 14px;padding:10px 12px;background:#fff;color:#111;border:1px solid #e9e9e9;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.18);line-height:1.25;max-width:980px}
+  #bfcm-{{ section.id }} .bfcm__return-icon{display:inline-flex}
+  #bfcm-{{ section.id }} .bfcm__return-text{font-size:clamp(12px,1.6vw,14px);letter-spacing:.02em}
+  #bfcm-{{ section.id }} .bfcm__coupon-pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 auto 16px;padding:12px 16px;background:#00994d;color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:12px;box-shadow:0 10px 24px rgba(0,0,0,.22);line-height:1.25;max-width:980px}
+  #bfcm-{{ section.id }} .bfcm__coupon-copy{font-size:clamp(13px,1.8vw,16px)}
+  #bfcm-{{ section.id }} .bfcm__coupon-code{display:inline-flex;align-items:center;justify-content:center;padding:6px 12px;border-radius:999px;background:#fff;color:#00994d;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .bfcm__row-head{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap}
+  .bfcm__row-title{font-size:clamp(20px,2.6vw,30px);margin:0;display:flex;gap:10px;align-items:center}
+  .tag{display:inline-flex;align-items:center;background:#fff;color:#111;border:1px solid #eaeaea;border-radius:10px;padding:.22rem .55rem}
+  .tag--tight{padding:.18rem .5rem}
+  .chip{display:inline-flex;align-items:center;border-radius:10px;padding:.35rem .6rem;font-weight:700;font-size:.9rem}
+  .chip--white{background:#fff;color:#111;border:1px solid #eaeaea;text-decoration:none}
+  .bfcm__subnote{margin:0;color:#fff;opacity:.9;font-size:.95rem}
+  .bfcm-slider{position:relative;padding:0 56px}
+  .bfcm-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px, 320px);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 0 2px}
+  .bfcm-track > *{scroll-snap-align:center}
+  .bfcm-track::-webkit-scrollbar{display:none}
+  .bfcm-track{scrollbar-width:none}
+  .bfcm-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;background:#0c0c0c;border:1px solid var(--border);color:#fff;width:40px;height:40px;border-radius:999px;display:grid;place-items:center}
+  .bfcm-nav--prev{left:8px}
+  .bfcm-nav--next{right:8px}
+  .bfcm-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;position:relative;transition:transform .2s ease, box-shadow .2s ease}
+  .bfcm-card:hover{transform:translateY(-2px);box-shadow:0 24px 40px rgba(0,0,0,.35)}
+  .bfcm-badge{position:absolute;left:10px;top:10px;background:#fff;color:var(--green);border-radius:10px;font-weight:800;padding:.22rem .5rem;font-size:.78rem;border:1px solid #eaeaea}
+  .bfcm-card__img{aspect-ratio:1/1;background:#0a0a0a;display:grid;place-items:center}
+  .bfcm-card__img img{width:100%;height:100%;object-fit:cover}
+  .bfcm-card__meta{padding:12px 14px 12px}
+  .bfcm-card__title{margin:0 0 6px;font-size:15px;line-height:1.35}
+  .bfcm-card__prices{display:flex;gap:8px;align-items:baseline}
+  .bfcm-card__prices--promo{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .price{font-weight:800}
+  .price--promo{font-weight:800}
+  .compare{text-decoration:line-through;opacity:.7}
+  .note{font-size:.8rem;opacity:.85}
+  .bfcm-cta--bleed{padding:0;margin:36px 0}
+  .bfcm-cta__inner{max-width:1280px;margin:0 auto;background:#0b0b0b;border:1px solid var(--border);border-radius:20px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .bfcm-cta__copy h3{margin:0 0 6px;font-size:clamp(18px,2.4vw,28px)}
+  .bfcm-cta__copy p{margin:0;opacity:.9}
+  .bfcm-cta__btn{display:inline-flex;align-items:center;justify-content:center}
+  .bfcm-testimonial{margin:48px 0}
+  .bfcm-testimonial__inner{background:#0b0b0b;border:1px solid var(--border);border-radius:20px;padding:22px}
+  .bfcm-testimonial__inner--stack{display:grid;gap:18px}
+  .bfcm-testimonial__img--lg img{width:100%;height:auto;border-radius:16px;border:1px solid #222;box-shadow:0 12px 30px rgba(0,0,0,.35);background:#060606}
+  .bfcm-bryson-title{margin:2px 0 6px;font-size:clamp(20px,2.4vw,30px);line-height:1.25}
+  .bfcm-attr{margin:6px 0 14px;opacity:.9}
+  .bfcm-reviews{margin:48px 0}
+
+  /* Mobile */
+  @media (max-width: 900px){
+    .bfcm__container{padding:0 16px 48px}
+    .bfcm__row{margin:32px 0 24px}
+    /* Mobile: one full card per view */
+    .bfcm-slider{padding:0 33px} /* side gutters so arrows don't overlap image */
+    .bfcm-track{grid-auto-columns:100%}
+    /* SHOW ARROWS ON ALL SLIDERS (mobile) */
+    #bfcm-{{ section.id }} .bfcm-slider .bfcm-nav{display:grid!important;position:absolute;top:50%;transform:translateY(-50%)}
+    .bfcm-nav{width:20px;height:20px}
+    .bfcm-nav--prev{left:10px}
+    .bfcm-nav--next{right:10px}
+    .bfcm-cta--bleed{margin:28px 0}
+    .bfcm-cta__inner{border-radius:16px;flex-direction:column;align-items:stretch;gap:12px;text-align:left;padding:16px}
+    .bfcm-cta__btn{width:100%}
+  }
+
+  /* Desktop: keep Sim Bays arrows hidden (as before) */
+  @media (min-width: 901px){
+    #bfcm-{{ section.id }} .bfcm-slider--simbays .bfcm-nav{display:none!important}
+  }
+{% endstyle %}
+{% style %}
+  /* White background + black icon for arrows */
+  #bfcm-{{ section.id }} .bfcm-nav{
+    background:#fff !important;
+    color:#111 !important;            /* icon color via currentColor */
+    border:1px solid #eaeaea !important;
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+  }
+  #bfcm-{{ section.id }} .bfcm-nav svg,
+  #bfcm-{{ section.id }} .bfcm-nav svg *{
+    fill:currentColor !important;
+    stroke:currentColor !important;
+  }
+{% endstyle %}
+
+<script>
+  (function(){
+    const root = document.getElementById('bfcm-{{ section.id }}');
+    if(!root) return;
+    root.querySelectorAll('[data-slider]').forEach(function(slider){
+      const track = slider.querySelector('[data-track]');
+      const prev  = slider.querySelector('.bfcm-nav--prev');
+      const next  = slider.querySelector('.bfcm-nav--next');
+      if(!track || !prev || !next) return;
+      function scrollByCard(dir){
+        const card = track.querySelector('.bfcm-card');
+        const gap  = 22;
+        const step = card ? (card.getBoundingClientRect().width + gap) : 320;
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
+      }
+      prev.addEventListener('click', ()=> scrollByCard(-1));
+      next.addEventListener('click', ()=> scrollByCard( 1));
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Spring Sale 2026",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Spring Sale 2026" },
+    { "type": "text", "id": "hero_title", "label": "Hero title", "default": "Spring Savings Are Live" },
+    { "type": "text", "id": "hero_sub", "label": "Hero subheading", "default": "Use code at checkout and save on nets, packages, bays and more." },
+    { "type": "text", "id": "coupon_text", "label": "Coupon message", "default": "Use the code at checkout." },
+    { "type": "text", "id": "coupon_code", "label": "Coupon code", "default": "SPRING10" },
+    { "type": "text", "id": "hero_cta_label", "label": "Hero CTA label", "default": "Shop all deals" },
+    { "type": "url",  "id": "hero_cta_url", "label": "Hero CTA link" },
+    { "type": "url", "id": "compare_sizes_url", "label": "Compare sizes link" },
+    { "type": "collection", "id": "nets_collection", "label": "Nets collection" },
+    { "type": "range", "id": "nets_limit", "min": 4, "max": 24, "step": 1, "label": "Nets product limit", "default": 12 },
+    { "type": "checkbox", "id": "nets_show_compare", "label": "Nets: show compare-at price", "default": true },
+    { "type": "checkbox", "id": "nets_show_badge", "label": "Nets: show save badge", "default": true },
+    { "type": "collection", "id": "packages_collection", "label": "Packages collection" },
+    { "type": "range", "id": "packages_limit", "min": 4, "max": 24, "step": 1, "label": "Packages product limit", "default": 12 },
+    { "type": "checkbox", "id": "packages_show_compare", "label": "Packages: show compare-at price", "default": true },
+    { "type": "checkbox", "id": "packages_show_badge", "label": "Packages: show save badge", "default": true },
+    { "type": "collection", "id": "accessories_collection", "label": "Accessories collection" },
+    { "type": "text", "id": "acc_subheading", "label": "Accessories subheading (leave blank to hide)"},
+    { "type": "range", "id": "accessories_limit", "min": 4, "max": 24, "step": 1, "label": "Accessories product limit", "default": 12 },
+    { "type": "checkbox", "id": "accessories_show_compare", "label": "Accessories: show compare-at price", "default": true },
+    { "type": "checkbox", "id": "accessories_show_badge", "label": "Accessories: show save badge", "default": true },
+    { "type": "text", "id": "acc_extra_offer", "label": "Accessories extra offer chip text", "default": "Additional 5% off when bundled with Net purchase" },
+    { "type": "url",  "id": "acc_extra_offer_url", "label": "Accessories extra offer chip link (optional)" },
+    { "type": "collection", "id": "sim_bays_collection", "label": "Sim Bays collection" },
+    { "type": "range", "id": "sim_bays_limit", "min": 4, "max": 24, "step": 1, "label": "Sim Bays product limit", "default": 12 },
+    { "type": "checkbox", "id": "sim_bays_show_compare", "label": "Sim Bays: show compare-at price", "default": true },
+    { "type": "checkbox", "id": "sim_bays_show_badge", "label": "Sim Bays: show save badge", "default": true },
+    { "type": "text", "id": "sim_bundles_title", "label": "Simulator Bundles title", "default": "Shop Simulator Bundles" },
+    { "type": "collection", "id": "sim_bundles_collection", "label": "Sim Packages collection" },
+    { "type": "range", "id": "sim_bundles_limit", "min": 4, "max": 24, "step": 1, "label": "Simulator bundles product limit", "default": 12 },
+    { "type": "checkbox", "id": "sim_bundles_show_compare", "label": "Sim Bundles: show compare-at price", "default": true },
+    { "type": "checkbox", "id": "sim_bundles_show_badge", "label": "Sim Bundles: show save badge", "default": true },
+    { "type": "collection", "id": "simulators_collection", "label": "Simulators collection" },
+    { "type": "range", "id": "simulators_limit", "min": 4, "max": 24, "step": 1, "label": "Simulators product limit", "default": 12 },
+    { "type": "checkbox", "id": "simulators_show_compare", "label": "Simulators: show compare-at price", "default": true },
+    { "type": "textarea", "id": "price_overrides", "label": "Manual price overrides (all rows)", "info": "One per line: product-handle|Your Price|Your Compare. Example: pro-series-net|$1,199|$1,499" },
+    { "type": "text", "id": "call_headline", "label": "Schedule a call — headline", "default": "Talk to a Net Return Expert" },
+    { "type": "text", "id": "call_sub", "label": "Schedule a call — subtext", "default": "Get a dialed-in recommendation for your space, budget, and timeline." },
+    { "type": "text", "id": "call_label", "label": "Schedule a call — button label", "default": "Schedule a call" },
+    { "type": "url",  "id": "call_url", "label": "Schedule a call — link" },
+    { "type": "text", "id": "call_target", "label": "Button target (_self/_blank)", "default": "_self" },
+    { "type": "richtext", "id": "reviews", "label": "Reviews embed (paste widget / rich text)" }
+  ],
+  "presets": [{ "name": "Spring Sale 2026" }]
+}
+{% endschema %}

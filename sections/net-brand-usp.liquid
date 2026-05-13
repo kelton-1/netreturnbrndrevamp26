@@ -1,0 +1,124 @@
+<div class="feature-grid">
+  {% for block in section.blocks %}
+    <div class="feature-card" {{ block.shopify_attributes }}>
+      {% if block.settings.icon != blank %}
+        <img src="{{ block.settings.icon | img_url: '100x' }}" alt="">
+      {% endif %}
+      <h4>{{ block.settings.title }}</h4>
+      <p>{{ block.settings.text }}</p>
+    </div>
+  {% endfor %}
+</div>
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-card {
+    text-align: center;
+  }
+
+  .feature-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 12px;
+    border-radius: 50%;
+    background: #00994d1a;
+    padding: 5px;
+  }
+
+  .feature-card h4 {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #222;
+    font-weight: 600;
+  }
+
+  .feature-card p {
+    margin: 0;
+    font-size: 13px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  /* Mobile: 2 x 2 grid */
+  @media (max-width: 768px) {
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Net Feature Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Feature description goes here."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Net Feature Grid",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Instant Ball Return",
+            "text": "Double your practice reps per session with automatic return."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Pro-Grade Durability",
+            "text": "Handles ball speeds up to 200 mph safely."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Easy Setup",
+            "text": "Assembles in under 10 minutes, no tools required."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Space Efficient",
+            "text": "Fit comfortably in garages, balconies, and backyards."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

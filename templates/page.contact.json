@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "content": "<p>Phone: (973) 636-7354</p>",
+        "text_1_heading": "",
+        "text_1_text": "",
+        "text_2_heading": "",
+        "text_2_text": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_KMkw87": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "Phone: (973) 636-7354",
+        "title": "",
+        "liquid": "<script src=\"https://js.hsforms.net/forms/embed/47521732.js\" defer></script>\n\n<div class=\"hs-form-frame\" data-region=\"na1\" data-form-id=\"293c3f7f-e840-46e8-8f5f-c3fa40b791b5\" data-portal-id=\"47521732\"></div>",
+        "add_vertical_spacing": true,
+        "disable_editor_execution": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "logo_list_qNYwkP": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_GD9kwD": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/NR_efe27b10-7cbd-48a5-a2ae-bc7e1db06f8d.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_GD9kwD"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "",
+        "button_text": "",
+        "button_link": "",
+        "stack_logos": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_WiHxjc": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Book an appointment with a Net Return expert.",
+        "liquid": "<!-- Calendly inline widget begin -->\n<div class=\"calendly-inline-widget\" data-url=\"https://calendly.com/thenetreturn/net-return-expert-call?\" style=\"min-width:320px;height:660px;\"></div>\n<script type=\"text/javascript\" src=\"https://assets.calendly.com/assets/external/widget.js\" async></script>\n<!-- Calendly inline widget end -->",
+        "add_vertical_spacing": true,
+        "disable_editor_execution": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_wN6rrm": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "",
+        "title": "Book a call with us",
+        "liquid": "<!-- Start of Meetings Embed Script -->\n    <div class=\"meetings-iframe-container\" data-src=\"https://meetings.hubspot.com/tj-garske/disco-web?embed=true\"></div>\n    <script type=\"text/javascript\" src=\"https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js\"></script>\n  <!-- End of Meetings Embed Script -->",
+        "add_vertical_spacing": true,
+        "disable_editor_execution": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact-form",
+    "custom_liquid_KMkw87",
+    "logo_list_qNYwkP",
+    "custom_liquid_WiHxjc",
+    "custom_liquid_wN6rrm"
+  ]
+}

@@ -1,0 +1,365 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "line_property_upgrade_NzkReT": {
+          "type": "line_property_upgrade",
+          "settings": {
+            "label": "Upgrade to Platinum Turf",
+            "checked_value": "Yes",
+            "unchecked_value": ""
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "variant_picker",
+        "quantity_selector",
+        "line_property_upgrade_NzkReT",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {
+      }
+    },
+    "faq_mUkhF8": {
+      "type": "faq",
+      "blocks": {
+        "question_JFiNAJ": {
+          "type": "question",
+          "settings": {
+            "title": "FlightScope Mevo+",
+            "answer": "<ul><li>20 Data Parameters</li><li>12 E6 Connect Simulated Golf Courses - includes Pebble Beach and St Andrews (iOS and PC)</li><li>Patented Fusion Tracking technology - unique combination of radar and camera</li><li>Free practice, skills combines and PC software included</li><li>Action video clips with data overlay</li><li>Indoor and outdoor</li></ul>"
+          }
+        },
+        "question_wjgMMq": {
+          "type": "question",
+          "settings": {
+            "title": "Net Return Package",
+            "answer": "<p>Net</p><p>Side Barriers (Pair)</p><p>Pro Turf (6' x 10')</p><p>Sandbags (4x)</p><p>Rubber Tees (2x)</p><p>Duffle Bag</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_JFiNAJ",
+        "question_wjgMMq"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Package Includes:",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "video_aj6Uhn": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://www.youtube.com/watch?v=LkZesI5B14M&list=TLGGq4W2-R8q6cUxNTA1MjAyNA&t=3s",
+        "image": "shopify://shop_images/mevo_-cover.png",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_QJQxqE": {
+      "type": "gallery",
+      "blocks": {
+        "image_C7YjLY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mevo_availabledata.png",
+            "caption": ""
+          }
+        },
+        "image_wcU9ph": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mevoPlus-FSsetupcopy.webp",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_C7YjLY",
+        "image_wcU9ph"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_XCJKJW": {
+      "type": "faq",
+      "blocks": {
+        "question_gYV6hJ": {
+          "type": "question",
+          "settings": {
+            "title": "Fusion Tracking",
+            "answer": "<p>The Mevo+ with Fusion Tracking introduces a new level of accuracy and consistency on full swing and short game data parameters</p>"
+          }
+        },
+        "question_L8qgfT": {
+          "type": "question",
+          "settings": {
+            "title": "20+ Data Parameters",
+            "answer": "<p>Mevo+ provides over 20 full swing and short game data parameters for ultimate game improvement and entertainment</p>"
+          }
+        },
+        "question_7PNgNp": {
+          "type": "question",
+          "settings": {
+            "title": "Practice Anywhere",
+            "answer": "<p>Use Mevo+ to improve on the range, on the course, and at your home with video and data on every shot</p>"
+          }
+        },
+        "question_pfNqNB": {
+          "type": "question",
+          "settings": {
+            "title": "Specifications",
+            "answer": "<p><strong>Product Dimensions: ‎8.2 x 8 x 2.4 inches; 16 Ounces</strong></p><p>Batteries: ‎ 1 Lithium Polymer batteries required. (included)</p><p>Apple:</p><ul><li>iPhones / iPads with:</li></ul><p></p><ul><li>iOS 14 or later</li><li>Bluetooth LE 4.0 - supports UART/Serial Port Emulation service with RX and TX characteristics</li><li>Visit Apple Support for more information.</li></ul><p></p><p><strong>Android:</strong></p><p></p><ul><li>Android 6.0 or later (devices made in 2015 or later)</li><li>Bluetooth LE 4.0 - supports UART/Serial Port Emulation service with RX and TX characteristics</li></ul>"
+          }
+        },
+        "question_FhfDyD": {
+          "type": "question",
+          "settings": {
+            "title": "Shipping & Returns",
+            "answer": "<p>FREE UPS Ground Shipping in the USA. Note: There are <span style=\"text-decoration:underline\">no returns </span>on this item.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_gYV6hJ",
+        "question_L8qgfT",
+        "question_7PNgNp",
+        "question_pfNqNB",
+        "question_FhfDyD"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Practice with Purpose",
+        "content": "<p>Performance data you can trust. Mevo+ is the ultimate tracking technology and simulator for game improvement.</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "gallery_7ecFRb": {
+      "type": "gallery",
+      "blocks": {
+        "image_iBAtKD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ShotTracerDriver_480x480_4a101403-a75b-4473-a08a-24f53f19ba40.webp",
+            "caption": "<h3>FlightScope Tracer</h3><p>Capture and view accurate 3D trajectories with data overlay on your video.</p>"
+          }
+        },
+        "image_MriwGz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Simulation_and_Games_600x600_39f0a8da-a6fb-4e3a-9288-4a3b1e3ba129.webp",
+            "caption": "<h4>E6 Connect Included for iOS and PC</h4><p>Enhance your golf simulation experience with FlightScope performance data you can trust - included for both iOS and PC.</p>"
+          }
+        },
+        "image_TG6ejC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FSGolfNoProPkg_480x480_a909a354-74ff-4c70-bf4b-e403c5a32811.webp",
+            "caption": "<h4>FS Golf for iOS and Android</h4><p>A comprehensive and customizable phone, tablet, and watch app allowing users to teach, fit, and practice with radar data, video capabilities, 3D trajectories, and more.</p>"
+          }
+        },
+        "image_B8jkBH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4panelaptopsmall_600x600_a88bf45c-e63f-46fe-b559-bfa2aee1a0e1.webp",
+            "caption": "<h4>FS Golf for PC - Included with Purchase</h4><p>A comprehensive and customizable PC app allowing users to teach, fit, and practice with radar data, video capabilities, 3D trajectories, and more, all included with your Mevo+ purchase.</p>"
+          }
+        },
+        "image_7UiAe4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/FS-SkillsTarget_480x480_742c3473-d47c-447e-ba81-f134b5a9c203.webp",
+            "caption": "<h4>Improve with FS Skills</h4><p>Evaluate your game with the most advanced and customizable combine assessment available.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_iBAtKD",
+        "image_MriwGz",
+        "image_TG6ejC",
+        "image_B8jkBH",
+        "image_7UiAe4"
+      ],
+      "settings": {
+        "subheading": "Mevo+ includes ownership of 10 courses and 17 practice ranges with no additional license fee",
+        "title": "Software & Games",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#101010",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "featured_collections_XV3ze8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_wyUKfY": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-projectors",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_wyUKfY"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Computers & Projectors",
+        "content": "",
+        "products_count": 15,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_mUkhF8",
+    "video_aj6Uhn",
+    "gallery_QJQxqE",
+    "faq_XCJKJW",
+    "gallery_7ecFRb",
+    "1713971222a271d416",
+    "featured_collections_XV3ze8"
+  ]
+}

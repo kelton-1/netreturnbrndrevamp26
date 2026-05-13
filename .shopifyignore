@@ -1,0 +1,12 @@
+.git/*
+.agents/*
+.codex/*
+node_modules/*
+shopify-cli-home/*
+.DS_Store
+.env
+.env.*
+package.json
+package-lock.json
+README.md
+docs/*

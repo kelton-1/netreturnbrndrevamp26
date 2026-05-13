@@ -1,0 +1,137 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    --academy-padding-top: {{ section.settings.padding_top }}px;
+    --academy-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --academy-padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --academy-padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --academy-card-background: {{ section.settings.card_background }};
+    --academy-card-border: {{ section.settings.card_border }};
+    {%- render 'section-variables', section: section -%}
+  }
+</style>
+{{ 'academy-landing.css' | asset_url | stylesheet_tag }}
+
+<section class="academy-section academy-pricing-toggle {{ section.settings.custom_class }}">
+  {%- if section.settings.anchor_id != blank -%}
+    <div id="{{ section.settings.anchor_id }}" class="academy-section__anchor"></div>
+  {%- endif -%}
+  <div class="page-width{% if section.settings.full_width %} page-width--full{% endif %} academy-section__inner">
+    {%- render 'academy-heading', section: section -%}
+
+    <tabs-element class="academy-pricing-toggle__tabs">
+      <div class="flex gap-4" role="tablist">
+        <button type="button" class="academy-pricing-toggle__tab button button--primary" role="tab" aria-controls="AcademyPricingMonthly-{{ section.id }}" data-index="0">
+          <span>{{ section.settings.monthly_tab_label | escape }}</span>
+        </button>
+        <button type="button" class="academy-pricing-toggle__tab button button--secondary" role="tab" aria-controls="AcademyPricingAnnual-{{ section.id }}" data-index="1">
+          <span>{{ section.settings.annual_tab_label | escape }}</span>
+        </button>
+      </div>
+
+      <div id="AcademyPricingMonthly-{{ section.id }}" role="tabpanel">
+        <div class="academy-pricing-toggle__card academy-card academy-pricing-toggle__plan">
+          <div class="academy-pricing-toggle__meta">
+            {%- if section.settings.monthly_badge != blank -%}
+              <span class="academy-pricing-toggle__badge">{{ section.settings.monthly_badge }}</span>
+            {%- endif -%}
+          </div>
+          <div>
+            {%- if section.settings.monthly_heading != blank -%}
+              <h3 class="academy-title heading font-bold title-md">{{ section.settings.monthly_heading }}</h3>
+            {%- endif -%}
+            <p class="academy-pricing-toggle__price heading font-bold">{{ section.settings.monthly_price }}</p>
+            {%- if section.settings.monthly_subcopy != blank -%}
+              <div class="academy-description rte">
+                {{- section.settings.monthly_subcopy -}}
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="academy-actions">
+            {%- render 'academy-button', label: section.settings.monthly_button_label, link: section.settings.monthly_button_link, style: section.settings.monthly_button_style -%}
+          </div>
+        </div>
+      </div>
+
+      <div id="AcademyPricingAnnual-{{ section.id }}" role="tabpanel" hidden>
+        <div class="academy-pricing-toggle__card academy-card academy-pricing-toggle__plan">
+          <div class="academy-pricing-toggle__meta">
+            {%- if section.settings.annual_badge != blank -%}
+              <span class="academy-pricing-toggle__badge">{{ section.settings.annual_badge }}</span>
+            {%- endif -%}
+          </div>
+          <div>
+            {%- if section.settings.annual_heading != blank -%}
+              <h3 class="academy-title heading font-bold title-md">{{ section.settings.annual_heading }}</h3>
+            {%- endif -%}
+            <p class="academy-pricing-toggle__price heading font-bold">{{ section.settings.annual_price }}</p>
+            {%- if section.settings.annual_subcopy != blank -%}
+              <div class="academy-description rte">
+                {{- section.settings.annual_subcopy -}}
+              </div>
+            {%- endif -%}
+          </div>
+          <div class="academy-actions">
+            {%- render 'academy-button', label: section.settings.annual_button_label, link: section.settings.annual_button_link, style: section.settings.annual_button_style -%}
+          </div>
+        </div>
+      </div>
+    </tabs-element>
+
+    {%- if section.settings.shared_features != blank -%}
+      <div class="academy-description rte" style="margin-top: 24px;">
+        {{- section.settings.shared_features -}}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Academy Pricing Toggle",
+  "settings": [
+    { "type": "text", "id": "anchor_id", "label": "Anchor id" },
+    { "type": "text", "id": "custom_class", "label": "Custom class" },
+    { "type": "checkbox", "id": "full_width", "label": "Full width" },
+    { "type": "text", "id": "subheading", "label": "Eyebrow", "default": "Join the Academy" },
+    { "type": "inline_richtext", "id": "heading", "label": "Heading", "default": "Pick the membership that fits how you train." },
+    { "type": "select", "id": "heading_tag", "label": "Heading tag", "default": "h2", "options": [{ "value": "h2", "label": "H2" }, { "value": "h3", "label": "H3" }, { "value": "div", "label": "Div" }] },
+    { "type": "select", "id": "heading_size", "label": "Heading size", "default": "title-lg tracking-heading", "options": [{ "value": "title-xl tracking-heading", "label": "XL" }, { "value": "title-lg tracking-heading", "label": "Large" }, { "value": "title-md", "label": "Medium" }] },
+    { "type": "select", "id": "heading_alignment", "label": "Heading alignment", "default": "center", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }] },
+    { "type": "richtext", "id": "description", "label": "Description", "default": "<p>This toggle swaps manual content for monthly and annual plans without connecting to Shopify subscriptions.</p>" },
+    { "type": "text", "id": "monthly_tab_label", "label": "Monthly tab label", "default": "Monthly" },
+    { "type": "text", "id": "monthly_badge", "label": "Monthly badge", "default": "Flexible" },
+    { "type": "text", "id": "monthly_heading", "label": "Monthly heading", "default": "Train month to month" },
+    { "type": "text", "id": "monthly_price", "label": "Monthly price", "default": "$39" },
+    { "type": "richtext", "id": "monthly_subcopy", "label": "Monthly subcopy", "default": "<p>Billed every month. Cancel any time.</p>" },
+    { "type": "text", "id": "monthly_button_label", "label": "Monthly CTA label", "default": "Start monthly" },
+    { "type": "url", "id": "monthly_button_link", "label": "Monthly CTA link" },
+    { "type": "select", "id": "monthly_button_style", "label": "Monthly CTA style", "default": "primary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "text", "id": "annual_tab_label", "label": "Annual tab label", "default": "Annual" },
+    { "type": "text", "id": "annual_badge", "label": "Annual badge", "default": "Best value" },
+    { "type": "text", "id": "annual_heading", "label": "Annual heading", "default": "Commit to a full season" },
+    { "type": "text", "id": "annual_price", "label": "Annual price", "default": "$299" },
+    { "type": "richtext", "id": "annual_subcopy", "label": "Annual subcopy", "default": "<p>Billed once per year. Save versus monthly pricing.</p>" },
+    { "type": "text", "id": "annual_button_label", "label": "Annual CTA label", "default": "Choose annual" },
+    { "type": "url", "id": "annual_button_link", "label": "Annual CTA link" },
+    { "type": "select", "id": "annual_button_style", "label": "Annual CTA style", "default": "primary", "options": [{ "value": "primary", "label": "Primary" }, { "value": "secondary", "label": "Secondary" }] },
+    { "type": "richtext", "id": "shared_features", "label": "Shared features text", "default": "<p>Use this area for a short list of shared inclusions beneath the pricing card.</p>" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "color_text", "label": "Text color", "default": "#ffffff" },
+    { "type": "color", "id": "color_background", "label": "Background color", "default": "#101818" },
+    { "type": "color_background", "id": "gradient_background", "label": "Background gradient" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#163129" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#2d5a4d" },
+    { "type": "color", "id": "color_button_text", "label": "Button text color", "default": "#101818" },
+    { "type": "color", "id": "color_button_background", "label": "Button background color", "default": "#b8ff2c" },
+    { "type": "color_background", "id": "color_button_gradient", "label": "Button gradient" },
+    { "type": "header", "content": "Spacing" },
+    { "type": "range", "id": "padding_top", "label": "Desktop top padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Desktop bottom padding", "min": 0, "max": 160, "step": 4, "default": 72, "unit": "px" },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile top padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile bottom padding", "min": 0, "max": 120, "step": 4, "default": 48, "unit": "px" }
+  ],
+  "presets": [
+    { "name": "Academy Pricing Toggle" }
+  ]
+}
+{% endschema %}

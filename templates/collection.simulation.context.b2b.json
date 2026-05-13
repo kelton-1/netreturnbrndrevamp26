@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "collection.simulation.json",
+  "context": {
+    "market": "all-b2b"
+  },
+  "sections": {
+    "logo_list_PkmgTn": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "featured_collections_i6f8Y7": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "image_with_text_overlay_FDkGTA": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  }
+}

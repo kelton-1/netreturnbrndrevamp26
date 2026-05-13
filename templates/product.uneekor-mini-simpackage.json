@@ -1,0 +1,332 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "description_fJWD3P": {
+          "type": "description",
+          "settings": {}
+        },
+        "text_TpMJph": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.secondary_text.value }}</p>"
+          }
+        },
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "product_variations_xwtiWD": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "description_fJWD3P",
+        "text_TpMJph",
+        "image_RgGVj4",
+        "variant_picker",
+        "product_variations_xwtiWD",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "description"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "faq_kr3ztx": {
+      "type": "faq",
+      "blocks": {
+        "question_7mc6Yn": {
+          "type": "question",
+          "settings": {
+            "title": "Uneekor Eye Mini",
+            "answer": "<p>Unlock a new level of precision in your game with the EYE MINI – where cutting-edge technology meets affordability. Elevate your skills without stretching your budget.</p>"
+          }
+        },
+        "question_Uqaezx": {
+          "type": "question",
+          "settings": {
+            "title": "Net Return Simulator Bay",
+            "answer": "<p><strong>Framing</strong> - High gloss, black aluminum, powder-coated frame.</p><p><strong>Valance</strong> - Enhances the projector image by darkening the screen.</p><p><strong>Netting</strong> - Entire bay is sewn with our high impact netting</p><p><strong>Screen </strong>- Floating super white HD screen that absorbs sound and minimizes ball rebound.</p><p><strong>Side Barriers</strong> - Ensures stray balls remain in the hitting area for maximum protection.</p>"
+          }
+        },
+        "question_JMMtFM": {
+          "type": "question",
+          "settings": {
+            "title": "Pro Turf",
+            "answer": "<p>The Pro Turf is designed exclusively for The Net Return. Pro Turf is 6’ wide x 10’ long</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_7mc6Yn",
+        "question_Uqaezx",
+        "question_JMMtFM"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Package Includes:",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "rich_text_whpMby": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "Real Golf, ready to play right out of the box",
+        "content": "<p>Play countless top-quality courses with Uneekor Third-Party Software, launch our advanced Refine+ and GameDay software, or easily integrate classics like GSPro.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_QVNnBW": {
+      "type": "gallery",
+      "blocks": {
+        "image_Wffb6f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Cameron_Champ_SO.png",
+            "caption": "<p>Only Uneekor brings this integrated dynamic layer to swing analysis, harnessing over 1100 sensors for real-time weight shift analysis. With a vivid foot heat map and precise weight distribution bars, see the subtle shifts impacting your game.</p>"
+          }
+        },
+        "image_QYxczn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Swing_Comparison_SO.png",
+            "caption": "<p>Experience a comprehensive view of your golf swing with Uneekor’s dual high-speed cameras. Down the line and face on views provide crucial insights to perfect your form, refine your technique, and watch as your game transforms.</p>"
+          }
+        },
+        "image_G49A3Y": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Driving_Range_Multiple_Displays_SO.png",
+            "caption": "<p>View video of your club before, during and after impact at a stunning frame rate. Dial in your ball striking and see what you are feeling in real-time.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_Wffb6f",
+        "image_QYxczn",
+        "image_G49A3Y"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_RV7iBD": {
+      "type": "faq",
+      "blocks": {
+        "question_WTVeNp": {
+          "type": "question",
+          "settings": {
+            "title": "Software",
+            "answer": "<p>Play countless top-quality courses with Uneekor Third-Party Software, launch our advanced Refine+ and GameDay software, or easily integrate classics like GSPro.</p>"
+          }
+        },
+        "question_WmLk7z": {
+          "type": "question",
+          "settings": {
+            "title": "Data Points",
+            "answer": "<p><strong>19 Data Points</strong></p><p>Every data point that you need at your fingertips, not behind a paywall. Use actionable data to elevate your training. When paired with Performance Optix technology, it’s never been easier to define and expand your skill set anywhere you play.</p><p></p>"
+          }
+        },
+        "question_fjHxb9": {
+          "type": "question",
+          "settings": {
+            "title": "Portability",
+            "answer": "<p>No matter if you’re at home, on the range, or on the course EYE MINI and EYE MINI LITE are ready with a rechargeable battery and easy to read E-ink display.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_WTVeNp",
+        "question_WmLk7z",
+        "question_fjHxb9"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "More Options, More Golf ",
+        "content": "<p>Real Golf, Real Practice, Real Portable</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "1711644225d9012714": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_DL9EcR": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_DL9EcR"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "featured_collections_XV3ze8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_wyUKfY": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-projectors",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_wyUKfY"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Computers & Projectors",
+        "content": "",
+        "products_count": 15,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_x3pNHT": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/o_IHkDsu9qk",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "faq_kr3ztx",
+    "rich_text_whpMby",
+    "gallery_QVNnBW",
+    "faq_RV7iBD",
+    "1711644225d9012714",
+    "featured_collections_XV3ze8",
+    "video_x3pNHT"
+  ]
+}

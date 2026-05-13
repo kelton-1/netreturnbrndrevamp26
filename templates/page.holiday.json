@@ -1,0 +1,392 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_VqaNhm": {
+      "type": "slideshow",
+      "blocks": {
+        "image_E7KHb4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Holiday_Desktop_2_2160x1080_11ee7bf0-017b-4e8b-917a-446cb0072d14.png",
+            "mobile_image": "shopify://shop_images/Holiday_Mobile_2_1000x1400_63eae7b7-e6d9-4754-a157-5a944f5f4cf2.png",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_E7KHb4"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "reveal",
+        "autoplay": false,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_dD993F": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_PxAJTr": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Pro Net",
+            "subheading": "trusted by bryson",
+            "title": "Save $120 on Pro Series Net",
+            "content": "<p>Our Pro Series net sets the standard in quality, safety, and durability, guaranteeing an exceptional experience.</p>",
+            "button_text": "Shop Pro Net",
+            "button_link": "shopify://products/pro-series-golf-net"
+          }
+        },
+        "item_izTnQw": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1500x1500-BD.jpg",
+            "tab_label": "Pro Package",
+            "subheading": "EVERYTHING YOU NEED TO IMPROVE YOUR GAME",
+            "title": "",
+            "content": "<p>The ultimate backyard setup that comes with Pro net, turf, side barriers and sand bags. </p>",
+            "button_text": "Shop Pro Package",
+            "button_link": "shopify://products/pro-package-golf-net-setup"
+          }
+        }
+      },
+      "block_order": [
+        "item_PxAJTr",
+        "item_izTnQw"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_Fih4r8": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_9MDFLg": {
+          "type": "collection",
+          "settings": {
+            "collection": "pro-large-nets",
+            "label": "Pro Large Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_fhGg9N": {
+          "type": "collection",
+          "settings": {
+            "collection": "pro-large-packages",
+            "label": "Pro Large Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_9MDFLg",
+        "collection_fhGg9N"
+      ],
+      "settings": {
+        "subheading": "Save 10% off on our",
+        "title": "Pro Large Nets",
+        "content": "",
+        "products_count": 10,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": true,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_r89kaJ": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_FrNzBz": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Simulator Bays",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Wn4wLw": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-packages",
+            "label": "Simulator Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_FrNzBz",
+        "collection_Wn4wLw"
+      ],
+      "settings": {
+        "subheading": "Save up to $300 off on our",
+        "title": "Simulator Bays + Packages",
+        "content": "",
+        "products_count": 10,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": true,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_h3xx4K": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/2160x640-practice.png",
+        "subheading": "Improve Your Practice. Improve Your Game.",
+        "title": "Build Your Setup",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "gallery_rWnbEw": {
+      "type": "gallery",
+      "blocks": {
+        "image_iqYpY7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-2.jpg",
+            "caption": ""
+          }
+        },
+        "image_93QPKh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_LVmEk6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-coast.jpg",
+            "caption": ""
+          }
+        },
+        "image_HgMLJ6": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-pool.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_iqYpY7",
+        "image_93QPKh",
+        "image_LVmEk6",
+        "image_HgMLJ6"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_idDaNR": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_eRBXQt": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_RX3fpR": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_TwJCxR": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_bwTML8": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_eRBXQt",
+        "collection_RX3fpR",
+        "collection_TwJCxR",
+        "collection_bwTML8"
+      ],
+      "settings": {
+        "subheading": "Already have a Net Return?",
+        "title": "Add a Launch Monitor",
+        "content": "<p><em>savings up to 35% off our launch monitors! </em></p>",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": true,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_QYT3hG": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_Rct4pK": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-essentials",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_Wmg9EG": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-safety",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_3ijAPB": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-other",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_Rct4pK",
+        "collection_Wmg9EG",
+        "collection_3ijAPB"
+      ],
+      "settings": {
+        "subheading": "Save up to 10% off",
+        "title": "Accessories",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "rich_text_icTtXH": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "RULES & REGULATIONS",
+        "title": "",
+        "content": "<p>The Net Return Holiday Sale has the following terms: All promo codes will be inactive starting Monday, November 25, at 7:00 AM EST and will reactivate on Wednesday, December 4, at 3:00 AM EST. Discounts or promotions cannot be combined with any Holiday deals. Free shipping applies to orders over $300 within the continental United States. Holiday deals are not retroactive and will not apply to purchases made before the sale period. For questions or concerns, contact customer service during business hours via email at <a>sales@thenetreturn.com</a> or through the chat feature on thenetreturn.com. The Net Return reserves the right to adjust, change, or alter any Holiday promotions at any time.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "large",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "slideshow_VqaNhm",
+    "main",
+    "image_with_text_dD993F",
+    "featured_collections_Fih4r8",
+    "featured_collections_r89kaJ",
+    "image_with_text_overlay_h3xx4K",
+    "gallery_rWnbEw",
+    "featured_collections_idDaNR",
+    "featured_collections_QYT3hG",
+    "rich_text_icTtXH"
+  ]
+}

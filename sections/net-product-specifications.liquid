@@ -1,0 +1,435 @@
+<section id="practice-{{ section.id }}" class="practice-section">
+  <div class="practice-header">
+    {% if product.metafields.custom.new_description_heading != blank %}
+      <h2 class="new-description-heading">
+        {{ product.metafields.custom.new_description_heading }}
+      </h2>
+    {% endif %}
+     <p>
+      {% if product.metafields.custom.new_description != blank %}
+        <div class="new-description">
+          {{ product.metafields.custom.new_description | metafield_tag }}
+        </div>
+      {% endif %}
+    </p>
+    
+
+  <div class="srs-badges">
+    {% if product.metafields.custom.product_width != blank and product.metafields.custom.product_height != blank %}
+      <span class="srs-badge">
+        {{ product.metafields.custom.product_width }} W × {{ product.metafields.custom.product_height }} H
+      </span>
+    {% endif %}
+    <span class="srs-badge">Heavy-duty Polyester Netting</span>
+    <span class="srs-badge">Rated for 225 MPH</span>
+  </div>
+      <div class="srs-feature-list">
+
+        <div class="srs-feature-item">
+          <div class="srs-feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 9V4h5M20 15v5h-5M4 4l6 6M20 20l-6-6" />
+            </svg>
+          </div>
+          <div class="srs-feature-text" style="margin-top:15px">
+            {% if product.metafields.custom.product_width != blank and product.metafields.custom.product_height != blank %}
+              <h4>
+                {{ product.metafields.custom.product_width }} W × {{ product.metafields.custom.product_height }} H
+              </h4>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="srs-feature-item">
+          <div class="srs-feature-icon" >
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 3l7 4v5c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V7l7-4z" />
+            </svg>
+          </div>
+          <div class="srs-feature-text" style="margin-top:15px">
+            <h4>Heavy-duty Polyester Netting</h4>
+          </div>
+        </div>
+
+        <div class="srs-feature-item">
+          <div class="srs-feature-icon">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+            </svg>
+          </div> 
+          <div class="srs-feature-text" style="margin-top:15px">
+            <h4>Rated for 225 MPH</h4>
+          </div>
+        </div>
+
+      </div>
+
+
+  
+</div>
+  
+
+  <div class="spec-card">
+
+    <!-- Accordion: Full Specifications -->
+    
+    {% if product.metafields.custom.product_height != blank %}
+      <div class="accordion-item">
+        <button class="accordion-title" type="button">
+          Full Specifications
+          <span class="icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="spec-grid">
+            <div class="spec-block">
+              <h4>Dimensions</h4>
+              {% if product.metafields.custom.product_width != blank %}
+                <p><strong>Width:</strong> {{ product.metafields.custom.product_width }} feet</p>
+              {% endif %}
+
+              {% if product.metafields.custom.product_height != blank %}
+                <p><strong>Height:</strong> {{ product.metafields.custom.product_height }} feet</p>
+              {% endif %}
+            </div>
+
+            {% if product.metafields.custom.materials_net_grade != blank %}
+
+              <div class="spec-block">
+                <h4>Materials</h4>
+
+                {% if product.metafields.custom.materials_net_grade != blank %}
+                  <p><strong>Net Grade:</strong> {{ product.metafields.custom.materials_net_grade }}</p>
+                {% endif %}
+
+                {% if product.metafields.custom.materials_frame != blank %}
+                  <p><strong>Frame:</strong> {{ product.metafields.custom.materials_frame }}</p>
+                {% endif %}
+
+                {% if product.metafields.custom.materials_sleeve_canvas != blank %}
+                  <p><strong>Sleeve Canvas:</strong> {{ product.metafields.custom.materials_sleeve_canvas }}</p>
+                {% endif %}
+
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+
+    <!-- Accordion: What's in the Box -->
+    {% if product.metafields.custom.what_s_in_the_box != blank %}
+      <div class="accordion-item">
+        <button class="accordion-title" type="button">
+          What's in the Box
+          <span class="icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </button>
+
+        <div class="accordion-content">
+          <div class="spec-block mb-30">
+            <p>
+              {{ product.metafields.custom.what_s_in_the_box | metafield_tag }}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Accordion: Key Features -->
+    {% if product.metafields.custom.key_features != blank %}
+    <div class="accordion-item w3_bg" style="border-bottom: 0;">
+      <button class="accordion-title" type="button">
+        Key Features
+        <span class="icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M6 9L12 15L18 9" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </button>
+
+      
+        <div class="accordion-content">
+          <ul class="list">
+            {% for feature in product.metafields.custom.key_features.value %}
+              <li>{{ feature }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+ /* Feature List */
+.srs-feature-list {
+  margin-top: 20px;
+  display: none;
+}
+
+.srs-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: #ffffff;
+  padding: 6px 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+  text-align:left;
+}
+
+.srs-feature-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.srs-feature-icon {
+  min-width: 40px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f9;
+  border-radius: 10px;
+}
+
+.srs-feature-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #111;
+}
+
+.srs-feature-text h4 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.srs-feature-text p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Mobile Only */
+@media screen and (max-width: 749px) {
+  .srs-badges {
+    display: none;
+  }
+
+  .srs-feature-list {
+    display: block;
+  }
+}
+
+  /* Container */
+.srs-badges {
+  display: block; /* hidden by default (desktop first) */
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.srs-feature-list{display: none;}
+
+/* Individual badge */
+.srs-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #f3f4f6;
+  border-radius: 20px;
+  color: #111;
+}
+
+/* Show on mobile only */
+@media screen and (max-width: 749px) {
+  .srs-badges {
+    display: none;
+  }
+  .srs-feature-list{display: block;}
+}
+
+  .mb-30 { margin-bottom: 30px !important; }
+
+  .practice-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    font-family: Arial, sans-serif;
+    color: #222;
+  }
+
+  .practice-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .practice-header h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .practice-header p {
+    max-width: 720px;
+    margin: 0 auto 20px;
+    color: #666;
+    line-height: 1.6;
+    font-size: 13px;
+  }
+
+  .badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    border: 1px solid #eee;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #555;
+    background: #edf2f5;
+  }
+
+  .spec-card {
+    margin-top: 40px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 10px 20px;
+    background: #fff;
+    width: 70%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .spec-block h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  .spec-block p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .list {
+    padding-left: 18px;
+    margin: 0;
+  }
+
+  .list li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .accordion-title {
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 10px 0;
+    font-size: 17px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .accordion-item.active .accordion-content {
+    max-height: 1000px;
+    opacity: 1;
+  }
+
+  .icon {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item.active .icon {
+    transform: rotate(180deg);
+  }
+
+  @media (max-width: 768px) {
+    .practice-header h2 {
+      font-size: 24px;
+    }
+
+    .spec-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .spec-card {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('#practice-{{ section.id }} .accordion-title').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      const item = this.closest('.accordion-item');
+
+      if (!item.classList.contains('active')) {
+        setTimeout(function(){
+          item.classList.add('active');
+        }, 250);
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Practice Specifications",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Practice Specifications",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

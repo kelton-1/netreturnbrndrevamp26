@@ -1,0 +1,263 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "text_hUPMng": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><strong>Unlock Black Friday Deal with code </strong><em><strong>BFCM25</strong></em></p>"
+          }
+        },
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_tH4fqU": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "text_K6TqjX": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><em>FRAME PADS WILL SHIP OUT SEPARATELY IN FEBRUARY</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_hUPMng",
+        "image_RgGVj4",
+        "product_variations_tH4fqU",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "text_K6TqjX"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "complementary_products_L6N39c": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "title": "Featured products"
+          }
+        }
+      },
+      "block_order": [
+        "description",
+        "complementary_products_L6N39c"
+      ],
+      "settings": {}
+    },
+    "video_Lq6H84": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://www.youtube.com/watch?v=eUnvvNCSwn0",
+        "background_type": "boxed",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_8TWceU": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "Installation",
+        "video_url": "https://vimeo.com/1007669368",
+        "image": "shopify://shop_images/NFZ.jpg",
+        "background_type": "boxed",
+        "video_size": "auto",
+        "autoplay": false,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_L3YRFm": {
+      "type": "faq",
+      "blocks": {
+        "category_6pAKFC": {
+          "type": "category",
+          "settings": {
+            "title": "Product Use"
+          }
+        },
+        "question_TA6LjW": {
+          "type": "question",
+          "settings": {
+            "title": "How does the No Fly Zone V2 enhance my golf practice setup?",
+            "answer": "<p>The No Fly Zone V2 adds up to 3.5 feet of overhead protection to your golf net, creating a fully enclosed hitting area that keeps even the highest wedge shots contained. This means you can train with every club in your bag—driver to lob wedge—without the worry of your golf balls escaping your space. </p><p>The No Fly Zone V2 gives you the confidence to focus on performance, not cleanup or ceiling damage. It’s the perfect addition for golfers who want a golf simulator safety net they can rely on.</p>"
+          }
+        },
+        "question_R3tmiW": {
+          "type": "question",
+          "settings": {
+            "title": "Can the No Fly Zone V2 be used both indoors and outdoors?",
+            "answer": "<p>Yes, the No Fly Zone V2 is suitable for both indoor and outdoor use. Its durable aluminum frame and high-quality impact netting are UV-protected, so it maintains resilience in a wide range of environments. Wherever it is installed, this golf simulator safety net delivers consistent performance and structural integrity. Just be sure to follow general product care guidelines, including moving your net to a shaded area when not in use to preserve the fabric.</p>"
+          }
+        },
+        "category_bcfzpt": {
+          "type": "category",
+          "settings": {
+            "title": "Installation"
+          }
+        },
+        "question_cd86gA": {
+          "type": "question",
+          "settings": {
+            "title": "What is included in the No Fly Zone V2 package?",
+            "answer": "<p>Each No Fly Zone V2 package includes everything you need for a fast, secure installation:</p><ul><li>Heavy-duty impact netting</li><li>Color-coded, 1.5\" tubular aluminum frame sections</li><li>Custom frame clamps</li><li>Protective horizontal frame pads</li><li>Fillable sandbags for added base stability</li></ul><p>Optional <a href=\"/products/copy-of-universal-side-barriers-pro-home-series-v2\" target=\"_blank\" title=\"Side Barriers\">side barriers</a> and a darkening valance are also available (must be purchased separately). These Net Return accessories enhance visibility and protection, giving you full control over your home golf experience.</p>"
+          }
+        },
+        "question_gMAaDD": {
+          "type": "question",
+          "settings": {
+            "title": "How easy is it to install the No Fly Zone V2?",
+            "answer": "<p>Installation is quick and completely hassle-free. The No Fly Zone V2 uses a tool-free, snap-in design with clearly labeled and color-coded aluminum tubing. Most users can assemble it in under five minutes. It securely clamps to your existing Net Return frame, converting your setup into the ideal golf net overhead protection system with only minimal effort on your part. </p><p>No matter where you set it up, the No Fly Zone ensures a simple, efficient, and stable installation process. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_6pAKFC",
+        "question_TA6LjW",
+        "question_R3tmiW",
+        "category_bcfzpt",
+        "question_cd86gA",
+        "question_gMAaDD"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "subheading": "",
+        "title": "You may also like",
+        "recommendations_count": 4,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1713971222a271d416": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_7c6eDE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "#00994d",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#101010",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#f4f4f4",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_7c6eDE"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "video_Lq6H84",
+    "video_8TWceU",
+    "faq_L3YRFm",
+    "product-recommendations",
+    "1713971222a271d416"
+  ]
+}

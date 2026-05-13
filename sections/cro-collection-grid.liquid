@@ -1,0 +1,522 @@
+{% comment %}
+  CRO-001: Enhanced Collection Grid
+  Products from: pro-series-nets + home-series-nets
+  Reviews: Hardcoded 5-star with configurable store-wide count (editable in theme settings)
+  Filters: Ideal For, Net Size, Price, Availability
+  Default order: Ideal For rank, out of stock always last
+{% endcomment %}
+
+{%- assign ideal_for_labels = 'All,Garage,Home,Yard,Small Spaces,Kids,Commercial,Pro Training' | split: ',' -%}
+{%- assign ideal_for_values = 'all,home_garage,home_garage,yard,small_spaces,kids,commercial,pro_training' | split: ',' -%}
+
+{%- assign pro_collection = collections['pro-series-nets'] -%}
+{%- assign home_collection = collections['home-series-nets'] -%}
+{%- assign total_products = home_collection.products.size | plus: pro_collection.products.size -%}
+
+{%- assign review_count = section.settings.review_count | default: 2007 -%}
+{%- assign review_rating = section.settings.review_rating | default: '5.0' -%}
+
+<div id="cro-collection" class="cro-collection-section" data-section-id="{{ section.id }}">
+
+  {% if section.settings.show_filters %}
+  <div class="cro-filter-bar cro-desktop-only">
+    <div class="cro-filter-bar__inner">
+      <div class="cro-filter-group">
+        <label class="cro-filter-label" for="cro-filter-ideal-for">Location/Space</label>
+        <div class="cro-select-wrapper">
+          <select id="cro-filter-ideal-for" class="cro-select">
+            {%- for label in ideal_for_labels -%}<option value="{{ ideal_for_values[forloop.index0] }}">{{ label }}</option>{%- endfor -%}
+          </select>
+          <svg class="cro-select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="cro-filter-group">
+        <label class="cro-filter-label" for="cro-filter-size">Choose Your Net Size</label>
+        <div class="cro-select-wrapper">
+          <select id="cro-filter-size" class="cro-select">
+            <option value="all">All Sizes</option>
+            <option value="4.5x4.5">4'6"w x 4'6"h</option>
+            <option value="5x6">5'w x 6'h</option>
+            <option value="7x7">7'w x 7'h</option>
+            <option value="8x7.5">8'w x 7'6"h</option>
+            <option value="8x8">8'w x 8'h</option>
+            <option value="9x7">9'w x 7'h</option>
+            <option value="10x8">10'w x 8'h</option>
+            <option value="12x9.5">12'w x 9'6"h</option>
+          </select>
+          <svg class="cro-select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="cro-filter-group">
+        <label class="cro-filter-label" for="cro-filter-price">Price</label>
+        <div class="cro-select-wrapper">
+          <select id="cro-filter-price" class="cro-select">
+            <option value="all">All Prices</option>
+            <option value="under-500">Under $500</option>
+            <option value="500-1000">$500 – $1,000</option>
+            <option value="1000-2000">$1,000 – $2,000</option>
+            <option value="over-2000">$2,000+</option>
+          </select>
+          <svg class="cro-select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="cro-filter-group">
+        <label class="cro-filter-label" for="cro-filter-availability">Availability</label>
+        <div class="cro-select-wrapper">
+          <select id="cro-filter-availability" class="cro-select">
+            <option value="all">All</option>
+            <option value="in-stock">In Stock</option>
+            <option value="out-of-stock">Out of Stock</option>
+          </select>
+          <svg class="cro-select-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <button id="cro-filter-reset" class="cro-filter-reset" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Clear Filters
+      </button>
+    </div>
+  </div>
+
+  <div class="cro-mobile-filter-trigger cro-mobile-only">
+    <button id="cro-mobile-filter-btn" class="cro-mobile-filter-btn" type="button">
+      <span>Filter</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M5 10h10M7 14h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div id="cro-mobile-drawer-overlay" class="cro-drawer-overlay"></div>
+  <div id="cro-mobile-drawer" class="cro-drawer">
+    <div class="cro-drawer__header">
+      <div><h3 class="cro-drawer__title">Filter</h3><span class="cro-drawer__count" id="cro-drawer-count">{{ total_products }} products</span></div>
+      <button id="cro-drawer-close" class="cro-drawer__close" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/><path d="M8 8l8 8M8 16l8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="cro-drawer__body">
+      <div class="cro-accordion" data-accordion>
+        <button class="cro-accordion__trigger" type="button" data-accordion-trigger><span>Location/Space</span><svg class="cro-accordion__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="cro-accordion__content" data-accordion-content>
+          {%- for label in ideal_for_labels -%}{%- if label != 'All' -%}<label class="cro-radio-option"><input type="radio" name="mobile-ideal-for" value="{{ ideal_for_values[forloop.index0] }}" class="cro-radio-input"><span class="cro-radio-label">{{ label }}</span></label>{%- endif -%}{%- endfor -%}
+        </div>
+      </div>
+      <div class="cro-accordion" data-accordion>
+        <button class="cro-accordion__trigger" type="button" data-accordion-trigger><span>Choose Your Net Size</span><svg class="cro-accordion__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="cro-accordion__content" data-accordion-content>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="4.5x4.5" class="cro-radio-input"><span class="cro-radio-label">4'6"w x 4'6"h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="5x6" class="cro-radio-input"><span class="cro-radio-label">5'w x 6'h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="7x7" class="cro-radio-input"><span class="cro-radio-label">7'w x 7'h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="8x7.5" class="cro-radio-input"><span class="cro-radio-label">8'w x 7'6"h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="8x8" class="cro-radio-input"><span class="cro-radio-label">8'w x 8'h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="9x7" class="cro-radio-input"><span class="cro-radio-label">9'w x 7'h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="10x8" class="cro-radio-input"><span class="cro-radio-label">10'w x 8'h</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-size" value="12x9.5" class="cro-radio-input"><span class="cro-radio-label">12'w x 9'6"h</span></label>
+        </div>
+      </div>
+      <div class="cro-accordion" data-accordion>
+        <button class="cro-accordion__trigger" type="button" data-accordion-trigger><span>Price</span><svg class="cro-accordion__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="cro-accordion__content" data-accordion-content>
+          <label class="cro-radio-option"><input type="radio" name="mobile-price" value="under-500" class="cro-radio-input"><span class="cro-radio-label">Under $500</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-price" value="500-1000" class="cro-radio-input"><span class="cro-radio-label">$500 – $1,000</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-price" value="1000-2000" class="cro-radio-input"><span class="cro-radio-label">$1,000 – $2,000</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-price" value="over-2000" class="cro-radio-input"><span class="cro-radio-label">$2,000+</span></label>
+        </div>
+      </div>
+      <div class="cro-accordion" data-accordion>
+        <button class="cro-accordion__trigger" type="button" data-accordion-trigger><span>Availability</span><svg class="cro-accordion__chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="cro-accordion__content" data-accordion-content>
+          <label class="cro-radio-option"><input type="radio" name="mobile-availability" value="in-stock" class="cro-radio-input"><span class="cro-radio-label">In Stock</span></label>
+          <label class="cro-radio-option"><input type="radio" name="mobile-availability" value="out-of-stock" class="cro-radio-input"><span class="cro-radio-label">Out of Stock</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="cro-drawer__footer">
+      <button id="cro-drawer-clear" class="cro-drawer__btn cro-drawer__btn--clear" type="button">Clear</button>
+      <button id="cro-drawer-apply" class="cro-drawer__btn cro-drawer__btn--apply" type="button">Apply</button>
+    </div>
+  </div>
+  {% endif %}
+
+  {%- comment -%} ===== PRODUCT GRID ===== {%- endcomment -%}
+  <div class="cro-grid">
+    <div class="cro-grid__products" id="cro-product-grid">
+
+      {%- capture rendered_ids -%}{%- endcapture -%}
+      {%- assign position_counter = 0 -%}
+
+      {%- comment -%} ---- HOME SERIES NETS ---- {%- endcomment -%}
+      {%- for product in home_collection.products -%}
+        {%- assign id_string = product.id | append: '' -%}
+        {%- unless rendered_ids contains id_string -%}
+          {%- assign position_counter = position_counter | plus: 1 -%}
+          {%- capture rendered_ids -%}{{ rendered_ids }}{{ id_string }},{%- endcapture -%}
+
+          {%- assign ideal_for_tags = product.metafields.custom.ideal_for.value | default: '' -%}
+          {%- assign lifestyle_img = product.metafields.custom.lifestyle_image.value -%}
+          {%- assign micro_benefit = product.metafields.custom.micro_benefit.value | default: '' -%}
+          {%- assign secondary_text = product.metafields.custom.secondary_text | default: '' -%}
+          {%- assign popular_tag = product.metafields.custom.most_popular.value | default: '' -%}
+
+          {%- capture ideal_for_data -%}{%- if ideal_for_tags != blank -%}{%- for tag in ideal_for_tags -%}{{ tag }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}{%- endif -%}{%- endcapture -%}
+          {%- assign ideal_for_data = ideal_for_data | strip -%}
+
+          {%- assign badge_label = '' -%}
+          {%- if ideal_for_tags != blank -%}
+            {%- assign first_tag = ideal_for_tags | first -%}
+            {%- case first_tag -%}
+              {%- when 'kids' -%}{%- assign badge_label = 'Kids' -%}
+              {%- when 'small_spaces' -%}{%- assign badge_label = 'Small Spaces' -%}
+              {%- when 'home_garage' -%}{%- assign badge_label = 'Home / Garage' -%}
+              {%- when 'yard' -%}{%- assign badge_label = 'Yard' -%}
+              {%- when 'commercial' -%}{%- assign badge_label = 'Commercial' -%}
+              {%- when 'pro_training' -%}{%- assign badge_label = 'Pro Training' -%}
+            {%- endcase -%}
+          {%- endif -%}
+
+          <div class="cro-product-card"
+               data-product-id="{{ product.id }}"
+               data-ideal-for="{{ ideal_for_data }}"
+               data-price="{{ product.price }}"
+               data-net-size="{{ secondary_text | escape }}"
+               data-available="{{ product.available }}"
+               data-title="{{ product.title | escape }}"
+               data-position="{{ position_counter }}">
+            <div class="cro-product-card__image-wrap">
+              <a href="{{ product.url }}" class="cro-product-card__image-link">
+                {%- if product.featured_media -%}
+                  {{ product.featured_media | image_url: width: 800 | image_tag: class: 'cro-product-card__img cro-product-card__img--primary', loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' }}
+                {%- endif -%}
+                {%- if lifestyle_img != blank -%}
+                  <img class="cro-product-card__img cro-product-card__img--hover" src="{{ lifestyle_img | image_url: width: 800 }}" alt="{{ product.title | escape }} - lifestyle" loading="lazy" width="800" height="800">
+                {%- elsif product.media.size > 1 -%}
+                  {{ product.media[1] | image_url: width: 800 | image_tag: class: 'cro-product-card__img cro-product-card__img--hover', loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' }}
+                {%- endif -%}
+              </a>
+              <div class="cro-product-card__badges">
+                {%- if badge_label != blank -%}<span class="cro-badge cro-badge--ideal-for">{{ badge_label }}</span>{%- endif -%}
+                {%- unless product.available -%}<span class="cro-badge cro-badge--sold-out">Sold Out</span>{%- endunless -%}
+                {%- if product.compare_at_price > product.price and product.available -%}
+                  {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+                  <span class="cro-badge cro-badge--sale">Save {{ savings }}%</span>
+                {%- endif -%}
+              </div>
+              {%- if popular_tag != blank -%}<div class="cro-product-card__badge-popular"><span class="cro-badge cro-badge--popular">{{ popular_tag }}</span></div>{%- endif -%}
+            </div>
+            <div class="cro-product-card__info">
+              <a href="{{ product.url }}" class="cro-product-card__title-link"><h3 class="cro-product-card__title">{{ product.title }}</h3></a>
+              {%- if secondary_text != blank -%}<p class="cro-product-card__size">{{ secondary_text }}</p>{%- endif -%}
+              <div class="cro-product-card__reviews">
+                <div class="cro-stars" aria-label="{{ review_rating }} out of 5 stars">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                </div>
+                <span class="cro-reviews-text">{{ review_rating }} ({{ review_count }} reviews)</span>
+              </div>
+              <div class="cro-product-card__price">
+                {%- if product.price_varies -%}<span class="cro-price">From {{ product.price_min | money }}</span>
+                {%- elsif product.compare_at_price > product.price -%}<span class="cro-price cro-price--sale">{{ product.price | money }}</span><span class="cro-price cro-price--compare">{{ product.compare_at_price | money }}</span>
+                {%- else -%}<span class="cro-price">{{ product.price | money }}</span>{%- endif -%}
+              </div>
+              {%- if micro_benefit != blank -%}<p class="cro-product-card__benefit">{{ micro_benefit }}</p>{%- endif -%}
+              {%- if product.available -%}<a href="{{ product.url }}" class="cro-product-card__cta">View Details</a>
+              {%- else -%}<span class="cro-product-card__cta cro-product-card__cta--disabled">Sold Out</span>{%- endif -%}
+            </div>
+          </div>
+        {%- endunless -%}
+      {%- endfor -%}
+
+      {%- comment -%} ---- PRO SERIES NETS ---- {%- endcomment -%}
+      {%- for product in pro_collection.products -%}
+        {%- assign id_string = product.id | append: '' -%}
+        {%- unless rendered_ids contains id_string -%}
+          {%- assign position_counter = position_counter | plus: 1 -%}
+          {%- capture rendered_ids -%}{{ rendered_ids }}{{ id_string }},{%- endcapture -%}
+
+          {%- assign ideal_for_tags = product.metafields.custom.ideal_for.value | default: '' -%}
+          {%- assign lifestyle_img = product.metafields.custom.lifestyle_image.value -%}
+          {%- assign micro_benefit = product.metafields.custom.micro_benefit.value | default: '' -%}
+          {%- assign secondary_text = product.metafields.custom.secondary_text | default: '' -%}
+          {%- assign popular_tag = product.metafields.custom.most_popular.value | default: '' -%}
+
+          {%- capture ideal_for_data -%}{%- if ideal_for_tags != blank -%}{%- for tag in ideal_for_tags -%}{{ tag }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}{%- endif -%}{%- endcapture -%}
+          {%- assign ideal_for_data = ideal_for_data | strip -%}
+
+          {%- assign badge_label = '' -%}
+          {%- if ideal_for_tags != blank -%}
+            {%- assign first_tag = ideal_for_tags | first -%}
+            {%- case first_tag -%}
+              {%- when 'kids' -%}{%- assign badge_label = 'Kids' -%}
+              {%- when 'small_spaces' -%}{%- assign badge_label = 'Small Spaces' -%}
+              {%- when 'home_garage' -%}{%- assign badge_label = 'Home / Garage' -%}
+              {%- when 'yard' -%}{%- assign badge_label = 'Yard' -%}
+              {%- when 'commercial' -%}{%- assign badge_label = 'Commercial' -%}
+              {%- when 'pro_training' -%}{%- assign badge_label = 'Pro Training' -%}
+            {%- endcase -%}
+          {%- endif -%}
+
+          <div class="cro-product-card"
+               data-product-id="{{ product.id }}"
+               data-ideal-for="{{ ideal_for_data }}"
+               data-price="{{ product.price }}"
+               data-net-size="{{ secondary_text | escape }}"
+               data-available="{{ product.available }}"
+               data-title="{{ product.title | escape }}"
+               data-position="{{ position_counter }}">
+            <div class="cro-product-card__image-wrap">
+              <a href="{{ product.url }}" class="cro-product-card__image-link">
+                {%- if product.featured_media -%}
+                  {{ product.featured_media | image_url: width: 800 | image_tag: class: 'cro-product-card__img cro-product-card__img--primary', loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' }}
+                {%- endif -%}
+                {%- if lifestyle_img != blank -%}
+                  <img class="cro-product-card__img cro-product-card__img--hover" src="{{ lifestyle_img | image_url: width: 800 }}" alt="{{ product.title | escape }} - lifestyle" loading="lazy" width="800" height="800">
+                {%- elsif product.media.size > 1 -%}
+                  {{ product.media[1] | image_url: width: 800 | image_tag: class: 'cro-product-card__img cro-product-card__img--hover', loading: 'lazy', widths: '400,600,800', sizes: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw' }}
+                {%- endif -%}
+              </a>
+              <div class="cro-product-card__badges">
+                {%- if badge_label != blank -%}<span class="cro-badge cro-badge--ideal-for">{{ badge_label }}</span>{%- endif -%}
+                {%- unless product.available -%}<span class="cro-badge cro-badge--sold-out">Sold Out</span>{%- endunless -%}
+                {%- if product.compare_at_price > product.price and product.available -%}
+                  {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+                  <span class="cro-badge cro-badge--sale">Save {{ savings }}%</span>
+                {%- endif -%}
+              </div>
+              {%- if popular_tag != blank -%}<div class="cro-product-card__badge-popular"><span class="cro-badge cro-badge--popular">{{ popular_tag }}</span></div>{%- endif -%}
+            </div>
+            <div class="cro-product-card__info">
+              <a href="{{ product.url }}" class="cro-product-card__title-link"><h3 class="cro-product-card__title">{{ product.title }}</h3></a>
+              {%- if secondary_text != blank -%}<p class="cro-product-card__size">{{ secondary_text }}</p>{%- endif -%}
+              <div class="cro-product-card__reviews">
+                <div class="cro-stars" aria-label="{{ review_rating }} out of 5 stars">
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                </div>
+                <span class="cro-reviews-text">{{ review_rating }} ({{ review_count }} reviews)</span>
+              </div>
+              <div class="cro-product-card__price">
+                {%- if product.price_varies -%}<span class="cro-price">From {{ product.price_min | money }}</span>
+                {%- elsif product.compare_at_price > product.price -%}<span class="cro-price cro-price--sale">{{ product.price | money }}</span><span class="cro-price cro-price--compare">{{ product.compare_at_price | money }}</span>
+                {%- else -%}<span class="cro-price">{{ product.price | money }}</span>{%- endif -%}
+              </div>
+              {%- if micro_benefit != blank -%}<p class="cro-product-card__benefit">{{ micro_benefit }}</p>{%- endif -%}
+              {%- if product.available -%}<a href="{{ product.url }}" class="cro-product-card__cta">View Details</a>
+              {%- else -%}<span class="cro-product-card__cta cro-product-card__cta--disabled">Sold Out</span>{%- endif -%}
+            </div>
+          </div>
+        {%- endunless -%}
+      {%- endfor -%}
+
+    </div>
+    <div id="cro-no-results" class="cro-no-results" style="display:none;">
+      <p>No products match your filters. <button id="cro-no-results-reset" class="cro-link-button">Clear all filters</button></p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cro-collection-section{--cro-green:#00994d;--cro-green-dark:#007a3d;--cro-text:#1a1a1a;--cro-text-light:#666;--cro-border:#e0e0e0;--cro-bg-light:#f7f7f7;--cro-radius:8px;--cro-transition:.25s ease}
+  .cro-desktop-only{display:flex}.cro-mobile-only{display:none}
+  @media(max-width:767px){.cro-desktop-only{display:none!important}.cro-mobile-only{display:block!important}}
+  .cro-filter-bar{background:var(--cro-bg-light);border-bottom:1px solid var(--cro-border);padding:16px 0;position:sticky;top:0;z-index:10}
+  .cro-filter-bar__inner{display:flex;align-items:center;gap:16px;flex-wrap:wrap;max-width:1200px;margin:0 auto;padding:0 20px}
+  .cro-filter-group{display:flex;align-items:center;gap:8px}
+  .cro-filter-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cro-text);white-space:nowrap}
+  .cro-select-wrapper{position:relative;display:inline-block}
+  .cro-select{appearance:none;-webkit-appearance:none;background:#fff;border:1px solid var(--cro-border);border-radius:var(--cro-radius);padding:8px 36px 8px 12px;font-size:14px;color:var(--cro-text);cursor:pointer;min-width:130px}
+  .cro-select:focus{outline:none;border-color:var(--cro-green)}
+  .cro-select-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--cro-text-light)}
+  .cro-filter-reset{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--cro-border);border-radius:var(--cro-radius);padding:8px 14px;font-size:13px;color:var(--cro-text-light);cursor:pointer;margin-left:auto}
+  .cro-filter-reset:hover{border-color:var(--cro-text);color:var(--cro-text)}
+  .cro-mobile-filter-trigger{padding:12px 20px;background:var(--cro-bg-light);border-bottom:1px solid var(--cro-border)}
+  .cro-mobile-filter-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 24px;background:#fff;border:1.5px solid var(--cro-border);border-radius:50px;font-size:15px;font-weight:600;color:var(--cro-text);cursor:pointer}
+  .cro-mobile-filter-btn:active{background:var(--cro-bg-light)}
+  .cro-drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:999;opacity:0;transition:opacity .3s ease}
+  .cro-drawer-overlay.is-active{display:block;opacity:1}
+  .cro-drawer{position:fixed;top:0;right:-100%;width:85%;max-width:380px;height:100%;background:#fff;z-index:1000;display:flex;flex-direction:column;transition:right .3s ease;box-shadow:-4px 0 20px rgba(0,0,0,.1)}
+  .cro-drawer.is-open{right:0}
+  .cro-drawer__header{display:flex;align-items:center;justify-content:space-between;padding:24px 20px 16px;border-bottom:1px solid var(--cro-border)}
+  .cro-drawer__title{font-size:22px;font-weight:700;color:var(--cro-green);margin:0}
+  .cro-drawer__count{font-size:13px;color:var(--cro-text-light)}
+  .cro-drawer__close{background:none;border:none;cursor:pointer;color:var(--cro-text);padding:4px}
+  .cro-drawer__body{flex:1;overflow-y:auto}
+  .cro-accordion{border-bottom:1px solid var(--cro-border)}
+  .cro-accordion__trigger{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 20px;background:none;border:none;font-size:16px;font-weight:700;color:var(--cro-text);cursor:pointer;text-align:left}
+  .cro-accordion__chevron{transition:transform .2s ease;flex-shrink:0}
+  .cro-accordion.is-open .cro-accordion__chevron{transform:rotate(180deg)}
+  .cro-accordion__content{display:none;padding:0 20px 16px}
+  .cro-accordion.is-open .cro-accordion__content{display:block}
+  .cro-radio-option{display:flex;align-items:center;gap:10px;padding:10px 0;cursor:pointer}
+  .cro-radio-input{width:18px;height:18px;accent-color:var(--cro-green);cursor:pointer;flex-shrink:0}
+  .cro-radio-label{font-size:15px;color:var(--cro-text)}
+  .cro-drawer__footer{display:flex;gap:12px;padding:16px 20px;border-top:1px solid var(--cro-border);background:#fff}
+  .cro-drawer__btn{flex:1;padding:14px 20px;border-radius:var(--cro-radius);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer}
+  .cro-drawer__btn--clear{background:#fff;border:1.5px solid var(--cro-border);color:var(--cro-text-light)}
+  .cro-drawer__btn--apply{background:var(--cro-green);border:1.5px solid var(--cro-green);color:#fff}
+  .cro-drawer__btn--apply:hover{background:var(--cro-green-dark)}
+  .cro-grid{max-width:1200px;margin:0 auto;padding:40px 20px}
+  .cro-grid__products{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  @media(max-width:1023px){.cro-grid__products{grid-template-columns:repeat(2,1fr);gap:20px}}
+  @media(max-width:767px){.cro-grid{padding:24px 16px}.cro-grid__products{grid-template-columns:repeat(2,1fr);gap:14px}}
+  .cro-product-card{display:flex;flex-direction:column;height:100%}
+  .cro-product-card[data-hidden="true"]{display:none}
+  .cro-product-card__image-wrap{position:relative;overflow:hidden;border-radius:var(--cro-radius);background:var(--cro-bg-light);aspect-ratio:1/1}
+  .cro-product-card__image-link{display:block;width:100%;height:100%}
+  .cro-product-card__img{width:100%;height:100%;object-fit:cover;transition:opacity var(--cro-transition)}
+  .cro-product-card__img--hover{position:absolute;inset:0;opacity:0}
+  @media(hover:hover){.cro-product-card__image-wrap:hover .cro-product-card__img--primary{opacity:0}.cro-product-card__image-wrap:hover .cro-product-card__img--hover{opacity:1}}
+  .cro-product-card__badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;z-index:2;max-width:calc(100% - 20px)}
+  .cro-product-card__badge-popular{position:absolute;top:10px;right:10px;z-index:2}
+  .cro-badge{display:inline-block;padding:4px 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-radius:4px;line-height:1.3;white-space:nowrap}
+  .cro-badge--ideal-for{background:var(--cro-green);color:#fff}
+  .cro-badge--sold-out{background:#333;color:#fff}
+  .cro-badge--sale{background:#cc0000;color:#fff}
+  .cro-badge--popular{background:#1a1a1a;color:#fff;padding:5px 12px}
+  @media(max-width:767px){.cro-product-card__badges{top:6px;left:6px;gap:4px;max-width:calc(100% - 12px)}.cro-badge{font-size:9px;padding:3px 6px}.cro-product-card__badge-popular{position:absolute;top:auto;bottom:10px;left:6px;right:auto}.cro-badge--popular{font-size:9px;padding:3px 6px}}
+  .cro-product-card__info{padding:14px 0 0;display:flex;flex-direction:column;gap:4px;flex-grow:1}
+  .cro-product-card__title-link{text-decoration:none;color:inherit}
+  .cro-product-card__title{font-size:16px;font-weight:600;color:var(--cro-text);margin:0;line-height:1.3}
+  .cro-product-card__size{font-size:13px;color:var(--cro-text-light);margin:0}
+  .cro-product-card__reviews{display:flex;align-items:center;gap:6px;margin-top:2px;flex-wrap:wrap}
+  .cro-stars{display:flex;align-items:center;gap:1px;flex-shrink:0}
+  .cro-reviews-text{font-size:12px;color:var(--cro-text-light);white-space:nowrap}
+  @media(max-width:767px){.cro-reviews-text{font-size:10px}.cro-stars svg{width:12px;height:12px}}
+  .cro-product-card__price{display:flex;align-items:center;gap:8px;margin-top:4px}
+  .cro-price{font-size:16px;font-weight:600;color:var(--cro-text)}
+  .cro-price--sale{color:#cc0000}
+  .cro-price--compare{font-size:14px;font-weight:400;color:var(--cro-text-light);text-decoration:line-through}
+  .cro-product-card__benefit{font-size:13px;color:var(--cro-green-dark);font-style:italic;margin:2px 0 0;line-height:1.4}
+  .cro-product-card__cta{display:inline-block;margin-top:auto!important;padding:10px 20px;background:var(--cro-green);color:#fff;text-decoration:none;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-radius:var(--cro-radius);text-align:center;border:none;cursor:pointer;transition:background var(--cro-transition)}
+  .cro-product-card__cta:hover{background:var(--cro-green-dark);color:#fff}
+  .cro-product-card__cta--disabled{background:#ccc;cursor:not-allowed;margin-top:auto!important}
+  .cro-product-card__cta--disabled:hover{background:#ccc}
+  @media(max-width:767px){.cro-product-card__cta,.cro-product-card__cta--disabled{padding:8px 14px;font-size:12px}}
+  .cro-no-results{text-align:center;padding:60px 20px;font-size:16px;color:var(--cro-text-light)}
+  .cro-link-button{background:none;border:none;color:var(--cro-green);font-size:16px;cursor:pointer;text-decoration:underline;padding:0}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var grid = document.getElementById('cro-product-grid');
+  if (!grid) return;
+  var cards = Array.from(grid.querySelectorAll('.cro-product-card'));
+  var noResults = document.getElementById('cro-no-results');
+  var noResultsReset = document.getElementById('cro-no-results-reset');
+  var filterIdealFor = document.getElementById('cro-filter-ideal-for');
+  var filterPrice = document.getElementById('cro-filter-price');
+  var filterAvailability = document.getElementById('cro-filter-availability');
+  var filterSize = document.getElementById('cro-filter-size');
+  var resetBtn = document.getElementById('cro-filter-reset');
+  var mobileBtn = document.getElementById('cro-mobile-filter-btn');
+  var drawer = document.getElementById('cro-mobile-drawer');
+  var overlay = document.getElementById('cro-mobile-drawer-overlay');
+  var drawerClose = document.getElementById('cro-drawer-close');
+  var drawerApply = document.getElementById('cro-drawer-apply');
+  var drawerClear = document.getElementById('cro-drawer-clear');
+  var drawerCount = document.getElementById('cro-drawer-count');
+
+  document.querySelectorAll('[data-accordion-trigger]').forEach(function(t){t.addEventListener('click',function(){this.closest('[data-accordion]').classList.toggle('is-open');});});
+
+  function openDrawer(){drawer.classList.add('is-open');overlay.classList.add('is-active');document.body.style.overflow='hidden';}
+  function closeDrawer(){drawer.classList.remove('is-open');overlay.classList.remove('is-active');document.body.style.overflow='';}
+  if(mobileBtn)mobileBtn.addEventListener('click',openDrawer);
+  if(drawerClose)drawerClose.addEventListener('click',closeDrawer);
+  if(overlay)overlay.addEventListener('click',closeDrawer);
+
+  function isMobile(){return window.innerWidth<=767;}
+
+  var sizeMap={'4.5x4.5':["4'6","4\\'6"],'5x6':["5'w","5' w"],'7x7':["7'w x 7'","7' w x 7'"],'8x7.5':["8'w x 7'6","8' w x 7'6"],'8x8':["8'w x 8'","8' w x 8'"],'9x7':["9'w x 7'","9' w x 7'"],'10x8':["10'w x 8'","10' w x 8'"],'12x9.5':["12'w","12' w"]};
+
+  function matchIdeal(c,v){if(v==='all')return true;var t=c.dataset.idealFor;if(!t)return false;return t.split(',').map(function(x){return x.trim();}).indexOf(v)!==-1;}
+  function matchPrice(c,r){if(r==='all')return true;var p=parseInt(c.dataset.price,10);switch(r){case'under-500':return p<50000;case'500-1000':return p>=50000&&p<=100000;case'1000-2000':return p>100000&&p<=200000;case'over-2000':return p>200000;default:return true;}}
+  function matchAvail(c,v){if(v==='all')return true;var s=c.querySelector('.cro-product-card__cta--disabled');var a=!s;return v==='in-stock'?a:!a;}
+  function matchNetSize(c,v){if(v==='all')return true;var text=(c.dataset.netSize||'').toLowerCase();var patterns=sizeMap[v];if(!patterns)return false;for(var i=0;i<patterns.length;i++){if(text.indexOf(patterns[i].toLowerCase())!==-1)return true;}return false;}
+
+  var idealForOrder={'home_garage':1,'yard':2,'small_spaces':3,'kids':4,'pro_training':5,'commercial':6};
+  function getIdealForRank(card){var tags=card.dataset.idealFor;if(!tags)return 99;var parts=tags.split(','),best=99;for(var i=0;i<parts.length;i++){var v=parts[i].trim();if(idealForOrder[v]!==undefined&&idealForOrder[v]<best)best=idealForOrder[v];}return best;}
+
+  function getFilterState(){
+    if(isMobile()){
+      var a=document.querySelector('input[name="mobile-ideal-for"]:checked');
+      var b=document.querySelector('input[name="mobile-price"]:checked');
+      var c=document.querySelector('input[name="mobile-availability"]:checked');
+      var d=document.querySelector('input[name="mobile-size"]:checked');
+      return{idealFor:a?a.value:'all',price:b?b.value:'all',availability:c?c.value:'all',size:d?d.value:'all'};
+    }
+    return{idealFor:filterIdealFor?filterIdealFor.value:'all',price:filterPrice?filterPrice.value:'all',availability:filterAvailability?filterAvailability.value:'all',size:filterSize?filterSize.value:'all'};
+  }
+
+  function applyFiltersAndSort(){
+    var s=getFilterState(),count=0;
+    cards.forEach(function(c){var v=matchIdeal(c,s.idealFor)&&matchPrice(c,s.price)&&matchAvail(c,s.availability)&&matchNetSize(c,s.size);c.dataset.hidden=!v;if(v)count++;});
+    var vis=cards.filter(function(c){return c.dataset.hidden!=='true';});
+    vis.sort(function(a,b){
+      var aOOS=a.querySelector('.cro-product-card__cta--disabled')?1:0;
+      var bOOS=b.querySelector('.cro-product-card__cta--disabled')?1:0;
+      if(aOOS!==bOOS)return aOOS-bOOS;
+      return getIdealForRank(a)-getIdealForRank(b);
+    });
+    vis.forEach(function(c){grid.appendChild(c);});
+    cards.filter(function(c){return c.dataset.hidden==='true';}).forEach(function(c){grid.appendChild(c);});
+    if(noResults)noResults.style.display=count===0?'block':'none';
+    if(resetBtn)resetBtn.style.display=(s.idealFor!=='all'||s.price!=='all'||s.availability!=='all'||s.size!=='all')?'inline-flex':'none';
+    if(drawerCount)drawerCount.textContent=count+' product'+(count!==1?'s':'');
+  }
+
+  function resetAll(){
+    if(filterIdealFor)filterIdealFor.value='all';
+    if(filterPrice)filterPrice.value='all';
+    if(filterAvailability)filterAvailability.value='all';
+    if(filterSize)filterSize.value='all';
+    document.querySelectorAll('.cro-drawer input[type="radio"]').forEach(function(r){r.checked=false;});
+    applyFiltersAndSort();
+  }
+
+  if(filterIdealFor)filterIdealFor.addEventListener('change',applyFiltersAndSort);
+  if(filterPrice)filterPrice.addEventListener('change',applyFiltersAndSort);
+  if(filterAvailability)filterAvailability.addEventListener('change',applyFiltersAndSort);
+  if(filterSize)filterSize.addEventListener('change',applyFiltersAndSort);
+  if(resetBtn)resetBtn.addEventListener('click',resetAll);
+  if(noResultsReset)noResultsReset.addEventListener('click',resetAll);
+  if(drawerApply)drawerApply.addEventListener('click',function(){applyFiltersAndSort();closeDrawer();});
+  if(drawerClear)drawerClear.addEventListener('click',resetAll);
+  applyFiltersAndSort();
+});
+</script>
+
+{% schema %}
+{
+  "name": "CRO Collection Grid",
+  "tag": "section",
+  "class": "cro-collection-grid-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_filters",
+      "default": true,
+      "label": "Show filter bar"
+    },
+    {
+      "type": "text",
+      "id": "review_rating",
+      "label": "Review rating (e.g. 5.0)",
+      "default": "5.0"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Total review count (store-wide)",
+      "default": "2007"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CRO Collection Grid"
+    }
+  ],
+  "templates": ["collection"]
+}
+{% endschema %}

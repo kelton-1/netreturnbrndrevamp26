@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "featured_collections_b2b_RHrVxh": {
+      "type": "featured-collections-b2b",
+      "blocks": {
+        "collection_RgaiPa": {
+          "type": "collection",
+          "settings": {
+            "collection": "nets-including-bulletproof",
+            "label": "Nets",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_dAbBbf": {
+          "type": "collection",
+          "settings": {
+            "collection": "packages-including-bulletproof",
+            "label": "Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_gizQAK": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "Simulation",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_bjf8wY": {
+          "type": "collection",
+          "settings": {
+            "collection": "general-accessories",
+            "label": "Accessories",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_RgaiPa",
+        "collection_dAbBbf",
+        "collection_gizQAK",
+        "collection_bjf8wY"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Reseller Portal",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 1,
+        "stack_products": true,
+        "show_cta": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "#101010",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "featured_collections_b2b_RHrVxh"
+  ]
+}

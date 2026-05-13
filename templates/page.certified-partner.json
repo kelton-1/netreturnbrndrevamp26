@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "image_with_text_block_m6KJWq": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/backyard-home.png",
+        "subheading": "20% Commission",
+        "title": "Certified Partner Program",
+        "content": "<p><em>Perfect for retailers, boutique businesses, dropshippers and pro shops.</em></p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_F9nC3X": {
+      "type": "faq",
+      "blocks": {
+        "question_crYGeb": {
+          "type": "question",
+          "settings": {
+            "title": "Apply as a Certified Partner",
+            "answer": "<p>Apply as a Certified Partner by completing the application at the bottom of this page.</p>"
+          }
+        },
+        "question_ytGgtz": {
+          "type": "question",
+          "settings": {
+            "title": "Application Review & Approval",
+            "answer": "<p>We will review your application within 24-48 hours, and upon approval, you will be notified by email.</p>"
+          }
+        },
+        "question_NXNNjH": {
+          "type": "question",
+          "settings": {
+            "title": "Marketing Assets",
+            "answer": "<p>Upon Approval, you will receive a link to access our library of assets, including photos, videos and graphics you can use in you marketing, website, blog & emails.</p>"
+          }
+        },
+        "question_nKdDgf": {
+          "type": "question",
+          "settings": {
+            "title": "Questions",
+            "answer": "<p>Questions? Please email tj@thenetreturn.com</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_crYGeb",
+        "question_ytGgtz",
+        "question_NXNNjH",
+        "question_nKdDgf"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Application Process",
+        "content": "",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "custom_liquid_JnJD9g": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div style=\"margin:0 auto;\" class=\"pxFormGenerator\" id=\"zWWdei__1qVGnYuWDgAd1w\"></div>",
+        "add_vertical_spacing": true,
+        "disable_editor_execution": true,
+        "background_type": "boxed",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "17636755571338839b": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_UFTqi9": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "757084",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#FFFFFF",
+            "links_color": "#1878B9",
+            "errors_color": "#E02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_UFTqi9"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_block_m6KJWq",
+    "faq_F9nC3X",
+    "custom_liquid_JnJD9g",
+    "17636755571338839b"
+  ]
+}

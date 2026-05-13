@@ -1,0 +1,557 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "loox_reviews_loox_rating_yTcKaR": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "contentSize": 16,
+            "pattern": "",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "",
+            "starColor": "",
+            "showAllReviews": true,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": false
+          }
+        },
+        "text_TpMJph": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.secondary_text.value }} </p>"
+          }
+        },
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_xwtiWD": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose Net Size",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "dropdown",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "line_property_upgrade_DKMyq6": {
+          "type": "line_property_upgrade",
+          "disabled": true,
+          "settings": {
+            "label": "Add No Fly Zone Kit",
+            "upgrade_product_id": "no-fly-zone-v2-kits",
+            "show_price": false,
+            "checked_value": "Yes - Add No Fly Zone Kit",
+            "unchecked_value": "No"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "trust_hJd86w": {
+          "type": "trust",
+          "settings": {
+            "icon_1": "picto-shield",
+            "custom_icon_1": "shopify://shop_images/Untitled_design_1_d071c8c0-a54c-476f-9ec7-56d6dfd7d2a1.png",
+            "title_1": "3 Year Warranty",
+            "content_1": "<p><strong>All nets are protected by an industry-leading 3 Year Warranty</strong></p>",
+            "icon_2": "picto-box",
+            "custom_icon_2": "shopify://shop_images/Untitled_design_3.png",
+            "title_2": "Free Shipping",
+            "content_2": "<p><strong>Free Standard UPS Shipping for domestic orders (LIMITED TIME)</strong></p>",
+            "icon_3": "picto-return-box",
+            "custom_icon_3": "shopify://shop_images/Untitled_design_2.png",
+            "title_3": "30-Day Money-Back Guarantee",
+            "content_3": "<p><strong>We offer a 30-Day Money-Back Guarantee on orders.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_rating_yTcKaR",
+        "text_TpMJph",
+        "image_RgGVj4",
+        "product_variations_xwtiWD",
+        "variant_picker",
+        "line_property_upgrade_DKMyq6",
+        "quantity_selector",
+        "buy_buttons",
+        "trust_hJd86w"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "description"
+      ],
+      "settings": {}
+    },
+    "rich_text_N4gkHJ": {
+      "type": "rich-text",
+      "disabled": true,
+      "settings": {
+        "subheading": "Ultimate At-Home Package",
+        "title": "Packages Include:",
+        "content": "<p>Net</p><p>Side Barriers (Pair)</p><p>Pro Turf (6' x 10')</p><p>Sandbags (4x)</p><p>Rubber Tees (2x)</p><p>Duffle Bag</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_AWR46V": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/front-home.png",
+        "subheading": "Find your Home Golf Haven",
+        "title": "Indoor or Outdoor",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "text_with_icons_wPPDRK": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_aizfmw": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-return-box",
+            "custom_icon": "shopify://shop_images/return_1.png",
+            "custom_icon_width": 50,
+            "title": "Instant Ball Return",
+            "content": "<p>Patented S-Shape Design absorbs the force of the ball and returns it gently back to you.</p>"
+          }
+        },
+        "item_tbbbr6": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon": "shopify://shop_images/assembly_851d2fcd-9a54-4440-a187-c713c672e10a.png",
+            "custom_icon_width": 50,
+            "title": "Easy to Assemble",
+            "content": "<p>No tools required. Our Quick Color Connect System makes setup easy. </p>"
+          }
+        },
+        "item_6xGxLa": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-address-pin",
+            "custom_icon": "shopify://shop_images/location_d650afe9-431f-4394-8ba8-ea3a9759dbf6.png",
+            "custom_icon_width": 50,
+            "title": "Indoor or Outdoor",
+            "content": "<p>Crafted with quality materials, our UV shielded netting and aircraft quality aluminum frame are built to withstand any environment. </p>"
+          }
+        },
+        "item_8V7pWj": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-warranty",
+            "custom_icon": "shopify://shop_images/quality_1.png",
+            "custom_icon_width": 50,
+            "title": "Premium Quality",
+            "content": "<p>Stunning design with a high gloss black frame and an embroidered sleeve, delivering both quiet and elegant performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_aizfmw",
+        "item_tbbbr6",
+        "item_6xGxLa",
+        "item_8V7pWj"
+      ],
+      "settings": {
+        "icon_align_mobile": "center",
+        "hide_dots": false,
+        "auto_rotate": false,
+        "cycle_speed": 3,
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "image_with_text_G8DWcA": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_BjK8QA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1400x1400-pro.png",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "Golf's Bestselling Net",
+            "content": "<p>Whether you're chasing scratch or just picking up the game, The Net Return is the best tool to practice and improve your game.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_BWG4LY": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Item",
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_BjK8QA",
+        "item_BWG4LY"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_NhJMW3": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video": "shopify://files/videos/newlogo-3dspin.mp4",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "gallery_WX6Wym": {
+      "type": "gallery",
+      "blocks": {
+        "image_wNai9P": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-5.jpg",
+            "caption": ""
+          }
+        },
+        "image_ygNKJ7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1500x1800-6.jpg",
+            "caption": ""
+          }
+        },
+        "image_z4U7Hd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-home.png",
+            "caption": ""
+          }
+        },
+        "image_jfHUjV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-patio.jpg",
+            "caption": ""
+          }
+        },
+        "image_C4WQdC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1080x1500-backyard.png",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_wNai9P",
+        "image_ygNKJ7",
+        "image_z4U7Hd",
+        "image_jfHUjV",
+        "image_C4WQdC"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_RV7iBD": {
+      "type": "faq",
+      "blocks": {
+        "question_WmLk7z": {
+          "type": "question",
+          "settings": {
+            "title": "Home",
+            "answer": "<p><strong>Net Product Specifications</strong></p><p>Width: 7'</p><p>Height: 7'</p><p>Depth: 3'6\"</p><p>Weight: 26 lbs.<br/><br/><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        },
+        "question_WTVeNp": {
+          "type": "question",
+          "settings": {
+            "title": "Mini",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 5'</p><p>Height: 6'</p><p>Depth: 3'6\"</p><p>Weight: 24 lbs.<br/><br/><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        },
+        "question_PEAhHg": {
+          "type": "question",
+          "settings": {
+            "title": "Junior",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 4'6\"</p><p>Height: 4'6\"</p><p>Depth: 2'4\"</p><p>Weight: 15 lbs.</p><p><strong>Turf Product Specifications<br/><br/></strong>Width: 6'</p><p>Length: 10'</p><p>Height: 1\"</p><p>Weight: 54 lbs.</p><p><strong>Minimum Room Dimensions</strong></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_WmLk7z",
+        "question_WTVeNp",
+        "question_PEAhHg"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "Home Series Comparison",
+        "content": "<p>Dimensions and Specifications</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "image_with_text_overlay_HTFUcx": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/package-slider_4003c44c-47a8-4b29-b674-b87eb0e6fad0.jpg",
+        "subheading": "15% Savings",
+        "title": "Upgrade to a Package",
+        "content": "<p>Packages include</p>",
+        "button_text": "Shop Packages",
+        "button_link": "",
+        "link_style": "button",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_center",
+        "text_color": "#ffffff",
+        "button_background": "#00994d",
+        "button_text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "1711644225d9012714": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_DL9EcR": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#101010",
+            "textColor": "#101010",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#101010",
+            "productIds": "pro-package-golf-net-setup"
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_DL9EcR"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    },
+    "promotion_blocks_dtjiF9": {
+      "type": "promotion-blocks",
+      "blocks": {
+        "image_zXXCkj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1800x900-BD.png",
+            "highlight": false,
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "quote_4Rg4da": {
+          "type": "quote",
+          "settings": {
+            "highlight": false,
+            "subheading": "",
+            "content": "I've been using Net Return since I was 15 years old. There isn't another net out there that I would trust.",
+            "author": "Bryson Dechambeau",
+            "background": "#101010",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_VEb9HH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1800x900-BD2.png",
+            "highlight": false,
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        }
+      },
+      "block_order": [
+        "image_zXXCkj",
+        "quote_4Rg4da",
+        "image_VEb9HH"
+      ],
+      "disabled": true,
+      "settings": {
+        "subheading": "",
+        "title": "Trusted by the Pros",
+        "section_size": "medium",
+        "stack_on_mobile": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_block_X66BNa": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/1500x1800-4.jpg",
+        "subheading": "Bryson DeChambeau",
+        "title": "Trusted by the Pros",
+        "content": "<p>\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "#ffffff",
+        "text_color": "#101010",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "rich_text_N4gkHJ",
+    "image_with_text_overlay_AWR46V",
+    "text_with_icons_wPPDRK",
+    "image_with_text_G8DWcA",
+    "video_NhJMW3",
+    "gallery_WX6Wym",
+    "faq_RV7iBD",
+    "image_with_text_overlay_HTFUcx",
+    "1711644225d9012714",
+    "promotion_blocks_dtjiF9",
+    "image_with_text_block_X66BNa"
+  ]
+}

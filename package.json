@@ -1,0 +1,16 @@
+{
+  "name": "thenetreturn-shopify-theme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Shopify theme workspace for TheNetReturn theme 149365096541.",
+  "scripts": {
+    "shopify": "shopify",
+    "theme:list": "shopify theme list --store the-net-return",
+    "theme:pull": "shopify theme pull --store the-net-return --theme 149365096541 --nodelete",
+    "theme:dev": "shopify theme dev --store the-net-return",
+    "theme:check": "shopify theme check"
+  },
+  "devDependencies": {
+    "@shopify/cli": "^3.94.3"
+  }
+}

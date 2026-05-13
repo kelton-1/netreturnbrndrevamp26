@@ -1,0 +1,24 @@
+{%- liquid
+  assign button_label = label | default: section.settings.button_label
+  assign button_link = link | default: section.settings.button_link
+  assign button_style = style | default: section.settings.button_style | default: 'primary'
+  assign button_class = class | default: ''
+  assign button_icon = icon | default: true
+-%}
+{%- if button_label != blank -%}
+  <a
+    class="button button--{{ button_style }} academy-button{% if button_class != blank %} {{ button_class }}{% endif %}"
+    {% if button_link == blank %}
+      role="link" aria-disabled="true"
+    {% else %}
+      href="{{ button_link }}"
+    {% endif %}
+  >
+    <span>
+      {{- button_label | escape -}}
+      {%- if button_icon -%}
+        <span class="academy-button__icon">{%- render 'icon', icon: 'nav-arrow-right-small', width: 12, height: 10, inline: true -%}</span>
+      {%- endif -%}
+    </span>
+  </a>
+{%- endif -%}

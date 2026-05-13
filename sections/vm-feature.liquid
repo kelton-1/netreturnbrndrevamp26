@@ -1,0 +1,270 @@
+<section id="bfcm-rail-{{ section.id }}" class="bfcmw">
+  <div class="bfcmw__container">
+    {% if section.settings.kicker != blank or section.settings.title != blank or section.settings.sub != blank %}
+      <header class="bfcmw__header">
+        {% if section.settings.kicker != blank %}
+          <p class="bfcmw__kicker">{{ section.settings.kicker }}</p>
+        {% endif %}
+        {% if section.settings.title != blank %}
+          <h2 class="bfcmw__title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.sub != blank %}
+          <p class="bfcmw__sub">{{ section.settings.sub }}</p>
+        {% endif %}
+
+        {% if section.settings.show_promo_pill %}
+          <div class="bfcmw__pill" role="note" aria-label="Promo bundle note">
+            <span class="bfcmw__pill-dot" aria-hidden="true"></span>
+            <span class="bfcmw__pill-text">
+              <strong>Bundle Nets + Accessories for {{ section.settings.promo_percent }}% off • Use code {{ section.settings.promo_code }}</strong>
+            </span>
+          </div>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="bfcmw__slider" data-slider>
+      <div class="bfcmw__track" data-track>
+        {%- assign card_min = section.settings.card_min | default: 240 -%}
+        {%- assign card_max = section.settings.card_max | default: 300 -%}
+
+        {% for block in section.blocks %}
+          {% assign product = block.settings.product %}
+          {% if product == blank %}
+            {% continue %}
+          {% endif %}
+
+          {%- comment -%} Compute a visual-only promo price (no real price changes) {%- endcomment -%}
+          {%- assign percent = section.settings.promo_percent | default: 25 -%}
+          {%- assign hundred = 100 -%}
+          {%- assign factor = hundred | minus: percent -%}
+          {%- assign promo_price = product.price | times: factor | divided_by: 100 -%}
+
+          <a href="{{ product.url }}" class="bfcmw-card" style="--card-min: {{ card_min }}px; --card-max: {{ card_max }}px;" {{ block.shopify_attributes }}>
+            <div class="bfcmw-card__img">
+              {% if product.featured_image %}
+                {{ product.featured_image | image_url: width: 960 | image_tag: loading: 'lazy', widths: '360,540,720,900', alt: product.title }}
+              {% else %}
+                <div class="bfcmw-card__img--ph" aria-hidden="true"></div>
+              {% endif %}
+            </div>
+
+            <div class="bfcmw-card__meta">
+              <h3 class="bfcmw-card__title">{{ product.title }}</h3>
+
+              <div class="bfcmw-card__prices">
+                {% if section.settings.show_visual_discount %}
+                  <span class="bfcmw-price bfcmw-price--promo">
+                    {% if settings.currency_code_enabled %}
+                      {{ promo_price | money_with_currency }}
+                    {% else %}
+                      {{ promo_price | money }}
+                    {% endif %}
+                  </span>
+                  <span class="bfcmw-compare">
+                    {% if settings.currency_code_enabled %}
+                      {{ product.price | money_with_currency }}
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+                  </span>
+                {% else %}
+                  <span class="bfcmw-price">
+                    {% if settings.currency_code_enabled %}
+                      {{ product.price | money_with_currency }}
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+                  </span>
+                {% endif %}
+              </div>
+
+              {% if section.settings.show_inline_note and section.settings.show_visual_discount %}
+                <div class="bfcmw-card__note">With code {{ section.settings.promo_code }} at checkout</div>
+              {% endif %}
+
+              {% if section.settings.show_starting_from_tag and section.settings.starting_from_product != blank and product.handle == section.settings.starting_from_product.handle and section.settings.starting_from_text != blank %}
+                <div class="bfcmw-card__starting-from">
+                  {{ section.settings.starting_from_text }}
+                </div>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      <!-- Controls BELOW the track so they never overlap images -->
+      <div class="bfcmw__controls">
+        <button class="bfcmw-nav bfcmw-nav--prev" type="button" aria-label="Previous" disabled>
+          {% render 'icon', icon: 'nav-arrow-left', width: 18, height: 12 %}
+        </button>
+        <button class="bfcmw-nav bfcmw-nav--next" type="button" aria-label="Next">
+          {% render 'icon', icon: 'nav-arrow-right', width: 18, height: 12 %}
+        </button>
+      </div>
+    </div>
+
+    {% if section.settings.legal_note != blank %}
+      <p class="bfcmw__legal">{{ section.settings.legal_note }}</p>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  /* White canvas + container */
+  #bfcm-rail-{{ section.id }}.bfcmw{ background:#fff; color:#111; }
+  #bfcm-rail-{{ section.id }} .bfcmw__container{ max-width:1280px; margin:0 auto; padding:20px clamp(16px,5vw,48px) 14px; }
+
+  /* Header */
+  #bfcm-rail-{{ section.id }} .bfcmw__header{ text-align:center; margin:4px 0 12px; }
+  #bfcm-rail-{{ section.id }} .bfcmw__kicker{ margin:0 0 4px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; font-size:.9rem; }
+  #bfcm-rail-{{ section.id }} .bfcmw__title{ margin:0 0 6px; font-size:clamp(22px,2.6vw,30px); }
+  #bfcm-rail-{{ section.id }} .bfcmw__sub{ margin:0; opacity:.9; }
+
+  /* Promo pill */
+  #bfcm-rail-{{ section.id }} .bfcmw__pill{
+    display:inline-flex; align-items:center; gap:10px; margin:10px auto 4px; padding:10px 12px;
+    background:#F5FBF7; color:#0b3d2e; border:1px solid rgba(0,153,77,.25); border-left:4px solid #00994d; border-radius:12px;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw__pill-dot{ width:8px; height:8px; background:#00994d; border-radius:999px; display:inline-block; }
+  #bfcm-rail-{{ section.id }} .bfcmw__pill-text{ font-weight:700; letter-spacing:.01em; font-size:.95rem; }
+
+  /* Slider & track */
+  #bfcm-rail-{{ section.id }} .bfcmw__slider{ width:100%; }
+  #bfcm-rail-{{ section.id }} .bfcmw__track{
+    display:grid; grid-auto-flow:column;
+    grid-auto-columns:minmax(var(--card-min,240px), var(--card-max,300px));
+    gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding:6px 2px 2px;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw__track > *{ scroll-snap-align:center; }
+  #bfcm-rail-{{ section.id }} .bfcmw__track::-webkit-scrollbar{ display:none; }
+  #bfcm-rail-{{ section.id }} .bfcmw__track{ scrollbar-width:none; }
+
+  /* Card */
+  #bfcm-rail-{{ section.id }} .bfcmw-card{
+    display:block; text-decoration:none; color:inherit;
+    background:#fff; border:1px solid #eaeaea; border-radius:14px; overflow:hidden;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw-card:hover{
+    transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.08); border-color:#ddd;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw-card__img{ aspect-ratio:1/1; background:#fafafa; display:grid; place-items:center; }
+  #bfcm-rail-{{ section.id }} .bfcmw-card__img img{ width:100%; height:100%; object-fit:cover; }
+  #bfcm-rail-{{ section.id }} .bfcmw-card__img--ph{ width:100%; height:100%; background:#eee; }
+
+  #bfcm-rail-{{ section.id }} .bfcmw-card__meta{ padding:10px 12px 12px; }
+  #bfcm-rail-{{ section.id }} .bfcmw-card__title{ margin:0 0 6px; font-size:15px; line-height:1.35; }
+
+  #bfcm-rail-{{ section.id }} .bfcmw-card__prices{ display:flex; gap:8px; align-items:baseline; }
+  #bfcm-rail-{{ section.id }} .bfcmw-price{ font-weight:800; }
+  #bfcm-rail-{{ section.id }} .bfcmw-price--promo{ color:#0b3d2e; }
+  #bfcm-rail-{{ section.id }} .bfcmw-compare{ text-decoration:line-through; opacity:.6; }
+
+  #bfcm-rail-{{ section.id }} .bfcmw-card__note{ margin-top:4px; font-size:.8rem; color:#444; opacity:.85; }
+
+  /* Starting From Tag (Side Barriers only) */
+  #bfcm-rail-{{ section.id }} .bfcmw-card__starting-from{
+    display:block;
+    width:100%;
+    margin-top:5px;
+    padding:0px 0px;
+    background:#fff;
+    color:#1f9d4b;
+    font-size:14px;
+    font-weight:700;
+    line-height:1.2;
+    border-radius:8px;
+    box-sizing:border-box;
+  }
+
+  /* Controls below (no overlap) */
+  #bfcm-rail-{{ section.id }} .bfcmw__controls{
+    display:flex; justify-content:space-between; align-items:center; margin-top:10px;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw-nav{
+    width:40px; height:40px; display:grid; place-items:center;
+    border-radius:999px; background:#fff; color:inherit; border:1px solid #ddd;
+    transition:transform .1s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+  }
+  #bfcm-rail-{{ section.id }} .bfcmw-nav:hover{ background:#f7f7f7; }
+  #bfcm-rail-{{ section.id }} .bfcmw-nav:active{ transform:translateY(1px); }
+  #bfcm-rail-{{ section.id }} .bfcmw-nav[disabled]{ opacity:.45; cursor:not-allowed; }
+
+  /* Legal note */
+  #bfcm-rail-{{ section.id }} .bfcmw__legal{
+    margin:10px 0 0; font-size:.85rem; color:#555; text-align:center;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px){
+    #bfcm-rail-{{ section.id }} .bfcmw__container{ padding:16px; }
+    #bfcm-rail-{{ section.id }} .bfcmw-nav{ width:36px; height:36px; }
+  }
+{% endstyle %}
+
+<script>
+  (function(){
+    var root = document.getElementById('bfcm-rail-{{ section.id }}');
+    if(!root) return;
+
+    var track = root.querySelector('[data-track]');
+    var prev  = root.querySelector('.bfcmw-nav--prev');
+    var next  = root.querySelector('.bfcmw-nav--next');
+    if(!track || !prev || !next) return;
+
+    function step(){
+      var card = track.querySelector('.bfcmw-card');
+      var gap  = 18;
+      return card ? (card.getBoundingClientRect().width + gap) : 300;
+    }
+    function atStart(){ return track.scrollLeft <= 2; }
+    function atEnd(){ return (track.scrollLeft + track.clientWidth) >= (track.scrollWidth - 2); }
+    function update(){ prev.disabled = atStart(); next.disabled = atEnd(); }
+
+    prev.addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior:'smooth' }); });
+    next.addEventListener('click', function(){ track.scrollBy({ left:  step(), behavior:'smooth' }); });
+    track.addEventListener('scroll', update, { passive:true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "BFCM products rail",
+  "class": "tnr--bfcm-products-rail-white",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Kicker", "default": "Black Friday" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "Handpicked Deals For You" },
+    { "type": "text", "id": "sub", "label": "Subheading", "default": "Use the code at checkout to unlock your savings." },
+
+    { "type": "checkbox", "id": "show_promo_pill", "label": "Show bundle promo pill", "default": true },
+    { "type": "checkbox", "id": "show_visual_discount", "label": "Show visual promo price + slash original", "default": true },
+    { "type": "checkbox", "id": "show_inline_note", "label": "Show “With code … at checkout” under price", "default": true },
+
+    { "type": "text", "id": "promo_code", "label": "Promo code", "default": "BFCM25" },
+    { "type": "range", "id": "promo_percent", "label": "Promo percent (visual only)", "min": 5, "max": 60, "step": 1, "default": 25 },
+
+    { "type": "header", "content": "Starting From Tag" },
+    { "type": "checkbox", "id": "show_starting_from_tag", "label": "Show Starting From tag", "default": true },
+    { "type": "product", "id": "starting_from_product", "label": "Show tag only under this product" },
+    { "type": "text", "id": "starting_from_text", "label": "Tag text", "default": "Starting from $0" },
+
+    { "type": "range", "id": "card_min", "label": "Card min width (px)", "min": 200, "max": 320, "step": 10, "default": 240 },
+    { "type": "range", "id": "card_max", "label": "Card max width (px)", "min": 240, "max": 360, "step": 10, "default": 300 },
+
+    { "type": "text", "id": "legal_note", "label": "Footer note (optional)", "default": "Prices shown here include a visual discount. Original prices appear on product pages and checkout; apply the code to redeem." }
+  ],
+  "blocks": [
+    { "type": "product", "name": "Product", "settings": [ { "type": "product", "id": "product", "label": "Product" } ] }
+  ],
+  "max_blocks": 60,
+  "presets": [
+    {
+      "name": "BFCM products rail (white)",
+      "blocks": [ { "type": "product" }, { "type": "product" }, { "type": "product" }, { "type": "product" } ]
+    }
+  ]
+}
+{% endschema %}

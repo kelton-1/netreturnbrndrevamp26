@@ -1,0 +1,526 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "accordion_content_z8LGbH": {
+      "type": "accordion-content",
+      "blocks": {
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-1": {
+          "type": "item",
+          "settings": {
+            "title": "Home",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Home_Series_V2_Assembly.pdf?v=1678800682\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Home_Series_V2_Assembly.pdf?v=1678800682\">Home Assembly PDF</a></p><p>Formerly Known As - Home Series V2</p>",
+            "page": "assembly-1"
+          }
+        },
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-2": {
+          "type": "item",
+          "settings": {
+            "title": "Pro",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/742306_Pro_Series_Manual_6ed9f6a2-c9e8-4f6e-8dd5-89c0160f6cf7.pdf?v=1679159669\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/742306_Pro_Series_Manual_6ed9f6a2-c9e8-4f6e-8dd5-89c0160f6cf7.pdf?v=1679159669\">Pro Assembly PDF</a></p><p>Formerly Known As - Pro Series V2</p>",
+            "page": "pro-series-v2-assembly"
+          }
+        },
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-3": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 8",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\">Pro 8 Assembly PDF</a></p><p>Formerly Known As - Large 8 Pro Series V2</p>",
+            "page": "large-8-pro-series-v2-assembly"
+          }
+        },
+        "4e0d5ba0-efe0-45d0-b68b-69755bf2d980": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 9",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\">Pro 9 Assembly PDF</a></p><p>Formerly Known As - Large 9 Pro Series V2</p>",
+            "page": "large-9-pro-series-assembly"
+          }
+        },
+        "90af61bc-3fc4-4846-b363-31cd40c654c6": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 10",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/767301_Pro-Series_Large_V2_Manual.pdf?v=1678809802\">Pro 10 Assembly PDF</a></p><p>Formerly Known As - Large 10 Pro Series V2</p>",
+            "page": "large-10-pro-series-v2-assembly"
+          }
+        },
+        "95e0c9bc-55f1-487e-a504-a2f5e517d4b5": {
+          "type": "item",
+          "settings": {
+            "title": "Pro XL",
+            "icon": "check_mark",
+            "content": "<p>Formerly Known As - XL Pro Series V2</p>",
+            "page": "xl-pro-series-v2-assembly"
+          }
+        },
+        "42a77441-12be-4d1b-adf5-9527904e8753": {
+          "type": "item",
+          "settings": {
+            "title": "Mini",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/766203_Mini_Pro-Series_Manual_a0a86073-8446-4b4c-83b7-4ed674371f6a.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/766203_Mini_Pro-Series_Manual_a0a86073-8446-4b4c-83b7-4ed674371f6a.pdf?v=1678809802\">Mini Assembly PDF</a></p><p>Formerly Known As - Mini Pro Series V2</p>",
+            "page": "mini-pro-series-assembly"
+          }
+        },
+        "b4f1fdfa-204e-4dd1-89d7-cca1c9b7b31b": {
+          "type": "item",
+          "settings": {
+            "title": "Junior",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_Jr_V2_Assembly.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_Jr_V2_Assembly.pdf?v=1678809802\">Junior Assembly PDF</a></p><p>Formerly Known As - Pro Series Jr.</p>",
+            "page": "pro-series-jr-net-assembly"
+          }
+        }
+      },
+      "block_order": [
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-1",
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-2",
+        "template--15526688227421__6ca1e6d1-3c96-4704-aa2c-99b82d8aa59c-item-3",
+        "4e0d5ba0-efe0-45d0-b68b-69755bf2d980",
+        "90af61bc-3fc4-4846-b363-31cd40c654c6",
+        "95e0c9bc-55f1-487e-a504-a2f5e517d4b5",
+        "42a77441-12be-4d1b-adf5-9527904e8753",
+        "b4f1fdfa-204e-4dd1-89d7-cca1c9b7b31b"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "Assembly Videos",
+        "title": "Nets",
+        "content": "",
+        "image": "shopify://shop_images/ProSeries.png",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "align_content": "start",
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#f3f3f3",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_Cg44mm": {
+      "type": "accordion-content",
+      "blocks": {
+        "9bcc4acf-5fbd-498b-8fe8-1c6364ab587e": {
+          "type": "item",
+          "settings": {
+            "title": "Home Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Home Package, Universal Side Barriers & Pro Turf. </p><p>Formerly Known As - Home Series V2 Pro Package</p>",
+            "page": "home-series-v2-pro-package"
+          }
+        },
+        "a1867979-13e8-419a-8bc2-4b3840f77576": {
+          "type": "item",
+          "settings": {
+            "title": "Pro Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Pro Package, Universal Side Barriers & Pro Turf. </p><p>Formerly Known As - Pro Series V2 Pro Package</p>",
+            "page": "pro-series-v2-golf-package-assembly-videos"
+          }
+        },
+        "7326df4d-0035-4b43-9413-9e927caba0ee": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 8 Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Pro 8 Package, Side Barriers & Pro Turf. </p><p>Formerly Known As - Large 8 V2 Pro Package</p>",
+            "page": "large-8-v2-pro-package"
+          }
+        },
+        "20a5a47c-c1d4-4d86-89f3-50c3a866e3f4": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 9 Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Pro 9 Package, Side Barriers & Pro Turf. </p><p>Formerly Known As - Large 9 V2 Pro Package</p>",
+            "page": "large-9-v2-pro-package"
+          }
+        },
+        "0b1bb708-b944-427a-b0ea-b78aaf3d0fea": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 10 Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Pro 10 Package, Side Barriers & Pro Turf. </p><p>Formerly Known As - Large 10 V2 Pro Package</p>",
+            "page": "large-10-v2-pro-package-assembly"
+          }
+        },
+        "781e1de2-b780-4207-bf9c-82198ddafe23": {
+          "type": "item",
+          "settings": {
+            "title": "Pro XL Package",
+            "icon": "check_mark",
+            "content": "<p>Assembly Videos for the Pro XL Package, Side Barriers & Pro Turf. </p><p>Formerly Known As - XL V2 Pro Package</p>",
+            "page": "xl-v2-pro-package"
+          }
+        }
+      },
+      "block_order": [
+        "9bcc4acf-5fbd-498b-8fe8-1c6364ab587e",
+        "a1867979-13e8-419a-8bc2-4b3840f77576",
+        "7326df4d-0035-4b43-9413-9e927caba0ee",
+        "20a5a47c-c1d4-4d86-89f3-50c3a866e3f4",
+        "0b1bb708-b944-427a-b0ea-b78aaf3d0fea",
+        "781e1de2-b780-4207-bf9c-82198ddafe23"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Packages",
+        "content": "",
+        "image": "shopify://shop_images/PackagePhoto.jpg",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "end",
+        "align_content": "start",
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#ffffff",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_JnRQ8m": {
+      "type": "accordion-content",
+      "blocks": {
+        "94bf668e-faff-4f98-8e9d-b3d64208db63": {
+          "type": "item",
+          "settings": {
+            "title": "Sim 8",
+            "icon": "check_mark",
+            "content": "",
+            "page": "simulator-series-8-assembly-video"
+          }
+        },
+        "1c337286-e8a8-410c-8022-bdbb47322c99": {
+          "type": "item",
+          "settings": {
+            "title": "Sim 10",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "simulator-series-10-assembly"
+          }
+        },
+        "66a12b49-0d1b-46e0-a6fa-880ad292e36c": {
+          "type": "item",
+          "settings": {
+            "title": "Sim 12",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "simulator-series-12-assembly"
+          }
+        }
+      },
+      "block_order": [
+        "94bf668e-faff-4f98-8e9d-b3d64208db63",
+        "1c337286-e8a8-410c-8022-bdbb47322c99",
+        "66a12b49-0d1b-46e0-a6fa-880ad292e36c"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Sim Series",
+        "content": "",
+        "image": "shopify://shop_images/SimulatorScreen_8_9ca9038f-e839-49b4-816e-e0ce5fa7d258.png",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "align_content": "start",
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#f3f3f3",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_XXCdXF": {
+      "type": "accordion-content",
+      "blocks": {
+        "5085c824-5e45-4b5a-a3aa-50431e3dde51": {
+          "type": "item",
+          "settings": {
+            "title": "Home",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Home Side Barriers Assembly PDF</a></p>",
+            "page": "universal-side-barriers-home-series-v2-assembly-videos"
+          }
+        },
+        "f3aa0eae-ae0f-42d8-af4a-a93685b2c232": {
+          "type": "item",
+          "settings": {
+            "title": "Pro",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Pro Assembly PDF</a></p>",
+            "page": "universal-side-barriers-pro-series-v2-assembly-video"
+          }
+        },
+        "4976fad0-ee36-449d-97e4-416b04c2895d": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 8",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Pro 8 Side Barrier Assembly PDF</a></p>",
+            "page": "universal-side-barriers-large-8-pro-series-v2-assembly-video"
+          }
+        },
+        "a5647a2a-53e3-40c9-b179-c16461109871": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 9",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Pro 9 Assembly PDF</a></p>",
+            "page": "universal-side-barriers-large-9-pro-series-v2-assembly-video"
+          }
+        },
+        "7af07038-7cd0-493b-b6c0-24e96c77df55": {
+          "type": "item",
+          "settings": {
+            "title": "Pro 10",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Pro 10 Side Barrier Assembly PDF</a></p>",
+            "page": "universal-side-barriers-large-10-pro-series-v2-assembly-video"
+          }
+        },
+        "c9159045-1dac-4f42-ac08-0ffbc8cd7db5": {
+          "type": "item",
+          "settings": {
+            "title": "Pro XL",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Pro XL Side Barriers Installation [PDF]</a></p><p>Formerly Known As - Pro Series XL </p>",
+            "page": "xl-side-barriers-assembly"
+          }
+        },
+        "965000a6-92f6-4451-8a27-2657c5a6c46a": {
+          "type": "item",
+          "settings": {
+            "title": "Mini",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Mini Side Barriers Installation [PDF]</a></p><p>Formerly Known As - Mini Pro Series</p>",
+            "page": "side-barriers-mini-assembly-video"
+          }
+        },
+        "760d0073-8428-46ae-bff7-b407fccfb565": {
+          "type": "item",
+          "settings": {
+            "title": "Junior",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/750204_Side_Barrier_Manual.pdf?v=1678809802\">Junior Side Barrier Assembly PDF</a></p><p>Formerly Known As - Pro Series Jr. V2</p>",
+            "page": ""
+          }
+        },
+        "fc8bc7ef-db74-46d3-b40b-298b8ebc7a72": {
+          "type": "item",
+          "settings": {
+            "title": "Pro Series (Classic)",
+            "icon": "check_mark",
+            "content": "<p>Pro Series Classic (Not V2) Side Barriers</p>",
+            "page": "copy-of-pro-series-jr-net-assembly"
+          }
+        }
+      },
+      "block_order": [
+        "5085c824-5e45-4b5a-a3aa-50431e3dde51",
+        "f3aa0eae-ae0f-42d8-af4a-a93685b2c232",
+        "4976fad0-ee36-449d-97e4-416b04c2895d",
+        "a5647a2a-53e3-40c9-b179-c16461109871",
+        "7af07038-7cd0-493b-b6c0-24e96c77df55",
+        "c9159045-1dac-4f42-ac08-0ffbc8cd7db5",
+        "965000a6-92f6-4451-8a27-2657c5a6c46a",
+        "760d0073-8428-46ae-bff7-b407fccfb565",
+        "fc8bc7ef-db74-46d3-b40b-298b8ebc7a72"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Side Barriers",
+        "content": "",
+        "image": "shopify://shop_images/Universal-Side-Barriers-Pro-Series-V2-and-Home-Series_39ff5e9e-a84c-4423-8f2b-705d390b69d0.jpg",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "end",
+        "align_content": "start",
+        "background": "#f4f4f4",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#ffffff",
+        "accordion_text_color": ""
+      }
+    },
+    "accordion_content_UmACpe": {
+      "type": "accordion-content",
+      "blocks": {
+        "4442e5a8-560b-47bb-942d-0b46e297f653": {
+          "type": "item",
+          "settings": {
+            "title": "Pro Turf, Putting Cup & Rubber Tee's",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Rubber_Tee_and_Putting_Cup_and_Flag_Installation.pdf?v=1679163654\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Rubber_Tee_and_Putting_Cup_and_Flag_Installation.pdf?v=1679163654\">Rubber Tee's, Putting Cup and Flag Installation, Hole Template PDF</a></p>",
+            "page": "pro-turf-putting-cup-tees-assembly"
+          }
+        },
+        "02f71c67-6572-4d37-ad7d-0bea4326e91f": {
+          "type": "item",
+          "settings": {
+            "title": "Platinum Turf",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "platinum-turf-assembly"
+          }
+        },
+        "3c21e1b5-a42b-4ab3-b59e-4f76c0ebc8bc": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Precision Target",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "copy-of-precision-target"
+          }
+        },
+        "daf38992-4421-4b38-9eae-ba25a0fb10d7": {
+          "type": "item",
+          "settings": {
+            "title": "Frame Pads",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_Horizontal_Frame_Pads_Manual.pdf?v=1734741846\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_Horizontal_Frame_Pads_Manual.pdf?v=1734741846\">ASSEMBLY PDF</a></p>",
+            "page": "frame-pads-assembly"
+          }
+        },
+        "eb8a1fe4-682a-437a-bda7-87fb2d230c61": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Frame Wheels",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Frame_Wheels_Installation.pdf?v=1679164204\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Frame_Wheels_Installation.pdf?v=1679164204\">Frame Wheels Installation PDF</a></p>",
+            "page": "frame-wheels-assembly"
+          }
+        },
+        "131e7669-c53f-4376-8007-4f9d11add542": {
+          "type": "item",
+          "settings": {
+            "title": "Net Guardian",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "net-guardian-assembly"
+          }
+        },
+        "a9d98611-76db-4c97-9179-3c589604f3bc": {
+          "type": "item",
+          "settings": {
+            "title": "No Fly Zone V2 Assembly",
+            "icon": "check_mark",
+            "content": "<p><a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_No_Fly_Zone_Manual.pdf?v=1734741848\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_No_Fly_Zone_Manual.pdf?v=1734741848\">No Fly Zone Assembly PDF</a> | <a href=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_No_Fly_Zone_Side_Barrier_Manual.pdf?v=1734741850\" title=\"https://cdn.shopify.com/s/files/1/0405/2925/files/Net_Return_No_Fly_Zone_Side_Barrier_Manual.pdf?v=1734741850\">No Fly Zone Side Barrier Assembly PDF</a></p>",
+            "page": "no-fly-zone-v2-assembly"
+          }
+        },
+        "d52ba7d9-527c-4816-a511-ed637e444a83": {
+          "type": "item",
+          "settings": {
+            "title": "Precision Target",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "target-2x2-assembly"
+          }
+        },
+        "0e5d1514-dc95-42b8-998d-950e60a5e5aa": {
+          "type": "item",
+          "settings": {
+            "title": "Flex Screen and Valence Assembly",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "valence-assembly"
+          }
+        },
+        "e11af30f-5904-453f-81cc-cc2669d95212": {
+          "type": "item",
+          "settings": {
+            "title": "Split Screen",
+            "icon": "check_mark",
+            "content": "<p> </p>",
+            "page": "split-screen-assembly"
+          }
+        }
+      },
+      "block_order": [
+        "4442e5a8-560b-47bb-942d-0b46e297f653",
+        "02f71c67-6572-4d37-ad7d-0bea4326e91f",
+        "3c21e1b5-a42b-4ab3-b59e-4f76c0ebc8bc",
+        "daf38992-4421-4b38-9eae-ba25a0fb10d7",
+        "eb8a1fe4-682a-437a-bda7-87fb2d230c61",
+        "131e7669-c53f-4376-8007-4f9d11add542",
+        "a9d98611-76db-4c97-9179-3c589604f3bc",
+        "d52ba7d9-527c-4816-a511-ed637e444a83",
+        "0e5d1514-dc95-42b8-998d-950e60a5e5aa",
+        "e11af30f-5904-453f-81cc-cc2669d95212"
+      ],
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Turf & Accessories",
+        "content": "",
+        "image": "shopify://shop_images/5_cleaned_4dc59fa6-d332-4da2-b871-6a85baf6228c.jpg",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "align_content": "start",
+        "background": "#f3f3f3",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "#f3f3f3",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "accordion_content_z8LGbH",
+    "accordion_content_Cg44mm",
+    "accordion_content_JnRQ8m",
+    "accordion_content_XXCdXF",
+    "accordion_content_UmACpe"
+  ]
+}

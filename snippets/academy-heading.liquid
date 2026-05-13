@@ -1,0 +1,34 @@
+{%- liquid
+  assign alignment = section.settings.heading_alignment | default: 'left'
+  assign heading_tag = section.settings.heading_tag | default: 'h2'
+  assign heading_size = section.settings.heading_size | default: 'title-lg tracking-heading'
+-%}
+{%- if section.settings.subheading != blank
+  or section.settings.heading != blank
+  or section.settings.description != blank
+  or section.settings.button_label != blank
+-%}
+  <div class="academy-heading-group academy-heading-group--{{ alignment }}">
+    {%- if section.settings.subheading != blank -%}
+      <p class="academy-eyebrow">{{ section.settings.subheading | escape }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <{{ heading_tag }} class="academy-title heading font-bold {{ heading_size }}">
+        {{- section.settings.heading -}}
+      </{{ heading_tag }}>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <div class="academy-description rte">
+        {{- section.settings.description -}}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="academy-actions">
+        {%- render 'academy-button', section: section -%}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

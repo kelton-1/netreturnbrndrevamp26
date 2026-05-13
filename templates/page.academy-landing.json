@@ -1,0 +1,388 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "page_width": "medium"
+      }
+    },
+    "academy_hero": {
+      "type": "academy-hero",
+      "settings": {
+        "subheading": "Structured instruction. Smarter practice.",
+        "heading": "Everything you need to improve your score.",
+        "description": "<p>Build the Academy landing page section by section from the Theme Editor using this starter template.</p>",
+        "button_label": "Start editing",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "academy_social_proof": {
+      "type": "academy-social-proof",
+      "blocks": {
+        "proof_1": {
+          "type": "proof",
+          "settings": {
+            "heading": "Featured Coach",
+            "subheading": "Short game",
+            "text": "<p>Add coach, ambassador, or trust copy here.</p>",
+            "badge_text": "Coach"
+          }
+        },
+        "proof_2": {
+          "type": "proof",
+          "settings": {
+            "heading": "Featured Coach",
+            "subheading": "Putting",
+            "text": "<p>Add coach, ambassador, or trust copy here.</p>",
+            "badge_text": "Coach"
+          }
+        },
+        "proof_3": {
+          "type": "proof",
+          "settings": {
+            "heading": "Featured Coach",
+            "subheading": "Driver",
+            "text": "<p>Add coach, ambassador, or trust copy here.</p>",
+            "badge_text": "Coach"
+          }
+        },
+        "proof_4": {
+          "type": "proof",
+          "settings": {
+            "heading": "Featured Coach",
+            "subheading": "Approach play",
+            "text": "<p>Add coach, ambassador, or trust copy here.</p>",
+            "badge_text": "Coach"
+          }
+        }
+      },
+      "block_order": [
+        "proof_1",
+        "proof_2",
+        "proof_3",
+        "proof_4"
+      ],
+      "settings": {}
+    },
+    "academy_expanding_cards": {
+      "type": "academy-expanding-cards",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "kicker": "Train",
+            "heading": "Everything you need to improve",
+            "text": "<p>Use this first card for the primary highlighted training lane.</p>"
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "kicker": "Track",
+            "heading": "Measure your progress",
+            "text": "<p>Use this card for performance tracking, structure, or feedback.</p>"
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "kicker": "Compete",
+            "heading": "Practice with purpose",
+            "text": "<p>Use this card for challenges, curriculum, or guided sessions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3"
+      ],
+      "settings": {}
+    },
+    "academy_skill_tabs": {
+      "type": "academy-skill-tabs",
+      "blocks": {
+        "tab_1": {
+          "type": "tab",
+          "settings": {
+            "label": "Short Game",
+            "meta": "Technique + reps",
+            "icon": "trophy",
+            "kicker": "Skill focus",
+            "heading": "Train every skill that lowers your score.",
+            "text": "<p>Use this panel for short-game drills, assignments, and supporting media.</p>",
+            "stat_text": "Step-by-step modules"
+          }
+        },
+        "tab_2": {
+          "type": "tab",
+          "settings": {
+            "label": "Putting",
+            "meta": "Speed + line",
+            "icon": "eye",
+            "kicker": "Skill focus",
+            "heading": "Swap the content as users change tabs.",
+            "text": "<p>Use this panel for putting-specific training content and visuals.</p>",
+            "stat_text": "Actionable feedback"
+          }
+        },
+        "tab_3": {
+          "type": "tab",
+          "settings": {
+            "label": "Driver",
+            "meta": "Speed + control",
+            "icon": "rocket",
+            "kicker": "Skill focus",
+            "heading": "Keep every tab fully editable.",
+            "text": "<p>Use this panel for driver, speed, or tee-shot training content.</p>",
+            "stat_text": "Coach-led progressions"
+          }
+        }
+      },
+      "block_order": [
+        "tab_1",
+        "tab_2",
+        "tab_3"
+      ],
+      "settings": {}
+    },
+    "academy_custom_curriculum": {
+      "type": "academy-custom-curriculum",
+      "settings": {
+        "subheading": "A custom curriculum",
+        "heading": "Build a training path that matches your game.",
+        "description": "<p>Use this split layout for copy on one side and layered product or app visuals on the other.</p>",
+        "button_label": "Explore the curriculum",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "academy_instruction_grid": {
+      "type": "academy-instruction-grid",
+      "blocks": {
+        "grid_1": {
+          "type": "card",
+          "settings": {
+            "kicker": "Coach series",
+            "heading": "PGA-level instruction",
+            "text": "<p>Use this card for one coaching pillar or featured instructor.</p>"
+          }
+        },
+        "grid_2": {
+          "type": "card",
+          "settings": {
+            "kicker": "Coach series",
+            "heading": "Built for better reps",
+            "text": "<p>Use this card for another instructor, track, or curriculum pillar.</p>"
+          }
+        },
+        "grid_3": {
+          "type": "card",
+          "settings": {
+            "kicker": "Coach series",
+            "heading": "Clear next steps",
+            "text": "<p>Use this card for a third proof point with optional CTA.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "grid_1",
+        "grid_2",
+        "grid_3"
+      ],
+      "settings": {
+        "bottom_button_label": "Meet the coaching team"
+      }
+    },
+    "academy_training_accordion": {
+      "type": "academy-training-accordion",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "heading": "Train for the miss you see most",
+            "text": "<p>Use this row for the first accordion item.</p>"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "heading": "Progress at your own pace",
+            "text": "<p>Use this row for the second accordion item.</p>"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "heading": "Turn insights into action",
+            "text": "<p>Use this row for the third accordion item.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3"
+      ],
+      "settings": {}
+    },
+    "academy_pricing_toggle": {
+      "type": "academy-pricing-toggle",
+      "settings": {
+        "subheading": "Join the Academy",
+        "heading": "Choose the membership that fits how you train.",
+        "monthly_tab_label": "Monthly",
+        "annual_tab_label": "Annual"
+      }
+    },
+    "academy_pricing_details": {
+      "type": "academy-pricing-details",
+      "blocks": {
+        "detail_1": {
+          "type": "detail",
+          "settings": {
+            "icon": "check_mark",
+            "heading": "Structured curriculum",
+            "text": "<p>Use this card for plan inclusions or guarantees.</p>"
+          }
+        },
+        "detail_2": {
+          "type": "detail",
+          "settings": {
+            "icon": "calendar",
+            "heading": "Fresh weekly training",
+            "text": "<p>Use this card for release cadence or schedule details.</p>"
+          }
+        },
+        "detail_3": {
+          "type": "detail",
+          "settings": {
+            "icon": "users",
+            "heading": "Coach-backed guidance",
+            "text": "<p>Use this card for expert support or instruction notes.</p>"
+          }
+        },
+        "detail_4": {
+          "type": "detail",
+          "settings": {
+            "icon": "support",
+            "heading": "Built for ongoing progress",
+            "text": "<p>Use this card for support, guarantees, or retention copy.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "detail_1",
+        "detail_2",
+        "detail_3",
+        "detail_4"
+      ],
+      "settings": {}
+    },
+    "academy_sportbox_promo": {
+      "type": "academy-sportbox-promo",
+      "settings": {
+        "subheading": "Sportbox AI x Net Return",
+        "heading": "Pair smart feedback with structured practice.",
+        "description": "<p>Use this two-column promo for the Sportbox partnership section.</p>",
+        "button_label": "Learn more",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "academy_content_carousel": {
+      "type": "academy-content-carousel",
+      "blocks": {
+        "carousel_1": {
+          "type": "card",
+          "settings": {
+            "kicker": "Module",
+            "heading": "Card one",
+            "text": "<p>Use this card for benefits, modules, or highlights.</p>"
+          }
+        },
+        "carousel_2": {
+          "type": "card",
+          "settings": {
+            "kicker": "Module",
+            "heading": "Card two",
+            "text": "<p>Use this card for benefits, modules, or highlights.</p>"
+          }
+        },
+        "carousel_3": {
+          "type": "card",
+          "settings": {
+            "kicker": "Module",
+            "heading": "Card three",
+            "text": "<p>Use this card for benefits, modules, or highlights.</p>"
+          }
+        },
+        "carousel_4": {
+          "type": "card",
+          "settings": {
+            "kicker": "Module",
+            "heading": "Card four",
+            "text": "<p>Use this card for benefits, modules, or highlights.</p>"
+          }
+        },
+        "carousel_5": {
+          "type": "card",
+          "settings": {
+            "kicker": "Module",
+            "heading": "Card five",
+            "text": "<p>Add more than four to activate navigation.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "carousel_1",
+        "carousel_2",
+        "carousel_3",
+        "carousel_4",
+        "carousel_5"
+      ],
+      "settings": {}
+    },
+    "academy_quote_banner": {
+      "type": "academy-quote-banner",
+      "settings": {
+        "subheading": "Student story",
+        "quote": "“This is where a customer quote, testimonial, or short endorsement can go.”",
+        "author": "Name, title, or attribution"
+      }
+    },
+    "academy_final_cta_form": {
+      "type": "academy-final-cta-form",
+      "settings": {
+        "subheading": "Ready to train?",
+        "heading": "Add your final CTA and form embed here.",
+        "description": "<p>Paste your Klaviyo, HubSpot, or other embed code into the section settings.</p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "academy_hero",
+    "academy_social_proof",
+    "academy_expanding_cards",
+    "academy_skill_tabs",
+    "academy_custom_curriculum",
+    "academy_instruction_grid",
+    "academy_training_accordion",
+    "academy_pricing_toggle",
+    "academy_pricing_details",
+    "academy_sportbox_promo",
+    "academy_content_carousel",
+    "academy_quote_banner",
+    "academy_final_cta_form"
+  ]
+}

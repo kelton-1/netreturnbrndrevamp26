@@ -1,0 +1,423 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_block_bBbGkY": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/Net_Return_SImulator_Bay.jpg",
+        "subheading": "",
+        "title": "Commercial Golf Simulators",
+        "content": "<p>Elevate your business with The Net Return's portable commercial simulator solutions—durable, flexible, and designed to transform any space into a premium golf experience.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_position": "overlap_left",
+        "text_alignment": "center",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_gXV9p9": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_LX4CkG": {
+          "type": "collection",
+          "settings": {
+            "collection": "sim-bays",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_LX4CkG"
+      ],
+      "settings": {
+        "subheading": "Portable Setups",
+        "title": "Simulator Bays",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "simulator-bays",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_PRAMfw": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_aH3yJt": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-net-package",
+            "label": "Net Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_jJCrbe": {
+          "type": "collection",
+          "settings": {
+            "collection": "launch-monitor-sim-bay",
+            "label": "Simulator Bay Packages",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_aH3yJt",
+        "collection_jJCrbe"
+      ],
+      "settings": {
+        "subheading": "Everything You Need",
+        "title": "Portable Simulator Packages",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 3,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "simulator-packages",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_BTGyy6": {
+      "type": "faq",
+      "blocks": {
+        "question_NrcCg4": {
+          "type": "question",
+          "settings": {
+            "title": "What do I need to build a golf simulator?",
+            "answer": "<p><strong>Sim Bay or Net: </strong>There are a variety of ways to use a golf simulator, but they all require something to hit the ball into. To jumpstart the process of building the perfect simulator start with a Net Return Net or Sim Bay. Our company offers a wide range of models and sizes to create the perfect setup.</p><p><strong>Launch Monitor + Software: </strong>A device that measures various aspects of a golf swing, such as club speed, ball speed, launch angle, and spin rate. This provides feedback to golfers and simulates real-world golfing conditions for training and entertainment purposes</p><p><strong>Projector or TV: </strong>Displays the simulated golf course environment and ball flight data, enhancing the overall experience and providing visual feedback during practice sessions.</p>"
+          }
+        },
+        "question_BMFGJc": {
+          "type": "question",
+          "settings": {
+            "title": "What are the differences among the different launch monitors?",
+            "answer": "<p>The key differences among golf simulator launch monitors primarily stem from their levels of accuracy, features, and technology integration. Higher-priced models have more advanced functionalities and provide more precise measurements than their lower-priced counterparts.</p>"
+          }
+        },
+        "question_UikpVL": {
+          "type": "question",
+          "settings": {
+            "title": "Are commercials golf simulators worth it?",
+            "answer": "<p>A high-quality commercial golf simulator is an excellent investment for any business. It offers unmatched convenience, allowing your members and customers to practice their game year-round, regardless of weather or time constraints. We have seen businesses turn outdated entertainment spaces not being utilized into golf simulators that bring a whole new revenue stream.</p>"
+          }
+        },
+        "question_E6UycC": {
+          "type": "question",
+          "settings": {
+            "title": "How high does the ceiling need to be for a golf simulator?",
+            "answer": "<p>The recommended minimum ceiling height for a golf simulator setup is typically 9-10 feet. This height ensures that you can perform a full swing without hitting the ceiling, which is essential for safe and effective practice.</p><p>The Net Return offers a range of golf practice nets designed to fit different room sizes. Whether you’re working with a compact indoor space or a more expansive area, you can tailor your indoor golf practice setup to suit your space's dimensions. Our nets and bays provide a safe and durable environment for practicing, no matter the size of your space. With thoughtful planning, even homes with lower ceilings can enjoy the benefits of a golf simulator by choosing the right setup.</p>"
+          }
+        },
+        "question_y3XnQG": {
+          "type": "question",
+          "settings": {
+            "title": "How does a simulator help  golfers improve their game at my business?",
+            "answer": "<p>For golfers, a simulator is one of the most effective golf improvement tools. It provides immediate feedback on every shot, including metrics like golf ball speed, club path, spin rate, and launch angle. This data empowers golfers to understand their swing mechanics and make adjustments in real time. Many simulators also include swing analysis and practice drills, which help beginners build a solid foundation for long-term improvement.</p><p>When paired with a Portable Simulator Bay from The Net Return, businesses can offer clients a professional-grade golf training net setup that enhances their learning experience. These nets integrate easily with golf simulation bundles to create a complete golf simulator setup. By providing on-demand golf training, businesses can attract new clients and offer added value to existing ones, helping beginners see measurable results faster.</p>"
+          }
+        },
+        "question_LGEbLa": {
+          "type": "question",
+          "settings": {
+            "title": "What if I already have a Net Return net and I want to add simulation?",
+            "answer": "<p>If you already own a Net Return and wish to incorporate simulation capabilities, our Sim Add-Ons allow you to upgrade your existing setup by adding accessories like the Sim Screen and Valence components.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_NrcCg4",
+        "question_BMFGJc",
+        "question_UikpVL",
+        "question_E6UycC",
+        "question_y3XnQG",
+        "question_LGEbLa"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "FAQ",
+        "content": "<p>The Net Return’s portable commercial golf simulator packages are the perfect foundation for a fully customized simulator setup in your business, country club, golf course, or community center. Compatible with third-party golf launch monitors, our portable bays enable you to design a tailored system for indoor golf practice, professional training, or recreational use.</p><p>Whether you’re improving customer experiences, attracting members, or enhancing community programs, The Net Return offers durable, reliable nets that maximize your space, time, and investment. Explore our range of golf simulator solutions today and elevate your offerings to the next level.</p>",
+        "background": "#101010",
+        "text_color": "#f4f4f4"
+      }
+    },
+    "video_wtNGUW": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/RMbwUhmuzbw",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "logo_list_PkmgTn": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_tKzD6J": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/flightscope.jpg",
+            "link": "shopify://collections/flightscope"
+          }
+        },
+        "logo_U9YaWQ": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/uneekor.jpg",
+            "link": "shopify://collections/uneekor"
+          }
+        },
+        "logo_XXT4n8": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/full_swing.jpg",
+            "link": "shopify://collections/fullswing"
+          }
+        },
+        "logo_pEP6WF": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/foresight.jpg",
+            "link": "shopify://collections/foresight"
+          }
+        }
+      },
+      "block_order": [
+        "logo_tKzD6J",
+        "logo_U9YaWQ",
+        "logo_XXT4n8",
+        "logo_pEP6WF"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "subheading": "",
+        "title": "",
+        "button_text": "",
+        "button_link": "",
+        "stack_logos": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)",
+        "logo_background": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_i6f8Y7": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_6kwYXM": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "",
+            "button_text": "Flightscope",
+            "button_url": "shopify://collections/flightscope"
+          }
+        },
+        "collection_7zmhM3": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "Uneekor",
+            "button_text": "Uneekor",
+            "button_url": "shopify://collections/uneekor"
+          }
+        },
+        "collection_RTJrf6": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "Full Swing",
+            "button_text": "Full Swing",
+            "button_url": "shopify://collections/fullswing"
+          }
+        },
+        "collection_Pemw99": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "Foresight",
+            "button_text": "Foresight",
+            "button_url": "shopify://collections/foresight"
+          }
+        }
+      },
+      "block_order": [
+        "collection_6kwYXM",
+        "collection_7zmhM3",
+        "collection_RTJrf6",
+        "collection_Pemw99"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Launch Monitors",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "launch-monitors",
+        "background": "#f4f4f4",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 30,
+        "quick_links": ""
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "disabled": true,
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_color_swatch": true,
+        "open_first_filter_group": false,
+        "filter_position": "always_visible",
+        "promotion_position": "top",
+        "promotion_height": "small"
+      }
+    },
+    "featured_collections_cQ6eJM": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_ryJpcW": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories-simulation",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_ryJpcW"
+      ],
+      "settings": {
+        "subheading": "add simulation to a net",
+        "title": "Sim Add-Ons",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "sim-add-ons",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_kXGkEY": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_9VTpAL": {
+          "type": "collection",
+          "settings": {
+            "collection": "computers-projectors",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_9VTpAL"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Computers & Projectors",
+        "content": "",
+        "products_count": 14,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "computers-projectors",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_overlay_FDkGTA": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "reveal_on_scroll": true,
+        "section_height": "auto",
+        "image": "shopify://shop_images/sims-slider.jpg",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "link_style": "link",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "middle_left",
+        "text_color": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    }
+  },
+  "order": [
+    "image_with_text_block_bBbGkY",
+    "featured_collections_gXV9p9",
+    "featured_collections_PRAMfw",
+    "faq_BTGyy6",
+    "video_wtNGUW",
+    "logo_list_PkmgTn",
+    "featured_collections_i6f8Y7",
+    "collection-banner",
+    "main",
+    "featured_collections_cQ6eJM",
+    "featured_collections_kXGkEY",
+    "image_with_text_overlay_FDkGTA"
+  ]
+}

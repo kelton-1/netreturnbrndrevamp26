@@ -1,0 +1,147 @@
+{% comment %}
+  HERO TRUST BAR – desktop = 3 boxes (centered, bigger gaps, 30-Day in middle)
+  mobile  = 1 box at a time (auto-rolling), order: Free Shipping → 30-Day → 3-Year
+{% endcomment %}
+
+<section class="trust-bar-section" data-trust-bar-section>
+  <div class="trust-bar" data-trust-bar-track>
+    <!-- Free Shipping -->
+    <div class="trust-bar__item trust-bar__item--primary">
+      {% render 'icon', icon: 'picto-delivery-truck', width: 24, height: 24, class: 'trust-bar__icon' %}
+      <span class="trust-bar__label">Free Shipping</span>
+    </div>
+
+    <!-- 3-Year Warranty -->
+    <div class="trust-bar__item">
+      {% render 'icon', icon: 'picto-warranty', width: 24, height: 24, class: 'trust-bar__icon' %}
+      <span class="trust-bar__label">3-Year Warranty</span>
+    </div>
+
+    <!-- 30-Day Money-Back Guarantee -->
+    <div class="trust-bar__item">
+      {% render 'icon', icon: 'picto-return-box', width: 24, height: 24, class: 'trust-bar__icon' %}
+      <span class="trust-bar__label">30-Day Money-Back Guarantee</span>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  /* Pull tight against neighbor sections */
+  .shopify-section.section--hero-trust-bar{
+    margin-top: calc(-1 * var(--spacing-sections-desktop, 0.001rem));
+    margin-bottom: calc(-1 * var(--spacing-sections-desktop, 0.001rem));
+  }
+  @media (max-width: 749px){
+    .shopify-section.section--hero-trust-bar{
+      margin-top: calc(-1 * var(--spacing-sections-mobile, 0.05rem));
+      margin-bottom: calc(-1 * var(--spacing-sections-mobile, 0.05rem));
+    }
+  }
+
+  /* Bar */
+  .trust-bar-section{background:#000;margin:0;padding:10px 0;}
+  .trust-bar{
+    max-width:1200px;margin:0 auto;padding:4px 16px;
+    display:flex;flex-wrap:nowrap;gap:12px;justify-content:center;align-items:center;
+  }
+
+  /* Boxes */
+  .trust-bar__item{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:10px 18px;border-radius:12px;background:#fff;color:#00994d;
+    font-size:14px;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+    border:1px solid #e9e9e9;box-shadow:0 1px 2px rgba(0,0,0,.06);
+  }
+  .trust-bar__icon{width:24px;height:24px;flex:0 0 auto;}
+  .trust-bar__item svg,.trust-bar__item svg *{fill:currentColor;stroke:currentColor;stroke-width:1.6;}
+  .trust-bar__item--primary{color:#00994d;font-weight:700;}
+  .trust-bar__label{line-height:1.3;font-weight:700;}
+
+  /* Desktop: make 30-Day the center card + bigger equal gaps */
+  @media (min-width:750px){
+    .trust-bar__item:nth-child(1){order:1;} /* Free Shipping - left */
+    .trust-bar__item:nth-child(3){order:2;} /* 30-Day - center */
+    .trust-bar__item:nth-child(2){order:3;} /* 3-Year - right  */
+    .trust-bar{gap:24px;}
+  }
+
+  /* Mobile: one box at a time, centered; order Free → 30-Day → 3-Year */
+  @media (max-width:749px){
+    .trust-bar-section{padding:4px 0;}
+    .trust-bar{padding:8px 0;gap:0;justify-content:flex-start;overflow-x:hidden;scroll-behavior:smooth;}
+    .trust-bar__item{min-width:90%;max-width:90%;margin:6px 5%;justify-content:center;text-align:center;white-space:normal;}
+    .trust-bar__item:nth-child(1){order:1;} /* Free */
+    .trust-bar__item:nth-child(3){order:2;} /* 30-Day */
+    .trust-bar__item:nth-child(2){order:3;} /* 3-Year */
+  }
+{% endstyle %}
+
+<script>
+  (function () {
+    var MOBILE_BREAKPOINT = 749;
+    var SLIDE_INTERVAL_MS = 1500;
+
+    function orderedItems(track){
+      return Array.from(track.querySelectorAll('.trust-bar__item')).sort(function(a,b){
+        return (parseInt(getComputedStyle(a).order)||0) - (parseInt(getComputedStyle(b).order)||0);
+      });
+    }
+
+    function initTrack(track){
+      if(!track) return;
+
+      if(track._trustBarInterval){
+        clearInterval(track._trustBarInterval);
+        track._trustBarInterval = null;
+      }
+
+      // Only auto-slide on mobile
+      if (window.innerWidth > MOBILE_BREAKPOINT){
+        track.scrollLeft = 0;
+        return;
+      }
+
+      var items = orderedItems(track);
+      if(!items.length) return;
+
+      var index = 0;
+
+      function goTo(i){
+        index = i % items.length;
+        var target = items[index];
+        var left = target.offsetLeft - (track.clientWidth - target.offsetWidth)/2;
+        track.scrollTo({ left: Math.max(0,left), behavior: 'smooth' });
+      }
+
+      goTo(0);
+      track._trustBarInterval = setInterval(function(){
+        if(window.innerWidth > MOBILE_BREAKPOINT) return;
+        // refresh order in case of editor changes
+        items = orderedItems(track);
+        goTo(index + 1);
+      }, SLIDE_INTERVAL_MS);
+    }
+
+    function initAll(){
+      document.querySelectorAll('[data-trust-bar-track]').forEach(initTrack);
+    }
+
+    document.addEventListener('DOMContentLoaded', initAll);
+    window.addEventListener('resize', initAll);
+    document.addEventListener('shopify:section:load', initAll);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero trust bar",
+  "tag": "section",
+  "class": "section section--hero-trust-bar",
+  "settings": [],
+  "blocks": [],
+  "presets": [{ "name": "Hero trust bar" }]
+}
+{% endschema %}
+
+
+

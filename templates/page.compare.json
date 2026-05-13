@@ -1,0 +1,213 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "rich_text_PbW4Dm": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "Compare Nets",
+        "content": "<p>Every Net Return is manufactured with the same high-quality materials, only differing in size.</p>",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "multi_column_cYNHAJ": {
+      "type": "multi-column",
+      "blocks": {
+        "item_LHTnx3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-pro.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pro",
+            "content": "<p>8'w x 7'6\"h x 3'6\"d<br/>Weight: 28 lbs.</p><p>$795</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_fwyrxU": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-pro_8.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pro 8",
+            "content": "<p>8'w x 8'h x 3'6\"d<br/>Weight: 32 lbs.</p><p>$895</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/large-8-pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_yhdDAe": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-pro_9.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pro 9",
+            "content": "<p>9'w x 8'h x 3'6\"d<br/>Weight: 33 lbs.</p><p>$995</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/large-9-pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_ThHfCq": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-pro_10.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pro 10",
+            "content": "<p>10'w x 8'h x 3'6\"d<br/>Weight: 34 lbs.</p><p>$1,095</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/large-10-pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_3BL3dW": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-XL.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Pro XL",
+            "content": "<p>10'w x 9'6\"h x 3'6\"d<br/>Weight: 48 lbs.</p><p>$1,599</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/xl-pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "item_LHTnx3",
+        "item_fwyrxU",
+        "item_yhdDAe",
+        "item_ThHfCq",
+        "item_3BL3dW"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "Pro Series",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "medium",
+        "spacing": "normal",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "multi_column_NqkMcT": {
+      "type": "multi-column",
+      "blocks": {
+        "item_eUQq8a": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-junior.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Junior",
+            "content": "<p>4'6\"w x 4'6\"h x 2'4\"d<br/>Weight: 15 lbs.</p><p>$295</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/junior-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_PYAKnc": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-mini.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Mini",
+            "content": "<p>5'w x 6'h x 3'6\"d<br/>Weight: 24 lbs.</p><p>$549</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/mini-pro-series-golf-net",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        },
+        "item_HGwcWX": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/comp-home.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Home",
+            "content": "<p>7'w x 7'h x 3'6\"d<br/>Weight: 26 lbs.</p><p>$695</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/golf-and-multi-sport-nets",
+            "link_style": "link",
+            "text_alignment": "left",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "item_eUQq8a",
+        "item_PYAKnc",
+        "item_HGwcWX"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "Home Series",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "medium",
+        "spacing": "normal",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_PbW4Dm",
+    "multi_column_cYNHAJ",
+    "multi_column_NqkMcT"
+  ]
+}

@@ -1,0 +1,172 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "net_brand_usp_3WqgXe": {
+      "type": "net-brand-usp",
+      "blocks": {
+        "feature_TPNNyC": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/clock.png",
+            "title": "Trusted by Pros",
+            "text": "Used over 50 Tour players"
+          }
+        },
+        "feature_XnLGfY": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/clock.png",
+            "title": "3-Year Warranty",
+            "text": "We Stand by our quality"
+          }
+        },
+        "feature_pDQQkT": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/return-_1.png",
+            "title": "1200+ Reviews",
+            "text": "4.8 Average Rating"
+          }
+        },
+        "feature_bcj8j4": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/retun.png",
+            "title": "30-Days Return",
+            "text": "No quotation asked"
+          }
+        }
+      },
+      "block_order": [
+        "feature_TPNNyC",
+        "feature_XnLGfY",
+        "feature_pDQQkT",
+        "feature_bcj8j4"
+      ],
+      "disabled": true,
+      "name": "Net Feature Grid",
+      "settings": {}
+    },
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon_width": 40,
+            "title": "3-Year Warranty",
+            "content": "<p>Industry-leading 3-year warranty included on all nets.</p>"
+          }
+        },
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "custom_icon_width": 50,
+            "title": "Free shipping",
+            "content": "<p>Free Standard UPS Shipping for all the orders.</p>"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-phone",
+            "custom_icon_width": 50,
+            "title": "Customer service",
+            "content": "<p>Need assistance? <a href=\"/pages/contact\" title=\"Contact\">Our team is ready to help.</a></p>"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-lock",
+            "custom_icon_width": 50,
+            "title": "Since 2009",
+            "content": "<p>Leading the way in sports net innovation and quality for over 15 years.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item-3",
+        "item-1",
+        "item-2",
+        "item-4"
+      ],
+      "settings": {
+        "icon_align_mobile": "center",
+        "hide_dots": false,
+        "auto_rotate": false,
+        "cycle_speed": 3,
+        "background": "#f4f4f4",
+        "text_color": "#101010"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "shop"
+          }
+        },
+        "links_HkF6VU": {
+          "type": "links",
+          "settings": {
+            "menu": "explore"
+          }
+        },
+        "links_6VPctL": {
+          "type": "links",
+          "settings": {
+            "menu": "learn"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Subscribe",
+            "content": "<p>Stay up to date on the latest news and exclusive deals.</p>"
+          }
+        },
+        "social_media": {
+          "type": "social_media",
+          "settings": {
+            "title": "Follow",
+            "content": "",
+            "image": "shopify://shop_images/TNR-Symbol-FullColor-Light.png"
+          }
+        }
+      },
+      "block_order": [
+        "links",
+        "links_HkF6VU",
+        "links_6VPctL",
+        "newsletter",
+        "social_media"
+      ],
+      "settings": {
+        "show_payment_icons": true,
+        "enable_follow_on_shop": false,
+        "show_country_selector": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "net_brand_usp_3WqgXe",
+    "text-with-icons",
+    "footer"
+  ]
+}

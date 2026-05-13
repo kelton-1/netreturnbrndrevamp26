@@ -1,0 +1,580 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_RgGVj4": {
+          "type": "image",
+          "settings": {
+            "image_alignment": "left",
+            "image_width": 150
+          }
+        },
+        "product_variations_aeBMa8": {
+          "type": "product_variations",
+          "settings": {
+            "option_name": "Choose",
+            "option_value_metafield": "custom.variant_name",
+            "products": "{{ product.metafields.custom.variant_value.value }}",
+            "color_mode": "block"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "text_Cnc7UW": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p><em><strong>FRAME PADS WILL SHIP OUT SEPARATELY IN FEBRUARY</strong></em></p>"
+          }
+        },
+        "related_products_kxH689": {
+          "type": "related_products",
+          "settings": {
+            "related_products": [
+              "pro-turf-golf-practice-mat",
+              "platinum-turf"
+            ],
+            "enable_carousel": true,
+            "show_dots": true
+          }
+        }
+      },
+      "block_order": [
+        "image_RgGVj4",
+        "product_variations_aeBMa8",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "text_Cnc7UW",
+        "related_products_kxH689"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "trust_ncFtAK": {
+          "type": "trust",
+          "settings": {
+            "icon_1": "picto-warranty",
+            "title_1": "3 Year Warranty",
+            "content_1": "<p>All nets are protected by an industry-leading 3 Year Warranty</p>",
+            "icon_2": "picto-customer-support",
+            "title_2": "Warranty",
+            "content_2": "<p>Add text about your product warranty</p>",
+            "icon_3": "picto-secure-payment",
+            "title_3": "Secure Payment",
+            "content_3": "<p>Add text about your payment</p>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "trust_ncFtAK",
+        "description"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "text_with_icons_wPPDRK": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_6xGxLa": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-address-pin",
+            "custom_icon_width": 50,
+            "title": "Complete Protection",
+            "content": "<p>Sewn with proprietary high-impact netting to withstand ball speeds of up to 250 MPH.</p>"
+          }
+        },
+        "item_tbbbr6": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-shield",
+            "custom_icon_width": 50,
+            "title": "Easy to Assemble",
+            "content": "<p>No tools required. The “Quick Color Connect System” makes setup easy. </p>"
+          }
+        },
+        "item_8V7pWj": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-warranty",
+            "custom_icon_width": 50,
+            "title": "Premium Quality",
+            "content": "<p>Stunning design with a high gloss black frame and an embroidered sleeve, delivering both quiet and elegant performance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_6xGxLa",
+        "item_tbbbr6",
+        "item_8V7pWj"
+      ],
+      "settings": {
+        "icon_align_mobile": "center",
+        "hide_dots": false,
+        "auto_rotate": false,
+        "cycle_speed": 3,
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "faq_iPj3Ac": {
+      "type": "faq",
+      "blocks": {
+        "category_kCr79b": {
+          "type": "category",
+          "settings": {
+            "title": "Included"
+          }
+        },
+        "question_WhBwRd": {
+          "type": "question",
+          "settings": {
+            "title": "Sim Bay",
+            "answer": "<p><strong>Framing</strong> - High gloss, black aluminum, powder-coated frame.</p><p><strong>Valance</strong> - Enhances the projector image by darkening the screen.</p><p><strong>Netting</strong> - Entire bay is sewn with our high impact netting</p><p><strong>Screen </strong>- Floating super white HD screen that absorbs sound and minimizes ball rebound.</p>"
+          }
+        },
+        "question_qKR6Cj": {
+          "type": "question",
+          "settings": {
+            "title": "Side Barriers",
+            "answer": "<p>Ensures stray balls remain in the hitting area for maximum protection.</p>"
+          }
+        },
+        "question_kPH9BK": {
+          "type": "question",
+          "settings": {
+            "title": "Frame Pads",
+            "answer": "<p>Protects aluminum frame from damage and bounce backs.<br/></p>"
+          }
+        },
+        "category_QjBqTr": {
+          "type": "category",
+          "settings": {
+            "title": "Not Included"
+          }
+        },
+        "question_ayYeyN": {
+          "type": "question",
+          "settings": {
+            "title": "Turf",
+            "answer": "<p><a href=\"https://www.thenetreturn.com/products/copy-of-large-turfs\" title=\"https://www.thenetreturn.com/products/copy-of-large-turfs\">Click here to view our Pro Turf to pair with your Sim Bay.</a></p>"
+          }
+        },
+        "question_EhwVAf": {
+          "type": "question",
+          "settings": {
+            "title": "Projector/Mount",
+            "answer": "<p>We recommend the following projectors: </p><ul><li>Optoma-GT1080HDR Lumen Short Throw Projector </li><li>Optoma-ZH406ST Laser Lumen Short Throw Data Projector.</li></ul>"
+          }
+        },
+        "question_NG3wMB": {
+          "type": "question",
+          "settings": {
+            "title": "Launch Monitor/Software",
+            "answer": "<p>View our recommended simulator technology.</p><p></p>"
+          }
+        },
+        "question_6cneFt": {
+          "type": "question",
+          "settings": {
+            "title": "Computer",
+            "answer": "<p>A gaming computer will be needed to run the simulation software</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_kCr79b",
+        "question_WhBwRd",
+        "question_qKR6Cj",
+        "question_kPH9BK",
+        "category_QjBqTr",
+        "question_ayYeyN",
+        "question_EhwVAf",
+        "question_NG3wMB",
+        "question_6cneFt"
+      ],
+      "settings": {
+        "show_navigation": false,
+        "title": "What's Included",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_G8DWcA": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_BjK8QA": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/1400x1400-pro.png",
+            "tab_label": "Item",
+            "subheading": "",
+            "title": "Golf's Bestselling Net",
+            "content": "<p>Whether you're chasing scratch or just picking up the game, The Net Return is the best tool to practice and improve your game.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        },
+        "item_BWG4LY": {
+          "type": "item",
+          "settings": {
+            "tab_label": "Item",
+            "subheading": "Subheading",
+            "title": "Image with text",
+            "content": "<p>Use image with text to give your customers insight into your brand. Select imagery and text that relates to your style and story.</p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_BjK8QA",
+        "item_BWG4LY"
+      ],
+      "disabled": true,
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "right",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "video_RXrcEp": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https://youtu.be/RMbwUhmuzbw",
+        "background_type": "full_width",
+        "video_size": "auto",
+        "autoplay": true,
+        "show_video_controls": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "faq_RV7iBD": {
+      "type": "faq",
+      "blocks": {
+        "question_WmLk7z": {
+          "type": "question",
+          "settings": {
+            "title": "Sim Bay 8",
+            "answer": "<p><strong>Product Specifications:</strong></p><p>Width: 8'</p><p>Height: 8'6\"</p><p>Depth: 3'6\"</p><p><strong>Minimum Room Dimensions:</strong></p><p>Width: 10'</p><p>Height: 9'</p><p>Length: 14'</p><p><em>The Sim Bay can be placed 6\" from a wall</em></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length. Additionally, depth needed varies by launch monitor, ranging from 14-22 feet.</em></p>"
+          }
+        },
+        "question_WTVeNp": {
+          "type": "question",
+          "settings": {
+            "title": "Sim Bay 10",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 10'</p><p>Height: 8'6\"</p><p>Depth: 3'6\"</p><p><strong>Minimum Room Dimensions:</strong></p><p>Width: 12'</p><p>Height: 9'</p><p>Length: 14'</p><p><em>The Sim Bay can be placed 6\" from a wall</em></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length. Additionally, depth needed varies by launch monitor, ranging from 14-22 feet.</em></p>"
+          }
+        },
+        "question_PEAhHg": {
+          "type": "question",
+          "settings": {
+            "title": "Sim Bay 12",
+            "answer": "<p><strong>Product Specifications</strong></p><p>Width: 12'</p><p>Height: 8'6\"</p><p>Depth: 3'6\"</p><p><strong>Minimum Room Dimensions:</strong></p><p>Width: 14'</p><p>Height: 9'</p><p>Length: 14'</p><p><em>The Sim Bay can be placed 6\" from a wall</em></p><p><em>Ability to make a full swing in the space varies based on each person's height and club length. Additionally, depth needed varies by launch monitor, ranging from 14-22 feet.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_WmLk7z",
+        "question_WTVeNp",
+        "question_PEAhHg"
+      ],
+      "name": "Comparison",
+      "settings": {
+        "show_navigation": false,
+        "title": "Sim Series Comparison",
+        "content": "<p>Dimensions and Specifications</p>",
+        "background": "#101010",
+        "text_color": "#ffffff"
+      }
+    },
+    "gallery_WX6Wym": {
+      "type": "gallery",
+      "blocks": {
+        "image_z4U7Hd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/simgallery2.jpg",
+            "caption": ""
+          }
+        },
+        "image_jfHUjV": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/simgallery1.jpg",
+            "caption": ""
+          }
+        },
+        "image_C4WQdC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/simgallery3.jpg",
+            "caption": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_z4U7Hd",
+        "image_jfHUjV",
+        "image_C4WQdC"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "show_arrows": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "featured_collections_HzqG6E": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_zmG8qF": {
+          "type": "collection",
+          "settings": {
+            "collection": "flightscope",
+            "label": "FlightScope",
+            "button_text": "Shop All",
+            "button_url": ""
+          }
+        },
+        "collection_4F9QwJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "foresight",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_6RUazj": {
+          "type": "collection",
+          "settings": {
+            "collection": "fullswing",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_9biD73": {
+          "type": "collection",
+          "settings": {
+            "collection": "garmin",
+            "label": "Garmin",
+            "button_text": "",
+            "button_url": ""
+          }
+        },
+        "collection_6mFpCU": {
+          "type": "collection",
+          "settings": {
+            "collection": "uneekor",
+            "label": "",
+            "button_text": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_zmG8qF",
+        "collection_4F9QwJ",
+        "collection_6RUazj",
+        "collection_9biD73",
+        "collection_6mFpCU"
+      ],
+      "settings": {
+        "subheading": "Complete Your Setup",
+        "title": "Launch Monitors",
+        "content": "",
+        "products_count": 8,
+        "products_per_row": 4,
+        "stack_products": true,
+        "show_cta": false,
+        "section_id": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "promotion_blocks_dtjiF9": {
+      "type": "promotion-blocks",
+      "blocks": {
+        "image_zXXCkj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1800x900-BD.png",
+            "highlight": false,
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        },
+        "quote_4Rg4da": {
+          "type": "quote",
+          "settings": {
+            "highlight": false,
+            "subheading": "",
+            "content": "I've been using Net Return since I was 15 years old. There isn't another net out there that I would trust.",
+            "author": "Bryson Dechambeau",
+            "background": "#101010",
+            "text_color": "#ffffff"
+          }
+        },
+        "image_VEb9HH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1800x900-BD2.png",
+            "highlight": false,
+            "subheading": "",
+            "title": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "middle_center",
+            "background": "#f7f8fd",
+            "text_color": "#1e316a",
+            "button_background": "#ffffff",
+            "button_text_color": "#1e316a"
+          }
+        }
+      },
+      "block_order": [
+        "image_zXXCkj",
+        "quote_4Rg4da",
+        "image_VEb9HH"
+      ],
+      "settings": {
+        "subheading": "",
+        "title": "Trusted by the Pros",
+        "section_size": "medium",
+        "stack_on_mobile": true,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1711644225d9012714": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_card_carousel_section_VQLBhw": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "maxWidth": 1100,
+            "borderRadius": 8,
+            "itemsPerView": 4,
+            "mobileItemsPerView": 1,
+            "maxNumberOfCharacters": 100,
+            "imageRatio": "0.72",
+            "reviewerNameColor": "#000000",
+            "textColor": "#000000",
+            "itemBackgroundColor": "#ffffff",
+            "starsColor": "",
+            "starsBackgroundColor": "#ffffff",
+            "arrows_backgroundColor": "#ffffff",
+            "arrows_iconColor": "#9a9a9a",
+            "shadow": "none",
+            "border_active": false,
+            "border_width": 2,
+            "border_color": "#000000",
+            "productIds": ""
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_card_carousel_section_VQLBhw"
+      ],
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "text_with_icons_wPPDRK",
+    "faq_iPj3Ac",
+    "image_with_text_G8DWcA",
+    "video_RXrcEp",
+    "faq_RV7iBD",
+    "gallery_WX6Wym",
+    "featured_collections_HzqG6E",
+    "promotion_blocks_dtjiF9",
+    "1711644225d9012714"
+  ]
+}

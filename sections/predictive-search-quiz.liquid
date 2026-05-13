@@ -1,0 +1,121 @@
+{%- comment -%}
+  IMPORTANT NOTE: this section will be used for the predictive search for most languages (https://shopify.dev/docs/themes/ajax-api/reference/predictive-search).
+  However some languages do not yet support this predictive API. For those languages, the "predictive-search-compatibility.liquid" section will be used,
+  which instead rely on the standard search.
+{%- endcomment -%}
+
+{%- assign has_results = false -%}
+{%- assign has_collection_results_only = true -%}
+
+{%- for resource in predictive_search.resources -%}
+  {%- if resource.last.size > 0 -%}
+    {%- assign has_results = true -%}
+
+    {%- if resource.first != 'collections' -%}
+      {%- assign has_collection_results_only = false -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if has_results -%}
+
+  <div class="predictive-search__results-categories">
+
+    {%- if predictive_search.resources.products.size > 0 -%}
+      <product-list class="product-list product-list--center">
+
+        <div class="product-list__inner">
+          {%- for product in predictive_search.resources.products -%}
+            {% comment %} Skip Hidden Product {% endcomment %}
+            {% if product.tags contains 'hidden' %}
+              {% continue %}
+            {% endif %}
+
+            {%- capture sizes_attribute -%}(max-width: 740px) 75vw, min({{ 100.0 | divided_by: 4 | ceil }}vw, {{ 1520.0 | divided_by: 4 | ceil }}px){%- endcapture -%}
+            {%- render 'product-item', product: product, sizes_attribute: sizes_attribute, reveal: false -%}
+
+      
+            {% comment %} <li class="predictive-search__product-item line-item line-item--centered">
+              <a href="{{ product.url }}" class="line-item__content-wrapper" data-instant>
+                {%- if product.featured_media -%}
+                  <span class="line-item__image-wrapper">
+                    <img class="line-item__image" alt="{{ product.featured_media.alt | escape }}" width="{{ product.featured_media.width }}" height="{{ product.featured_media.height }}" src="{{ product.featured_media | img_url: '210x' }}">
+                  </span>
+                {%- endif -%}
+
+                <div class="line-item__info">
+                  <div class="product-item-meta">
+                    {%- if settings.show_vendor -%}
+                      <span class="product-item-meta__vendor heading heading--xxsmall">{{ product.vendor }}</span>
+                    {%- endif -%}
+
+                    <span class="product-item-meta__title text--small">{{ product.title }}</span>
+
+                    <div class="product-item-meta__price-list-container text--small">
+                      <div class="price-list">
+                        {%- if product.compare_at_price_min > product.price_min -%}
+                          <span class="price price--highlight">{{ product.price_min | money }}</span>
+                          <span class="price price--compare">{{ product.compare_at_price_min | money }}</span>
+                        {%- else -%}
+                          <span class="price">{{ product.price_min | money }}</span>
+                        {%- endif -%}
+
+                        {%- if product.selected_or_first_available_variant.unit_price_measurement -%}
+                          <div class="price text--xsmall text--subdued">
+                            <div class="unit-price-measurement">
+                              <span class="unit-price-measurement__price">{{ product.selected_or_first_available_variant.unit_price | money }}</span>
+                              <span class="unit-price-measurement__separator">/</span>
+
+                              {%- if product.selected_or_first_available_variant.unit_price_measurement.reference_value != 1 -%}
+                                <span class="unit-price-measurement__reference-value">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_value }}</span>
+                              {%- endif -%}
+
+                              <span class="unit-price-measurement__reference-unit">{{ product.selected_or_first_available_variant.unit_price_measurement.reference_unit }}</span>
+                            </div>
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {%- render 'icon' with 'nav-arrow-right', direction_aware: true -%}
+              </a>
+            </li> {% endcomment %}
+          {%- endfor -%}
+        </div>
+      </product-list>
+    {%- endif -%}
+
+
+
+
+  </div>
+
+  {%- if has_collection_results_only -%}
+    {%- comment -%}
+      IMPLEMENTATION NOTE: as of today, only the predictive search supports collection search. As a consequence if we only
+      have collection as results, we need to make sure to hide the button redirecting to the search page results, because
+      it would show an inconsistent result.
+    {%- endcomment -%}
+
+    <style>
+      [type="submit"][form="predictive-search-form"] {
+        display: none;
+      }
+    </style>
+  {%- endif -%}
+{%- else -%}
+  <p class="text--large">{{ 'search.general.no_results' | t }}</p>
+
+  <div class="button-wrapper">
+    <button type="button" data-action="reset-search" class="button button--primary">{{ 'search.general.new_search' | t }}</button>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Predictive search quiz",
+  "class": "shopify-section--predictive-search-quiz"
+}
+{% endschema %}

@@ -1,0 +1,149 @@
+{% comment %}
+  Announcement Marquee — thin green strip, continuous RTL scroll
+  Place this section above the header.
+{% endcomment %}
+
+<section id="annc-{{ section.id }}" class="annc section--announcement-marquee"
+  role="region" aria-label="Store announcements"
+  style="
+    --annc-bg: {{ section.settings.bg | default: '#00994d' }};
+    --annc-fg: {{ section.settings.fg | default: '#ffffff' }};
+    --annc-speed: {{ section.settings.speed | default: 16 }}s;
+  ">
+  <div class="annc__viewport" data-annc-root>
+    <div class="annc__belt" data-belt>
+      <div class="annc__content" data-content>
+        {% for block in section.blocks %}
+          {% if block.settings.text != blank %}
+            <span class="annc__item" {{ block.shopify_attributes }}>
+              {% if block.settings.url != blank %}
+                <a class="annc__link" href="{{ block.settings.url }}">{{ block.settings.text }}</a>
+              {% else %}
+                {{ block.settings.text }}
+              {% endif %}
+            </span>
+            {% unless forloop.last %}<span class="annc__sep">•</span>{% endunless %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- clone for seamless loop -->
+      <div class="annc__content annc__content--clone"></div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+/* kill any theme spacing around this section */
+.shopify-section.section--announcement-marquee,
+.section.section--announcement-marquee { margin:0 !important; }
+
+/* Strip visuals (tight height, no extra vertical space) */
+#annc-{{ section.id }}{
+  --h: 28px;                       /* strip height (desktop & mobile) */
+  background: var(--annc-bg);
+  color: var(--annc-fg);
+  font-family: "Lato", serif;      /* Lato first, serif fallback */
+  font-weight: 700;
+  font-size: 13px;
+  line-height: var(--h);           /* vertically center text without padding */
+}
+#annc-{{ section.id }} .annc__viewport{
+  height: var(--h);
+  overflow: hidden;
+}
+#annc-{{ section.id }} .annc__belt{
+  display:flex;
+  align-items:center;
+  height: var(--h);
+  animation: annc-scroll-{{ section.id }} var(--annc-speed) linear infinite;
+  will-change: transform;
+}
+#annc-{{ section.id }} .annc__content{
+  display:inline-flex;
+  align-items:center;
+  gap:22px;                        /* space between items & bullets */
+  padding:0 12px;                  /* tiny horizontal breathing */
+  white-space:nowrap;
+  line-height: var(--h);           /* ensures no extra white bands */
+}
+#annc-{{ section.id }} .annc__item{ display:inline-block; }
+#annc-{{ section.id }} .annc__link{
+  color: var(--annc-fg);
+  text-decoration:none;
+}
+#annc-{{ section.id }} .annc__link:hover{ text-decoration:underline; }
+#annc-{{ section.id }} .annc__sep{ opacity:.75; }
+
+@keyframes annc-scroll-{{ section.id }}{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* belt contains two identical halves */
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  #annc-{{ section.id }} .annc__belt{ animation:none; }
+}
+{% endstyle %}
+
+<script>
+(function(){
+  const root  = document.querySelector('#annc-{{ section.id }}');
+  if(!root) return;
+  const belt  = root.querySelector('[data-belt]');
+  const first = root.querySelector('[data-content]');
+  const clone = root.querySelector('.annc__content--clone');
+  if(!first || !clone) return;
+
+  // duplicate once for seamless loop
+  clone.innerHTML = first.innerHTML;
+
+  // if content too short, append extra copies so width >= 2x viewport
+  const viewport = root.querySelector('[data-annc-root]');
+  function fill(){
+    const minWidth = viewport.clientWidth * 2;
+    // remove previously added extras (keep first + clone)
+    belt.querySelectorAll('.annc__content.extra').forEach(n => n.remove());
+    while(belt.scrollWidth < minWidth){
+      const extra = first.cloneNode(true);
+      extra.classList.add('extra');
+      belt.appendChild(extra);
+    }
+  }
+  fill();
+  window.addEventListener('resize', fill);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Announcement marquee",
+  "tag": "section",
+  "class": "section section--announcement-marquee",
+  "settings": [
+    { "type": "color", "id": "bg", "label": "Background", "default": "#00994d" },
+    { "type": "color", "id": "fg", "label": "Text color", "default": "#ffffff" },
+    { "type": "range", "id": "speed", "label": "Scroll speed (seconds — lower is faster)", "min": 8, "max": 60, "step": 1, "default": 16 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Announcement",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Free Ground Shipping within the contiguous U.S. on orders $300+" },
+        { "type": "url",  "id": "url",  "label": "Optional link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Free Ground Shipping within the contiguous U.S. on orders $300+" } },
+        { "type": "item", "settings": { "text": "20% OFF SITEWIDE | Code: VSL20 | *Exclusions Apply" } },
+        { "type": "item", "settings": { "text": "Free Returns on The Net Return | 30-Day Window" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
