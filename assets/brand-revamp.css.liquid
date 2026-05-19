@@ -1,0 +1,207 @@
+/* ============================================================
+   Brand Revamp 2026 — foundation layer.
+   Brand-prefixed classes only. No global element overrides.
+   Composes on Focal's existing settings tokens
+   (--primary-button-background, --header-background, etc.)
+   ============================================================ */
+
+:root {
+  /* Brand palette as RGB triplets, so they can be used with rgb() / rgba(). */
+  --brand-emerald: 0, 156, 67;        /* #009C43 */
+  --brand-shadow:  35, 58, 53;        /* #233A35 */
+  --brand-glow:    165, 230, 198;     /* #A5E6C6 */
+  --brand-neon:    104, 253, 0;       /* #68FD00 */
+  --brand-black:   0, 0, 0;
+  --brand-white:   255, 255, 255;
+
+  /* Pattern asset URLs (Liquid-rendered to Shopify CDN). */
+  --brand-grid-tile-white: url('{{ "pattern-grid-tile-white.svg" | asset_url }}');
+  --brand-grid-tile-black: url('{{ "pattern-grid-tile-black.svg" | asset_url }}');
+}
+
+/* ---------- Surfaces ---------- */
+
+.brand-surface {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+}
+.brand-surface--shadow { background: rgb(var(--brand-shadow)); color: rgb(var(--brand-white)); }
+.brand-surface--emerald { background: rgb(var(--brand-emerald)); color: rgb(var(--brand-white)); }
+.brand-surface--glow    { background: rgb(var(--brand-glow)); color: rgb(var(--brand-black)); }
+.brand-surface--white   { background: rgb(var(--brand-white)); color: rgb(var(--brand-black)); }
+
+/* Grid pattern overlay on dark surfaces (Precision+ marks repeating at 80px). */
+.brand-surface--pattern {
+  background-image: var(--brand-grid-tile-white);
+  background-repeat: repeat;
+  background-size: 80px 80px;
+}
+.brand-surface--white.brand-surface--pattern,
+.brand-surface--glow.brand-surface--pattern {
+  background-image: var(--brand-grid-tile-black);
+}
+
+/* When a surface has both a base color and the pattern, stack them. */
+.brand-surface.brand-surface--pattern,
+.brand-surface--shadow.brand-surface--pattern,
+.brand-surface--emerald.brand-surface--pattern {
+  background-color: inherit; /* preserve base color from non-pattern class */
+}
+
+/* ---------- Containers ---------- */
+
+.brand-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.brand-section { padding-block: clamp(48px, 8vw, 120px); }
+.brand-section--tight { padding-block: clamp(24px, 4vw, 48px); }
+
+/* ---------- Typography ---------- */
+/* Crystal-stand-in until licensed font lands.
+   Mixed-weight headlines via .brand-headline + .brand-headline__em. */
+
+.brand-eyebrow {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 0 0 12px;
+  opacity: .8;
+}
+
+.brand-headline {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: clamp(40px, 7.5vw, 112px);
+  line-height: .96;
+  letter-spacing: -.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+.brand-headline__em {
+  font-weight: 900;
+  font-stretch: 75%;     /* engages variable-font condensed axis when available */
+  letter-spacing: -.03em;
+}
+
+.brand-headline--display {
+  font-weight: 900;
+  font-stretch: 60%;
+  font-size: clamp(80px, 18vw, 280px);
+  line-height: .85;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+.brand-headline--stroke {
+  -webkit-text-stroke: 1.5px currentColor;
+  color: transparent;
+}
+
+.brand-body {
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 56ch;
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+
+.brand-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: 16px 32px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .12em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease, transform .15s ease;
+  white-space: nowrap;
+}
+.brand-btn:hover { transform: translateY(-1px); }
+
+.brand-btn--primary {
+  background: rgb(var(--brand-emerald));
+  color: rgb(var(--brand-white));
+}
+.brand-btn--primary:hover {
+  background: rgb(var(--brand-neon));
+  color: rgb(var(--brand-black));
+}
+
+.brand-btn--outline {
+  background: transparent;
+  color: rgb(var(--brand-white));
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+.brand-btn--outline:hover {
+  background: rgb(var(--brand-white));
+  color: rgb(var(--brand-black));
+}
+
+.brand-btn--ghost-dark {
+  background: transparent;
+  color: rgb(var(--brand-black));
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+.brand-btn--ghost-dark:hover {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+}
+
+/* ---------- Marquee announcement bar ---------- */
+/* The Glow Green strip above the header in the mockup. */
+
+.brand-marquee {
+  background: rgb(var(--brand-glow));
+  color: rgb(var(--brand-black));
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+}
+.brand-marquee__track {
+  display: flex;
+  gap: 64px;
+  padding: 10px 0;
+  white-space: nowrap;
+  animation: brand-marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+.brand-marquee__item { display: inline-flex; align-items: center; gap: 64px; }
+@keyframes brand-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee__track { animation: none; justify-content: center; }
+}
+
+/* ---------- Precision+ inline mark helper ---------- */
+
+.brand-plus {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
+  background-color: currentColor;
+  mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+}
