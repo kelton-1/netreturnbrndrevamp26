@@ -1,0 +1,97 @@
+{%- if section.blocks.size > 0 -%}
+  {%- assign duration = section.settings.scroll_seconds | default: 28 -%}
+  <section
+    class="brand-marquee"
+    aria-label="{{ section.settings.aria_label | default: 'Promotional announcements' | escape }}"
+    style="--brand-marquee-duration: {{ duration }}s;"
+  >
+    <div class="brand-marquee__track">
+      {%- for repeat in (1..2) -%}
+        <div class="brand-marquee__item" {% if repeat == 2 %}aria-hidden="true"{% endif %}>
+          {%- for block in section.blocks -%}
+            {%- assign item_text = block.settings.text | strip -%}
+            {%- if item_text != blank -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ item_text | escape }}</a>
+              {%- else -%}
+                <span {{ block.shopify_attributes }}>{{ item_text | escape }}</span>
+              {%- endif -%}
+              {%- unless forloop.last -%}
+                <span class="brand-plus" aria-hidden="true"></span>
+              {%- endunless -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <span class="brand-plus" aria-hidden="true"></span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+
+  <style>
+    .brand-marquee__track { animation-duration: var(--brand-marquee-duration); }
+    .brand-marquee a { color: inherit; text-decoration: none; }
+    .brand-marquee a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Brand marquee",
+  "tag": "div",
+  "class": "brand-marquee-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Scrolling announcement bar in Glow Green, pinned above the header. Add one block per message. Messages auto-loop seamlessly."
+    },
+    {
+      "type": "range",
+      "id": "scroll_seconds",
+      "label": "Scroll duration (full loop)",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "default": 28
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Accessible label",
+      "default": "Promotional announcements"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Marquee item",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Free shipping on orders over $250"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Free shipping on orders over $250" } },
+        { "type": "item", "settings": { "text": "Lifetime warranty on every net" } },
+        { "type": "item", "settings": { "text": "Trusted by Bryson DeChambeau" } },
+        { "type": "item", "settings": { "text": "30-day risk-free trial" } }
+      ]
+    }
+  ],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}
