@@ -16,3 +16,7 @@ yarn-error.log*
 # Local-only dev tooling (not part of the theme, never push)
 .claude/
 output/
+
+# Python bytecode (from scripts/)
+__pycache__/
+*.pyc

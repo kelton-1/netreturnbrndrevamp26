@@ -1,0 +1,1105 @@
+<section class="section compare-nets" data-compare-section>
+  <div class="container">
+    <div class="compare-nets__header">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="compare-nets__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h1 class="compare-nets__heading heading h1">{{ section.settings.heading | escape }}</h1>
+      {%- endif -%}
+
+      {%- if section.settings.intro != blank -%}
+        <div class="compare-nets__intro rte">
+          {{ section.settings.intro }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="compare-assist" aria-label="{{ section.settings.assist_label | escape }}">
+      {%- if section.settings.shop_nets_label != blank and section.settings.shop_nets_link != blank -%}
+        <a class="compare-assist__action button button--small button--primary" href="{{ section.settings.shop_nets_link }}">
+          {{ section.settings.shop_nets_label | escape }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.expert_label != blank and section.settings.expert_link != blank -%}
+        <a class="compare-assist__action button button--small button--outline" href="{{ section.settings.expert_link }}">
+          {{ section.settings.expert_label | escape }}
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.size_guide_label != blank and section.settings.size_guide_link != blank -%}
+        <a class="compare-assist__link link" href="{{ section.settings.size_guide_link }}">
+          {{ section.settings.size_guide_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.show_fit_finder -%}
+      <div class="compare-fit-finder" data-fit-finder>
+        <div class="compare-fit-finder__header">
+          <h2 class="compare-fit-finder__title heading h4">{{ section.settings.fit_finder_heading | escape }}</h2>
+          <button class="compare-fit-finder__reset link" type="button" data-fit-reset>{{ section.settings.reset_label | escape }}</button>
+        </div>
+
+        <div class="compare-fit-entry" data-fit-entry>
+          <div class="compare-fit-entry__group">
+            <p class="compare-fit-entry__label">Start with your space</p>
+            <div class="compare-fit-entry__chips">
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="width" data-chip-value="5">Under 5 ft wide</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="width" data-chip-value="7">Up to 7 ft wide</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="width" data-chip-value="8">Up to 8 ft wide</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="width" data-chip-value="10">9-10 ft wide</button>
+            </div>
+          </div>
+
+          <div class="compare-fit-entry__group">
+            <p class="compare-fit-entry__label">Where will you practice?</p>
+            <div class="compare-fit-entry__chips">
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="use" data-chip-value="small-space">Small space</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="use" data-chip-value="garage">Garage</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="use" data-chip-value="yard">Backyard</button>
+              <button type="button" class="compare-fit-entry__chip" data-chip-filter="use" data-chip-value="commercial">Commercial</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-fit-finder__pills" data-fit-pill-list aria-live="polite"></div>
+
+        <details class="compare-fit-finder__advanced">
+          <summary>Fine tune by height and budget</summary>
+          <div class="compare-fit-finder__controls" aria-label="{{ section.settings.fit_finder_heading | escape }}">
+            <label class="compare-fit-finder__field">
+              <span>Width</span>
+              <select data-filter="width">
+                <option value="">Any width</option>
+                <option value="5">5 ft or less</option>
+                <option value="7">7 ft or less</option>
+                <option value="8">8 ft or less</option>
+                <option value="9">9 ft or less</option>
+                <option value="10">10 ft or less</option>
+              </select>
+            </label>
+
+            <label class="compare-fit-finder__field">
+              <span>Height</span>
+              <select data-filter="height">
+                <option value="">Any height</option>
+                <option value="5">5 ft or less</option>
+                <option value="6">6 ft or less</option>
+                <option value="7">7 ft or less</option>
+                <option value="8">8 ft or less</option>
+                <option value="9.5">9.5 ft or less</option>
+              </select>
+            </label>
+
+            <label class="compare-fit-finder__field">
+              <span>Use</span>
+              <select data-filter="use">
+                <option value="">Any use</option>
+                <option value="kids">Kids</option>
+                <option value="small-space">Small space</option>
+                <option value="garage">Garage</option>
+                <option value="yard">Yard</option>
+                <option value="commercial">Commercial</option>
+              </select>
+            </label>
+
+            <label class="compare-fit-finder__field">
+              <span>Budget</span>
+              <select data-filter="price">
+                <option value="">Any budget</option>
+                <option value="500">$500 or less</option>
+                <option value="750">$750 or less</option>
+                <option value="1000">$1,000 or less</option>
+                <option value="1200">$1,200 or less</option>
+                <option value="1600">$1,600 or less</option>
+              </select>
+            </label>
+          </div>
+        </details>
+
+        <p class="compare-fit-finder__status" data-fit-status aria-live="polite">{{ section.settings.default_status | escape }}</p>
+      </div>
+    {%- endif -%}
+
+    <div class="compare-results" data-result-summary>
+      <p class="compare-results__eyebrow">Best matches</p>
+      <p class="compare-results__text" data-result-text>All models are shown. Choose a space or use case above to see the best fit first.</p>
+    </div>
+
+    <div class="compare-nets__grid" data-model-list data-result-group="best">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign model_product = block.settings.product
+          assign model_url = block.settings.link_url
+          assign model_image = block.settings.image
+
+          if model_url == blank and model_product != blank
+            assign model_url = model_product.url
+          endif
+
+          if model_image == blank and model_product != blank
+            assign model_image = model_product.featured_image
+          endif
+        -%}
+
+        <article
+          class="compare-net-card"
+          data-model-card
+          data-width="{{ block.settings.width_value }}"
+          data-height="{{ block.settings.height_value }}"
+          data-price="{{ block.settings.price_value }}"
+          data-use-case="{{ block.settings.use_case }}"
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.badge != blank -%}
+            <p class="compare-net-card__badge">{{ block.settings.badge | escape }}</p>
+          {%- endif -%}
+
+          <div class="compare-net-card__media">
+            {%- if model_image != blank -%}
+              {{ model_image | image_url: width: 720 | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 44vw, (max-width: 999px) 30vw, 220px', widths: '180,240,320,420,560,720', class: 'compare-net-card__image' }}
+            {%- else -%}
+              {{ 'product-1' | placeholder_svg_tag: 'compare-net-card__placeholder' }}
+            {%- endif -%}
+          </div>
+
+          <div class="compare-net-card__body">
+            <div class="compare-net-card__title-row">
+              <h2 class="compare-net-card__title heading h3">{{ block.settings.title | escape }}</h2>
+              <p class="compare-net-card__price">
+                {%- if section.settings.use_product_prices and model_product != blank -%}
+                  {{ model_product.price | money }}
+                {%- else -%}
+                  {{ block.settings.price_text | escape }}
+                {%- endif -%}
+              </p>
+            </div>
+
+            {%- if block.settings.best_for != blank -%}
+              <p class="compare-net-card__best">{{ block.settings.best_for | escape }}</p>
+            {%- endif -%}
+
+            <p class="compare-net-card__fit-note" data-fit-note hidden></p>
+
+            <dl class="compare-net-card__specs">
+              <div>
+                <dt>Width</dt>
+                <dd>{{ block.settings.width_label | escape }}</dd>
+              </div>
+              <div>
+                <dt>Height</dt>
+                <dd>{{ block.settings.height_label | escape }}</dd>
+              </div>
+              <div>
+                <dt>Depth</dt>
+                <dd>{{ block.settings.depth_label | escape }}</dd>
+              </div>
+              <div>
+                <dt>Weight</dt>
+                <dd>{{ block.settings.weight_label | escape }}</dd>
+              </div>
+            </dl>
+
+            {%- if model_url != blank -%}
+              <a class="compare-net-card__button button button--primary button--small" href="{{ model_url }}">
+                {{ block.settings.button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <div class="compare-results compare-results--other" data-result-group="other" hidden>
+      <p class="compare-results__eyebrow">Other sizes to consider</p>
+      <p class="compare-results__text">These may still work if you have more room or want a larger hitting area.</p>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .compare-nets {
+    background: #f7f8f6;
+  }
+
+  .compare-nets .container {
+    padding-block: 32px 56px;
+  }
+
+  .compare-nets__header {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    text-align: center;
+  }
+
+  .compare-nets__eyebrow {
+    margin: 0 0 8px;
+    color: #12753d;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .compare-nets__heading {
+    margin: 0;
+  }
+
+  .compare-nets__intro {
+    margin-top: 12px;
+    color: rgb(var(--text-color));
+  }
+
+  .compare-assist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto 22px;
+    max-width: 760px;
+  }
+
+  .compare-assist__action {
+    min-width: 148px;
+  }
+
+  .compare-assist__link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    color: #12753d;
+    font-weight: 800;
+  }
+
+  .compare-fit-finder {
+    margin: 0 auto 22px;
+    padding: 16px;
+    max-width: 1080px;
+    background: #ffffff;
+    border: 1px solid rgba(34, 41, 37, 0.12);
+    border-radius: 8px;
+  }
+
+  .compare-fit-finder__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .compare-fit-finder__title {
+    margin: 0;
+  }
+
+  .compare-fit-entry {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .compare-fit-entry__group {
+    display: grid;
+    gap: 8px;
+  }
+
+  .compare-fit-entry__label {
+    margin: 0;
+    color: #171b18;
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+
+  .compare-fit-entry__chips {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compare-fit-entry__chip,
+  .compare-fit-finder__pill {
+    flex: 0 0 auto;
+    min-height: 40px;
+    padding: 0 13px;
+    border: 1px solid rgba(34, 41, 37, 0.18);
+    border-radius: 999px;
+    background: #ffffff;
+    color: #171b18;
+    font-weight: 800;
+  }
+
+  .compare-fit-entry__chip.is-active {
+    border-color: #12753d;
+    background: #12753d;
+    color: #ffffff;
+  }
+
+  .compare-fit-finder__reset {
+    flex: 0 0 auto;
+    min-height: 36px;
+    color: #12753d;
+    font-weight: 700;
+  }
+
+  .compare-fit-finder__pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .compare-fit-finder__pill {
+    min-height: 34px;
+    padding-inline: 11px;
+    background: #eef7f1;
+    color: #12753d;
+    font-size: 0.82rem;
+  }
+
+  .compare-fit-finder__advanced {
+    border-top: 1px solid rgba(34, 41, 37, 0.12);
+    padding-top: 12px;
+  }
+
+  .compare-fit-finder__advanced summary {
+    min-height: 40px;
+    cursor: pointer;
+    color: #12753d;
+    font-weight: 800;
+  }
+
+  .compare-fit-finder__controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .compare-fit-finder__field {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    color: #2d332f;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .compare-fit-finder__field select {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 34px 0 12px;
+    color: #171b18;
+    background: #ffffff;
+    border: 1px solid rgba(34, 41, 37, 0.22);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: none;
+  }
+
+  .compare-fit-finder__status {
+    margin: 12px 0 0;
+    color: #4f5a53;
+    font-size: 0.92rem;
+  }
+
+  .compare-results {
+    max-width: 1080px;
+    margin: 0 auto 14px;
+  }
+
+  .compare-results__eyebrow {
+    margin: 0 0 3px;
+    color: #12753d;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .compare-results__text {
+    margin: 0;
+    color: #4f5a53;
+    font-size: 0.94rem;
+  }
+
+  .compare-results--other {
+    margin-top: 22px;
+  }
+
+  .compare-nets__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .compare-net-card {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    min-width: 0;
+    background: #ffffff;
+    border: 1px solid rgba(34, 41, 37, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  }
+
+  .compare-net-card.is-match {
+    border-color: #12753d;
+    box-shadow: 0 10px 24px rgba(18, 117, 61, 0.13);
+  }
+
+  .compare-net-card.is-secondary-match {
+    opacity: 0.72;
+  }
+
+  .compare-net-card.is-secondary-match:hover,
+  .compare-net-card.is-secondary-match:focus-within {
+    opacity: 1;
+  }
+
+  .compare-net-card.is-hidden {
+    display: none;
+  }
+
+  .compare-net-card__badge {
+    margin: 0;
+    padding: 8px 12px;
+    min-height: 34px;
+    color: #ffffff;
+    background: #171b18;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .compare-net-card__media {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1.18;
+    padding: 12px;
+    background: #eef1ed;
+  }
+
+  .compare-net-card__image,
+  .compare-net-card__placeholder {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .compare-net-card__body {
+    display: grid;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .compare-net-card__title-row {
+    display: grid;
+    align-content: start;
+    gap: 4px;
+  }
+
+  .compare-net-card__title {
+    margin: 0;
+    font-size: 1.18rem;
+    line-height: 1.16;
+  }
+
+  .compare-net-card__price {
+    margin: 0;
+    color: #12753d;
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  .compare-net-card__best {
+    margin: 0;
+    min-height: 42px;
+    color: #3d4640;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  .compare-net-card__fit-note {
+    margin: -2px 0 0;
+    padding: 9px 10px;
+    background: #eef7f1;
+    border-radius: 6px;
+    color: #12753d;
+    font-size: 0.86rem;
+    font-weight: 800;
+    line-height: 1.35;
+  }
+
+  .compare-net-card__specs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 0;
+  }
+
+  .compare-net-card__specs div {
+    min-width: 0;
+    padding: 8px;
+    background: #f7f8f6;
+    border-radius: 6px;
+  }
+
+  .compare-net-card__specs dt {
+    margin: 0 0 3px;
+    color: #68746c;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .compare-net-card__specs dd {
+    margin: 0;
+    color: #171b18;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .compare-net-card__button {
+    width: 100%;
+    min-height: 44px;
+    margin-top: auto;
+  }
+
+  @media screen and (max-width: 999px) {
+    .compare-nets__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .compare-fit-finder__controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 740px) {
+    .compare-nets .container {
+      padding-block: 24px 40px;
+    }
+
+    .compare-nets__header {
+      text-align: left;
+    }
+
+    .compare-assist {
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    .compare-assist__action {
+      flex: 1 1 calc(50% - 4px);
+      min-width: 0;
+    }
+
+    .compare-assist__link {
+      flex: 1 1 100%;
+      justify-content: center;
+      min-height: 44px;
+    }
+
+    .compare-fit-finder {
+      margin-inline: calc(-1 * var(--container-gutter));
+      border-radius: 0;
+      border-inline: 0;
+    }
+
+    .compare-fit-finder__header {
+      align-items: flex-start;
+    }
+
+    .compare-fit-finder__controls {
+      grid-template-columns: 1fr;
+    }
+
+    .compare-nets__grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .compare-net-card {
+      grid-template-columns: minmax(110px, 38%) minmax(0, 1fr);
+      grid-template-rows: auto 1fr;
+    }
+
+    .compare-net-card__badge {
+      grid-column: 1 / -1;
+    }
+
+    .compare-net-card__media {
+      aspect-ratio: auto;
+      min-height: 100%;
+      padding: 10px;
+    }
+
+    .compare-net-card__body {
+      padding: 12px;
+    }
+
+    .compare-net-card__best {
+      min-height: 0;
+      font-size: 0.9rem;
+    }
+
+    .compare-net-card__specs {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .compare-net-card__specs div {
+      padding: 7px;
+    }
+
+    .compare-net-card__specs dd {
+      font-size: 0.88rem;
+    }
+
+    .compare-net-card__button {
+      position: sticky;
+      bottom: 8px;
+      z-index: 1;
+      box-shadow: 0 8px 18px rgba(18, 117, 61, 0.18);
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  function initCompareNets(section) {
+    if (!section || section.dataset.compareInitialized === 'true') {
+      return;
+    }
+
+    var finder = section.querySelector('[data-fit-finder]');
+    var cards = Array.prototype.slice.call(section.querySelectorAll('[data-model-card]'));
+    var status = section.querySelector('[data-fit-status]');
+    var resultText = section.querySelector('[data-result-text]');
+    var reset = section.querySelector('[data-fit-reset]');
+    var fields = Array.prototype.slice.call(section.querySelectorAll('[data-filter]'));
+    var chips = Array.prototype.slice.call(section.querySelectorAll('[data-chip-filter]'));
+    var pillList = section.querySelector('[data-fit-pill-list]');
+
+    section.dataset.compareInitialized = 'true';
+
+    if (!finder || cards.length === 0) {
+      return;
+    }
+
+    function includesUseCase(card, useCase) {
+      if (!useCase) {
+        return true;
+      }
+
+      return card.dataset.useCase.split(',').map(function (item) {
+        return item.trim();
+      }).indexOf(useCase) !== -1;
+    }
+
+    function numberValue(value) {
+      var parsed = parseFloat(value);
+      return Number.isNaN(parsed) ? 0 : parsed;
+    }
+
+    function setFieldValue(filterName, value) {
+      var field = fields.find(function (item) {
+        return item.dataset.filter === filterName;
+      });
+
+      if (field) {
+        field.value = value;
+      }
+    }
+
+    function getFilters() {
+      return fields.reduce(function (filters, field) {
+        filters[field.dataset.filter] = field.value;
+        return filters;
+      }, {});
+    }
+
+    function hasActiveFilter(filters) {
+      return Object.keys(filters).some(function (key) {
+        return filters[key] !== '';
+      });
+    }
+
+    function renderFilterPills(filters) {
+      if (!pillList) {
+        return;
+      }
+
+      var labels = {
+        width: filters.width ? 'Width up to ' + filters.width + ' ft' : '',
+        height: filters.height ? 'Height up to ' + filters.height + ' ft' : '',
+        use: filters.use ? filters.use.replace('-', ' ') : '',
+        price: filters.price ? 'Budget up to $' + filters.price : ''
+      };
+
+      pillList.innerHTML = Object.keys(labels).filter(function (key) {
+        return labels[key] !== '';
+      }).map(function (key) {
+        return '<button class="compare-fit-finder__pill" type="button" data-clear-filter="' + key + '">' + labels[key] + ' x</button>';
+      }).join('');
+    }
+
+    function cardMatches(card, filters) {
+      var width = numberValue(card.dataset.width);
+      var height = numberValue(card.dataset.height);
+      var price = numberValue(card.dataset.price);
+
+      if (filters.width && width > numberValue(filters.width)) {
+        return false;
+      }
+
+      if (filters.height && height > numberValue(filters.height)) {
+        return false;
+      }
+
+      if (filters.price && price > numberValue(filters.price)) {
+        return false;
+      }
+
+      return includesUseCase(card, filters.use);
+    }
+
+    function updateCards() {
+      var filters = getFilters();
+      var active = hasActiveFilter(filters);
+      var matches = cards.filter(function (card) {
+        return cardMatches(card, filters);
+      });
+
+      renderFilterPills(filters);
+
+      chips.forEach(function (chip) {
+        chip.classList.toggle('is-active', filters[chip.dataset.chipFilter] === chip.dataset.chipValue);
+      });
+
+      cards.forEach(function (card) {
+        var fitNote = card.querySelector('[data-fit-note]');
+        var match = matches.indexOf(card) !== -1;
+
+        card.classList.remove('is-hidden', 'is-match', 'is-secondary-match');
+        card.style.order = '2';
+
+        if (fitNote) {
+          fitNote.hidden = true;
+          fitNote.textContent = '';
+        }
+
+        if (!active) {
+          card.style.order = '1';
+          return;
+        }
+
+        if (match) {
+          card.classList.add('is-match');
+          card.style.order = '1';
+
+          if (fitNote) {
+            fitNote.hidden = false;
+            fitNote.textContent = 'Fits your selected space and use case.';
+          }
+        } else {
+          card.classList.add('is-secondary-match');
+        }
+      });
+
+      if (!active) {
+        if (status) {
+          status.textContent = status.getAttribute('data-default-status') || status.textContent;
+        }
+
+        if (resultText) {
+          resultText.textContent = 'All models are shown. Choose a space or use case above to see the best fit first.';
+        }
+
+        return;
+      }
+
+      if (matches.length === 0) {
+        if (status) {
+          status.textContent = 'No exact match. Showing every model so you can compare the closest sizes.';
+        }
+
+        if (resultText) {
+          resultText.textContent = 'No exact match yet. Start with the closest size, or talk to an expert before choosing.';
+        }
+
+        return;
+      }
+
+      if (status) {
+        status.textContent = matches.length === 1 ? 'Showing 1 best fit first.' : 'Showing ' + matches.length + ' best fits first.';
+      }
+
+      if (resultText) {
+        resultText.textContent = matches.length === 1 ? 'This model best matches your selections.' : 'These models best match your selections.';
+      }
+    }
+
+    if (status) {
+      status.setAttribute('data-default-status', status.textContent);
+    }
+
+    fields.forEach(function (field) {
+      field.addEventListener('change', updateCards);
+    });
+
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var filterName = chip.dataset.chipFilter;
+        var nextValue = chip.classList.contains('is-active') ? '' : chip.dataset.chipValue;
+
+        setFieldValue(filterName, nextValue);
+        updateCards();
+      });
+    });
+
+    if (pillList) {
+      pillList.addEventListener('click', function (event) {
+        var clearButton = event.target.closest('[data-clear-filter]');
+
+        if (!clearButton) {
+          return;
+        }
+
+        setFieldValue(clearButton.dataset.clearFilter, '');
+        updateCards();
+      });
+    }
+
+    if (reset) {
+      reset.addEventListener('click', function () {
+        fields.forEach(function (field) {
+          field.value = '';
+        });
+
+        updateCards();
+      });
+    }
+  }
+
+  document.querySelectorAll('[data-compare-section]').forEach(initCompareNets);
+
+  document.addEventListener('shopify:section:load', function (event) {
+    initCompareNets(event.target.querySelector('[data-compare-section]'));
+  });
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Mobile compare nets",
+  "class": "shopify-section--mobile-compare-nets",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Compare nets"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find the right Net Return for your space"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro",
+      "default": "<p>Every Net Return uses the same core materials and ball-return design. The main difference is size, so start with your available space and choose the model that fits how you practice.</p>"
+    },
+    {
+      "type": "text",
+      "id": "assist_label",
+      "label": "Assist actions accessibility label",
+      "default": "Compare page actions"
+    },
+    {
+      "type": "text",
+      "id": "shop_nets_label",
+      "label": "Shop nets label",
+      "default": "Shop Nets"
+    },
+    {
+      "type": "url",
+      "id": "shop_nets_link",
+      "label": "Shop nets link"
+    },
+    {
+      "type": "text",
+      "id": "expert_label",
+      "label": "Expert help label",
+      "default": "Talk to an Expert"
+    },
+    {
+      "type": "url",
+      "id": "expert_link",
+      "label": "Expert help link"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_label",
+      "label": "Size guide label",
+      "default": "Watch Size Guide"
+    },
+    {
+      "type": "url",
+      "id": "size_guide_link",
+      "label": "Size guide link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fit_finder",
+      "label": "Show fit finder",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "fit_finder_heading",
+      "label": "Fit finder heading",
+      "default": "Narrow by space, use, and budget"
+    },
+    {
+      "type": "text",
+      "id": "default_status",
+      "label": "Default status",
+      "default": "Use the filters to narrow the list, or compare all models below."
+    },
+    {
+      "type": "text",
+      "id": "reset_label",
+      "label": "Reset label",
+      "default": "Reset"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_product_prices",
+      "label": "Use linked product prices",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "model",
+      "name": "Net model",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Linked product"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Fallback link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Model name",
+          "default": "Pro"
+        },
+        {
+          "type": "text",
+          "id": "best_for",
+          "label": "Best for",
+          "default": "Garage practice and everyday training"
+        },
+        {
+          "type": "text",
+          "id": "width_label",
+          "label": "Width label",
+          "default": "8 ft"
+        },
+        {
+          "type": "text",
+          "id": "width_value",
+          "label": "Width value",
+          "default": "8"
+        },
+        {
+          "type": "text",
+          "id": "height_label",
+          "label": "Height label",
+          "default": "7 ft 6 in"
+        },
+        {
+          "type": "text",
+          "id": "height_value",
+          "label": "Height value",
+          "default": "7.5"
+        },
+        {
+          "type": "text",
+          "id": "depth_label",
+          "label": "Depth label",
+          "default": "3 ft 6 in"
+        },
+        {
+          "type": "text",
+          "id": "weight_label",
+          "label": "Weight label",
+          "default": "28 lb"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Fallback price",
+          "default": "$795"
+        },
+        {
+          "type": "text",
+          "id": "price_value",
+          "label": "Price value",
+          "default": "795"
+        },
+        {
+          "type": "text",
+          "id": "use_case",
+          "label": "Filter tags",
+          "info": "Comma-separated tags: kids, small-space, garage, yard, commercial",
+          "default": "garage,yard"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Pro"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mobile compare nets"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TheNetReturn UX Navigation Map</title>
+  <style>
+    :root {
+      --bg: #f7f8f6;
+      --ink: #101413;
+      --muted: #65706b;
+      --line: #dce2dc;
+      --surface: #ffffff;
+      --surface-2: #eef4ef;
+      --green: #0a8f44;
+      --green-dark: #076932;
+      --amber: #b76509;
+      --red: #b42318;
+      --blue: #1d5f8f;
+      --shadow: 0 18px 50px rgba(16, 20, 19, .08);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(10, 143, 68, .08), rgba(10, 143, 68, 0) 360px),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .app {
+      width: min(1440px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      backdrop-filter: blur(18px);
+      background: rgba(247, 248, 246, .86);
+      border-bottom: 1px solid rgba(220, 226, 220, .72);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: #fff;
+      background: var(--green);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 8px 26px rgba(16, 20, 19, .05);
+    }
+
+    .tab {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 13px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      min-width: 220px;
+    }
+
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 9px 13px;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(16, 20, 19, .05);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+      gap: 32px;
+      align-items: end;
+      padding: 58px 0 34px;
+    }
+
+    .hero h1 {
+      max-width: 880px;
+      margin: 0;
+      font-size: clamp(42px, 6.2vw, 92px);
+      line-height: .9;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 710px;
+      margin: 22px 0 0;
+      color: #34403a;
+      font-size: clamp(17px, 1.5vw, 22px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #38423d;
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .hero-panel {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .score {
+      min-height: 92px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 8px;
+    }
+
+    .score strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .score span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, .72);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .warning-strip {
+      padding: 13px 14px;
+      background: rgba(183, 101, 9, .15);
+      border: 1px solid rgba(255, 180, 83, .32);
+      border-radius: 8px;
+      color: #ffe5c7;
+      font-size: 13px;
+    }
+
+    .section {
+      display: none;
+      padding-top: 24px;
+    }
+
+    .section.is-active {
+      display: block;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 26px 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .journey-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .journey-rail {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(170px, 1fr));
+      gap: 12px;
+      overflow-x: auto;
+      padding: 4px 4px 16px;
+    }
+
+    .journey-card,
+    .route-card,
+    .issue-card,
+    .batch-card,
+    .detail-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px rgba(16, 20, 19, .05);
+    }
+
+    .journey-card {
+      position: relative;
+      min-height: 258px;
+      padding: 18px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .journey-card:hover,
+    .journey-card.is-selected {
+      transform: translateY(-3px);
+      border-color: rgba(10, 143, 68, .5);
+      box-shadow: 0 16px 42px rgba(10, 143, 68, .11);
+    }
+
+    .step-num {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      background: var(--surface-2);
+      color: var(--green-dark);
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .journey-card h3,
+    .route-card h3,
+    .issue-card h3,
+    .batch-card h3,
+    .detail-card h3 {
+      margin: 18px 0 8px;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .journey-card p,
+    .route-card p,
+    .issue-card p,
+    .batch-card p,
+    .detail-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .route-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .route-chip {
+      padding: 6px 8px;
+      background: #f2f5f1;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #3c4742;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .detail-card {
+      position: sticky;
+      top: 86px;
+      padding: 22px;
+      min-height: 320px;
+    }
+
+    .detail-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .detail-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .detail-list li {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 8px;
+      color: #34403a;
+      font-size: 14px;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(10, 143, 68, .12);
+      color: var(--green);
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .route-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .18s ease, border-color .18s ease;
+    }
+
+    .route-card:hover,
+    .route-card.is-selected {
+      transform: translateY(-3px);
+      border-color: rgba(10, 143, 68, .5);
+    }
+
+    .route-visual {
+      min-height: 128px;
+      background:
+        linear-gradient(135deg, rgba(16, 20, 19, .84), rgba(10, 143, 68, .76)),
+        var(--route-image);
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+
+    .route-visual strong {
+      font-size: 26px;
+      line-height: .98;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .32);
+    }
+
+    .route-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .path {
+      display: block;
+      padding: 9px 10px;
+      color: #2f3a35;
+      background: #f5f7f4;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      word-break: break-word;
+    }
+
+    .route-status {
+      margin-top: auto;
+      display: inline-flex;
+      width: fit-content;
+      padding: 7px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .status-strong {
+      background: rgba(10, 143, 68, .12);
+      color: var(--green-dark);
+    }
+
+    .status-watch {
+      background: rgba(183, 101, 9, .12);
+      color: var(--amber);
+    }
+
+    .status-risk {
+      background: rgba(180, 35, 24, .11);
+      color: var(--red);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: #3b4641;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .filter.is-active {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .search {
+      min-width: min(320px, 100%);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(10, 143, 68, .16);
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .issue-card {
+      padding: 18px;
+      min-height: 246px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .issue-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 950;
+    }
+
+    .p1 {
+      background: var(--red);
+    }
+
+    .p2 {
+      background: var(--amber);
+    }
+
+    .p3 {
+      background: var(--blue);
+    }
+
+    .tag {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .issue-card h3 {
+      margin-top: 2px;
+    }
+
+    .evidence {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: #47534d;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .batch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: batch;
+    }
+
+    .batch-card {
+      position: relative;
+      min-height: 290px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .batch-card::before {
+      counter-increment: batch;
+      content: counter(batch);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(10, 143, 68, .14);
+      font-size: 86px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .batch-card h3 {
+      max-width: 210px;
+      margin-top: 0;
+      font-size: 24px;
+    }
+
+    .batch-list {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .batch-list li {
+      color: #37433e;
+      font-size: 14px;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+
+    .source-panel {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px rgba(16, 20, 19, .05);
+    }
+
+    .source-panel h3 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .source-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #405049;
+    }
+
+    .source-panel li + li {
+      margin-top: 8px;
+    }
+
+    .presentation-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 28px;
+      padding: 18px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 1080px) {
+      .hero,
+      .journey-layout,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand,
+      .top-actions {
+        min-width: 0;
+      }
+
+      .tabs {
+        overflow-x: auto;
+        justify-content: flex-start;
+      }
+
+      .detail-card {
+        position: static;
+      }
+
+      .route-grid,
+      .issue-grid,
+      .batch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .app {
+        width: min(100% - 20px, 1440px);
+        padding-top: 8px;
+      }
+
+      .hero {
+        padding-top: 30px;
+      }
+
+      .hero-panel,
+      .score-grid,
+      .route-grid,
+      .issue-grid,
+      .batch-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .controls,
+      .presentation-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .search {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .topbar,
+      .controls,
+      .top-actions {
+        display: none;
+      }
+
+      .app {
+        width: 100%;
+        padding: 0;
+      }
+
+      .section {
+        display: block;
+        break-inside: avoid;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 0 0 24px;
+      }
+
+      .journey-layout,
+      .route-grid,
+      .issue-grid,
+      .batch-grid,
+      .source-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .detail-card {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar" aria-label="Stakeholder map navigation">
+      <div class="brand">
+        <span class="brand-mark">TNR</span>
+        <span>UX Navigation Map</span>
+      </div>
+      <nav class="tabs" aria-label="Map sections">
+        <button class="tab" type="button" aria-selected="true" data-tab="journey">Journey</button>
+        <button class="tab" type="button" aria-selected="false" data-tab="routes">Product Types</button>
+        <button class="tab" type="button" aria-selected="false" data-tab="issues">Priorities</button>
+        <button class="tab" type="button" aria-selected="false" data-tab="batches">Work Batches</button>
+        <button class="tab" type="button" aria-selected="false" data-tab="source">Evidence</button>
+      </nav>
+      <div class="top-actions">
+        <button class="icon-button" type="button" id="summaryButton">Copy summary</button>
+        <button class="icon-button" type="button" onclick="window.print()">Print</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">The storefront has the pieces. The next move is route clarity.</h1>
+          <p class="hero-copy">A stakeholder-ready visual map of the homepage experience, product-type navigation, and the quality issues that are most likely to affect conversion, trust, and future maintenance.</p>
+          <div class="hero-meta" aria-label="Audit metadata">
+            <span class="meta-pill">Source: UX audit MD</span>
+            <span class="meta-pill">Preview: 127.0.0.1:9292</span>
+            <span class="meta-pill">Date: 2026-05-14</span>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Audit summary metrics">
+          <div class="score-grid">
+            <div class="score"><strong>5</strong><span>Homepage stages mapped</span></div>
+            <div class="score"><strong>4</strong><span>Product-type routes traced</span></div>
+            <div class="score"><strong>8</strong><span>Priority issues grouped</span></div>
+          </div>
+          <div class="warning-strip">Preview caveat: compare page returned 429/verification in automation, and cart update endpoints logged proxy 502s. Re-check these in a normal browser session.</div>
+        </aside>
+      </section>
+
+      <section class="section is-active" id="journey" aria-labelledby="journey-title">
+        <div class="section-head">
+          <div>
+            <h2 id="journey-title">Homepage Journey</h2>
+            <p>The homepage is strongest when it lets shoppers self-select a lane. The current flow already has the right ingredients, but some overlapping guidance paths need clearer jobs.</p>
+          </div>
+        </div>
+        <div class="journey-layout">
+          <div class="journey-rail" id="journeyRail"></div>
+          <aside class="detail-card" id="journeyDetail" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section class="section" id="routes" aria-labelledby="routes-title">
+        <div class="section-head">
+          <div>
+            <h2 id="routes-title">Product-Type Navigation</h2>
+            <p>Each lane has a different merchandising model. Click a route to see what the shopper gets, what the theme is doing, and where the experience needs a decision.</p>
+          </div>
+        </div>
+        <div class="route-grid" id="routeGrid"></div>
+      </section>
+
+      <section class="section" id="issues" aria-labelledby="issues-title">
+        <div class="section-head">
+          <div>
+            <h2 id="issues-title">Prioritized Improvements</h2>
+            <p>Filter the backlog by impact. These are phrased for stakeholder conversation first, with enough evidence for the implementation team to pick up later.</p>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="filter-row" role="group" aria-label="Issue priority filters">
+            <button class="filter is-active" type="button" data-priority="all">All</button>
+            <button class="filter" type="button" data-priority="P1">P1</button>
+            <button class="filter" type="button" data-priority="P2">P2</button>
+            <button class="filter" type="button" data-priority="P3">P3</button>
+          </div>
+          <input class="search" id="issueSearch" type="search" placeholder="Search issues, evidence, or route names" aria-label="Search issues">
+        </div>
+        <div class="issue-grid" id="issueGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="section" id="batches" aria-labelledby="batches-title">
+        <div class="section-head">
+          <div>
+            <h2 id="batches-title">Recommended Work Batches</h2>
+            <p>A practical order for the next stakeholder decision and implementation cycles. Batch 1 clears the strategic fog before polishing downstream surfaces.</p>
+          </div>
+        </div>
+        <div class="batch-grid" id="batchGrid"></div>
+      </section>
+
+      <section class="section" id="source" aria-labelledby="source-title">
+        <div class="section-head">
+          <div>
+            <h2 id="source-title">Evidence And Caveats</h2>
+            <p>This view keeps the conversation grounded: what was inspected, what was observed in preview, and what still needs human-session validation.</p>
+          </div>
+        </div>
+        <div class="source-grid">
+          <article class="source-panel">
+            <h3>Verified Inputs</h3>
+            <ul>
+              <li>Read the UX audit Markdown generated from theme file inspection and local preview.</li>
+              <li>Mapped homepage sections: hero, trust, best sellers, social proof, category grid, setup help, quiz, simulation, and brand proof.</li>
+              <li>Traced product-type routes for nets, packages, simulation, accessories, build-your-setup, and compare.</li>
+              <li>Theme Check baseline in the audit: 360 files inspected, 158 offenses, 1 error, 157 warnings.</li>
+            </ul>
+          </article>
+          <article class="source-panel">
+            <h3>Open Validation</h3>
+            <ul>
+              <li>Compare page needs a normal logged-in browser check because automation hit a 429 verification screen.</li>
+              <li>Cart add/update needs a focused QA pass because the preview logged cart endpoint 502 warnings.</li>
+              <li>Canonical URL decisions need stakeholder approval before redirects or route retirement.</li>
+              <li>Ghost-code cleanup should be confirmed with the merchant before removing campaign or backup sections.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="presentation-footer">
+      <span>Prepared from `docs/ux-navigation-audit-2026-05-14.md`.</span>
+      <span>Use the tabs live, or print to create a meeting handout.</span>
+    </footer>
+  </div>
+
+  <script>
+    const journeySteps = [
+      {
+        title: 'Arrival',
+        route: 'Header: Shop / Explore / Learn',
+        summary: 'The top navigation is compact and sensible, with a Shop mega-menu that also points to quiz and Build Your Setup.',
+        insight: 'Clarify the difference between Shop as all-products browsing and the homepage category grid as guided category entry.',
+        bullets: ['Shop currently points to browse-all-products.', 'Header imagery promotes Recommendations Quiz and Build Your Setup.', 'Search, login, and cart are present but not visually dominant.']
+      },
+      {
+        title: 'Hero And Trust',
+        route: 'Hero CTA -> /collections/nets-1',
+        summary: 'The active hero is the legacy slideshow, using pro proof and a direct Shop Nets action.',
+        insight: 'The message is clear for cold traffic, but the later Best Sellers repetition could do more strategic work.',
+        bullets: ['Active hero CTA sends shoppers to Nets.', 'Newer theme-banner section exists but is disabled.', 'Trust proof appears immediately after hero.']
+      },
+      {
+        title: 'Best Sellers',
+        route: 'Carousel -> product pages / cart',
+        summary: 'A commercial product carousel appears early and supports quick add-to-cart.',
+        insight: 'The add-to-cart logic should check failed Shopify responses before showing Added.',
+        bullets: ['Collection source is best-sellers-bfcm.', 'Cards show product, price, and add-to-cart.', 'Risk: cart errors can look like success.']
+      },
+      {
+        title: 'Pick Your Lane',
+        route: 'Nets / Packages / Sim Series / Accessories',
+        summary: 'This is the clearest decision point on the homepage: four product-type tiles with direct destinations.',
+        insight: 'Keep this as the primary shopper router, then normalize the destination handles behind it.',
+        bullets: ['Nets -> /collections/nets-1.', 'Packages -> /collections/packages.', 'Simulation -> /collections/simulation.', 'Accessories -> /collections/general-accessories.']
+      },
+      {
+        title: 'Guided Help',
+        route: 'Build Your Setup / Quiz / Compare',
+        summary: 'The homepage offers multiple assisted-shopping paths, but their jobs overlap.',
+        insight: 'Use Quiz for unsure shoppers, Build Your Setup for shoppers assembling known pieces, and Compare for net model selection.',
+        bullets: ['Build Your Setup needs a hero CTA.', 'Quiz should own diagnostic recommendations.', 'Compare remains important but needs a normal-session validation pass.']
+      }
+    ];
+
+    const routes = [
+      {
+        title: 'Nets',
+        path: '/collections/nets-1',
+        status: 'Strong primary path',
+        statusClass: 'status-strong',
+        visual: 'linear-gradient(135deg, #0f2b21, #0a8f44)',
+        summary: 'A shoppable fit-finder grid with filters for location, size, price, and availability.',
+        recommendation: 'Preserve as the primary Shop Nets path. Decide what to do with the older /collections/nets route.',
+        detail: 'Risk: route drift between /collections/nets-1 and /collections/nets can confuse shoppers, support, SEO, and future implementation work.'
+      },
+      {
+        title: 'Packages',
+        path: '/collections/packages',
+        status: 'Good, needs comparison aid',
+        statusClass: 'status-watch',
+        visual: 'linear-gradient(135deg, #242923, #8a6819)',
+        summary: 'A curated page with tabs for Pro Series, Home Series, and No Fly Zone packages, followed by FAQ.',
+        recommendation: 'Add a persistent package contents comparison near the grid.',
+        detail: 'The main collection grid is disabled, so this page relies on featured-collection sections for merchandising.'
+      },
+      {
+        title: 'Simulation',
+        path: '/collections/simulation',
+        status: 'Rich but long',
+        statusClass: 'status-watch',
+        visual: 'linear-gradient(135deg, #101413, #1d5f8f)',
+        summary: 'A long shopping and education page for simulator bays, packages, FAQ, logos, and launch monitors.',
+        recommendation: 'Add an above-the-fold choice strip for bay, net package, already-own-a-net, and launch monitor needs.',
+        detail: 'This page has the most education burden. A decision strip would reduce scroll hunting.'
+      },
+      {
+        title: 'Accessories',
+        path: '/collections/general-accessories',
+        status: 'Naming drift',
+        statusClass: 'status-watch',
+        visual: 'linear-gradient(135deg, #1f2a24, #6e7f35)',
+        summary: 'An All Accessories page with essentials, safety, simulation, training, and other sections.',
+        recommendation: 'Normalize the canonical handle and template naming around Accessories.',
+        detail: 'The theme also contains collection.accessories.json, but homepage traffic goes to general-accessories.'
+      }
+    ];
+
+    const issues = [
+      {
+        priority: 'P1',
+        category: 'Conversion',
+        title: 'Homepage add-to-cart can show false success',
+        summary: 'The carousel parses cart/add.js JSON and shows Added without checking response.ok.',
+        evidence: 'blocks/ai_gen_block_74536a9.liquid lines 594-635'
+      },
+      {
+        priority: 'P1',
+        category: 'Technical Debt',
+        title: 'content_for_header rewrite remains the Theme Check error',
+        summary: 'The WNW rewrite touches Shopify-managed app, pixel, and analytics scripts.',
+        evidence: 'layout/theme.liquid lines 99-105'
+      },
+      {
+        priority: 'P1',
+        category: 'Navigation',
+        title: 'Product-type route drift',
+        summary: 'Homepage points Nets to /collections/nets-1 while older /collections/nets exists with a disabled main grid.',
+        evidence: 'templates/index.json lines 306-384; templates/collection.nets.json lines 113-129'
+      },
+      {
+        priority: 'P2',
+        category: 'Guided Shopping',
+        title: 'Build Your Setup lacks a hero CTA',
+        summary: '/pages/build-your-setup opens with a hero but asks the user to scroll into product tabs to act.',
+        evidence: 'templates/page.build-your-setup.json lines 12-30'
+      },
+      {
+        priority: 'P2',
+        category: 'Cleanup',
+        title: 'Seasonal and campaign residue',
+        summary: 'Disabled BFCM, Masters, badge, and banner sections add admin noise and future-change risk.',
+        evidence: 'templates/index.json lines 15-57, 210-305; sections/header.liquid lines 119-133'
+      },
+      {
+        priority: 'P2',
+        category: 'Content Quality',
+        title: 'Placeholder collection copy remains',
+        summary: 'Some disabled collection template sections still contain default placeholder copy.',
+        evidence: 'templates/collection.nets.json lines 47-98'
+      },
+      {
+        priority: 'P3',
+        category: 'Cart UX',
+        title: 'Empty cart sends shoppers to all products',
+        summary: 'The cart page empty CTA points to /collections/all instead of a guided high-converting path.',
+        evidence: 'templates/cart.json line 34; config/settings_data.json lines 64-73'
+      },
+      {
+        priority: 'P3',
+        category: 'Code Hygiene',
+        title: 'Cart recommendations warning and stale comment',
+        summary: 'The section requests four products, but the comment still says it loads ten, and Theme Check flags an undefined variable.',
+        evidence: 'sections/cart-recommendations.liquid lines 9 and 32-59'
+      }
+    ];
+
+    const batches = [
+      {
+        title: 'Navigation Clarity',
+        summary: 'Make the decision system coherent before polishing surfaces.',
+        bullets: ['Choose canonical product-type URLs.', 'Redirect or retire duplicate routes.', 'Clarify Shop vs category-grid destinations.', 'Add the Build Your Setup CTA.']
+      },
+      {
+        title: 'Conversion QA',
+        summary: 'Protect shopper actions and the cart path.',
+        bullets: ['Fix homepage carousel error handling.', 'Test cart add/update flows.', 'Verify compare page in a normal browser session.', 'Smoke-test mini-cart and cart page states.']
+      },
+      {
+        title: 'Cleanup',
+        summary: 'Remove noise that slows future theme work.',
+        bullets: ['Archive old campaign sections.', 'Remove Rewind backup code if no longer needed.', 'Replace or remove placeholder copy.', 'Clean stale BFCM/Masters CSS.']
+      },
+      {
+        title: 'Technical Debt',
+        summary: 'Make performance and app behavior easier to trust.',
+        bullets: ['Replace or unwind content_for_header rewriting.', 'Continue Theme Check cleanup.', 'Keep performance work tied to honest measurements.', 'Document any WNW decisions.']
+      }
+    ];
+
+    const journeyRail = document.getElementById('journeyRail');
+    const journeyDetail = document.getElementById('journeyDetail');
+    const routeGrid = document.getElementById('routeGrid');
+    const issueGrid = document.getElementById('issueGrid');
+    const batchGrid = document.getElementById('batchGrid');
+    const issueSearch = document.getElementById('issueSearch');
+    let activePriority = 'all';
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      })[char]);
+    }
+
+    function renderJourney(selectedIndex = 0) {
+      journeyRail.innerHTML = journeySteps.map((step, index) => `
+        <button class="journey-card ${index === selectedIndex ? 'is-selected' : ''}" type="button" data-journey="${index}">
+          <span class="step-num">${index + 1}</span>
+          <h3>${escapeHtml(step.title)}</h3>
+          <p>${escapeHtml(step.summary)}</p>
+          <div class="route-line"><span class="route-chip">${escapeHtml(step.route)}</span></div>
+        </button>
+      `).join('');
+      const step = journeySteps[selectedIndex];
+      journeyDetail.innerHTML = `
+        <span class="detail-kicker">Selected step</span>
+        <h3>${escapeHtml(step.title)}</h3>
+        <p>${escapeHtml(step.insight)}</p>
+        <ul class="detail-list">
+          ${step.bullets.map((item) => `<li><span class="check">OK</span><span>${escapeHtml(item)}</span></li>`).join('')}
+        </ul>
+      `;
+    }
+
+    function renderRoutes() {
+      routeGrid.innerHTML = routes.map((route) => `
+        <article class="route-card" tabindex="0">
+          <div class="route-visual" style="--route-image: ${route.visual}">
+            <strong>${escapeHtml(route.title)}</strong>
+          </div>
+          <div class="route-body">
+            <span class="path">${escapeHtml(route.path)}</span>
+            <p>${escapeHtml(route.summary)}</p>
+            <p><strong>Recommendation:</strong> ${escapeHtml(route.recommendation)}</p>
+            <span class="route-status ${route.statusClass}">${escapeHtml(route.status)}</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderIssues() {
+      const query = issueSearch.value.trim().toLowerCase();
+      const filtered = issues.filter((issue) => {
+        const matchesPriority = activePriority === 'all' || issue.priority === activePriority;
+        const haystack = `${issue.priority} ${issue.category} ${issue.title} ${issue.summary} ${issue.evidence}`.toLowerCase();
+        return matchesPriority && (!query || haystack.includes(query));
+      });
+      issueGrid.innerHTML = filtered.map((issue) => `
+        <article class="issue-card">
+          <div class="issue-top">
+            <span class="priority ${issue.priority.toLowerCase()}">${escapeHtml(issue.priority)}</span>
+            <span class="tag">${escapeHtml(issue.category)}</span>
+          </div>
+          <h3>${escapeHtml(issue.title)}</h3>
+          <p>${escapeHtml(issue.summary)}</p>
+          <div class="evidence">${escapeHtml(issue.evidence)}</div>
+        </article>
+      `).join('') || '<article class="issue-card"><h3>No matching issues</h3><p>Try another priority or search phrase.</p></article>';
+    }
+
+    function renderBatches() {
+      batchGrid.innerHTML = batches.map((batch) => `
+        <article class="batch-card">
+          <h3>${escapeHtml(batch.title)}</h3>
+          <p>${escapeHtml(batch.summary)}</p>
+          <ul class="batch-list">
+            ${batch.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+          </ul>
+        </article>
+      `).join('');
+    }
+
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach((item) => item.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+        document.querySelectorAll('.section').forEach((section) => section.classList.remove('is-active'));
+        document.getElementById(tab.dataset.tab).classList.add('is-active');
+      });
+    });
+
+    journeyRail.addEventListener('click', (event) => {
+      const card = event.target.closest('[data-journey]');
+      if (!card) return;
+      renderJourney(Number(card.dataset.journey));
+    });
+
+    document.querySelectorAll('[data-priority]').forEach((button) => {
+      button.addEventListener('click', () => {
+        activePriority = button.dataset.priority;
+        document.querySelectorAll('[data-priority]').forEach((item) => item.classList.remove('is-active'));
+        button.classList.add('is-active');
+        renderIssues();
+      });
+    });
+
+    issueSearch.addEventListener('input', renderIssues);
+
+    document.getElementById('summaryButton').addEventListener('click', async () => {
+      const summary = [
+        'TheNetReturn UX Navigation Map',
+        'Top priorities:',
+        '1. Normalize product-type routes, especially Nets: /collections/nets-1 vs /collections/nets.',
+        '2. Add a clear CTA to Build Your Setup.',
+        '3. Fix homepage carousel add-to-cart error handling.',
+        '4. Clean stale campaign and ghost code.',
+        '5. Resolve the content_for_header rewrite technical debt.'
+      ].join('\\n');
+      try {
+        await navigator.clipboard.writeText(summary);
+        document.getElementById('summaryButton').textContent = 'Copied';
+        setTimeout(() => {
+          document.getElementById('summaryButton').textContent = 'Copy summary';
+        }, 1400);
+      } catch (error) {
+        window.prompt('Copy this summary', summary);
+      }
+    });
+
+    renderJourney();
+    renderRoutes();
+    renderIssues();
+    renderBatches();
+  </script>
+</body>
+</html>

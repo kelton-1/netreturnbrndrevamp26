@@ -1,0 +1,60 @@
+mutation ExportOrdersForAudienceAnalysis {
+  bulkOperationRunQuery(query: """
+  {
+    orders(query: "status:any") {
+      edges {
+        node {
+          id
+          name
+          createdAt
+          sourceName
+          displayFinancialStatus
+          currentTotalPriceSet { shopMoney { amount currencyCode } }
+          customer {
+            id
+            email
+            numberOfOrders
+            amountSpent { amount currencyCode }
+            tags
+            createdAt
+            defaultAddress { city province country zip }
+          }
+          shippingAddress { city province country zip }
+          customerJourneySummary {
+            daysToConversion
+            momentsCount { count }
+            firstVisit { occurredAt landingPage referrerUrl source }
+            lastVisit { occurredAt landingPage referrerUrl source }
+          }
+          lineItems(first: 50) {
+            edges {
+              node {
+                id
+                title
+                quantity
+                sku
+                product {
+                  id
+                  handle
+                  productType
+                  vendor
+                  tags
+                  collections(first: 10) {
+                    edges {
+                      node { handle title }
+                    }
+                  }
+                }
+                variant { id title sku price }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  """) {
+    bulkOperation { id status }
+    userErrors { field message }
+  }
+}
