@@ -17,6 +17,12 @@
   /* Pattern asset URLs (Liquid-rendered to Shopify CDN). */
   --brand-grid-tile-white: url('{{ "pattern-grid-tile-white.svg" | asset_url }}');
   --brand-grid-tile-black: url('{{ "pattern-grid-tile-black.svg" | asset_url }}');
+
+  /* Single Precision+ glyph (the actual brand mark, not the grid tile).
+     Used for inline glyphs and ::before markers where the mark needs to be
+     visible at small sizes. The grid tile is a 80x80 array of plus marks —
+     wrong asset to mask down to a 12px box. */
+  --brand-plus-glyph: url('{{ "precision-plus-white.svg" | asset_url }}');
 }
 
 /* ---------- Surfaces ---------- */
@@ -171,11 +177,15 @@
   color: rgb(var(--brand-black));
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 12px;
+  line-height: 1.4;
   letter-spacing: .14em;
   text-transform: uppercase;
   font-weight: 500;
   overflow: hidden;
   position: relative;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
 }
 .brand-marquee__track {
   display: flex;
@@ -184,6 +194,7 @@
   white-space: nowrap;
   animation: brand-marquee-scroll 28s linear infinite;
   will-change: transform;
+  flex: 1 1 auto;
 }
 .brand-marquee__item { display: inline-flex; align-items: center; gap: 64px; }
 @keyframes brand-marquee-scroll {
@@ -202,8 +213,8 @@
   height: 1em;
   vertical-align: -0.12em;
   background-color: currentColor;
-  mask: var(--brand-grid-tile-white) no-repeat center / contain;
-  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  mask: var(--brand-plus-glyph) no-repeat center / contain;
+  -webkit-mask: var(--brand-plus-glyph) no-repeat center / contain;
 }
 
 /* ============================================================
@@ -244,11 +255,12 @@
 }
 .header__linklist-item > .header__linklist-link::before {
   content: "";
-  width: 9px;
-  height: 9px;
+  width: 12px;
+  height: 12px;
   background-color: rgb(var(--brand-emerald));
-  mask: var(--brand-grid-tile-white) no-repeat center / contain;
-  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  mask: var(--brand-plus-glyph) no-repeat center / contain;
+  -webkit-mask: var(--brand-plus-glyph) no-repeat center / contain;
+  flex-shrink: 0;
   transition: background-color .15s ease, transform .2s ease;
 }
 .header__linklist-item > .header__linklist-link:hover {
@@ -326,11 +338,11 @@
 }
 .mobile-nav__link::before {
   content: "";
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   background-color: rgb(var(--brand-emerald));
-  mask: var(--brand-grid-tile-white) no-repeat center / contain;
-  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  mask: var(--brand-plus-glyph) no-repeat center / contain;
+  -webkit-mask: var(--brand-plus-glyph) no-repeat center / contain;
   flex-shrink: 0;
 }
 
