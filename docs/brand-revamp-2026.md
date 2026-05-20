@@ -4,7 +4,7 @@ Working doc for the COO-driven brand redesign. Branch: `brand-revamp-2026`. Them
 
 ## Decisions on the table (locked)
 
-- **Fonts**: deferred. Theme keeps current Inter until licensed Crystal (NewGlyph) and Miracle Mono (Keith Zo) are purchased. Brand CSS uses `font-stretch` axis so Crystal swap-in later requires no markup changes.
+- **Fonts**: delivered and staged. Crystal powers body copy and standard headings; Crystal Ultra Condensed SemiBold is reserved for oversized/display headline moments; Miracle Mono Regular powers small copy and accents such as nav, eyebrows, meta, marquee, and buttons. A focused web subset is staged in theme assets rather than uploading the full Crystal source family.
 - **Logo**: keep current header PNG until new wordmark SVGs are delivered. `UPDATED .../LOGOS/` is empty in the toolkit.
 - **Theme workflow**: working in-place on `149365096541` (not a duplicate). Backups handled by Shopify admin.
 - **Photo source of truth**: `UPDATED .../PHOTOGRAPHY/PHOTOGRAPHY/` (31 selects). Mapping below.
@@ -55,21 +55,50 @@ Asset library staged in `assets/`:
 - `precision-plus-{white,black,shadow-green}.svg`
 - `pattern-grid-{black,shadow-green,glow-green}.svg` (1920×1080 source)
 - `pattern-grid-tile-{white,black}.svg` (80×80 repeatable tile)
+- `brand-crystal-{light,regular,semibold,ultra-condensed-semibold}.ttf`
+- `brand-miracle-mono-regular.otf`
 
 ## In-flight / queued
 
 Track via TaskList. Current queue:
 
-- #4 Marquee announcement bar
-- #5 Header rebuild
-- #6 Footer rebuild
-- #7 Hero immersive
-- #8 Category grid
-- #9 Feature display-stroke section
+- ~~#4 Marquee announcement bar~~ (done)
+- ~~#5 Header rebuild~~ (done)
+- ~~#6 Footer rebuild~~ (done)
+- ~~#7 Hero immersive~~ (done)
+- ~~#8 Category grid~~ (done)
+- ~~#9 Product story / Don't Settle~~ (done)
+- #10 Bryson feature panel (outlined-stroke "BRYSON" display moment, photo #17/#18) — next
 
 Each section gets a subsection appended below as it lands, with the file paths touched + a preview screenshot reference.
 
 ---
+
+## Brand fonts staged
+
+**Date:** 2026-05-20
+
+**Files**
+
+- `assets/brand-crystal-light.ttf`
+- `assets/brand-crystal-regular.ttf`
+- `assets/brand-crystal-semibold.ttf`
+- `assets/brand-crystal-ultra-condensed-semibold.ttf`
+- `assets/brand-miracle-mono-regular.otf`
+- `assets/brand-revamp.css.liquid`
+
+**Behavior**
+
+- `@font-face` declarations live in the global brand revamp CSS, using Shopify `asset_url` references.
+- `--brand-font-body` maps to Crystal Light/Regular/SemiBold and feeds Focal's `--text-font-family`, so standard body copy inherits Crystal.
+- `--brand-font-heading` maps to Crystal SemiBold and feeds Focal's `--heading-font-family`, so ordinary section/product headings use the standard-width family.
+- `--brand-font-display` maps to Crystal Ultra Condensed SemiBold and is reserved for `.brand-headline`, `.brand-headline--display`, `.heading--large`, `.h1`, and the footer CTA heading.
+- `--brand-font-accent` / `--brand-font-mono` map to Miracle Mono Regular and drive small copy and accents: `.brand-eyebrow`, marquee, buttons, header nav, mobile nav, dropdown links, product micro-labels, footer block headings, footer links, and footer meta text.
+- The source toolkit includes more Crystal files, and older staged copies still exist in `assets/` from the first pass. The active token layer references only the 2026 brand-guide subset listed above.
+
+**Licensing note**
+
+- The files were provided by the team for company use. I did not find or verify a separate license document inside the zip files, so keep the original source/package/license context available outside the theme repo.
 
 ## #4 — Brand marquee (done)
 
@@ -120,7 +149,7 @@ The header uses the white wordmark; black + symbol variants are pre-staged for f
 **Behavior**
 
 - Pure black header surface, white text, 1px bottom hairline.
-- Top-level nav links: uppercase, condensed feel (`font-stretch: 80%` engages variable-font axis when present), each prefixed with an Emerald Precision+ glyph that rotates 90° on hover (turns Neon).
+- Top-level nav links: uppercase Miracle Mono accents, each prefixed with an Emerald Precision+ glyph that rotates 90° on hover (turns Neon).
 - Icons (search/account/cart) white; Emerald on hover. Cart count badge in Emerald.
 - Locale/country popover buttons match the dark canvas with muted white.
 - Dropdown menus and Focal's mega-menu adopt the dark surface.
@@ -153,7 +182,7 @@ The header uses the white wordmark; black + symbol variants are pre-staged for f
 - Above the footer: Shadow Green CTA panel with subtle grid pattern overlay, centered "Talk to a Net Return advisor" heading, body copy, Emerald CTA button.
 - Footer surface: Shadow Green via tokens (consistent with the CTA panel above for a single visual block).
 - Block headings (Shop, Explore, etc.) restyled to mono-cap eyebrows.
-- Link list items: condensed uppercase with Emerald Precision+ glyph prefix; hover turns text and glyph to Neon Green.
+- Link list items: uppercase Miracle Mono accents with Emerald Precision+ glyph prefix; hover turns text and glyph to Neon Green.
 - Newsletter input: borderless except for a bottom rule, Emerald focus underline.
 - Social icons + payment methods row inherit white with subtle opacity.
 - Footer aside (copyright + locale selector): mono-cap, hairline divider, lower opacity.
@@ -168,3 +197,115 @@ The header uses the white wordmark; black + symbol variants are pre-staged for f
 - `cta_link` setting doesn't carry a default URL — Shopify schema rejects literal string defaults for `url` settings. Merchant sets the link in admin; preset ships unlinked. The default text "Book a call now" still applies via section settings.
 - Monogram-only logo replacing the wordmark in the footer (per mockup) — not yet done. The footer block currently relies on Focal's social_media block to render `TNR-Symbol-FullColor-Light.png`. We can add a dedicated monogram block above the link grid in a follow-up.
 - The existing `net-brand-usp` and `text-with-icons` sections at the top of the footer group are unchanged — their visual is still old-Focal-green per Phase 4 deferral (legacy campaign sections list).
+
+---
+
+## Audit cleanup after footer pass (done)
+
+**Date:** 2026-05-20
+**Base commit:** `a0e25b5 feat(brand): footer rebuild + Book a Call CTA panel`
+
+**Files**
+
+- `assets/brand-revamp.css.liquid`
+- `sections/brand-marquee.liquid`
+- `layout/theme.liquid`
+- `package.json`
+- `CLAUDE.md`
+
+**Why this cleanup happened**
+
+This pass came from a review of the header/marquee/footer revamp after the footer commit landed. The goal was not to redesign Opus's work, but to remove systematic risks before more brand sections depend on the same foundation layer.
+
+**Changes**
+
+- Patterned brand surfaces no longer override their own base color with `background-color: inherit`. The footer CTA uses `brand-surface--shadow brand-surface--pattern`, so the pattern now layers over Shadow Green instead of accidentally inheriting a parent background.
+- Marquee spacing moved from the outer track gap to each repeated item. Because the marquee animates exactly `translateX(-50%)`, both repeated groups need equal measured widths to avoid a small loop jump.
+- The duplicated marquee group remains visually available for the seamless loop, but its links are now `tabindex="-1"` and its clone markup does not repeat `block.shopify_attributes`. This prevents keyboard users and the theme editor from encountering duplicate block controls.
+- Header/dropdown/mega-menu dark styling is now scoped to the header group. The mobile drawer dark styling is scoped to `#mobile-menu-drawer`, so Focal's product help, size chart, store availability, cart/search, and collection filter drawers do not inherit the mobile menu look by accident.
+- Brand CSS now uses Shopify's `stylesheet_tag: preload: true` form instead of a manual stylesheet preload link.
+- Removed the `theme:push:revamp` npm script. Pushing to source theme `149365096541` is a real store mutation and should stay explicit in-session, not a convenient default script.
+
+**Coordination note for Opus/Claude**
+
+If you continue the brand revamp, preserve this scoping posture: brand utilities can stay global when they are opt-in (`.brand-*`), but Focal component overrides should be tied to the exact section/surface being redesigned. In particular, do not reintroduce broad `.drawer` styling unless you intentionally want every drawer type to change and have preview-QA'd filters, mini-cart/search, product help, size chart, and store availability.
+
+---
+
+## #7 — Hero immersive (done)
+
+**Files**
+
+- `sections/brand-hero.liquid` — new full-bleed homepage hero section with default Train With Intent copy, default staged desktop/mobile imagery, editable CTA settings, and a merchant image override path.
+- `assets/brand-revamp.css.liquid` — added the shared hero presentation rules so the revamp keeps one brand CSS layer rather than section-local style blocks.
+- `templates/index.json` — registered `brand_hero_train_with_intent` as the first homepage section and disabled the legacy slideshow as a fallback backup.
+- `assets/brand-hero-train-with-intent-desktop.jpg`
+- `assets/brand-hero-train-with-intent-mobile.jpg`
+
+**Behavior**
+
+- The first viewport now leads with the new full-bleed dark hero, "Train With Intent.", `Shop nets`, and `Build your setup`.
+- The legacy slideshow is still present in the template data, but disabled, so it can be restored from the theme editor if the team wants to compare.
+- The section defaults to optimized local JPGs created from the approved photography mapping, while still allowing merchant-picked images in the Shopify editor.
+
+**Preview**
+
+- `theme:dev` started successfully at `http://127.0.0.1:9292/` and synced to development theme `149375975517`.
+- Browser QA confirmed the hero rendered with heading `Train With Intent.`, the desktop image loaded from Shopify CDN, and both CTAs resolved to `/collections/nets-1` and `/pages/build-your-setup`.
+- Direct preview fetch confirmed `brand_hero_train_with_intent` is the first homepage section and the staged desktop/mobile hero assets are being served.
+- Repeated browser reloads can still trip Shopify/Cloudflare "Verifying your connection..." on the local preview; use direct DOM checks or a normal authenticated browser tab after the first successful load.
+
+---
+
+## #8 — Category grid (done)
+
+**Files**
+
+- `sections/brand-category-grid.liquid` — new homepage section. Block-based (1 block per card, up to 6, default 4). Per-card settings: image picker, label, link, CTA text, and a `default_image_filename` fallback that points to a theme asset when the merchant clears the picker. Section settings: eyebrow, heading, columns (2-4).
+- `assets/brand-category-revamp.css.liquid` block in `assets/brand-revamp.css.liquid` (`.brand-category-grid*` and `.brand-category-card*` rules). Aspect 3:4 cards, Shadow-Green base, bottom-up emerald-tinted scrim that deepens to black, Crystal Ultra Condensed label, Precision+ glyph prefix that turns Glow on hover, Miracle Mono "Shop X →" CTA with arrow nudge on hover, 4 / 2 / 1 column responsive breakpoints (≥1000 / ≥541 / mobile).
+- `assets/brand-category-{nets,packages,simulation,accessories}.jpg` — web-optimized JPGs sourced from PHOTOGRAPHY SELECTS-29 (nets), -07 (backyard patio), -08 (sim setup), -34 (mesh detail) per the toolkit mapping.
+- `templates/index.json` — registered `brand_category_grid_main` directly under the hero, with all four cards pre-configured to Nets / Packages / Simulation / Accessories collections.
+
+**Behavior**
+
+- Photo-led category nav under the hero — "Shop the system" eyebrow + "Built for every part of the work." heading.
+- Each card defaults to its staged theme-asset JPG via `default_image_filename`, while still letting the merchant override per-card from the editor.
+- Hover scales the image 4%, lifts the Precision+ glyph from Emerald to Glow, and slides the `→` arrow.
+- Visited / focus rings use the brand outline-button treatment.
+
+**Preview**
+
+- Verified at 1440×900 (desktop): 4 cards × 321px each, computed `grid-template-columns` matches the breakpoint table.
+- Verified at 375×812 (mobile): cards stack to single column, header logo serves `nr-wordmark-white.png`.
+- DOM checks confirmed all four cards render the Precision+ glyph and the mono CTAs link correctly.
+
+**Caveats / follow-ups**
+
+- The grid sits over a Shadow-Green band; the section below it (currently the disabled `slideshow` / `trust_bar` legacy blocks) does not yet provide the contrasting white surface the mockup shows beneath. That handoff lands with the next section (#9 product story).
+- "Accessories" defaults to PHOTOGRAPHY SELECTS-34 (net mesh detail) — there is no hat / accessory product shot in the toolkit; revisit when the next photoshoot lands.
+
+---
+
+## #9 — Product story / "Don't Settle" band (done)
+
+**Files**
+
+- `sections/brand-product-story.liquid` — new homepage editorial section with editable headline lines, body, CTA, image picker, and fallback asset filename.
+- `assets/brand-revamp.css.liquid` — added the white Precision+ product-story layout, display headline treatment, product-image framing, and responsive stack.
+- `templates/index.json` — inserted `brand_product_story_dont_settle` directly after the category grid and disabled the legacy `trust_bar_DdPqga` so the top of the homepage flows from custom hero → custom categories → custom product story.
+
+**Behavior**
+
+- White Precision+ field with oversized Emerald display type: `Don't / Settle / For less`.
+- `For less` uses the brand guide's outlined display treatment rather than another filled line.
+- Product image is pulled from the existing Shopify image `1400x1400-pro.png` and can be replaced from the theme editor.
+- CTA defaults to `See the difference` and links to `/pages/compare`.
+
+**Preview**
+
+- Verified at 1440×900: section background `rgb(255,255,255)` ✓; heading renders Crystal Ultra Condensed at 144px in Emerald `rgb(0,156,67)` ✓; outlined `For less` line uses `webkitTextStroke: 1.5px rgba(0,156,67,.42)` with transparent fill ✓; CTA renders Emerald primary button ✓; product image loads from Shopify CDN.
+- Verified at 375×812: copy and media columns stack to single column.
+
+**Design note**
+
+This section is intentionally closer to the user's reference than the older Focal sections below it: fewer boxes, a stronger editorial composition, true white surface, product as the hero object, and one clear Emerald action.

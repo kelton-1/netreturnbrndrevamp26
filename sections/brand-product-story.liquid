@@ -1,0 +1,125 @@
+{%- liquid
+  assign heading_line_1 = section.settings.heading_line_1
+  assign heading_line_2 = section.settings.heading_line_2
+  assign heading_outline = section.settings.heading_outline
+  assign body = section.settings.body
+  assign cta_text = section.settings.cta_text
+  assign cta_link = section.settings.cta_link
+  assign image = section.settings.image
+  assign default_image_filename = section.settings.default_image_filename
+  assign image_alt = image.alt | default: heading_line_1 | default: shop.name
+-%}
+
+<section class="brand-product-story" aria-labelledby="brand-product-story-heading-{{ section.id }}">
+  <div class="brand-product-story__inner brand-container">
+    <div class="brand-product-story__copy">
+      <h2 id="brand-product-story-heading-{{ section.id }}" class="brand-product-story__heading">
+        {%- if heading_line_1 != blank -%}<span>{{ heading_line_1 }}</span>{%- endif -%}
+        {%- if heading_line_2 != blank -%}<span>{{ heading_line_2 }}</span>{%- endif -%}
+        {%- if heading_outline != blank -%}<span class="brand-product-story__heading-outline">{{ heading_outline }}</span>{%- endif -%}
+      </h2>
+
+      {%- if body != blank -%}
+        <p class="brand-product-story__body">{{ body }}</p>
+      {%- endif -%}
+
+      {%- if cta_text != blank -%}
+        <a class="brand-btn brand-btn--primary brand-product-story__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="brand-product-story__media" aria-hidden="{% if image == blank and default_image_filename == blank %}true{% else %}false{% endif %}">
+      {%- if image != blank -%}
+        {{ image | image_url: width: 1400 | image_tag: class: 'brand-product-story__image', loading: 'lazy', sizes: '(max-width: 749px) 92vw, 52vw', widths: '600, 900, 1200, 1400', alt: image_alt }}
+      {%- elsif default_image_filename != blank -%}
+        <img
+          class="brand-product-story__image"
+          src="{{ default_image_filename | asset_url }}"
+          alt="{{ heading_line_1 | default: shop.name | escape }}"
+          loading="lazy"
+          width="1400"
+          height="1400">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand product story",
+  "tag": "section",
+  "class": "brand-product-story-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "White Precision+ editorial band for a premium product story. Designed for the homepage after the category grid."
+    },
+    {
+      "type": "header",
+      "content": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "Don't"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "Settle"
+    },
+    {
+      "type": "text",
+      "id": "heading_outline",
+      "label": "Outlined heading line",
+      "default": "For less"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Caught in endless doubts about your swing? Finding consistency hard to nail down? You're not alone. The Net Return helps you turn effort into results."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "See the difference"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "default_image_filename",
+      "label": "Fallback theme asset filename",
+      "info": "Used only when no product image is picked above."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand product story",
+      "settings": {
+        "heading_line_1": "Don't",
+        "heading_line_2": "Settle",
+        "heading_outline": "For less",
+        "body": "Caught in endless doubts about your swing? Finding consistency hard to nail down? You're not alone. The Net Return helps you turn effort into results.",
+        "cta_text": "See the difference"
+      }
+    }
+  ]
+}
+{% endschema %}

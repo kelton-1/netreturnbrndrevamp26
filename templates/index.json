@@ -71,6 +71,19 @@
         "columns": 4
       }
     },
+    "brand_product_story_dont_settle": {
+      "type": "brand-product-story",
+      "settings": {
+        "heading_line_1": "Don't",
+        "heading_line_2": "Settle",
+        "heading_outline": "For less",
+        "body": "Caught in endless doubts about your swing? Finding consistency hard to nail down? You're not alone. The Net Return helps you turn effort into results.",
+        "cta_text": "See the difference",
+        "cta_link": "shopify://pages/compare",
+        "image": "shopify://shop_images/1400x1400-pro.png",
+        "default_image_filename": ""
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "disabled": true,
@@ -191,6 +204,7 @@
     },
     "trust_bar_DdPqga": {
       "type": "trust-bar",
+      "disabled": true,
       "name": "Trust bar",
       "settings": {}
     },
@@ -717,6 +731,7 @@
   "order": [
     "brand_hero_train_with_intent",
     "brand_category_grid_main",
+    "brand_product_story_dont_settle",
     "slideshow",
     "trust_bar_DdPqga",
     "17621461567133e3c2",
