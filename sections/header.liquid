@@ -116,22 +116,6 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
   {%- endif -%}
 </style>
 
-{%- comment -%} // BFCM MENU HIGHLIGHT — styles (sitewide) {%- endcomment -%}
-<style id="bfcm-menu-highlight">
-  /* Neon green from your screenshot */
-  :root { --bfcm-menu-color: #95FD0D; }
-
-  #shopify-section-{{ section.id }} .bf-sale-link{
-    color: var(--bfcm-menu-color) !important;
-    font-weight: 800;
-  }
-  #shopify-section-{{ section.id }} .bf-sale-link:hover{
-    color: #ffffff !important;
-    background: color-mix(in srgb, var(--bfcm-menu-color) 20%, transparent);
-    border-radius: 8px;
-  }
-</style>
-
 <store-header {% if section.settings.enable_sticky_header %}sticky{% endif %} {% if request.page_type == 'index' and section.settings.enable_transparent_header %}transparent{% endif %} class="header {% if settings.background == settings.header_background %}header--bordered{% endif %} {% if request.page_type == 'index' and section.settings.enable_transparent_header %}header--transparent{% endif %}" role="banner">
   {%- assign menu = section.settings.navigation_menu -%}
 
@@ -400,27 +384,6 @@ SEARCH DRAWER
     {% endif %}
     "url": {{ shop.url | append: page.url | json }}
   }
-</script>
-
-{%- comment -%} // BFCM MENU HIGHLIGHT — script (sitewide) {%- endcomment -%}
-<script>
-  (function(){
-    var root = document.getElementById('shopify-section-{{ section.id }}');
-    if(!root) return;
-
-    // Case-insensitive match for "Black Friday" or "Black Friday Sale"
-    var rx = /black\s*friday(?:\s*sale)?/i;
-
-    // Look through all links within the header section (desktop + mobile drawer rendered in this section)
-    var links = root.querySelectorAll('a');
-
-    links.forEach(function(a){
-      var t = (a.textContent || '').trim();
-      if (rx.test(t)) {
-        a.classList.add('bf-sale-link');
-      }
-    });
-  })();
 </script>
 
 

@@ -1,0 +1,207 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign cta_text = section.settings.cta_text
+  assign cta_link = section.settings.cta_link
+  assign image = section.settings.image
+  assign default_image_filename = section.settings.default_image_filename
+  assign image_alt = image.alt | default: heading | default: shop.name
+-%}
+
+<section class="brand-proof-system brand-surface--gradient brand-surface--gradient--clear-grey" aria-labelledby="brand-proof-system-heading-{{ section.id }}">
+  <div class="brand-container brand-proof-system__inner">
+    <div class="brand-proof-system__copy">
+      {%- if eyebrow != blank -%}
+        <p class="brand-eyebrow">{{ eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if heading != blank -%}
+        <h2 id="brand-proof-system-heading-{{ section.id }}" class="brand-headline brand-proof-system__heading">{{ heading }}</h2>
+      {%- endif -%}
+
+      {%- if body != blank -%}
+        <div class="brand-body brand-proof-system__body">{{ body }}</div>
+      {%- endif -%}
+
+      {%- if cta_text != blank -%}
+        <a class="brand-btn brand-btn--ghost-dark brand-proof-system__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+      {%- endif -%}
+    </div>
+
+    <div class="brand-proof-system__media">
+      {%- if image != blank -%}
+        {{ image | image_url: width: 1400 | image_tag: class: 'brand-proof-system__image', loading: 'lazy', sizes: '(max-width: 749px) 92vw, 46vw', widths: '600, 900, 1200, 1400', alt: image_alt }}
+      {%- elsif default_image_filename != blank -%}
+        <img
+          class="brand-proof-system__image"
+          src="{{ default_image_filename | asset_url }}"
+          alt="{{ heading | default: shop.name | escape }}"
+          loading="lazy"
+          width="1400"
+          height="1000">
+      {%- else -%}
+        <div class="brand-proof-system__fallback" aria-hidden="true">
+          <span class="brand-plus"></span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="brand-proof-system__cards" aria-label="{{ section.settings.card_label | default: 'Net Return proof points' | escape }}">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign stat = block.settings.stat
+          assign title = block.settings.title
+          assign text = block.settings.text
+        -%}
+        <article class="brand-proof-card" {{ block.shopify_attributes }}>
+          {%- if stat != blank -%}
+            <p class="brand-proof-card__stat">{{ stat }}</p>
+          {%- endif -%}
+          {%- if title != blank -%}
+            <h3 class="brand-proof-card__title">{{ title }}</h3>
+          {%- endif -%}
+          {%- if text != blank -%}
+            <p class="brand-proof-card__text">{{ text }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand proof system",
+  "tag": "section",
+  "class": "brand-proof-system-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "A premium proof module that replaces older repeated Pro/Sim, icon, and assembly sections with one editable brand-system story."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why it works"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built to return more than the ball."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving. Set it up fast, train anywhere, and build from net to full simulator when your game is ready.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Build your setup"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    },
+    {
+      "type": "text",
+      "id": "card_label",
+      "label": "Card group accessibility label",
+      "default": "Net Return proof points"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "default_image_filename",
+      "label": "Fallback theme asset filename",
+      "info": "Used only when no image is picked above."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat",
+          "label": "Stat or label",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Instant ball return"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Patented return geometry keeps the session moving without chasing balls."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand proof system",
+      "settings": {
+        "eyebrow": "Why it works",
+        "heading": "Built to return more than the ball.",
+        "body": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving. Set it up fast, train anywhere, and build from net to full simulator when your game is ready.</p>",
+        "cta_text": "Build your setup"
+      },
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "stat": "1 ball",
+            "title": "Instant return",
+            "text": "No shag bag loop. The ball comes back so practice keeps its rhythm."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "stat": "10 min",
+            "title": "Fast assembly",
+            "text": "Push-button frame connections make setup and teardown simple."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "stat": "Any space",
+            "title": "Indoor or outdoor",
+            "text": "Garage, backyard, studio, or simulator bay: the system scales with the room."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "stat": "Lifetime",
+            "title": "Warranty-backed",
+            "text": "Built as durable equipment, not disposable practice gear."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

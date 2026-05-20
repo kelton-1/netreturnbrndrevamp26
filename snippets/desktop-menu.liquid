@@ -27,18 +27,20 @@
           {%- endcomment -%}
 
           {%- assign fp = mega_menu_block.settings.featured_product -%}
-          {%- assign fp_image = mega_menu_block.settings.featured_product_image | default: fp.featured_image -%}
-          {%- assign fp_title = mega_menu_block.settings.featured_product_title_override | default: fp.title -%}
-          {%- assign fp_url = fp.url | default: '#' -%}
+          {%- assign fp_image = mega_menu_block.settings.featured_product_image | default: fp.featured_image | default: mega_menu_block.settings.image_1 -%}
+          {%- assign fp_title = mega_menu_block.settings.featured_product_title_override | default: fp.title | default: mega_menu_block.settings.image_1_heading -%}
+          {%- assign fp_body = mega_menu_block.settings.featured_product_body | default: mega_menu_block.settings.image_1_text -%}
+          {%- assign fp_url = fp.url | default: mega_menu_block.settings.image_1_link | default: '#' -%}
 
           {%- assign fc = mega_menu_block.settings.featured_collection -%}
-          {%- assign fc_image = mega_menu_block.settings.featured_collection_image | default: fc.featured_image -%}
-          {%- assign fc_title = mega_menu_block.settings.featured_collection_title_override | default: fc.title -%}
-          {%- assign fc_url = fc.url | default: '#' -%}
+          {%- assign fc_image = mega_menu_block.settings.featured_collection_image | default: fc.featured_image | default: mega_menu_block.settings.image_2 -%}
+          {%- assign fc_title = mega_menu_block.settings.featured_collection_title_override | default: fc.title | default: mega_menu_block.settings.image_2_heading -%}
+          {%- assign fc_body = mega_menu_block.settings.featured_collection_body | default: mega_menu_block.settings.image_2_text -%}
+          {%- assign fc_url = fc.url | default: mega_menu_block.settings.image_2_link | default: '#' -%}
 
           <div hidden id="desktop-menu-{{ forloop.index }}" class="mega-menu mega-menu--brand" {{ mega_menu_block.shopify_attributes }}>
             <div class="mega-menu--brand__grid">
-              {%- if fp != blank -%}
+              {%- if fp_image != blank or fp_title != blank -%}
                 <a class="mega-menu--brand__card mega-menu--brand__card--product" href="{{ fp_url }}">
                   {%- if fp_image != blank -%}
                     {{ fp_image | image_url: width: 1000 | image_tag: class: 'mega-menu--brand__card-image', loading: 'lazy', sizes: '(min-width: 1200px) 30vw, 50vw', widths: '480, 720, 1000', alt: fp_title }}
@@ -48,8 +50,8 @@
                       <p class="mega-menu--brand__card-eyebrow">{{ mega_menu_block.settings.featured_product_eyebrow }}</p>
                     {%- endif -%}
                     <h3 class="mega-menu--brand__card-title">{{ fp_title }}</h3>
-                    {%- if mega_menu_block.settings.featured_product_body != blank -%}
-                      <p class="mega-menu--brand__card-meta">{{ mega_menu_block.settings.featured_product_body }}</p>
+                    {%- if fp_body != blank -%}
+                      <p class="mega-menu--brand__card-meta">{{ fp_body }}</p>
                     {%- endif -%}
                     {%- if mega_menu_block.settings.featured_product_cta_text != blank -%}
                       <span class="brand-btn brand-btn--primary mega-menu--brand__card-cta">{{ mega_menu_block.settings.featured_product_cta_text }}</span>
@@ -58,7 +60,7 @@
                 </a>
               {%- endif -%}
 
-              {%- if fc != blank -%}
+              {%- if fc_image != blank or fc_title != blank -%}
                 <a class="mega-menu--brand__card mega-menu--brand__card--collection" href="{{ fc_url }}">
                   {%- if fc_image != blank -%}
                     {{ fc_image | image_url: width: 1000 | image_tag: class: 'mega-menu--brand__card-image', loading: 'lazy', sizes: '(min-width: 1200px) 30vw, 50vw', widths: '480, 720, 1000', alt: fc_title }}
@@ -68,8 +70,8 @@
                       <p class="mega-menu--brand__card-eyebrow">{{ mega_menu_block.settings.featured_collection_eyebrow }}</p>
                     {%- endif -%}
                     <h3 class="mega-menu--brand__card-title">{{ fc_title }}</h3>
-                    {%- if mega_menu_block.settings.featured_collection_body != blank -%}
-                      <p class="mega-menu--brand__card-meta">{{ mega_menu_block.settings.featured_collection_body }}</p>
+                    {%- if fc_body != blank -%}
+                      <p class="mega-menu--brand__card-meta">{{ fc_body }}</p>
                     {%- endif -%}
                     {%- if mega_menu_block.settings.featured_collection_cta_text != blank -%}
                       <span class="brand-btn brand-btn--outline mega-menu--brand__card-cta">{{ mega_menu_block.settings.featured_collection_cta_text }}</span>
@@ -80,6 +82,11 @@
 
               {%- if link.links.size > 0 -%}
                 <div class="mega-menu--brand__nav">
+                  <div class="mega-menu--brand__nav-header">
+                    <p class="mega-menu--brand__section-label">Browse {{ link.title }}</p>
+                    <p class="mega-menu--brand__nav-heading">Choose a path</p>
+                  </div>
+
                   {%- for sub_link in link.links -%}
                     <div class="mega-menu--brand__nav-col">
                       {%- if sub_link.url == '#' -%}
@@ -149,6 +156,7 @@
                 <div class="mega-menu__inner">
                   {%- if mega_menu_block.settings.images_position == 'left' and mega_menu_images != blank -%}
                     <div class="mega-menu__images-wrapper {% if images_count >= 3 %}mega-menu__images-wrapper--tight{% endif %}">
+                      <p class="mega-menu__guided-title heading heading--xsmall">Not sure where to start?</p>
                       {{- mega_menu_images -}}
                     </div>
                   {%- endif -%}
@@ -179,6 +187,7 @@
 
                   {%- if mega_menu_block.settings.images_position == 'right' and mega_menu_images != blank -%}
                     <div class="mega-menu__images-wrapper {% if images_count >= 3 %}mega-menu__images-wrapper--tight{% endif %}">
+                      <p class="mega-menu__guided-title heading heading--xsmall">Not sure where to start?</p>
                       {{- mega_menu_images -}}
                     </div>
                   {%- endif -%}

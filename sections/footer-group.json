@@ -59,7 +59,6 @@
     },
     "text-with-icons": {
       "type": "text-with-icons",
-      "disabled": true,
       "blocks": {
         "item-3": {
           "type": "item",
@@ -84,7 +83,7 @@
           "settings": {
             "icon": "picto-phone",
             "custom_icon_width": 50,
-            "title": "Customer service",
+            "title": "Expert Support",
             "content": "<p>Need assistance? <a href=\"/pages/contact\" title=\"Contact\">Our team is ready to help.</a></p>"
           }
         },
@@ -146,14 +145,14 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "title": "Subscribe",
-            "content": "<p>Stay up to date on the latest news and exclusive deals.</p>"
+            "title": "Get Setup Advice",
+            "content": "<p>Setup tips, buying guides, product updates, and occasional offers from the Net Return team.</p>"
           }
         },
         "social_media": {
           "type": "social_media",
           "settings": {
-            "title": "Follow",
+            "title": "The Net Return",
             "content": "",
             "image": "shopify://shop_images/TNR-Symbol-FullColor-Light.png"
           }
