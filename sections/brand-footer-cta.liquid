@@ -1,0 +1,67 @@
+{%- liquid
+  assign heading = section.settings.heading | default: 'Talk to a Net Return advisor'
+  assign body = section.settings.body
+  assign cta_text = section.settings.cta_text | default: 'Book a call now'
+  assign cta_link = section.settings.cta_link | default: '/pages/contact'
+-%}
+
+<section class="brand-footer-cta brand-surface brand-surface--shadow brand-surface--pattern" aria-labelledby="brand-footer-cta-heading-{{ section.id }}">
+  <div class="brand-container">
+    <div class="brand-footer-cta__inner">
+      {%- if heading != blank -%}
+        <h2 id="brand-footer-cta-heading-{{ section.id }}" class="brand-headline brand-footer-cta__heading">
+          {{ heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if body != blank -%}
+        <p class="brand-body brand-footer-cta__body">{{ body }}</p>
+      {%- endif -%}
+
+      <a class="brand-btn brand-btn--primary brand-footer-cta__cta" href="{{ cta_link }}">
+        {{- cta_text -}}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand footer CTA",
+  "tag": "div",
+  "class": "brand-footer-cta-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Standalone Emerald CTA panel above the footer. Used for the 'Book a Call' moment in the mockup."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Talk to a Net Return advisor"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body (optional)",
+      "default": "Get help spec'ing the right net, package, or simulator for your space and your game."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Book a call now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    { "name": "Brand footer CTA" }
+  ],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}

@@ -112,6 +112,15 @@
         "text_color": "#101010"
       }
     },
+    "brand-footer-cta": {
+      "type": "brand-footer-cta",
+      "settings": {
+        "heading": "Talk to a Net Return advisor",
+        "body": "Get help spec'ing the right net, package, or simulator for your space and your game.",
+        "cta_text": "Book a call now",
+        "cta_link": "/pages/contact"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -167,6 +176,7 @@
   "order": [
     "net_brand_usp_3WqgXe",
     "text-with-icons",
+    "brand-footer-cta",
     "footer"
   ]
 }

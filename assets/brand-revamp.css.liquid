@@ -348,3 +348,130 @@
 
 /* Transparent-header variant: don't fight the dark default — keep it black. */
 .header--transparent { background: rgb(var(--brand-black)) !important; }
+
+/* ============================================================
+   Footer CTA section (Phase 3 / task #6)
+   Standalone "Book a Call" panel above the main footer.
+   ============================================================ */
+
+.brand-footer-cta { padding-block: clamp(56px, 9vw, 120px); text-align: center; }
+.brand-footer-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 720px;
+  margin-inline: auto;
+}
+.brand-footer-cta__heading {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 300;
+  letter-spacing: -.015em;
+}
+.brand-footer-cta__body {
+  opacity: .85;
+  text-align: center;
+  max-width: 56ch;
+}
+.brand-footer-cta__cta { margin-top: 8px; }
+
+/* ============================================================
+   Footer restyle (Phase 3 / task #6)
+   Composes on settings token footer_background (now Shadow Green).
+   ============================================================ */
+
+.footer { color: rgb(var(--brand-white)); }
+.footer__inner { padding-block: clamp(40px, 5vw, 72px); }
+
+/* Block headings (e.g. "Shop", "Explore", "Follow"). */
+.footer__item-content > .heading,
+.footer__item-content h2 {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: .7;
+  margin-bottom: 18px;
+}
+
+/* Footer link list items: condensed caps + Emerald Precision+ glyph prefix. */
+.footer .linklist__item { padding-block: 4px; }
+.footer .linklist__item a {
+  display: inline-flex;
+  align-items: center;
+  gap: .55em;
+  color: rgb(var(--brand-white));
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-stretch: 80%;
+  transition: color .15s ease;
+}
+.footer .linklist__item a::before {
+  content: "";
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  background-color: rgb(var(--brand-emerald));
+  mask: var(--brand-plus-glyph) no-repeat center / contain;
+  -webkit-mask: var(--brand-plus-glyph) no-repeat center / contain;
+  transition: background-color .15s ease;
+}
+.footer .linklist__item a:hover { color: rgb(var(--brand-emerald)); }
+.footer .linklist__item a:hover::before { background-color: rgb(var(--brand-neon)); }
+
+/* Newsletter form on dark canvas. */
+.footer .input,
+.footer input[type="email"] {
+  background: transparent;
+  color: rgb(var(--brand-white));
+  border: 0;
+  border-bottom: 1px solid rgba(var(--brand-white), .3);
+  border-radius: 0;
+  padding-inline: 0;
+}
+.footer .input::placeholder,
+.footer input[type="email"]::placeholder { color: rgba(var(--brand-white), .55); }
+.footer .input:focus,
+.footer input[type="email"]:focus {
+  outline: none;
+  border-bottom-color: rgb(var(--brand-emerald));
+}
+
+/* Social icons row. */
+.footer__follow-and-payment,
+.footer__follow-on-shop {
+  color: rgb(var(--brand-white));
+}
+.footer__follow-and-payment a,
+.footer__follow-on-shop a {
+  color: rgb(var(--brand-white));
+  opacity: .85;
+  transition: opacity .15s ease;
+}
+.footer__follow-and-payment a:hover,
+.footer__follow-on-shop a:hover { opacity: 1; color: rgb(var(--brand-emerald)); }
+
+/* Payment methods row: lighten over dark canvas. */
+.footer .payment-methods-list { opacity: .7; }
+
+/* Footer aside (copyright + locale selector). */
+.footer__aside {
+  border-top: 1px solid rgba(var(--brand-white), .08);
+  padding-block: 24px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+.footer__aside .popover-button {
+  color: rgb(var(--brand-white));
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
