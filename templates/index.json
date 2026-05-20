@@ -24,6 +24,53 @@
         "secondary_cta_link": "shopify://pages/build-your-setup"
       }
     },
+    "brand_category_grid_main": {
+      "type": "brand-category-grid",
+      "blocks": {
+        "cat_nets": {
+          "type": "category",
+          "settings": {
+            "label": "Nets",
+            "cta_text": "Shop nets",
+            "link": "shopify://collections/nets-1",
+            "default_image_filename": "brand-category-nets.jpg"
+          }
+        },
+        "cat_packages": {
+          "type": "category",
+          "settings": {
+            "label": "Packages",
+            "cta_text": "Shop packages",
+            "link": "shopify://collections/packages",
+            "default_image_filename": "brand-category-packages.jpg"
+          }
+        },
+        "cat_simulation": {
+          "type": "category",
+          "settings": {
+            "label": "Simulation",
+            "cta_text": "Shop simulation",
+            "link": "shopify://collections/simulation",
+            "default_image_filename": "brand-category-simulation.jpg"
+          }
+        },
+        "cat_accessories": {
+          "type": "category",
+          "settings": {
+            "label": "Accessories",
+            "cta_text": "Shop accessories",
+            "link": "shopify://collections/accessories",
+            "default_image_filename": "brand-category-accessories.jpg"
+          }
+        }
+      },
+      "block_order": ["cat_nets", "cat_packages", "cat_simulation", "cat_accessories"],
+      "settings": {
+        "eyebrow": "Shop the system",
+        "heading": "Built for every part of the work.",
+        "columns": 4
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "disabled": true,
@@ -669,6 +716,7 @@
   },
   "order": [
     "brand_hero_train_with_intent",
+    "brand_category_grid_main",
     "slideshow",
     "trust_bar_DdPqga",
     "17621461567133e3c2",
