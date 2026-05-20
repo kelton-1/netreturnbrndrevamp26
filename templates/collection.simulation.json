@@ -9,8 +9,24 @@
  */
 {
   "sections": {
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Shop simulation",
+        "heading": "Build your home sim.",
+        "body": "<p>Pair a Net Return with a launch monitor, screen, and projector to bring tour-grade simulation home. Bays, packages, and add-ons — all in one place.</p>",
+        "primary_label": "Shop sim bays",
+        "primary_link": "/collections/sim-bays",
+        "secondary_label": "Sim packages",
+        "secondary_link": "#simulator-packages",
+        "image": "shopify://shop_images/simbay-slider.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "image_with_text_block_bBbGkY": {
       "type": "image-with-text-block",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "image": "shopify://shop_images/simbay-slider.jpg",
@@ -652,6 +668,7 @@
     }
   },
   "order": [
+    "brand_collection_intro",
     "image_with_text_block_bBbGkY",
     "custom_liquid_zUppqJ",
     "featured_collections_gXV9p9",

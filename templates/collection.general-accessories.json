@@ -9,8 +9,24 @@
  */
 {
   "sections": {
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Shop accessories",
+        "heading": "Built around your net.",
+        "body": "<p>Side barriers, frame pads, sandbags, training aids, and sim add-ons — everything to finish, protect, and extend your Net Return setup.</p>",
+        "primary_label": "Shop essentials",
+        "primary_link": "#essentials",
+        "secondary_label": "Training aids",
+        "secondary_link": "#training",
+        "image": "shopify://shop_images/2160x1200-poolside.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "collection-banner": {
       "type": "collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_image": true,
         "show_collection_title": true,
@@ -335,6 +351,7 @@
     }
   },
   "order": [
+    "brand_collection_intro",
     "collection-banner",
     "main",
     "custom_liquid_bemFi6",

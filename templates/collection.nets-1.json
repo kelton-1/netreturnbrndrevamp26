@@ -9,6 +9,21 @@
  */
 {
   "sections": {
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Shop nets",
+        "heading": "Golf + multisport nets.",
+        "body": "<p>Every Net Return is engineered with the same patented ball-return design and high-performance materials. The difference is size — choose the footprint that fits how you train.</p>",
+        "primary_label": "Compare models",
+        "primary_link": "/pages/compare",
+        "secondary_label": "Take the quiz",
+        "secondary_link": "/pages/quiz",
+        "image": "shopify://shop_images/backyard-home.png",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "image_with_text_block_m9rGeW": {
       "type": "image-with-text-block",
       "disabled": true,
@@ -342,6 +357,7 @@
     }
   },
   "order": [
+    "brand_collection_intro",
     "image_with_text_block_m9rGeW",
     "collection-banner",
     "multi_column_zFY8g3",
@@ -353,3 +369,4 @@
     "accordion_content_YALWAi"
   ]
 }
+

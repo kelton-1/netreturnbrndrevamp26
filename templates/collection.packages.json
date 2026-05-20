@@ -9,8 +9,24 @@
  */
 {
   "sections": {
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Shop packages",
+        "heading": "Complete practice setups.",
+        "body": "<p>Net, side barriers, Pro Turf, sandbags, rubber tees, and a duffle bag — bundled to get you swinging the day it lands.</p>",
+        "primary_label": "Build your setup",
+        "primary_link": "/pages/build-your-setup",
+        "secondary_label": "Compare nets",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/new-package-slider.png",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "image_with_text_block_7KExXY": {
       "type": "image-with-text-block",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "image": "shopify://shop_images/new-package-slider.png",
@@ -200,6 +216,7 @@
     }
   },
   "order": [
+    "brand_collection_intro",
     "image_with_text_block_7KExXY",
     "collection-banner",
     "main",

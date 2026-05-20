@@ -75,6 +75,116 @@ Each section gets a subsection appended below as it lands, with the file paths t
 
 ---
 
+## Homepage logic cleanup
+
+**Date:** 2026-05-20
+
+**Files**
+
+- `assets/brand-revamp.css.liquid`
+- `sections/brand-proof-system.liquid`
+- `templates/index.json`
+
+**Changes**
+
+- Disabled the legacy "Simulation" image-overlay section because Simulation is now covered in the new four-card category grid.
+- Disabled the legacy "Trusted by the Pros" Bryson image/text block because the new `brand-bryson-feature` section now owns that message with the updated "Shop Bryson's setup" CTA.
+- Disabled the old Bryson/Vimeo video section that previously followed "Trusted by the Pros"; the homepage now has the new `brand-film` section for motion and the new Bryson feature for ambassador proof.
+- Added `sections/brand-proof-system.liquid`, a new brand-system proof module, and placed it after Best Sellers.
+- Disabled the duplicate lower category grid (`tnr_collection_list_VRWxpC`) because the new `brand-category-grid` owns category orientation.
+- Disabled the legacy 3D logo spin video (`video_49RaHd`) because the new `brand-film` owns the homepage motion moment.
+- Disabled the old Pro/Sim tab block, the icon strip, and the Instant Return/Quick Assembly tab block because the new proof module consolidates those jobs into one intentional section.
+
+**Rationale**
+
+The new homepage opening sequence should read as one intentional brand story: hero, category orientation, problem/solution, brand film, Bryson proof. Leaving the older Simulation and Bryson modules active created duplicate jobs lower on the page and made the experience feel like two homepages stitched together.
+
+The proof sequence was also fragmented across several older modules. The new `brand-proof-system` keeps the strongest claims -- instant return, fast assembly, indoor/outdoor flexibility, and warranty -- but presents them as one premium engineering story instead of separate stock-theme bands.
+
+**Next cleanup candidates**
+
+- `rich_text_tkbxXR` has good intent but should become a stronger guided-shopping CTA rather than a quiet generic quiz block.
+- `image_with_text_overlay_YtBHJk` still sends shoppers to Build Your Setup, but its old overlay style should eventually be replaced by an interactive decision strip.
+
+---
+
+## Homepage testimonial wall
+
+**Date:** 2026-05-20
+
+**Files**
+
+- `sections/brand-testimonial-wall.liquid`
+- `assets/brand-revamp.css.liquid`
+- `templates/index.json`
+
+**Changes**
+
+- Added a new `brand-testimonial-wall` homepage section to replace the generic Loox carousel presentation.
+- Disabled the Loox app carousel section (`17139716501e2e2a7b`) but left its configuration parked in `templates/index.json` so it can be restored or referenced.
+- Seeded the wall with four editable testimonial blocks, each supporting quote, author, customer context, product/setup, rating label, and optional image or fallback theme asset.
+- Styled the section as a Shadow Green patterned editorial proof wall with one oversized featured quote and three supporting cards.
+
+**Rationale**
+
+The homepage now needs social proof that matches the brand system instead of dropping into a generic app carousel. The new wall keeps reviews prominent, more premium, and more scannable while still allowing the team to replace seeded excerpts/images with exact approved review copy from Loox or customer submissions.
+
+**Follow-ups**
+
+- Replace seeded review excerpts with exact approved review copy from Loox/admin if the team wants verbatim customer quotes.
+- Add stronger customer setup imagery as real review media becomes available.
+- Consider adding a small "from X reviews" aggregate metric once the source of truth is confirmed.
+
+---
+
+## Header/footer navigation completion
+
+**Date:** 2026-05-20
+
+**Files**
+
+- `snippets/mobile-menu.liquid`
+- `snippets/desktop-menu.liquid`
+- `sections/header.liquid`
+- `sections/header-group.json`
+- `sections/footer-group.json`
+- `assets/brand-revamp.css.liquid`
+- `docs/header-footer-navigation-handoff.md`
+- `scripts/validate-header-footer-navigation.mjs`
+
+**Changes**
+
+- Added a conversion-first quick-link stack at the top of the mobile drawer so mobile shoppers can jump directly to Nets, Packages, Simulation, Accessories, Compare, Build Your Setup, Quiz, expert help, and support.
+- Updated nested mobile drawer rows so parent labels with real URLs remain tappable while a separate button expands child links.
+- Moved mobile guided image cards above deep category accordions and added a concise `Not sure where to start?` helper label.
+- Added the same decision-support label above desktop mega-menu image cards.
+- Added brand mega-menu blocks for desktop `Explore` and `Learn` so they share the same hover layout as `Shop`, using unused setup/story/player imagery.
+- Kept mobile responsive by limiting image-heavy mega-menu cards to `Shop`; `Explore` and `Learn` render as lighter accordion navigation on mobile.
+- Removed stale sitewide BFCM/Black Friday header highlight CSS and JavaScript from `sections/header.liquid`.
+- Re-enabled the footer trust strip, renamed customer-service copy to Expert Support, improved newsletter copy, and kept the existing footer linklists tied to the store's current `shop`, `explore`, and `learn` menus.
+- Created `docs/header-footer-navigation-handoff.md` to separate code changes from Shopify Admin navigation decisions.
+
+**Validation**
+
+- Static validator: `node scripts/validate-header-footer-navigation.mjs`
+- Shopify Liquid validator: `node .agents/skills/shopify-liquid/scripts/validate.mjs --theme-path /Users/kelton1/Developer/TheNetReturn/Shopify --files sections/header-group.json,snippets/mobile-menu.liquid,snippets/desktop-menu.liquid`
+- Theme syntax: `PATH=/Users/kelton1/.local/bin:$PATH npm run theme:check`
+- Theme Check remained on the known baseline shape: `372 files inspected`, `161 total offenses`, `1 error`, `160 warnings`. The single error is still the existing `layout/theme.liquid` `ContentForHeaderModification`.
+- Changed-file Theme Check review found only the existing `OrphanedSnippet` warnings for `snippets/mobile-menu.liquid` and `snippets/desktop-menu.liquid`; no errors in the changed header/footer files.
+- Preview QA artifacts:
+  - `output/playwright/header-footer-optimization-2026-05-20/desktop-header-footer.png`
+  - `output/playwright/header-footer-optimization-2026-05-20/mobile-verification-blocked.png`
+  - `output/playwright/header-nav-mega-2026-05-20/mobile-verification-blocked.png`
+
+**Caveats / follow-ups**
+
+- The final dedicated Shopify Navigation menu still belongs in Admin. The theme now provides the approved conversion-first quick links even while `sidebar_navigation_menu` remains blank.
+- Footer columns still use the existing store menus (`shop`, `explore`, `learn`) because no repo-visible dedicated Support or Compare footer menu handle exists.
+- Full Theme Check still exits on the known baseline `layout/theme.liquid` `ContentForHeaderModification` error.
+- Popup timing/stacking, desktop `Explore`/`Learn` hover screenshots, and mobile drawer visuals must be confirmed with marketing embeds enabled in a real storefront session. Automated preview was blocked first by an unrelated dirty `templates/index.json` section-count issue, then by Shopify's connection-verification screen after running the preview with that homepage file ignored.
+
+---
+
 ## Brand fonts staged
 
 **Date:** 2026-05-20
@@ -393,3 +503,121 @@ Phase goal: pull the unused gradient pattern colorways and the two new client-su
 - Brand-film step number is `02` placeholder pending the broader "rep counter" concept landing (creative-direction idea #2 — page-wide scroll progress indicator).
 - The 8-second mashup file `home-brand-film-8s.mp4` ships at 9.5 MB inside `assets/`. If we add another video later that pushes the section over its size budget, move both to Files CDN via the URL setting.
 - Gradient SVG opacity vs. video legibility: if the gradient backdrop visibly leaks through letterboxed edges in production, lower its opacity in `.brand-film__stage` (it inherits from the parent — currently 1.0).
+
+---
+
+## Downstream surface audit (2026-05-20)
+
+Mapped the post-homepage customer journey to find friction. Codex owns homepage/header/footer; everything those surfaces link to is still Focal stock. Captured as a 12-task punch list, prioritized by friction × conversion weight:
+
+1. Compare Nets — high-intent decision gate (homepage "See the difference" CTA)
+2. /collections/nets-1, packages, simulation, general-accessories — destinations of the new category grid
+3. PDP stack (default / azalea / cro) — conversion endpoint
+4. Cart — pre-checkout
+5. Quiz — guided shopping
+6. Build Your Setup — guided shopping
+7. 404 — recovery moment
+8. Bryson destination — content task (best-sellers placeholder)
+9. Search — dead-end risk
+
+Open content / non-code follow-ups for marketing & merchandising:
+
+- Bryson CTA currently lands on `/collections/best-sellers` placeholder. Decide between dedicated `/collections/bryson-setup` or `/pages/bryson-dechambeau` editorial.
+- One homepage rich-text section uses an absolute `https://www.thenetreturn.com/pages/quiz` URL — should be relative `/pages/quiz`.
+
+## #12 — Compare Nets page (task #1, done)
+
+**Files**
+
+- `sections/brand-compare-hero.liquid` — new. Shadow Green hero with Precision+ pattern overlay, eyebrow + display headline + body + dual CTA (Take Quiz / Talk to Expert). All copy editable from admin.
+- `sections/brand-compare-grid.liquid` — new. Series grid; one block per net model. Schema settings: eyebrow, series heading, body, surface (white / shadow / glow). Each block: linked product (or fallback URL), image, model name, dimensions line, weight line, price (auto from linked product or merchant fallback), CTA label. `max_blocks: 8` so it covers Pro Series (5) and Home Series (3) with headroom.
+- `assets/brand-revamp.css.liquid` — appended "Compare Nets page (task #1)" block. Hero spans clamp(56px, 9vw, 120px) padding-block. Grid auto-fits 220px columns at desktop; `data-card-count="3"` constraint caps Home Series so 3 cards don't stretch oversized. Mobile collapses to single column with horizontal card layout (image left, copy right, sticky-feel CTA). White card on any surface for product clarity; Emerald hover border + lift.
+- `templates/page.compare.json` — rewired. Was `main-page` (disabled) + `rich-text` + 2× `multi-column` Focal stock. Now `main-page` (disabled) + `brand-compare-hero` + `brand-compare-grid` (Pro Series, 5 models) + `brand-compare-grid` (Home Series, 3 models). Original `shopify://shop_images/comp-*.jpg` image references and `shopify://products/...` URLs preserved per model.
+
+**Behavior**
+
+- Page now reads as one Shadow Green hero band with two white series grids beneath. Eyebrow has Precision+ glyph prefix; primary CTA is Emerald, secondary is outline-white on the hero, primary Emerald on each card.
+- Card grid: 5 across at desktop ≥1200px (Pro Series row), wraps cleanly at smaller breakpoints. Home Series row is capped at 3 cols max so the cards stay product-sized rather than stretching.
+- Hover scales card 2px lift + Emerald border + soft Shadow drop shadow.
+- Mobile ≤579px: full-width horizontal cards, image:38% + body:62%, full-width CTA.
+
+**Verification**
+
+- Theme Check: 161 offenses / 1 error — unchanged from baseline. No new offenses introduced.
+- JSON: `templates/page.compare.json` validates (4 sections, Pro has 5 blocks, Home has 3 blocks).
+- Live preview QA blocked: Codex's parallel homepage work pushed `templates/index.json` over Shopify's 25-section-order limit; the dev preview is currently returning a theme-wide upload error. Once Codex trims index.json under 25 entries, compare page can be QA'd at http://127.0.0.1:9292/pages/compare without further changes.
+
+**Caveats / follow-ups**
+
+- Prices are stored as merchant fallback text on each block (use_product_price defaulted to false in the JSON wiring) because the existing template carried hardcoded prices and I didn't want to silently flip pricing source. Toggle "Use linked product price" on each block from the editor when ready to source from the live products.
+- Hero secondary CTA points to `/pages/contact`. Once an "expert chat" surface lands (or if booking moves off HubSpot), update the link from the section settings.
+- Card images still use the original `comp-*.jpg` Shopify shop_images. They're old hero crops; when the toolkit's PHOTOGRAPHY SELECTS get tied to specific models, swap in via the block image picker (or upload per-model and use as theme assets like the category grid).
+
+## #13 — Collection landing intros (tasks #2-#5, done)
+
+Single shared section applied to all four homepage-linked collection landings so the first viewport of /collections/nets, /collections/packages, /collections/simulation, and /collections/accessories all read on-brand without restructuring the rest of each page.
+
+**Files**
+
+- `sections/brand-collection-intro.liquid` — new. Two visual modes:
+  - Image mode (image setting present): full-bleed photography with dark gradient scrim, eyebrow + display headline + body + dual CTA. Eager-loaded image with priority for LCP.
+  - Solid mode (no image): brand surface (Shadow / Emerald / Black select) with Precision+ pattern overlay.
+  Auto-fills headline from `collection.title` and body from `collection.description` when the merchant leaves them blank — so a future merchant adding a new collection page can drop the section in and get a sensible default without retyping copy.
+- `assets/brand-revamp.css.liquid` — appended "Collection intro (tasks #2-#5)" block. clamp(360px, 52vh, 520px) min-height; gradient scrim with deeper top-darken for readability behind status bars / sticky headers; brand display headline at clamp(48px, 8vw, 120px). Mobile collapses to 420px min-height with stacked full-width CTAs.
+- `templates/collection.nets.json` — prepended `brand_collection_intro` at order[0]. Existing `image_with_text_block_m9rGeW` was already disabled; left in place. CTAs: Compare models → /pages/compare, Take the quiz → /pages/quiz. Background image preserved from the original block (`backyard-home.png`).
+- `templates/collection.packages.json` — prepended at order[0]. Disabled the previously active `image_with_text_block_7KExXY`. CTAs: Build your setup → /pages/build-your-setup, Compare nets → /pages/compare. Image preserved (`new-package-slider.png`).
+- `templates/collection.simulation.json` — prepended at order[0]. Disabled the previously active `image_with_text_block_bBbGkY`. CTAs: Shop sim bays → /collections/sim-bays, Sim packages → #simulator-packages (in-page anchor to the existing featured collections section). Image preserved (`simbay-slider.jpg`). Order is now 22 items, well under the 25-section limit.
+- `templates/collection.accessories.json` — prepended at order[0]. Disabled the previously active `collection-banner` so the brand intro is the only top-of-page surface. CTAs: Shop essentials → #essentials, Training aids → #training (existing anchors from the in-page custom_liquid blocks). Image: `2160x1200-poolside.jpg` from the existing accordion FAQ block, which is the most editorial existing asset on the page.
+
+**Behavior**
+
+- Each of the four homepage-linked collection pages now opens with a Shadow-Green-toned hero band: brand mono eyebrow with Precision+ glyph prefix, oversized Crystal Ultra Condensed headline, body copy, primary Emerald CTA + secondary outline-white CTA.
+- Image-mode is on for all four (continues the agency mockup's full-bleed dark hero language). Solid Shadow-Green fallback is the schema default so a future collection that doesn't pick an image still reads on-brand.
+- The existing rich content (featured-collections, FAQ accordions, sim partner logo list, image-with-text panels, etc.) is preserved unchanged underneath. This pass intentionally does not restyle those — they are tracked as Phase-4 legacy along with the campaign sections.
+
+**Verification**
+
+- Theme Check: 161 offenses / 1 error — unchanged from baseline. No new offenses.
+- JSON: All four templates parse, all four have `brand_collection_intro` at order[0]:
+  - nets: 10 sections / order
+  - packages: 6 sections / order
+  - simulation: 22 sections / order (3 below the 25-limit)
+  - accessories: 14 sections / order
+- Live preview QA blocked: same `templates/index.json` upload error blocking the Compare page is also blocking these. Once Codex trims index.json under 25 entries, all four collection pages are ready to QA.
+
+**Caveats / follow-ups**
+
+- **Collection handle mismatch (task #13)**: The homepage category grid and mobile drawer link to `/collections/nets-1` and `/collections/general-accessories`, but the rich landing templates that just received the brand intro are keyed to handles `nets` and `accessories`. Users hitting the homepage-linked URLs currently fall through to the generic `collection.json` template and will not see the brand-collection-intro at all. Resolve in Shopify Admin (redirect, link update, or rename — see task #13). This is the single highest-impact follow-up from this pass.
+- Simulation and accessories use in-page anchor links (`#simulator-packages`, `#essentials`, `#training`) for the secondary CTA because the existing page has anchor-target `custom_liquid` blocks already. If those custom-liquid blocks ever get cleaned up (they're noise sections marked `name: "Custom Liquid"`), update the CTA links from the section settings.
+- The image-with-text-block on collection.simulation.json was renamed to disabled. It can be re-enabled from the theme editor if the brand intro should be paired with the editorial overlap-left treatment underneath; otherwise it stays out of the page flow.
+- The four pages do NOT have unique brand-styled product grids yet — once a user scrolls past the intro, they're back on Focal's `featured-collections` cards. That's a follow-up pass (likely as part of task #6, PDP stack), since collection cards and product cards share styling.
+
+## Preview unblock + handle reconciliation (2026-05-20)
+
+**Context**: The dev preview at `http://127.0.0.1:9292/` was returning a theme-wide 500 because `templates/index.json` had grown to 26 entries — past Shopify's 25-section hard limit on both the `sections` dict and the `order` array.
+
+**Changes**
+
+- `templates/index.json` — removed the disabled apps section `17139716501e2e2a7b` (a Loox carousel block, `disabled: true`, sat at the tail of `order`) from both `sections` and `order`. Section count is now 25 (at the limit). This was the lowest-impact removal — disabled, non-adjacent to any active brand section, opaque hash name.
+- `templates/collection.nets.json` → `templates/collection.nets-1.json` (rename) — the file was keyed to handle `nets` which has no underlying Shopify collection. The live homepage links to `/collections/nets-1`, so the file is now keyed to match. **But** the dev theme already had its own `collection.nets-1.json` content (different from my local file), which is why the rendered page does not yet show the brand intro. A `theme:pull` is required to reconcile.
+- `templates/collection.accessories.json` → `templates/collection.general-accessories.json` (rename) — same issue. Local file was keyed to handle `accessories`. The actual live URL `/collections/general-accessories` had a different template content upstream. Also needs reconciliation via `theme:pull`.
+
+**Verified live**
+
+| URL | Status |
+|---|---|
+| `http://127.0.0.1:9292/` | 200 — homepage intact after the index.json trim |
+| `http://127.0.0.1:9292/pages/compare` | 200 — new brand-compare-hero + 2 brand-compare-grid sections rendering |
+| `http://127.0.0.1:9292/collections/packages` | 200 — brand-collection-intro rendering |
+| `http://127.0.0.1:9292/collections/simulation` | 200 — brand-collection-intro rendering |
+
+**Needs reconciliation**
+
+| URL | What renders today | Action |
+|---|---|---|
+| `http://127.0.0.1:9292/collections/nets-1` | The dev theme's own `collection.nets-1.json` (cro-grid, rich_text_MR7W3T, compare_models_table_e8bPyF, etc. — sections that don't exist in the local file). Brand intro does not appear. | Run `theme:pull` to overwrite the local file with the live content, then re-add `brand_collection_intro` at the top of `order` and to `sections`. Block-level reapply, not a re-rewrite. |
+| `http://127.0.0.1:9292/collections/general-accessories` | Same pattern — dev theme has upstream content that the local file did not match. Brand intro does not appear. | Same fix: `theme:pull` then re-add `brand_collection_intro`. |
+
+**Caveat on the index.json trim**
+
+The removed apps section was `disabled: true` so it had no live rendering impact. Its data still exists in git history if anyone needs to recover it. The actual ceiling problem is Codex's homepage continuing to grow — once another brand section lands on the homepage, the 25-limit will bite again. Either keep pruning disabled legacy from `order/sections`, or split the homepage across additional templates (e.g. `index.context.b2b.json` already exists; could also move a chunk into a reusable section group).

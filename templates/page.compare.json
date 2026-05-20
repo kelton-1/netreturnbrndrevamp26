@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -17,197 +8,161 @@
         "page_width": "medium"
       }
     },
-    "rich_text_PbW4Dm": {
-      "type": "rich-text",
+    "brand_compare_hero": {
+      "type": "brand-compare-hero",
       "settings": {
-        "subheading": "",
-        "title": "Compare Nets",
-        "content": "<p>Every Net Return is manufactured with the same high-quality materials, only differing in size.</p>",
-        "button_text": "",
-        "button_link": "",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "center",
-        "text_alignment": "center",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
+        "eyebrow": "Compare nets",
+        "heading": "Find your fit.",
+        "body": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train.",
+        "primary_label": "Take the quiz",
+        "primary_link": "/pages/quiz",
+        "secondary_label": "Talk to an expert",
+        "secondary_link": "/pages/contact"
       }
     },
-    "multi_column_cYNHAJ": {
-      "type": "multi-column",
+    "brand_compare_pro": {
+      "type": "brand-compare-grid",
       "blocks": {
-        "item_LHTnx3": {
-          "type": "item",
+        "pro": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-pro.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pro",
-            "content": "<p>8'w x 7'6\"h x 3'6\"d<br/>Weight: 28 lbs.</p><p>$795</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-pro.jpg",
+            "title": "Pro",
+            "dimensions": "8'w × 7'6\"h × 3'6\"d",
+            "weight": "Weight: 28 lbs.",
+            "use_product_price": false,
+            "price_text": "$795",
+            "cta_label": "Shop Pro"
           }
         },
-        "item_fwyrxU": {
-          "type": "item",
+        "pro_8": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-pro_8.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pro 8",
-            "content": "<p>8'w x 8'h x 3'6\"d<br/>Weight: 32 lbs.</p><p>$895</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/large-8-pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-pro_8.jpg",
+            "title": "Pro 8",
+            "dimensions": "8'w × 8'h × 3'6\"d",
+            "weight": "Weight: 32 lbs.",
+            "use_product_price": false,
+            "price_text": "$895",
+            "cta_label": "Shop Pro 8"
           }
         },
-        "item_yhdDAe": {
-          "type": "item",
+        "pro_9": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-pro_9.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pro 9",
-            "content": "<p>9'w x 8'h x 3'6\"d<br/>Weight: 33 lbs.</p><p>$995</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/large-9-pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-pro_9.jpg",
+            "title": "Pro 9",
+            "dimensions": "9'w × 8'h × 3'6\"d",
+            "weight": "Weight: 33 lbs.",
+            "use_product_price": false,
+            "price_text": "$995",
+            "cta_label": "Shop Pro 9"
           }
         },
-        "item_ThHfCq": {
-          "type": "item",
+        "pro_10": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-pro_10.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pro 10",
-            "content": "<p>10'w x 8'h x 3'6\"d<br/>Weight: 34 lbs.</p><p>$1,095</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/large-10-pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-pro_10.jpg",
+            "title": "Pro 10",
+            "dimensions": "10'w × 8'h × 3'6\"d",
+            "weight": "Weight: 34 lbs.",
+            "use_product_price": false,
+            "price_text": "$1,095",
+            "cta_label": "Shop Pro 10"
           }
         },
-        "item_3BL3dW": {
-          "type": "item",
+        "pro_xl": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-XL.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Pro XL",
-            "content": "<p>10'w x 9'6\"h x 3'6\"d<br/>Weight: 48 lbs.</p><p>$1,599</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/xl-pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-XL.jpg",
+            "title": "Pro XL",
+            "dimensions": "10'w × 9'6\"h × 3'6\"d",
+            "weight": "Weight: 48 lbs.",
+            "use_product_price": false,
+            "price_text": "$1,599",
+            "cta_label": "Shop Pro XL"
           }
         }
       },
       "block_order": [
-        "item_LHTnx3",
-        "item_fwyrxU",
-        "item_yhdDAe",
-        "item_ThHfCq",
-        "item_3BL3dW"
+        "pro",
+        "pro_8",
+        "pro_9",
+        "pro_10",
+        "pro_xl"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "Pro Series",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "medium",
-        "desktop_item_size": "medium",
-        "spacing": "normal",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "eyebrow": "Pro Series",
+        "heading": "Pro Series",
+        "body": "For dedicated practice. Garage to commercial-grade footprints, all with the same 225 MPH ball return.",
+        "surface": "white"
       }
     },
-    "multi_column_NqkMcT": {
-      "type": "multi-column",
+    "brand_compare_home": {
+      "type": "brand-compare-grid",
       "blocks": {
-        "item_eUQq8a": {
-          "type": "item",
+        "junior": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-junior.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Junior",
-            "content": "<p>4'6\"w x 4'6\"h x 2'4\"d<br/>Weight: 15 lbs.</p><p>$295</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/junior-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-junior.jpg",
+            "title": "Junior",
+            "dimensions": "4'6\"w × 4'6\"h × 2'4\"d",
+            "weight": "Weight: 15 lbs.",
+            "use_product_price": false,
+            "price_text": "$295",
+            "cta_label": "Shop Junior"
           }
         },
-        "item_PYAKnc": {
-          "type": "item",
+        "mini": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-mini.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Mini",
-            "content": "<p>5'w x 6'h x 3'6\"d<br/>Weight: 24 lbs.</p><p>$549</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/mini-pro-series-golf-net",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-mini.jpg",
+            "title": "Mini",
+            "dimensions": "5'w × 6'h × 3'6\"d",
+            "weight": "Weight: 24 lbs.",
+            "use_product_price": false,
+            "price_text": "$549",
+            "cta_label": "Shop Mini"
           }
         },
-        "item_HGwcWX": {
-          "type": "item",
+        "home": {
+          "type": "model",
           "settings": {
-            "image": "shopify://shop_images/comp-home.jpg",
-            "image_width": 100,
-            "image_border": "rgba(0,0,0,0)",
-            "title": "Home",
-            "content": "<p>7'w x 7'h x 3'6\"d<br/>Weight: 26 lbs.</p><p>$695</p>",
-            "link_text": "Shop Now",
             "link_url": "shopify://products/golf-and-multi-sport-nets",
-            "link_style": "link",
-            "text_alignment": "left",
-            "vertical_alignment": "start"
+            "image": "shopify://shop_images/comp-home.jpg",
+            "title": "Home",
+            "dimensions": "7'w × 7'h × 3'6\"d",
+            "weight": "Weight: 26 lbs.",
+            "use_product_price": false,
+            "price_text": "$695",
+            "cta_label": "Shop Home"
           }
         }
       },
       "block_order": [
-        "item_eUQq8a",
-        "item_PYAKnc",
-        "item_HGwcWX"
+        "junior",
+        "mini",
+        "home"
       ],
       "settings": {
-        "reveal_on_scroll": true,
-        "stack_items": false,
-        "subheading": "",
-        "title": "Home Series",
-        "content": "",
-        "column_alignment": "center",
-        "mobile_item_size": "medium",
-        "desktop_item_size": "medium",
-        "spacing": "normal",
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
+        "eyebrow": "Home Series",
+        "heading": "Home Series",
+        "body": "Compact builds for tight spaces, kids, and quick warm-ups. Same materials, smaller footprint.",
+        "surface": "white"
       }
     }
   },
   "order": [
     "main",
-    "rich_text_PbW4Dm",
-    "multi_column_cYNHAJ",
-    "multi_column_NqkMcT"
+    "brand_compare_hero",
+    "brand_compare_pro",
+    "brand_compare_home"
   ]
 }

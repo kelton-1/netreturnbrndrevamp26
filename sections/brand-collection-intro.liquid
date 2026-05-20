@@ -1,0 +1,173 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign primary_label = section.settings.primary_label
+  assign primary_link = section.settings.primary_link
+  assign secondary_label = section.settings.secondary_label
+  assign secondary_link = section.settings.secondary_link
+  assign image = section.settings.image
+  assign image_alt = image.alt | default: heading | default: shop.name
+  assign overlay = section.settings.overlay_opacity | default: 55
+  assign surface = section.settings.surface
+
+  comment
+    Auto-fill from the collection it sits on when the merchant hasn't set
+    explicit overrides. Keeps the section drop-in for any /collections/*
+    template without forcing per-page copy duplication in the editor.
+  endcomment
+  if heading == blank
+    assign heading = collection.title
+  endif
+  if body == blank and collection.description != blank
+    assign body = collection.description
+  endif
+-%}
+
+<section
+  class="brand-collection-intro brand-surface brand-surface--{{ surface }}{% if image == blank %} brand-surface--pattern{% endif %}"
+  aria-labelledby="brand-collection-intro-heading-{{ section.id }}"
+>
+  {%- if image != blank -%}
+    <div class="brand-collection-intro__media" aria-hidden="true">
+      {{ image | image_url: width: 2400 | image_tag:
+          class: 'brand-collection-intro__image',
+          loading: 'eager',
+          fetchpriority: 'high',
+          sizes: '100vw',
+          widths: '720, 1080, 1440, 1920, 2400',
+          alt: image_alt
+      }}
+      <div class="brand-collection-intro__scrim" style="--brand-collection-intro-overlay: {{ overlay | divided_by: 100.0 }};"></div>
+    </div>
+  {%- endif -%}
+
+  <div class="brand-collection-intro__inner brand-container">
+    {%- if eyebrow != blank -%}
+      <p class="brand-eyebrow brand-collection-intro__eyebrow">
+        <span class="brand-plus" aria-hidden="true"></span>
+        {{ eyebrow }}
+      </p>
+    {%- endif -%}
+
+    {%- if heading != blank -%}
+      <h1 id="brand-collection-intro-heading-{{ section.id }}" class="brand-headline brand-collection-intro__heading">{{ heading }}</h1>
+    {%- endif -%}
+
+    {%- if body != blank -%}
+      <div class="brand-body brand-collection-intro__body rte">{{ body }}</div>
+    {%- endif -%}
+
+    {%- if primary_label != blank or secondary_label != blank -%}
+      <div class="brand-collection-intro__actions">
+        {%- if primary_label != blank -%}
+          <a class="brand-btn brand-btn--primary" href="{{ primary_link | default: '#' }}">{{ primary_label }}</a>
+        {%- endif -%}
+        {%- if secondary_label != blank -%}
+          <a class="brand-btn brand-btn--outline" href="{{ secondary_link | default: '#' }}">{{ secondary_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand collection intro",
+  "tag": "section",
+  "class": "brand-collection-intro-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Brand-system intro for collection landing pages. Drop above the existing collection content. Heading/body auto-fill from the collection if left blank."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "info": "Falls back to the collection's title."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "info": "Falls back to the collection's description."
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary CTA label"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary CTA label"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image",
+      "info": "Optional. When set, image fills the section behind the copy with a dark scrim. When blank, the section uses the Precision+ pattern over the chosen surface color."
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Image scrim opacity",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 55
+    },
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Surface color",
+      "info": "Used when no background image is set. Image variant always reads as dark.",
+      "options": [
+        { "value": "shadow", "label": "Shadow Green" },
+        { "value": "emerald", "label": "Emerald" },
+        { "value": "black", "label": "Black" }
+      ],
+      "default": "shadow"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand collection intro",
+      "settings": {
+        "eyebrow": "Shop",
+        "surface": "shadow"
+      }
+    }
+  ]
+}
+{% endschema %}

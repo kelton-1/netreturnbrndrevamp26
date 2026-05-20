@@ -1,0 +1,261 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign show_badge = section.settings.show_concept_badge
+
+  comment
+    The mosaic layout positions a single "hero" card and three "sibling" cards
+    in an asymmetric grid. Hovering or focusing a sibling card promotes it to
+    the hero slot via the View Transitions API (with a class-only fallback for
+    browsers that don't support it). The initial hero is the first block in
+    block_order so the merchant controls the resting state.
+  endcomment
+-%}
+
+<section
+  class="brand-category-mosaic"
+  data-brand-category-mosaic
+  data-hero-id="1"
+  {% if heading != blank %}aria-labelledby="brand-category-mosaic-heading-{{ section.id }}"{% endif %}
+>
+  {%- if show_badge -%}
+    <span class="brand-category-mosaic__badge" aria-hidden="true">Concept B · Mosaic</span>
+  {%- endif -%}
+
+  <div class="brand-container">
+    {%- if eyebrow != blank or heading != blank -%}
+      <header class="brand-category-mosaic__header">
+        {%- if eyebrow != blank -%}
+          <p class="brand-eyebrow">{{ eyebrow }}</p>
+        {%- endif -%}
+        {%- if heading != blank -%}
+          <h2 id="brand-category-mosaic-heading-{{ section.id }}" class="brand-category-mosaic__heading">{{ heading }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul class="brand-category-mosaic__grid" role="list">
+      {%- for block in section.blocks limit: 4 -%}
+        {%- liquid
+          assign card_id = forloop.index
+          assign label = block.settings.label
+          assign link = block.settings.link
+          assign image = block.settings.image
+          assign default_image_filename = block.settings.default_image_filename
+          assign cta = block.settings.cta_text | default: 'Shop now'
+        -%}
+        {%- if label != blank -%}
+          <li
+            class="brand-category-mosaic__card"
+            data-card-id="{{ card_id }}"
+            style="view-transition-name: brand-category-mosaic-card-{{ card_id }};"
+            {{ block.shopify_attributes }}
+          >
+            <a
+              class="brand-category-mosaic__link"
+              href="{{ link | default: '#' }}"
+              aria-label="{{ label | escape }}"
+            >
+              <span class="brand-category-mosaic__frame">
+                {%- if image != blank -%}
+                  <img
+                    class="brand-category-mosaic__image"
+                    src="{{ image | image_url: width: 1600 }}"
+                    srcset="{{ image | image_url: width: 600 }} 600w, {{ image | image_url: width: 1200 }} 1200w, {{ image | image_url: width: 1600 }} 1600w"
+                    sizes="(max-width: 999px) 50vw, (max-width: 1400px) 60vw, 800px"
+                    alt="{{ image.alt | default: label | escape }}"
+                    loading="lazy"
+                    width="1600"
+                    height="1000">
+                {%- elsif default_image_filename != blank -%}
+                  <img
+                    class="brand-category-mosaic__image"
+                    src="{{ default_image_filename | asset_url }}"
+                    alt="{{ label | escape }}"
+                    loading="lazy"
+                    width="1600"
+                    height="1000">
+                {%- endif -%}
+              </span>
+              <div class="brand-category-mosaic__content">
+                <h3 class="brand-category-mosaic__label">
+                  <span class="brand-category-mosaic__index" aria-hidden="true">{{ card_id | prepend: '0' | slice: -2, 2 }}</span>
+                  {{ label }}
+                </h3>
+                <span class="brand-category-mosaic__cta">
+                  {{ cta }}
+                  <span class="brand-category-mosaic__cta-arrow" aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% javascript %}
+  (function () {
+    var sections = document.querySelectorAll('[data-brand-category-mosaic]:not([data-brand-mosaic-bound])');
+    if (!sections.length) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    var hasViewTransitions = typeof document.startViewTransition === 'function';
+
+    sections.forEach(function (section) {
+      section.setAttribute('data-brand-mosaic-bound', '1');
+
+      var cards = Array.prototype.slice.call(section.querySelectorAll('[data-card-id]'));
+      if (cards.length < 2) return;
+
+      // Per-card mouseenter is unreliable here: when a swap rearranges the
+      // grid, a different card slides under the (static) cursor, the browser
+      // fires mouseenter on that card, and we cascade into a swap loop.
+      // Instead we listen for real pointer movement at the section level and
+      // resolve which card is genuinely under the cursor via elementFromPoint.
+      // No movement, no swap — layout shifts can no longer trigger us.
+      var lastCardId = null;
+      var lastCheck = 0;
+      var transitioning = false;
+
+      function applyHero(newHeroId) {
+        if (transitioning) return;
+        if (section.dataset.heroId === String(newHeroId)) return;
+        var doSwap = function () { section.dataset.heroId = String(newHeroId); };
+        if (hasViewTransitions && (!reduceMotion || !reduceMotion.matches)) {
+          transitioning = true;
+          var t = document.startViewTransition(doSwap);
+          if (t && t.finished && typeof t.finished.finally === 'function') {
+            t.finished.finally(function () { transitioning = false; });
+          } else {
+            // Older View Transitions implementations: fall back to a timer
+            // that matches our 480ms animation-duration plus a small buffer.
+            setTimeout(function () { transitioning = false; }, 560);
+          }
+        } else {
+          doSwap();
+        }
+      }
+
+      section.addEventListener('pointermove', function (event) {
+        // Throttle pointer reads — elementFromPoint is cheap but firing on
+        // every micro-pixel of motion would be wasteful.
+        var now = event.timeStamp;
+        if (now - lastCheck < 40) return;
+        lastCheck = now;
+
+        var target = document.elementFromPoint(event.clientX, event.clientY);
+        if (!target) return;
+        var card = target.closest('[data-card-id]');
+        if (!card || !section.contains(card)) return;
+
+        var id = card.dataset.cardId;
+        if (id === lastCardId) return; // still over the same card — no swap
+        lastCardId = id;
+        applyHero(id);
+      });
+
+      // Reset the tracker when the pointer leaves the section so re-entering
+      // the same card after a brief exit works.
+      section.addEventListener('pointerleave', function () {
+        lastCardId = null;
+      });
+
+      // Keyboard: focus inside any card promotes it. No cascade risk because
+      // focus moves only on explicit user input.
+      cards.forEach(function (card) {
+        card.addEventListener('focusin', function () { applyHero(card.dataset.cardId); });
+      });
+
+      // Touch: tap a sibling to promote it. The link still navigates after.
+      section.addEventListener('touchstart', function (event) {
+        var card = event.target.closest('[data-card-id]');
+        if (card) applyHero(card.dataset.cardId);
+      }, { passive: true });
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Brand category mosaic",
+  "tag": "section",
+  "class": "brand-category-mosaic-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Concept B — Editorial mosaic. One large hero card + three smaller siblings. Hovering or focusing any sibling promotes it to the hero slot via a smooth layout transition. 4 blocks required."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_concept_badge",
+      "label": "Show 'Concept B' badge (for preview comparison)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)",
+      "default": "Shop the system"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Built for every part of the work."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Category"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Shop now"
+        },
+        {
+          "type": "text",
+          "id": "default_image_filename",
+          "label": "Fallback theme asset filename"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand category mosaic",
+      "settings": {
+        "eyebrow": "Shop the system",
+        "heading": "Built for every part of the work."
+      },
+      "blocks": [
+        { "type": "category", "settings": { "label": "Nets",        "cta_text": "Shop nets",        "link": "/collections/nets-1",            "default_image_filename": "brand-category-nets.jpg" } },
+        { "type": "category", "settings": { "label": "Packages",    "cta_text": "Shop packages",    "link": "/collections/packages",          "default_image_filename": "brand-category-packages.jpg" } },
+        { "type": "category", "settings": { "label": "Simulation",  "cta_text": "Shop simulation",  "link": "/collections/simulation",        "default_image_filename": "brand-category-simulation.jpg" } },
+        { "type": "category", "settings": { "label": "Accessories", "cta_text": "Shop accessories", "link": "/collections/general-accessories", "default_image_filename": "brand-category-accessories.jpg" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

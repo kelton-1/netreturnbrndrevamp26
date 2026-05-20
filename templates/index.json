@@ -64,12 +64,18 @@
           }
         }
       },
-      "block_order": ["cat_nets", "cat_packages", "cat_simulation", "cat_accessories"],
+      "block_order": [
+        "cat_nets",
+        "cat_packages",
+        "cat_simulation",
+        "cat_accessories"
+      ],
       "settings": {
         "eyebrow": "Shop the system",
         "heading": "Built for every part of the work.",
         "columns": 4
-      }
+      },
+      "disabled": true
     },
     "brand_product_story_dont_settle": {
       "type": "brand-product-story",
@@ -91,8 +97,8 @@
         "step_number": "02",
         "label_text": "Train With Intent",
         "gradient_colorway": "shadow",
-        "show_drift": true,
-        "enable_pin": true
+        "show_drift": false,
+        "enable_pin": false
       }
     },
     "brand_bryson_feature": {
@@ -103,7 +109,7 @@
         "display_word": "BRYSON",
         "eyebrow": "Official ambassador",
         "tagline": "Trained on a Net Return.",
-        "body": "Bryson DeChambeau trains the way he plays — relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work.",
+        "body": "Bryson DeChambeau trains the way he plays \u2014 relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work.",
         "cta_text": "Shop Bryson's setup",
         "cta_link": "shopify://collections/best-sellers"
       }
@@ -238,7 +244,7 @@
         "ai_gen_block_af24d37_YB8jBj": {
           "type": "ai_gen_block_af24d37",
           "settings": {
-            "message": "Free Shipping on All Products — Limited time. Shop now →",
+            "message": "Free Shipping on All Products \u2014 Limited time. Shop now \u2192",
             "link_url": "",
             "background_color": "#101010",
             "text_color": "#ffffff",
@@ -371,143 +377,9 @@
       ],
       "settings": {}
     },
-    "tnr_collection_list_VRWxpC": {
-      "type": "tnr-collection-list",
-      "blocks": {
-        "collection_WmkzBw": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/nets.webp",
-            "subheading": "",
-            "title": "Nets",
-            "link_text": "",
-            "link_url": "shopify://collections/nets-1",
-            "text_color": "#191919",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_jDkEcc": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/packages.webp",
-            "subheading": "",
-            "title": "Packages",
-            "link_text": "",
-            "link_url": "shopify://collections/packages",
-            "text_color": "#191919",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_R3eYAB": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/newsim.jpg",
-            "subheading": "",
-            "title": "Simulation",
-            "link_text": "",
-            "link_url": "shopify://collections/simulation",
-            "text_color": "#191919",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0
-          }
-        },
-        "collection_MdhEjm": {
-          "type": "collection",
-          "settings": {
-            "collection": "",
-            "image": "shopify://shop_images/accessories.webp",
-            "subheading": "",
-            "title": "Accessories",
-            "link_text": "",
-            "link_url": "shopify://collections/general-accessories",
-            "text_color": "#191919",
-            "overlay_color": "rgba(0,0,0,0)",
-            "overlay_opacity": 0
-          }
-        }
-      },
-      "block_order": [
-        "collection_WmkzBw",
-        "collection_jDkEcc",
-        "collection_R3eYAB",
-        "collection_MdhEjm"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "layout": "grid",
-        "subheading": "",
-        "title": "",
-        "background": "#ffffff",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "video_49RaHd": {
-      "type": "video",
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video": "shopify://files/videos/newlogo-3dspin.mp4",
-        "video_url": "",
-        "background_type": "boxed",
-        "video_size": "auto",
-        "autoplay": true,
-        "show_video_controls": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image-with-text": {
-      "type": "image-with-text",
-      "blocks": {
-        "item-1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/1400x1400-back.png",
-            "tab_label": "Pro Series",
-            "subheading": "Best Sellers",
-            "title": "Pro Series",
-            "content": "<p>Expertly designed to handle any golf swing with ease. The Pro Series is the epitome of quality, safety, and durability, guaranteeing an exceptional experience.</p>",
-            "button_text": "Shop Pro Series",
-            "button_link": "shopify://products/pro-series-golf-net"
-          }
-        },
-        "item-2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/1400x1400-simtj.png",
-            "tab_label": "Sim Series",
-            "subheading": "Best Sellers",
-            "title": "Sim Series",
-            "content": "<p>Integrating the quality and convenience of a Net Return with the elevated experience of a simulator to create a functional and easy to assemble hitting bay.</p>",
-            "button_text": "Shop Sim Series",
-            "button_link": "shopify://products/simulator-bay-8-golf-simulator-setup"
-          }
-        }
-      },
-      "block_order": [
-        "item-1",
-        "item-2"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "image",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "text_with_icons_BQA78q": {
       "type": "text-with-icons",
+      "disabled": true,
       "blocks": {
         "item_gMihGm": {
           "type": "item",
@@ -585,6 +457,7 @@
     },
     "image_with_text_8dmRyz": {
       "type": "image-with-text",
+      "disabled": true,
       "blocks": {
         "item_nr33fH": {
           "type": "item",
@@ -648,6 +521,7 @@
     },
     "image_with_text_overlay_FUPQcD": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "section_height": "auto",
@@ -670,6 +544,7 @@
     },
     "image_with_text_block_9YtgJ7": {
       "type": "image-with-text-block",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "image": "shopify://shop_images/1500x1800-4.jpg",
@@ -689,6 +564,7 @@
     },
     "video_dN76e7": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -716,45 +592,298 @@
         "text_color": "rgba(0,0,0,0)"
       }
     },
-    "17139716501e2e2a7b": {
-      "type": "apps",
+    "brand_testimonial_wall_main": {
+      "type": "brand-testimonial-wall",
       "blocks": {
-        "loox_reviews_loox_card_carousel_section_Bh8JYp": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-card-carousel-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+        "testimonial_tom": {
+          "type": "testimonial",
           "settings": {
-            "maxWidth": 1100,
-            "borderRadius": 4,
-            "itemsPerView": 4,
-            "mobileItemsPerView": 1,
-            "maxNumberOfCharacters": 100,
-            "imageRatio": "0.72",
-            "reviewerNameColor": "#000000",
-            "textColor": "#101010",
-            "itemBackgroundColor": "#ffffff",
-            "starsColor": "#00994d",
-            "starsBackgroundColor": "#ffffff",
-            "arrows_backgroundColor": "#ffffff",
-            "arrows_iconColor": "#101010",
-            "shadow": "none",
-            "border_active": false,
-            "border_width": 2,
-            "border_color": "#000000",
-            "productIds": ""
+            "quote": "I added The Net Return to my studio because hitting into the screen was too loud. This solved the problem and made practice feel better.",
+            "author": "Tom W.",
+            "context": "Indoor studio",
+            "product": "Pro Series",
+            "rating_label": "5.0 verified",
+            "default_image_filename": "home-sim-series.jpg"
+          }
+        },
+        "testimonial_linda": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Easy to put together, quick to start using, and sturdy enough that I could set it up myself.",
+            "author": "Linda A.",
+            "context": "Home practice",
+            "product": "Golf and multi-sport net",
+            "rating_label": "5.0 verified",
+            "default_image_filename": "home-nets.jpg"
+          }
+        },
+        "testimonial_scott": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "I researched a lot of options and decided on The Net Return. It fits the garage perfectly and is easy to move when I need the space back.",
+            "author": "Scott W.",
+            "context": "Garage setup",
+            "product": "Golf package",
+            "rating_label": "5.0 verified",
+            "default_image_filename": "home-packages.jpg"
+          }
+        },
+        "testimonial_jason": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The screen and net setup exceeded expectations. It feels like equipment I can keep building around over time.",
+            "author": "Jason H.",
+            "context": "Simulator upgrade",
+            "product": "Simulator kit",
+            "rating_label": "5.0 verified",
+            "default_image_filename": "brand-category-simulation.jpg"
           }
         }
       },
       "block_order": [
-        "loox_reviews_loox_card_carousel_section_Bh8JYp"
+        "testimonial_tom",
+        "testimonial_linda",
+        "testimonial_scott",
+        "testimonial_jason"
       ],
       "settings": {
-        "include_horizontal_margins": true,
-        "include_vertical_margins": true
+        "eyebrow": "Customer proof",
+        "heading": "Trusted in garages, backyards, and studios.",
+        "body": "<p>Real setups, real reps, and the same reason people keep coming back: the ball returns, the setup holds, and practice feels easier to repeat.</p>",
+        "featured_label": "Featured setup",
+        "cta_text": "Read more reviews",
+        "cta_link": "shopify://pages/testimonials"
+      }
+    },
+    "brand_proof_system_main": {
+      "type": "brand-proof-system-cinematic",
+      "disabled": true,
+      "blocks": {
+        "proof_s_shape": {
+          "type": "proof",
+          "settings": {
+            "stat": "Patented",
+            "title": "Patented S-shape frame",
+            "text": "Curved side panels absorb impact and feed the ball back to your feet \u2014 every rep, no chasing."
+          }
+        },
+        "proof_guarantee": {
+          "type": "proof",
+          "settings": {
+            "stat": "250K",
+            "title": "250,000-shot guarantee",
+            "text": "Tour-grade netting backed by our warranty. Train as hard as you want \u2014 it holds."
+          }
+        },
+        "proof_setup": {
+          "type": "proof",
+          "settings": {
+            "stat": "10 min",
+            "title": "10-minute setup",
+            "text": "Color-coded push-button connections \u2014 no tools, no manual. Breaks down just as fast."
+          }
+        },
+        "proof_versatile": {
+          "type": "proof",
+          "settings": {
+            "stat": "Any sport",
+            "title": "Durable & versatile",
+            "text": "Indoor or outdoor, multi-sport ready, sleek enough to live in your space \u2014 not just your garage."
+          }
+        }
+      },
+      "block_order": [
+        "proof_s_shape",
+        "proof_guarantee",
+        "proof_setup",
+        "proof_versatile"
+      ],
+      "settings": {
+        "show_concept_badge": true,
+        "eyebrow": "Why it works",
+        "heading": "Built to return more than the ball.",
+        "body": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving. Set it up fast, train anywhere, and build from net to full simulator when your game is ready.</p>",
+        "cta_text": "Build your setup",
+        "cta_link": "shopify://pages/build-your-setup",
+        "default_image_filename": "home-packages-backyard-patio.jpg"
+      }
+    },
+    "brand_proof_system_diagram": {
+      "type": "brand-proof-system-diagram",
+      "disabled": true,
+      "blocks": {
+        "callout_s_shape": {
+          "type": "callout",
+          "settings": {
+            "stat": "Patented",
+            "title": "Patented S-shape frame",
+            "text": "Curved side panels absorb impact and feed the ball back to your feet \u2014 every rep, no chasing.",
+            "callout_position": "top-left",
+            "dot_x": 14,
+            "dot_y": 55
+          }
+        },
+        "callout_guarantee": {
+          "type": "callout",
+          "settings": {
+            "stat": "250K",
+            "title": "250,000-shot guarantee",
+            "text": "Tour-grade netting backed by our warranty. Train as hard as you want \u2014 it holds.",
+            "callout_position": "top-right",
+            "dot_x": 55,
+            "dot_y": 42
+          }
+        },
+        "callout_setup": {
+          "type": "callout",
+          "settings": {
+            "stat": "10 min",
+            "title": "10-minute setup",
+            "text": "Color-coded push-button connections \u2014 no tools, no manual. Breaks down just as fast.",
+            "callout_position": "bottom-right",
+            "dot_x": 84,
+            "dot_y": 16
+          }
+        },
+        "callout_versatile": {
+          "type": "callout",
+          "settings": {
+            "stat": "Any sport",
+            "title": "Durable & versatile",
+            "text": "Indoor or outdoor, multi-sport ready, sleek enough to live in your space \u2014 not just your garage.",
+            "callout_position": "bottom-left",
+            "dot_x": 12,
+            "dot_y": 92
+          }
+        }
+      },
+      "block_order": [
+        "callout_s_shape",
+        "callout_guarantee",
+        "callout_setup",
+        "callout_versatile"
+      ],
+      "settings": {
+        "show_concept_badge": true,
+        "eyebrow": "Why it works",
+        "heading": "Built to return more than the ball.",
+        "body": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving.</p>",
+        "cta_text": "Build your setup",
+        "cta_link": "shopify://pages/build-your-setup",
+        "default_image_filename": "brand-proof-diagram-net.jpg"
+      }
+    },
+    "brand_category_mosaic": {
+      "type": "brand-category-mosaic",
+      "blocks": {
+        "cat_nets": {
+          "type": "category",
+          "settings": {
+            "label": "Nets",
+            "cta_text": "Shop nets",
+            "link": "/collections/nets-1",
+            "default_image_filename": "brand-category-nets.jpg"
+          }
+        },
+        "cat_packages": {
+          "type": "category",
+          "settings": {
+            "label": "Packages",
+            "cta_text": "Shop packages",
+            "link": "/collections/packages",
+            "default_image_filename": "brand-category-packages.jpg"
+          }
+        },
+        "cat_simulation": {
+          "type": "category",
+          "settings": {
+            "label": "Simulation",
+            "cta_text": "Shop simulation",
+            "link": "/collections/simulation",
+            "default_image_filename": "brand-category-simulation.jpg"
+          }
+        },
+        "cat_accessories": {
+          "type": "category",
+          "settings": {
+            "label": "Accessories",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories",
+            "default_image_filename": "brand-category-accessories.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "cat_nets",
+        "cat_packages",
+        "cat_simulation",
+        "cat_accessories"
+      ],
+      "settings": {
+        "show_concept_badge": true,
+        "eyebrow": "Shop the system",
+        "heading": "Built for every part of the work."
+      }
+    },
+    "brand_category_rail": {
+      "type": "brand-category-rail",
+      "blocks": {
+        "cat_nets": {
+          "type": "category",
+          "settings": {
+            "label": "Nets",
+            "cta_text": "Shop nets",
+            "link": "/collections/nets-1",
+            "default_image_filename": "brand-category-nets.jpg"
+          }
+        },
+        "cat_packages": {
+          "type": "category",
+          "settings": {
+            "label": "Packages",
+            "cta_text": "Shop packages",
+            "link": "/collections/packages",
+            "default_image_filename": "brand-category-packages.jpg"
+          }
+        },
+        "cat_simulation": {
+          "type": "category",
+          "settings": {
+            "label": "Simulation",
+            "cta_text": "Shop simulation",
+            "link": "/collections/simulation",
+            "default_image_filename": "brand-category-simulation.jpg"
+          }
+        },
+        "cat_accessories": {
+          "type": "category",
+          "settings": {
+            "label": "Accessories",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories",
+            "default_image_filename": "brand-category-accessories.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "cat_nets",
+        "cat_packages",
+        "cat_simulation",
+        "cat_accessories"
+      ],
+      "settings": {
+        "show_concept_badge": true,
+        "eyebrow": "Shop the system",
+        "heading": "Built for every part of the work.",
+        "scroll_seconds": 60
       }
     }
   },
   "order": [
     "brand_hero_train_with_intent",
     "brand_category_grid_main",
+    "brand_category_mosaic",
+    "brand_category_rail",
     "brand_product_story_dont_settle",
     "brand_film_homepage",
     "brand_bryson_feature",
@@ -765,9 +894,8 @@
     "theme_banner_ELtemE",
     "badge_scroller_crWTND",
     "176557648414d76531",
-    "tnr_collection_list_VRWxpC",
-    "video_49RaHd",
-    "image-with-text",
+    "brand_proof_system_main",
+    "brand_proof_system_diagram",
     "text_with_icons_BQA78q",
     "image_with_text_overlay_YtBHJk",
     "image_with_text_8dmRyz",
@@ -776,6 +904,6 @@
     "image_with_text_block_9YtgJ7",
     "video_dN76e7",
     "blog_posts_GXwHk8",
-    "17139716501e2e2a7b"
+    "brand_testimonial_wall_main"
   ]
 }

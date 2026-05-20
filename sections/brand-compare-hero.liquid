@@ -1,0 +1,116 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign primary_label = section.settings.primary_label
+  assign primary_link = section.settings.primary_link
+  assign secondary_label = section.settings.secondary_label
+  assign secondary_link = section.settings.secondary_link
+-%}
+
+<section
+  class="brand-compare-hero brand-surface brand-surface--shadow brand-surface--pattern"
+  aria-labelledby="brand-compare-hero-heading-{{ section.id }}"
+>
+  <div class="brand-compare-hero__inner brand-container">
+    {%- if eyebrow != blank -%}
+      <p class="brand-eyebrow brand-compare-hero__eyebrow">
+        <span class="brand-plus" aria-hidden="true"></span>
+        {{ eyebrow }}
+      </p>
+    {%- endif -%}
+
+    {%- if heading != blank -%}
+      <h1 id="brand-compare-hero-heading-{{ section.id }}" class="brand-headline brand-compare-hero__heading">{{ heading }}</h1>
+    {%- endif -%}
+
+    {%- if body != blank -%}
+      <p class="brand-body brand-compare-hero__body">{{ body }}</p>
+    {%- endif -%}
+
+    {%- if primary_label != blank or secondary_label != blank -%}
+      <div class="brand-compare-hero__actions">
+        {%- if primary_label != blank -%}
+          <a class="brand-btn brand-btn--primary" href="{{ primary_link | default: '#' }}">{{ primary_label }}</a>
+        {%- endif -%}
+        {%- if secondary_label != blank -%}
+          <a class="brand-btn brand-btn--outline" href="{{ secondary_link | default: '#' }}">{{ secondary_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand compare hero",
+  "tag": "section",
+  "class": "brand-compare-hero-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shadow Green decision-support hero for the Compare Nets page. Pairs with one or more Brand compare grid sections below."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Compare nets"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find your fit."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train."
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary CTA label",
+      "default": "Take the quiz"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary CTA label",
+      "default": "Talk to an expert"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand compare hero",
+      "settings": {
+        "eyebrow": "Compare nets",
+        "heading": "Find your fit.",
+        "body": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train.",
+        "primary_label": "Take the quiz",
+        "secondary_label": "Talk to an expert"
+      }
+    }
+  ]
+}
+{% endschema %}
