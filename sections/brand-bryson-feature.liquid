@@ -1,0 +1,182 @@
+{%- liquid
+  assign section_id = section.id
+  assign eyebrow = section.settings.eyebrow
+  assign display_word = section.settings.display_word
+  assign tagline = section.settings.tagline
+  assign body = section.settings.body
+  assign cta_text = section.settings.cta_text
+  assign cta_link = section.settings.cta_link
+  assign image_desktop = section.settings.image_desktop
+  assign image_mobile = section.settings.image_mobile
+  assign image_position = section.settings.image_position | default: 'right'
+  assign overlay_strength = section.settings.overlay_strength | default: 35
+
+  if image_desktop == blank
+    assign default_desktop_url = 'brand-bryson-portrait-desktop.jpg' | asset_url
+  endif
+  if image_mobile == blank
+    assign default_mobile_url = 'brand-bryson-portrait-mobile.jpg' | asset_url
+  endif
+-%}
+
+<section
+  id="brand-bryson-feature-{{ section_id }}"
+  class="brand-bryson-feature brand-bryson-feature--image-{{ image_position }}"
+  aria-labelledby="brand-bryson-feature-heading-{{ section_id }}"
+  style="--brand-bryson-overlay: {{ overlay_strength | divided_by: 100.0 }};"
+>
+  <picture class="brand-bryson-feature__image">
+    {%- if image_mobile != blank -%}
+      <source media="(max-width: 749px)" srcset="{{ image_mobile | image_url: width: 1200 }}">
+    {%- elsif default_mobile_url -%}
+      <source media="(max-width: 749px)" srcset="{{ default_mobile_url }}">
+    {%- endif -%}
+
+    {%- if image_desktop != blank -%}
+      <source media="(min-width: 750px)" srcset="{{ image_desktop | image_url: width: 2400 }}">
+      <img src="{{ image_desktop | image_url: width: 1800 }}" alt="{{ image_desktop.alt | default: 'Bryson DeChambeau in front of a Net Return setup' | escape }}" loading="lazy" width="2400" height="1600">
+    {%- else -%}
+      <source media="(min-width: 750px)" srcset="{{ default_desktop_url }}">
+      <img src="{{ default_desktop_url }}" alt="Bryson DeChambeau in front of a Net Return setup" loading="lazy" width="2400" height="1600">
+    {%- endif -%}
+  </picture>
+
+  <div class="brand-bryson-feature__overlay" aria-hidden="true"></div>
+
+  {%- if display_word != blank -%}
+    <span class="brand-bryson-feature__display" aria-hidden="true">{{ display_word }}</span>
+  {%- endif -%}
+
+  <div class="brand-bryson-feature__inner brand-container">
+    <div class="brand-bryson-feature__copy">
+      {%- if eyebrow != blank -%}
+        <p class="brand-eyebrow brand-bryson-feature__eyebrow">{{ eyebrow }}</p>
+      {%- endif -%}
+
+      {%- if tagline != blank -%}
+        <h2 id="brand-bryson-feature-heading-{{ section_id }}" class="brand-headline brand-bryson-feature__tagline">{{ tagline }}</h2>
+      {%- endif -%}
+
+      {%- if body != blank -%}
+        <p class="brand-body brand-bryson-feature__body">{{ body }}</p>
+      {%- endif -%}
+
+      {%- if cta_text != blank -%}
+        <a class="brand-btn brand-btn--primary brand-bryson-feature__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand Bryson feature",
+  "tag": "section",
+  "class": "brand-bryson-feature-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Full-bleed dark feature panel with an outlined display wordmark overlay. Designed for the homepage Bryson moment, but the schema works for any athlete or product hero where the brand guide's outlined display treatment applies."
+    },
+    {
+      "type": "header",
+      "content": "Imagery"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop image",
+      "info": "Optional. Defaults to brand-bryson-portrait-desktop.jpg."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile image",
+      "info": "Optional. Defaults to brand-bryson-portrait-mobile.jpg."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image position (desktop)",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" },
+        { "value": "full", "label": "Full-bleed" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "overlay_strength",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Display word"
+    },
+    {
+      "type": "text",
+      "id": "display_word",
+      "label": "Outlined display word",
+      "default": "BRYSON",
+      "info": "Renders as an oversized outlined-stroke headline behind the copy. Set to blank to hide."
+    },
+    {
+      "type": "header",
+      "content": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)",
+      "default": "Official ambassador"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline (heading)",
+      "default": "Trained on a Net Return."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body",
+      "default": "Bryson DeChambeau trains the way he plays — relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work."
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA text",
+      "default": "Shop Bryson's setup"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Bryson feature",
+      "settings": {
+        "display_word": "BRYSON",
+        "eyebrow": "Official ambassador",
+        "tagline": "Trained on a Net Return.",
+        "body": "Bryson DeChambeau trains the way he plays — relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work.",
+        "cta_text": "Shop Bryson's setup",
+        "image_position": "right",
+        "overlay_strength": 35
+      }
+    }
+  ]
+}
+{% endschema %}

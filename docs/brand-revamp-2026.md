@@ -68,7 +68,8 @@ Track via TaskList. Current queue:
 - ~~#7 Hero immersive~~ (done)
 - ~~#8 Category grid~~ (done)
 - ~~#9 Product story / Don't Settle~~ (done)
-- #10 Bryson feature panel (outlined-stroke "BRYSON" display moment, photo #17/#18) — next
+- ~~#10 Bryson feature panel~~ (done)
+- #11 PRO SERIES studio feature (photo #13 or #21) — next
 
 Each section gets a subsection appended below as it lands, with the file paths touched + a preview screenshot reference.
 
@@ -309,3 +310,32 @@ If you continue the brand revamp, preserve this scoping posture: brand utilities
 **Design note**
 
 This section is intentionally closer to the user's reference than the older Focal sections below it: fewer boxes, a stronger editorial composition, true white surface, product as the hero object, and one clear Emerald action.
+
+---
+
+## #10 — Bryson feature panel (done)
+
+**Files**
+
+- `sections/brand-bryson-feature.liquid` — new full-bleed dark feature panel. Schema settings: desktop + mobile image pickers (with theme-asset fallbacks), image position (right / left / full-bleed), overlay darkness, outlined display word, eyebrow, tagline, body, CTA.
+- `assets/brand-revamp.css.liquid` — new "Bryson feature panel" block. Reuses the product story's brand-guide outline display treatment (transparent fill + text-stroke) but on a dark canvas, so the stroke is white at 55% opacity instead of Emerald. Layered z-indexes: photo (z0) → black gradient overlay scoped per image position (z1) → outlined display word (z2) → copy column (z3).
+- `assets/brand-bryson-portrait-{desktop,mobile}.jpg` — web-optimized JPGs (2400px / 1200px wide, q≈80) generated from PHOTOGRAPHY SELECTS-18 (Bryson DeChambeau portrait, driver in hand, NET RETURN backdrop) via `sips`.
+- `templates/index.json` — registered `brand_bryson_feature` after `brand_product_story_dont_settle` and before the legacy slideshow / trust bar.
+
+**Behavior**
+
+- Photo sits full-bleed; copy column constrained to the left half on desktop, with a directional gradient overlay that darkens the copy-side edge and lifts the photo-side edge.
+- "BRYSON" renders as oversized Crystal Ultra Condensed at `clamp(120px, 22vw, 360px)` desktop / `clamp(96px, 32vw, 220px)` mobile, transparent fill, white text-stroke. Positioned center-vertical on desktop; pinned 38% from bottom on mobile so the swing-frame stays readable.
+- Eyebrow OFFICIAL AMBASSADOR (mono caps) + tagline "Trained on a Net Return." (Crystal Ultra Condensed display) + body + Emerald CTA "Shop Bryson's setup" linked to `/collections/best-sellers`.
+- Image-position select also supports `left` (mirrored gradient) and `full` (centered copy, vertical gradient, equal-margin layout) so the same section can drive future ambassador or product features.
+
+**Preview**
+
+- Verified at 1440×900: section min-height 702px (≈ 78vh) ✓; display word renders Crystal Ultra Condensed at 316.8px with `webkitTextStroke: 2px rgba(255,255,255,.55)` ✓; CTA renders Emerald primary button linked to `/collections/best-sellers` ✓; desktop JPG loads from Shopify CDN at natural 2400px width ✓.
+- Verified at 375×812: section drops to 730.8px (≈ 90vh), align-items flex-end stacks copy at the bottom, display word at 120px positioned `bottom: 38%`, no horizontal overflow ✓.
+
+**Caveats / follow-ups**
+
+- CTA defaults to `/collections/best-sellers` until a dedicated Bryson collection or page lands. Update the link from the section's CTA setting when content is ready (e.g. `/pages/bryson-dechambeau` editorial or `/collections/bryson-setup`).
+- Tagline copy ("Trained on a Net Return.") is a placeholder pending COO sign-off. Schema is open for the merchant to edit without code.
+- Default image alt is "Bryson DeChambeau in front of a Net Return setup". Override per-image in the theme editor if Shopify Files images are swapped in.

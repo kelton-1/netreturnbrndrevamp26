@@ -769,6 +769,142 @@
 }
 
 /* ============================================================
+   Bryson feature panel (Phase 4 / task #10)
+   Full-bleed dark surface with an outlined display word ("BRYSON")
+   layered behind the copy. Reuses the brand guide outline-stroke
+   display treatment (same as "For less" in product story, but on a
+   dark canvas so the stroke is white instead of Emerald).
+   ============================================================ */
+
+.brand-bryson-feature {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: rgb(var(--brand-white));
+  background: rgb(var(--brand-black));
+  min-height: clamp(560px, 78vh, 820px);
+  display: flex;
+  align-items: center;
+}
+.brand-bryson-feature__image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.brand-bryson-feature__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.brand-bryson-feature--image-right .brand-bryson-feature__image img { object-position: right center; }
+.brand-bryson-feature--image-left .brand-bryson-feature__image img { object-position: left center; }
+.brand-bryson-feature--image-full .brand-bryson-feature__image img { object-position: center; }
+
+.brand-bryson-feature__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) + .35)) 0%,
+      rgba(var(--brand-black), var(--brand-bryson-overlay)) 55%,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) - .15)) 100%);
+}
+.brand-bryson-feature--image-left .brand-bryson-feature__overlay {
+  background:
+    linear-gradient(270deg,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) + .35)) 0%,
+      rgba(var(--brand-black), var(--brand-bryson-overlay)) 55%,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) - .15)) 100%);
+}
+.brand-bryson-feature--image-full .brand-bryson-feature__overlay {
+  background:
+    linear-gradient(180deg,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) - .1)) 0%,
+      rgba(var(--brand-black), calc(var(--brand-bryson-overlay) + .25)) 100%);
+}
+
+.brand-bryson-feature__display {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
+  font-size: clamp(120px, 22vw, 360px);
+  line-height: .85;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(var(--brand-white), .55);
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.brand-bryson-feature__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+.brand-bryson-feature__copy {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.brand-bryson-feature--image-left .brand-bryson-feature__copy { margin-inline-start: auto; }
+.brand-bryson-feature--image-full .brand-bryson-feature__copy {
+  margin: 0 auto;
+  text-align: center;
+  align-items: center;
+  max-width: 640px;
+}
+.brand-bryson-feature__eyebrow { margin: 0; }
+.brand-bryson-feature__tagline {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -.01em;
+}
+.brand-bryson-feature__body { margin: 0; max-width: 36ch; opacity: .92; }
+.brand-bryson-feature--image-full .brand-bryson-feature__body { margin-inline: auto; }
+.brand-bryson-feature__cta { align-self: flex-start; }
+.brand-bryson-feature--image-full .brand-bryson-feature__cta { align-self: center; }
+
+@media (max-width: 749px) {
+  .brand-bryson-feature {
+    min-height: clamp(540px, 90vh, 760px);
+    align-items: flex-end;
+    padding-block: 40px;
+  }
+  .brand-bryson-feature__overlay,
+  .brand-bryson-feature--image-right .brand-bryson-feature__overlay,
+  .brand-bryson-feature--image-left .brand-bryson-feature__overlay {
+    background:
+      linear-gradient(180deg,
+        rgba(var(--brand-black), .15) 0%,
+        rgba(var(--brand-black), calc(var(--brand-bryson-overlay) + .35)) 60%,
+        rgba(var(--brand-black), calc(var(--brand-bryson-overlay) + .6)) 100%);
+  }
+  .brand-bryson-feature__display {
+    top: auto;
+    bottom: 38%;
+    transform: none;
+    font-size: clamp(96px, 32vw, 220px);
+  }
+  .brand-bryson-feature__copy {
+    max-width: none;
+    text-align: left;
+  }
+  .brand-bryson-feature__cta { align-self: stretch; text-align: center; }
+}
+
+/* ============================================================
    Footer CTA section (Phase 3 / task #6)
    Standalone "Book a Call" panel above the main footer.
    ============================================================ */

@@ -84,6 +84,19 @@
         "default_image_filename": ""
       }
     },
+    "brand_bryson_feature": {
+      "type": "brand-bryson-feature",
+      "settings": {
+        "image_position": "right",
+        "overlay_strength": 35,
+        "display_word": "BRYSON",
+        "eyebrow": "Official ambassador",
+        "tagline": "Trained on a Net Return.",
+        "body": "Bryson DeChambeau trains the way he plays — relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work.",
+        "cta_text": "Shop Bryson's setup",
+        "cta_link": "shopify://collections/best-sellers"
+      }
+    },
     "slideshow": {
       "type": "slideshow",
       "disabled": true,
@@ -732,6 +745,7 @@
     "brand_hero_train_with_intent",
     "brand_category_grid_main",
     "brand_product_story_dont_settle",
+    "brand_bryson_feature",
     "slideshow",
     "trust_bar_DdPqga",
     "17621461567133e3c2",
