@@ -10,18 +10,38 @@
   assign secondary_cta_link = section.settings.secondary_cta_link
   assign image_desktop = section.settings.image_desktop
   assign image_mobile = section.settings.image_mobile
+  assign video_url_desktop = section.settings.video_url_desktop
+  assign video_url_mobile = section.settings.video_url_mobile
   assign height = section.settings.height | default: 'full'
   assign overlay_strength = section.settings.overlay_strength | default: 55
 
   comment
     Fall back to staged Train-With-Intent assets if the merchant hasn't picked
     a custom image yet — keeps the homepage looking right out of the box.
+    The defaults also serve as the poster frame when a background video is
+    provided, and as the prefers-reduced-motion fallback.
   endcomment
   if image_desktop == blank
     assign default_desktop_url = 'brand-hero-train-with-intent-desktop.jpg' | asset_url
   endif
   if image_mobile == blank
     assign default_mobile_url = 'brand-hero-train-with-intent-mobile.jpg' | asset_url
+  endif
+
+  comment
+    Resolve poster URL once. Used as the <video poster> attribute when a
+    background video is in play, so the still frame shows during load and
+    on error without a second image request.
+  endcomment
+  if image_desktop != blank
+    assign poster_url = image_desktop | image_url: width: 1920
+  else
+    assign poster_url = default_desktop_url
+  endif
+
+  assign has_video = false
+  if video_url_desktop != blank
+    assign has_video = true
   endif
 -%}
 
@@ -31,21 +51,49 @@
   aria-labelledby="brand-hero-heading-{{ section_id }}"
   style="--brand-hero-overlay: {{ overlay_strength | divided_by: 100.0 }}; --brand-hero-overlay-mid: {{ overlay_strength | minus: 25 | at_least: 0 | divided_by: 100.0 }}; --brand-hero-overlay-top: {{ overlay_strength | minus: 40 | at_least: 0 | divided_by: 100.0 }};"
 >
-  <picture class="brand-hero__image">
-    {%- if image_mobile != blank -%}
-      <source media="(max-width: 749px)" srcset="{{ image_mobile | image_url: width: 1080 }}">
-    {%- elsif default_mobile_url -%}
-      <source media="(max-width: 749px)" srcset="{{ default_mobile_url }}">
-    {%- endif -%}
+  {%- if has_video -%}
+    {%- comment -%}
+      Background video path. Poster is the desktop still so the hero never
+      ships a frame of black while the video buffers. autoplay/muted/loop/
+      playsinline are required for in-page autoplay on iOS Safari and
+      Chromium. preload="metadata" keeps the page weight down on slow
+      connections — the video itself only fetches once playback starts.
+      data-brand-hero-video flags the element for the small motion-respect
+      script at the bottom of the section.
+    {%- endcomment -%}
+    <video
+      class="brand-hero__video"
+      data-brand-hero-video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="{{ poster_url }}"
+      aria-hidden="true"
+    >
+      {%- if video_url_mobile != blank -%}
+        <source src="{{ video_url_mobile }}" media="(max-width: 749px)" type="video/mp4">
+      {%- endif -%}
+      <source src="{{ video_url_desktop }}" type="video/mp4">
+    </video>
+  {%- else -%}
+    <picture class="brand-hero__image">
+      {%- if image_mobile != blank -%}
+        <source media="(max-width: 749px)" srcset="{{ image_mobile | image_url: width: 1080 }}">
+      {%- elsif default_mobile_url -%}
+        <source media="(max-width: 749px)" srcset="{{ default_mobile_url }}">
+      {%- endif -%}
 
-    {%- if image_desktop != blank -%}
-      <source media="(min-width: 750px)" srcset="{{ image_desktop | image_url: width: 2560 }}">
-      <img src="{{ image_desktop | image_url: width: 1920 }}" alt="{{ image_desktop.alt | default: heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
-    {%- else -%}
-      <source media="(min-width: 750px)" srcset="{{ default_desktop_url }}">
-      <img src="{{ default_desktop_url }}" alt="{{ heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
-    {%- endif -%}
-  </picture>
+      {%- if image_desktop != blank -%}
+        <source media="(min-width: 750px)" srcset="{{ image_desktop | image_url: width: 2560 }}">
+        <img src="{{ image_desktop | image_url: width: 1920 }}" alt="{{ image_desktop.alt | default: heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
+      {%- else -%}
+        <source media="(min-width: 750px)" srcset="{{ default_desktop_url }}">
+        <img src="{{ default_desktop_url }}" alt="{{ heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
+      {%- endif -%}
+    </picture>
+  {%- endif -%}
 
   <div class="brand-hero__overlay" aria-hidden="true"></div>
 
@@ -76,6 +124,35 @@
   </div>
 </section>
 
+{%- if has_video -%}
+  <script>
+    (function () {
+      // Pause hero video for visitors with prefers-reduced-motion: reduce.
+      // Browsers honor the autoplay attribute regardless of the media query,
+      // so we have to do this in JS. Poster image keeps showing.
+      var media = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!media) return;
+      var videos = document.querySelectorAll('#brand-hero-{{ section_id }} [data-brand-hero-video]');
+      function apply() {
+        videos.forEach(function (v) {
+          if (media.matches) {
+            v.pause();
+            v.removeAttribute('autoplay');
+          } else if (v.paused) {
+            v.play().catch(function () {});
+          }
+        });
+      }
+      apply();
+      if (media.addEventListener) {
+        media.addEventListener('change', apply);
+      } else if (media.addListener) {
+        media.addListener(apply);
+      }
+    })();
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Brand hero",
@@ -101,6 +178,26 @@
       "id": "image_mobile",
       "label": "Mobile background image",
       "info": "Optional. Defaults to brand-hero-train-with-intent-mobile.jpg."
+    },
+    {
+      "type": "header",
+      "content": "Background video (optional)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Paste a Shopify Files CDN URL ending in .mp4 to play a looping muted video behind the hero. Upload masters via Settings → Files. The desktop image above becomes the poster frame; visitors with reduced-motion preferences see the still."
+    },
+    {
+      "type": "url",
+      "id": "video_url_desktop",
+      "label": "Desktop video URL (.mp4)",
+      "info": "Files CDN URL. Recommended max 1080p / under 8 MB after compression."
+    },
+    {
+      "type": "url",
+      "id": "video_url_mobile",
+      "label": "Mobile video URL (.mp4)",
+      "info": "Optional. Smaller cut (720p, ~3 MB) used at ≤749px. Falls back to desktop URL if blank."
     },
     {
       "type": "select",

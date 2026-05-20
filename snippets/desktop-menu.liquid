@@ -19,7 +19,89 @@
           {{- link.title -}}
         </a>
 
-        {%- if mega_menu_block != '' -%}
+        {%- if mega_menu_block != '' and mega_menu_block.settings.enable_brand_layout -%}
+          {%- comment -%}
+            Brand mega-menu (Concept C): featured product card + featured collection card on the left,
+            submenu links rendered as compact text columns on the right.
+            Falls back to the legacy 6-image grid below when enable_brand_layout is off.
+          {%- endcomment -%}
+
+          {%- assign fp = mega_menu_block.settings.featured_product -%}
+          {%- assign fp_image = mega_menu_block.settings.featured_product_image | default: fp.featured_image -%}
+          {%- assign fp_title = mega_menu_block.settings.featured_product_title_override | default: fp.title -%}
+          {%- assign fp_url = fp.url | default: '#' -%}
+
+          {%- assign fc = mega_menu_block.settings.featured_collection -%}
+          {%- assign fc_image = mega_menu_block.settings.featured_collection_image | default: fc.featured_image -%}
+          {%- assign fc_title = mega_menu_block.settings.featured_collection_title_override | default: fc.title -%}
+          {%- assign fc_url = fc.url | default: '#' -%}
+
+          <div hidden id="desktop-menu-{{ forloop.index }}" class="mega-menu mega-menu--brand" {{ mega_menu_block.shopify_attributes }}>
+            <div class="mega-menu--brand__grid">
+              {%- if fp != blank -%}
+                <a class="mega-menu--brand__card mega-menu--brand__card--product" href="{{ fp_url }}">
+                  {%- if fp_image != blank -%}
+                    {{ fp_image | image_url: width: 1000 | image_tag: class: 'mega-menu--brand__card-image', loading: 'lazy', sizes: '(min-width: 1200px) 30vw, 50vw', widths: '480, 720, 1000', alt: fp_title }}
+                  {%- endif -%}
+                  <div class="mega-menu--brand__card-body">
+                    {%- if mega_menu_block.settings.featured_product_eyebrow != blank -%}
+                      <p class="mega-menu--brand__card-eyebrow">{{ mega_menu_block.settings.featured_product_eyebrow }}</p>
+                    {%- endif -%}
+                    <h3 class="mega-menu--brand__card-title">{{ fp_title }}</h3>
+                    {%- if mega_menu_block.settings.featured_product_body != blank -%}
+                      <p class="mega-menu--brand__card-meta">{{ mega_menu_block.settings.featured_product_body }}</p>
+                    {%- endif -%}
+                    {%- if mega_menu_block.settings.featured_product_cta_text != blank -%}
+                      <span class="brand-btn brand-btn--primary mega-menu--brand__card-cta">{{ mega_menu_block.settings.featured_product_cta_text }}</span>
+                    {%- endif -%}
+                  </div>
+                </a>
+              {%- endif -%}
+
+              {%- if fc != blank -%}
+                <a class="mega-menu--brand__card mega-menu--brand__card--collection" href="{{ fc_url }}">
+                  {%- if fc_image != blank -%}
+                    {{ fc_image | image_url: width: 1000 | image_tag: class: 'mega-menu--brand__card-image', loading: 'lazy', sizes: '(min-width: 1200px) 30vw, 50vw', widths: '480, 720, 1000', alt: fc_title }}
+                  {%- endif -%}
+                  <div class="mega-menu--brand__card-body">
+                    {%- if mega_menu_block.settings.featured_collection_eyebrow != blank -%}
+                      <p class="mega-menu--brand__card-eyebrow">{{ mega_menu_block.settings.featured_collection_eyebrow }}</p>
+                    {%- endif -%}
+                    <h3 class="mega-menu--brand__card-title">{{ fc_title }}</h3>
+                    {%- if mega_menu_block.settings.featured_collection_body != blank -%}
+                      <p class="mega-menu--brand__card-meta">{{ mega_menu_block.settings.featured_collection_body }}</p>
+                    {%- endif -%}
+                    {%- if mega_menu_block.settings.featured_collection_cta_text != blank -%}
+                      <span class="brand-btn brand-btn--outline mega-menu--brand__card-cta">{{ mega_menu_block.settings.featured_collection_cta_text }}</span>
+                    {%- endif -%}
+                  </div>
+                </a>
+              {%- endif -%}
+
+              {%- if link.links.size > 0 -%}
+                <div class="mega-menu--brand__nav">
+                  {%- for sub_link in link.links -%}
+                    <div class="mega-menu--brand__nav-col">
+                      {%- if sub_link.url == '#' -%}
+                        <span class="mega-menu--brand__nav-eyebrow">{{ sub_link.title }}</span>
+                      {%- else -%}
+                        <a class="mega-menu--brand__nav-eyebrow" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                      {%- endif -%}
+                      {%- if sub_link.links.size > 0 -%}
+                        <ul class="mega-menu--brand__nav-links list--unstyled">
+                          {%- for sub_sub_link in sub_link.links -%}
+                            <li><a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a></li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+        {%- elsif mega_menu_block != '' -%}
           {%- assign images_count = 0 -%}
 
           {%- capture mega_menu_images -%}

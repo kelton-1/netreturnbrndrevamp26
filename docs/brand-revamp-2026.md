@@ -339,3 +339,57 @@ This section is intentionally closer to the user's reference than the older Foca
 - CTA defaults to `/collections/best-sellers` until a dedicated Bryson collection or page lands. Update the link from the section's CTA setting when content is ready (e.g. `/pages/bryson-dechambeau` editorial or `/collections/bryson-setup`).
 - Tagline copy ("Trained on a Net Return.") is a placeholder pending COO sign-off. Schema is open for the merchant to edit without code.
 - Default image alt is "Bryson DeChambeau in front of a Net Return setup". Override per-image in the theme editor if Shopify Files images are swapped in.
+
+## #11 — Motion + pattern pass (in flight)
+
+Phase goal: pull the unused gradient pattern colorways and the two new client-supplied videos into homepage rotation. Adds the brand's first scroll-triggered motion moment (pin-on-scroll film) and the first use of the toolkit's gradient SVGs as surface backdrops.
+
+**Files**
+
+- `assets/pattern-gradient-{black,shadow-green,emerald-green,glow-green,clear-grey,clear-white}.svg` — full-bleed 1920×1080 gradient backdrops staged from `UPDATED Net Return Toolkit (/PATTERN/Gradient Pattern/`. ~225 KB each, vector polygons of the Precision+ glyph at varying opacity. Used at `background-size: cover` as section-scale backdrops, *not* repeating tiles.
+- `assets/pattern-grid-emerald-green.svg`, `assets/pattern-grid-white.svg` — missing grid colorways from the same toolkit; now complete the 5-way grid set alongside the existing black / shadow / glow.
+- `assets/home-brand-film-8s.mp4` — 8-second multi-shot Quick Mashup video, copied from `~/Documents/Quick Mashup - 8 seconds - Home.mp4`. 9.5 MB. Drives the brand-film section.
+- `output/brand-hero-bryson-source.mp4` — 26 MB Bryson hero master. Gitignored + Shopify-ignored — staged locally only. **Manual step: upload to Shopify Admin → Settings → Files** and paste the resulting CDN URL into the Brand hero section's "Desktop video URL" setting in the theme editor. See "Bryson hero upload runbook" below.
+- `sections/brand-hero.liquid` — added `video_url_desktop` / `video_url_mobile` URL schema fields; renders a muted autoplay loop `<video>` when a desktop URL is set, with the existing image picker becoming the poster frame and the reduced-motion fallback. Small inline script pauses the video and clears `autoplay` under `prefers-reduced-motion: reduce`. Image fallback path is untouched when no video URL is provided.
+- `sections/brand-film.liquid` — new section. Cinematic full-bleed `<video>` with three input modes (video picker, direct URL, asset-filename fallback). Defaults to `home-brand-film-8s.mp4`. Pin-on-scroll on desktop via `position: sticky` inside a 220vh outer; pin disabled on `≤749px` and under `prefers-reduced-motion`. Glow Green progress bar fills via `timeupdate` events. Miracle Mono caps overlay with step counter + label. Gradient backdrop colorway is schema-selectable (default Shadow Green) and surrounds the video while the gradient drift animation runs (60s loop, opt-out under reduced motion).
+- `assets/brand-revamp.css.liquid` — three additions:
+  - New CSS custom properties for all 6 gradient backdrops and 2 new grid colorways (`--brand-gradient-{black,shadow,emerald,glow,clear-grey,clear-white}`, `--brand-grid-{black,shadow,glow,emerald,white-full}`).
+  - New `.brand-surface--gradient` + `.brand-surface--gradient--{shadow,emerald,glow,clear-grey,clear-white}` surface utilities. Opt-in `.brand-surface--gradient--drift` adds the ambient 60s drift animation (reduced-motion safe).
+  - New `.brand-film` block (pin behavior, stage, video, overlay, progress bar) with mobile + reduced-motion overrides.
+- `templates/index.json` — registered `brand_film_homepage` between `brand_product_story_dont_settle` and `brand_bryson_feature`. The brand film acts as a tonal break between the editorial "Don't Settle" argument and the Bryson credibility punch. Order array updated.
+
+**Behavior**
+
+- Hero now plays the Bryson video full-bleed once the merchant pastes the Files CDN URL in the theme editor. Poster image (existing `brand-hero-train-with-intent-desktop.jpg` by default, overridable) shows during the ~200ms buffer and as the reduced-motion still. Mobile URL is optional — if blank, the desktop URL is used at all viewports.
+- Brand film section pins for one viewport of scroll travel on desktop, with autoplay/loop continuing through the pin. Visitors who pause naturally see one full 8-second loop and the Glow Green progress bar fill to the right. Mobile users get the same video in a normal-flow 64vw block, no pin.
+- Gradient backdrop on the brand film section uses the Shadow Green colorway by default; merchant can switch via the schema select. Drift animation is on by default but auto-disables under prefers-reduced-motion.
+
+**Bryson hero upload runbook**
+
+1. In Shopify admin → Settings → Files → Upload `output/brand-hero-bryson-source.mp4`. Wait for processing.
+2. Copy the resulting `https://cdn.shopify.com/...mp4` URL.
+3. Theme editor → Brand hero → Background video → paste into "Desktop video URL (.mp4)". Save.
+4. (Optional but recommended) On a machine with ffmpeg, compress a mobile cut to ~3 MB 720p:
+   ```bash
+   ffmpeg -i "/Users/kelton1/Developer/TheNetReturn/Shopify/output/brand-hero-bryson-source.mp4" \
+     -vf "scale=1280:-2" -c:v libx264 -crf 26 -preset slow -an \
+     -movflags +faststart \
+     "/Users/kelton1/Developer/TheNetReturn/Shopify/output/brand-hero-bryson-mobile.mp4"
+   ```
+   Upload that to Files too, paste into "Mobile video URL". Reduces ≤749px viewers' load from 26 MB → ~3 MB.
+
+**Preview / verification**
+
+- Theme Check: 161 offenses / 1 error — unchanged from baseline. No new offenses introduced by this pass.
+- JSON: `templates/index.json` validates after stripping the auto-generated header comment. `brand_film_homepage` present in both `sections` and `order`.
+- Still pending: live preview on `theme:dev` once the videos resolve through the storefront. Specifically watch for:
+  - iOS Safari autoplay: confirm the muted/playsinline combo plays without tap on iOS 17+.
+  - Sticky-pin behavior on long pages: confirm the brand-film section releases cleanly before the Bryson section reaches the viewport (no overlap during transition).
+  - Gradient SVG file size on first paint: 225 KB per backdrop is below the "first contentful paint" threshold the theme already pays for hero JPGs (~280 KB), but worth monitoring under Lighthouse.
+
+**Caveats / follow-ups**
+
+- Bryson hero video URL is not committed — needs the manual Files CDN upload step. Until then the hero falls back to the existing still JPG (no regression).
+- Brand-film step number is `02` placeholder pending the broader "rep counter" concept landing (creative-direction idea #2 — page-wide scroll progress indicator).
+- The 8-second mashup file `home-brand-film-8s.mp4` ships at 9.5 MB inside `assets/`. If we add another video later that pushes the section over its size budget, move both to Files CDN via the URL setting.
+- Gradient SVG opacity vs. video legibility: if the gradient backdrop visibly leaks through letterboxed edges in production, lower its opacity in `.brand-film__stage` (it inherits from the parent — currently 1.0).

@@ -57,6 +57,23 @@
   --brand-grid-tile-white: url('{{ "pattern-grid-tile-white.svg" | asset_url }}');
   --brand-grid-tile-black: url('{{ "pattern-grid-tile-black.svg" | asset_url }}');
 
+  /* Full-bleed 1920x1080 grid and gradient backdrops from the brand toolkit.
+     These are used by .brand-surface--gradient and .brand-surface--grid-full
+     utilities below — different from the small repeating tiles above.
+     Source: TheNetReturn/UPDATED Net Return Toolkit/PATTERN/. */
+  --brand-grid-black:           url('{{ "pattern-grid-black.svg" | asset_url }}');
+  --brand-grid-shadow:          url('{{ "pattern-grid-shadow-green.svg" | asset_url }}');
+  --brand-grid-glow:            url('{{ "pattern-grid-glow-green.svg" | asset_url }}');
+  --brand-grid-emerald:         url('{{ "pattern-grid-emerald-green.svg" | asset_url }}');
+  --brand-grid-white-full:      url('{{ "pattern-grid-white.svg" | asset_url }}');
+
+  --brand-gradient-black:       url('{{ "pattern-gradient-black.svg" | asset_url }}');
+  --brand-gradient-shadow:      url('{{ "pattern-gradient-shadow-green.svg" | asset_url }}');
+  --brand-gradient-emerald:     url('{{ "pattern-gradient-emerald-green.svg" | asset_url }}');
+  --brand-gradient-glow:        url('{{ "pattern-gradient-glow-green.svg" | asset_url }}');
+  --brand-gradient-clear-grey:  url('{{ "pattern-gradient-clear-grey.svg" | asset_url }}');
+  --brand-gradient-clear-white: url('{{ "pattern-gradient-clear-white.svg" | asset_url }}');
+
   /* Single Precision+ glyph (the actual brand mark, not the grid tile).
      Used for inline glyphs and ::before markers where the mark needs to be
      visible at small sizes. The grid tile is a 80x80 array of plus marks —
@@ -99,6 +116,75 @@
 .brand-surface--white.brand-surface--pattern,
 .brand-surface--glow.brand-surface--pattern {
   background-image: var(--brand-grid-tile-black);
+}
+
+/* ---------- Full-bleed gradient backdrop utilities ----------
+   Apply by composing classes:
+     .brand-surface--gradient .brand-surface--gradient--shadow
+   These use the 1920x1080 toolkit gradient SVGs at background-size: cover so the
+   section reads as a single rich gradient panel — not a tiling pattern. Pair with
+   the existing .brand-surface--shadow / --emerald / --glow surfaces if the section
+   needs a solid base color underneath while images load. */
+.brand-surface--gradient {
+  background-color: rgb(var(--brand-black));
+  background-image: var(--brand-gradient-black);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: rgb(var(--brand-white));
+}
+.brand-surface--gradient.brand-surface--gradient--shadow {
+  background-color: rgb(var(--brand-shadow));
+  background-image: var(--brand-gradient-shadow);
+}
+.brand-surface--gradient.brand-surface--gradient--emerald {
+  background-color: rgb(var(--brand-emerald));
+  background-image: var(--brand-gradient-emerald);
+}
+.brand-surface--gradient.brand-surface--gradient--glow {
+  background-color: rgb(var(--brand-glow));
+  background-image: var(--brand-gradient-glow);
+  color: rgb(var(--brand-black));
+}
+.brand-surface--gradient.brand-surface--gradient--clear-grey {
+  background-color: rgb(var(--brand-white));
+  background-image: var(--brand-gradient-clear-grey);
+  color: rgb(var(--brand-black));
+}
+.brand-surface--gradient.brand-surface--gradient--clear-white {
+  background-color: rgb(var(--brand-white));
+  background-image: var(--brand-gradient-clear-white);
+  color: rgb(var(--brand-black));
+}
+
+/* Slow ambient drift on full-bleed gradient surfaces. Heat-shimmer over a
+   driving range, not a marketing flourish. 60s linear loop, opt-in via
+   .brand-surface--gradient--drift. Disabled under reduced-motion. */
+.brand-surface--gradient--drift {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.brand-surface--gradient--drift::before {
+  content: "";
+  position: absolute;
+  inset: -8% -8%;
+  z-index: -1;
+  background-image: inherit;
+  background-size: 120% 120%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: brand-gradient-drift 60s linear infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+@keyframes brand-gradient-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-2%, 1.5%, 0) scale(1.04); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand-surface--gradient--drift::before { animation: none; }
 }
 
 /* ---------- Containers ---------- */
@@ -329,6 +415,19 @@
   object-position: center;
   display: block;
 }
+.brand-hero__video {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  /* Slight scale hides any 1px letterbox edges from H.264 sources. */
+  transform: scale(1.001);
+  background: rgb(var(--brand-black));
+}
 .brand-hero__overlay {
   position: absolute;
   inset: 0;
@@ -406,24 +505,30 @@
   border-bottom: 1px solid rgba(var(--brand-white), .08);
 }
 
-/* Tighten desktop padding to match mockup compact feel. */
+/* Luxury breathing room — generous desktop padding, larger inter-item gap. */
 @media (min-width: 1000px) {
-  .header__wrapper { padding-block: 14px; }
+  .header__wrapper { padding-block: clamp(20px, 1.6vw, 30px); }
+  .header__linklist { gap: clamp(20px, 2.4vw, 44px); }
 }
 
-/* Nav links: mono accents with Precision+ glyph prefix. */
+/* Hide the in-header locale/country popover — footer aside already carries it,
+   keeps the dark header bar uncluttered. */
+.shopify-section-group-header-group .header__cross-border { display: none; }
+
+/* Nav links: mono accents with Precision+ glyph prefix. Wider letter-spacing
+   reads more editorial / less utilitarian. */
 .header__linklist-item > .header__linklist-link {
   display: inline-flex;
   align-items: center;
-  gap: .45em;
+  gap: .55em;
   font-family: var(--brand-font-accent);
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: .14em;
+  letter-spacing: .22em;
   text-transform: uppercase;
   color: rgb(var(--brand-white));
   text-decoration: none;
-  padding-block: 8px;
+  padding-block: 10px;
   transition: color .15s ease;
 }
 .header__linklist-item > .header__linklist-link::before {
@@ -494,6 +599,128 @@
   background: rgb(var(--brand-black));
   color: rgb(var(--brand-white));
   border-top: 1px solid rgba(var(--brand-white), .08);
+}
+
+/* ============================================================
+   Brand mega-menu (Concept C)
+   Featured product card + featured collection card + small nav grid.
+   Opt-in via the mega_menu block's "Use brand mega-menu layout" toggle.
+   ============================================================ */
+
+.mega-menu.mega-menu--brand {
+  padding: 0;
+}
+.mega-menu--brand__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  min-height: 480px;
+}
+.mega-menu--brand__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  color: rgb(var(--brand-white));
+  text-decoration: none;
+  border-right: 1px solid rgba(var(--brand-white), .05);
+}
+.mega-menu--brand__card-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .4s ease;
+}
+.mega-menu--brand__card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.2) 60%, rgba(0,0,0,0) 100%);
+}
+.mega-menu--brand__card:hover .mega-menu--brand__card-image { transform: scale(1.04); }
+.mega-menu--brand__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 32ch;
+}
+.mega-menu--brand__card-eyebrow {
+  margin: 0;
+  font-family: var(--brand-font-accent);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgb(var(--brand-glow));
+}
+.mega-menu--brand__card-title {
+  margin: 0;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
+  font-size: clamp(28px, 2.4vw, 38px);
+  line-height: 1;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+}
+.mega-menu--brand__card-meta {
+  margin: 4px 0 14px;
+  font-family: var(--brand-font-body);
+  font-size: 15px;
+  color: rgba(var(--brand-white), .82);
+}
+.mega-menu--brand__card-cta { align-self: flex-start; }
+
+.mega-menu--brand__nav {
+  padding: 48px 56px;
+  background: rgb(var(--brand-black));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 40px;
+  align-content: start;
+}
+.mega-menu--brand__nav-eyebrow {
+  display: block;
+  font-family: var(--brand-font-accent);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(var(--brand-white), .5);
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
+.mega-menu--brand__nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mega-menu--brand__nav-links a {
+  font-family: var(--brand-font-body);
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0;
+  color: rgb(var(--brand-white));
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.mega-menu--brand__nav-links a:hover { color: rgb(var(--brand-glow)); }
+
+@media (max-width: 1199px) {
+  .mega-menu--brand__grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 999px) {
+  .mega-menu--brand__grid { grid-template-columns: 1fr; min-height: auto; }
+  .mega-menu--brand__card { min-height: 240px; }
+  .mega-menu--brand__nav { padding: 32px 24px; grid-template-columns: 1fr 1fr; }
 }
 
 /* Mobile navigation drawer only. Product, filter, cart, and search drawers keep their own Focal styling. */
@@ -570,23 +797,71 @@
 .brand-category-card {
   position: relative;
   display: block;
-  aspect-ratio: 3 / 4;
+  /* 4:5 portrait — gives the 3:2 source photos ~17% breathing room vs.
+     the old 3:4 (which cropped ~50% of each image). */
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   text-decoration: none;
   color: rgb(var(--brand-white));
   background: rgb(var(--brand-shadow));
   isolation: isolate;
+
+  /* Reveal animation start state — JS adds .is-revealed on viewport entry. */
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity .9s cubic-bezier(.2, .7, .2, 1),
+    transform .9s cubic-bezier(.2, .7, .2, 1);
+  /* Stagger via inline custom property set per-card in Liquid. */
+  transition-delay: calc(var(--brand-card-index, 0) * 80ms);
 }
-.brand-category-card__image {
+.brand-category-card.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Image lives inside a frame element so we can both parallax-shift it
+   and (in the framed variant) inset it from the card edge. */
+.brand-category-card__frame {
   position: absolute;
   inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  transition: inset .4s cubic-bezier(.2, .7, .2, 1);
+}
+
+.brand-category-card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  z-index: -2;
+  display: block;
+  /* Baseline upscale gives parallax somewhere to travel without exposing
+     edges. On browsers without scroll-driven animation support this just
+     looks like a small zoom — no regression. */
+  transform: scale(1.08);
   transition: transform .6s ease;
+  will-change: transform;
 }
+
+/* Image parallax — pure CSS scroll-driven animation, only fires on browsers
+   that support `animation-timeline: view()` (Chrome/Edge 115+, Safari 26+).
+   The image drifts down ~6% as the card travels through the viewport.
+   Browsers without support stay at the static `scale(1.08)` baseline. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .brand-category-card__image {
+      animation: brand-category-parallax linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+  @keyframes brand-category-parallax {
+    from { transform: scale(1.12) translateY(-3%); }
+    to   { transform: scale(1.12) translateY(3%); }
+  }
+}
+
 .brand-category-card::after {
   content: "";
   position: absolute;
@@ -598,8 +873,11 @@
     rgba(0,0,0,.2) 55%,
     rgba(0,0,0,0)   100%
   );
+  transition: inset .4s cubic-bezier(.2, .7, .2, 1);
 }
-.brand-category-card:hover .brand-category-card__image { transform: scale(1.04); }
+/* Hover: subtle additional push so the parallax baseline doesn't fight the
+   merchant's existing "lift on hover" mental model. */
+.brand-category-card:hover .brand-category-card__image { transform: scale(1.14); }
 .brand-category-card:focus-visible {
   outline: 2px solid rgb(var(--brand-emerald));
   outline-offset: 4px;
@@ -612,6 +890,54 @@
   height: 100%;
   padding: clamp(16px, 2vw, 24px);
   gap: 8px;
+}
+
+/* Reduced-motion: skip the staggered reveal, skip parallax baseline scale. */
+@media (prefers-reduced-motion: reduce) {
+  .brand-category-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .brand-category-card__image {
+    transform: scale(1.02);
+    transition: none;
+  }
+  .brand-category-card:hover .brand-category-card__image { transform: scale(1.02); }
+}
+
+/* ---------- Framed variant ----------
+   Photo floats inside a Shadow Green frame with the label sitting on the
+   colored panel below it instead of over the photo. Opt-in by adding
+   .brand-category-grid--framed to the section wrapper. */
+.brand-category-grid--framed .brand-category-card {
+  background: rgb(var(--brand-shadow));
+}
+.brand-category-grid--framed .brand-category-card__frame {
+  /* Inset on all sides, but leave more room at the bottom for the label
+     to live on the colored panel below the photo. */
+  inset: 12px 12px 32% 12px;
+}
+.brand-category-grid--framed .brand-category-card::after {
+  /* Match the photo's new inset so the gradient hugs the frame, not the
+     whole card. The bottom of the photo gets a stronger fade since the
+     label no longer sits on it. */
+  inset: 12px 12px 32% 12px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .35) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
+}
+.brand-category-grid--framed .brand-category-card__inner {
+  /* Push label/cta into the colored panel band at the bottom of the card. */
+  padding: clamp(14px, 1.6vw, 22px) clamp(16px, 2vw, 24px);
+}
+.brand-category-grid--framed .brand-category-card__label {
+  color: rgb(var(--brand-white));
+}
+.brand-category-grid--framed .brand-category-card__cta {
+  color: rgba(var(--brand-white), .75);
 }
 .brand-category-card__label {
   display: inline-flex;
@@ -1028,4 +1354,121 @@
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
+}
+
+/* ============================================================
+   Brand film section
+   Cinematic 8-second loop. Pin-on-scroll on desktop, normal flow
+   on mobile. Sits between best sellers and benefits in the
+   homepage rhythm.
+   ============================================================ */
+
+.brand-film {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+/* Pin-on-scroll: outer is taller than the viewport so the inner can
+   stick. Tuned so that at a typical wheel cadence the user sees one
+   full 8-second loop play before the section releases. */
+.brand-film--pinned {
+  height: 220vh;
+}
+
+.brand-film__stage {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 56vw, 720px);
+  overflow: hidden;
+  isolation: isolate;
+  /* Inherit background-image from the .brand-surface--gradient parent
+     so the gradient pattern shows around any letterboxed video edges. */
+  background-image: inherit;
+  background-color: inherit;
+  background-size: cover;
+  background-position: center;
+}
+
+.brand-film--pinned .brand-film__stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brand-film__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.brand-film__overlay {
+  position: absolute;
+  left: clamp(20px, 4vw, 48px);
+  bottom: clamp(28px, 4vw, 48px);
+  z-index: 2;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--brand-font-accent);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgb(var(--brand-white));
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .55);
+  pointer-events: none;
+}
+.brand-film__step {
+  font-size: 18px;
+  letter-spacing: .12em;
+  color: rgb(var(--brand-glow));
+  font-weight: 400;
+}
+.brand-film__label {
+  opacity: .9;
+}
+
+.brand-film__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 2px;
+  background: rgba(var(--brand-white), .14);
+  pointer-events: none;
+}
+.brand-film__progress-fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--brand-glow));
+  transform: scaleX(0);
+  transform-origin: left center;
+  /* Smooth out the timeupdate event cadence (~250ms on most browsers). */
+  transition: transform .18s linear;
+  will-change: transform;
+}
+
+/* Mobile: no pin (sticky inside short scroll regions feels broken on iOS),
+   no drift (perf), keep the gradient backdrop. */
+@media (max-width: 749px) {
+  .brand-film--pinned { height: auto; }
+  .brand-film--pinned .brand-film__stage {
+    position: relative;
+    height: clamp(380px, 64vw, 520px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-film--pinned { height: auto; }
+  .brand-film--pinned .brand-film__stage {
+    position: relative;
+    height: clamp(420px, 56vw, 720px);
+  }
+  .brand-film__progress-fill { transition: none; }
 }

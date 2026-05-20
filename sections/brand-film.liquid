@@ -1,0 +1,247 @@
+{%- liquid
+  assign video_file = section.settings.video_file
+  assign video_url = section.settings.video_url
+  assign video_asset_filename = section.settings.video_asset_filename | default: 'home-brand-film-8s.mp4'
+  assign poster = section.settings.poster
+  assign label_text = section.settings.label_text
+  assign step_number = section.settings.step_number
+  assign enable_pin = section.settings.enable_pin
+  assign gradient_colorway = section.settings.gradient_colorway | default: 'shadow'
+  assign show_drift = section.settings.show_drift
+
+  comment
+    Resolve the video source. Priority:
+      1. Shopify-hosted video_file picker (theme editor preferred).
+      2. Direct video_url paste (Files CDN).
+      3. Theme-asset fallback (home-brand-film-8s.mp4 staged in assets/).
+    Either of the first two unlocks larger masters; the asset fallback caps
+    around 20 MB and is the dev/local-preview path.
+  endcomment
+
+  if video_file != blank
+    assign resolved_video_src = video_file.sources[0].url
+  elsif video_url != blank
+    assign resolved_video_src = video_url
+  else
+    assign resolved_video_src = video_asset_filename | asset_url
+  endif
+
+  if poster != blank
+    assign resolved_poster = poster | image_url: width: 1920
+  endif
+-%}
+
+<div
+  class="
+    brand-film
+    brand-surface--gradient
+    brand-surface--gradient--{{ gradient_colorway }}
+    {% if show_drift %}brand-surface--gradient--drift{% endif %}
+    {% if enable_pin %}brand-film--pinned{% endif %}
+  "
+  data-brand-film
+  data-pin="{{ enable_pin }}"
+  aria-label="{{ label_text | default: 'Brand film' | escape }}"
+>
+  <div class="brand-film__stage">
+    <video
+      class="brand-film__video"
+      data-brand-film-video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      {% if resolved_poster %}poster="{{ resolved_poster }}"{% endif %}
+      aria-hidden="true"
+    >
+      <source src="{{ resolved_video_src }}" type="video/mp4">
+    </video>
+
+    {%- if label_text != blank or step_number != blank -%}
+      <div class="brand-film__overlay" aria-hidden="true">
+        {%- if step_number != blank -%}
+          <span class="brand-film__step">{{ step_number }}</span>
+        {%- endif -%}
+        {%- if label_text != blank -%}
+          <span class="brand-film__label">{{ label_text }}</span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="brand-film__progress" aria-hidden="true">
+      <span class="brand-film__progress-fill" data-brand-film-progress></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.currentScript && document.currentScript.previousElementSibling;
+    if (!root || !root.matches || !root.matches('.brand-film')) {
+      // Fallback: re-query in case currentScript isn't supported.
+      root = document.querySelector('.brand-film[data-brand-film]:not([data-brand-film-bound])');
+    }
+    if (!root) return;
+    root.setAttribute('data-brand-film-bound', '1');
+
+    var video = root.querySelector('[data-brand-film-video]');
+    var progressFill = root.querySelector('[data-brand-film-progress]');
+    if (!video) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    // Honor reduced-motion: pause + show poster. Otherwise let autoplay run.
+    function applyMotion() {
+      if (reduceMotion && reduceMotion.matches) {
+        video.pause();
+        video.removeAttribute('autoplay');
+        if (progressFill) progressFill.style.transform = 'scaleX(0)';
+      }
+    }
+    applyMotion();
+    if (reduceMotion) {
+      if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', applyMotion);
+      else if (reduceMotion.addListener) reduceMotion.addListener(applyMotion);
+    }
+
+    // Pause when offscreen — saves CPU/bandwidth, especially on long pages.
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (reduceMotion && reduceMotion.matches) return;
+          if (entry.isIntersecting) {
+            if (video.paused) video.play().catch(function () {});
+          } else {
+            if (!video.paused) video.pause();
+          }
+        });
+      }, { threshold: 0.15 });
+      io.observe(root);
+    }
+
+    // Progress bar: track the current loop's progress 0→1, then snap back.
+    if (progressFill) {
+      video.addEventListener('timeupdate', function () {
+        if (!video.duration || isNaN(video.duration)) return;
+        var ratio = video.currentTime / video.duration;
+        progressFill.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+      });
+      // On loop, the timeupdate after `ended` jumps back — handle that crisp.
+      video.addEventListener('seeked', function () {
+        if (video.currentTime < 0.05) {
+          progressFill.style.transform = 'scaleX(0)';
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Brand film",
+  "tag": "section",
+  "class": "brand-film-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Full-bleed cinematic brand moment. Defaults to the 8-second 'Quick Mashup' video staged in theme assets. Pin-on-scroll holds the section in place for one full playthrough on desktop. Disable pinning if it conflicts with a heavy adjacent section."
+    },
+    {
+      "type": "header",
+      "content": "Video source"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Shopify video (preferred)",
+      "info": "Upload via the theme editor. Overrides the URL and asset fallback below."
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Direct .mp4 URL",
+      "info": "Files CDN URL for masters too large to fit in theme assets. Used if no Shopify video is picked above."
+    },
+    {
+      "type": "text",
+      "id": "video_asset_filename",
+      "label": "Theme asset fallback (.mp4)",
+      "default": "home-brand-film-8s.mp4",
+      "info": "Used only when neither field above is set. Must live in /assets/."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster",
+      "label": "Poster frame",
+      "info": "Shown while the video buffers and as the still under prefers-reduced-motion. A 16:9 frame grab from the video is ideal."
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "text",
+      "id": "step_number",
+      "label": "Step number / counter",
+      "default": "02",
+      "info": "Miracle Mono caps. Pairs with the page-wide rep-counter concept."
+    },
+    {
+      "type": "text",
+      "id": "label_text",
+      "label": "Label text",
+      "default": "Train With Intent"
+    },
+    {
+      "type": "header",
+      "content": "Surface"
+    },
+    {
+      "type": "select",
+      "id": "gradient_colorway",
+      "label": "Gradient backdrop colorway",
+      "info": "Used as the section background while the video loads and as the visible frame around any letterboxed video. Pulls from the toolkit gradient pattern SVGs.",
+      "options": [
+        { "value": "shadow", "label": "Shadow Green" },
+        { "value": "emerald", "label": "Emerald" },
+        { "value": "glow", "label": "Glow Green" },
+        { "value": "clear-grey", "label": "Clear / Grey" },
+        { "value": "clear-white", "label": "Clear / White" }
+      ],
+      "default": "shadow"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_drift",
+      "label": "Slow drift animation",
+      "default": true,
+      "info": "60-second ambient drift on the gradient backdrop. Auto-disabled under prefers-reduced-motion."
+    },
+    {
+      "type": "header",
+      "content": "Behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pin",
+      "label": "Pin section on scroll (desktop)",
+      "default": true,
+      "info": "Holds the video on screen for one playthrough before releasing. Disabled on mobile and under prefers-reduced-motion."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand film — homepage",
+      "settings": {
+        "step_number": "02",
+        "label_text": "Train With Intent",
+        "gradient_colorway": "shadow",
+        "show_drift": true,
+        "enable_pin": true,
+        "video_asset_filename": "home-brand-film-8s.mp4"
+      }
+    }
+  ]
+}
+{% endschema %}

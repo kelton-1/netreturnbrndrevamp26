@@ -2,11 +2,13 @@
   assign eyebrow = section.settings.eyebrow
   assign heading = section.settings.heading
   assign columns = section.settings.columns | default: 4
+  assign frame_style = section.settings.frame_style | default: 'none'
 -%}
 
 <section
-  class="brand-category-grid"
+  class="brand-category-grid {% if frame_style == 'shadow' %}brand-category-grid--framed{% endif %}"
   style="--brand-category-cols: {{ columns }};"
+  data-brand-category-grid
   {% if heading != blank %}aria-labelledby="brand-category-grid-heading-{{ section.id }}"{% endif %}
 >
   <div class="brand-container">
@@ -29,29 +31,37 @@
           assign image = block.settings.image
           assign default_image_filename = block.settings.default_image_filename
           assign cta = block.settings.cta_text | default: 'Shop now'
+          assign card_index = forloop.index0
         -%}
         {%- if label != blank -%}
           <li {{ block.shopify_attributes }}>
-            <a class="brand-category-card" href="{{ link | default: '#' }}" aria-label="{{ label | escape }}">
-              {%- if image != blank -%}
-                <img
-                  class="brand-category-card__image"
-                  src="{{ image | image_url: width: 1200 }}"
-                  srcset="{{ image | image_url: width: 600 }} 600w, {{ image | image_url: width: 1200 }} 1200w"
-                  sizes="(max-width: 540px) 100vw, (max-width: 999px) 50vw, 25vw"
-                  alt="{{ image.alt | default: label | escape }}"
-                  loading="lazy"
-                  width="1200"
-                  height="800">
-              {%- elsif default_image_filename != blank -%}
-                <img
-                  class="brand-category-card__image"
-                  src="{{ default_image_filename | asset_url }}"
-                  alt="{{ label | escape }}"
-                  loading="lazy"
-                  width="1200"
-                  height="800">
-              {%- endif -%}
+            <a
+              class="brand-category-card"
+              href="{{ link | default: '#' }}"
+              aria-label="{{ label | escape }}"
+              style="--brand-card-index: {{ card_index }};"
+            >
+              <span class="brand-category-card__frame">
+                {%- if image != blank -%}
+                  <img
+                    class="brand-category-card__image"
+                    src="{{ image | image_url: width: 1200 }}"
+                    srcset="{{ image | image_url: width: 600 }} 600w, {{ image | image_url: width: 1200 }} 1200w"
+                    sizes="(max-width: 540px) 100vw, (max-width: 999px) 50vw, 25vw"
+                    alt="{{ image.alt | default: label | escape }}"
+                    loading="lazy"
+                    width="1200"
+                    height="800">
+                {%- elsif default_image_filename != blank -%}
+                  <img
+                    class="brand-category-card__image"
+                    src="{{ default_image_filename | asset_url }}"
+                    alt="{{ label | escape }}"
+                    loading="lazy"
+                    width="1200"
+                    height="800">
+                {%- endif -%}
+              </span>
               <div class="brand-category-card__inner">
                 <h3 class="brand-category-card__label">{{ label }}</h3>
                 <span class="brand-category-card__cta">{{ cta }}</span>
@@ -63,6 +73,43 @@
     </ul>
   </div>
 </section>
+
+<script>
+  (function () {
+    // Reveal each .brand-category-card as it enters the viewport. Stagger
+    // comes from --brand-card-index set inline per-card; this script just
+    // flips .is-revealed on so the CSS transition fires.
+    var grids = document.querySelectorAll('[data-brand-category-grid]:not([data-brand-grid-bound])');
+    if (!grids.length) return;
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    grids.forEach(function (grid) {
+      grid.setAttribute('data-brand-grid-bound', '1');
+      var cards = grid.querySelectorAll('.brand-category-card');
+
+      // Reduced motion or no IntersectionObserver: reveal immediately.
+      if ((reduceMotion && reduceMotion.matches) || !('IntersectionObserver' in window)) {
+        cards.forEach(function (c) { c.classList.add('is-revealed'); });
+        return;
+      }
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px'
+      });
+
+      cards.forEach(function (c) { io.observe(c); });
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -94,6 +141,21 @@
       "max": 4,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "select",
+      "id": "frame_style",
+      "label": "Frame treatment",
+      "info": "Flip between the two design concepts. None = cinematic full-bleed photo. Shadow Green = catalog-style inset frame with label on a colored panel.",
+      "options": [
+        { "value": "none", "label": "None (cinematic full-bleed)" },
+        { "value": "shadow", "label": "Shadow Green inset frame" }
+      ],
+      "default": "none"
     }
   ],
   "blocks": [

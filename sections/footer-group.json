@@ -59,6 +59,7 @@
     },
     "text-with-icons": {
       "type": "text-with-icons",
+      "disabled": true,
       "blocks": {
         "item-3": {
           "type": "item",

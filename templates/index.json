@@ -84,6 +84,17 @@
         "default_image_filename": ""
       }
     },
+    "brand_film_homepage": {
+      "type": "brand-film",
+      "settings": {
+        "video_asset_filename": "home-brand-film-8s.mp4",
+        "step_number": "02",
+        "label_text": "Train With Intent",
+        "gradient_colorway": "shadow",
+        "show_drift": true,
+        "enable_pin": true
+      }
+    },
     "brand_bryson_feature": {
       "type": "brand-bryson-feature",
       "settings": {
@@ -745,6 +756,7 @@
     "brand_hero_train_with_intent",
     "brand_category_grid_main",
     "brand_product_story_dont_settle",
+    "brand_film_homepage",
     "brand_bryson_feature",
     "slideshow",
     "trust_bar_DdPqga",
