@@ -92,5 +92,47 @@ Each section gets a subsection appended below as it lands, with the file paths t
 
 **Caveats / follow-ups**
 
-- The existing Focal `announcement-bar` section is still in the group but its blocks are all `disabled`. We can either delete it entirely or leave it as a fallback — defer the call until visual review.
-- Default messages are placeholder marketing copy; merchant should edit in admin (Theme editor → Header → Brand marquee → blocks).
+- The legacy Focal `announcement-bar` is left in the header group with `"disabled": true` so it stays hidden but isn't deleted (fallback per user request).
+- Default messages are approved: shipping / warranty / Bryson / 30-day trial.
+
+---
+
+## Logo assets staged
+
+Resized from the agency-approved local PNGs (`Logos/NR Full {White,Black}.png` 11813×3812 RGBA) into web-optimized variants:
+
+- `assets/nr-wordmark-white.png` — 1200×387 (~34 KB)
+- `assets/nr-wordmark-black.png` — 1200×387 (~37 KB)
+- `assets/nr-symbol-white.png` — 600×686 (~43 KB)
+- `assets/nr-symbol-black.png` — 600×686 (~45 KB)
+
+The header uses the white wordmark; black + symbol variants are pre-staged for footer, favicon, and any light-surface contexts. New logos from the agency (when the empty `UPDATED .../LOGOS/` folder gets filled) can drop in by overwriting these same filenames — no markup changes required.
+
+---
+
+## #5 — Header rebuild (done)
+
+**Files**
+
+- `assets/brand-revamp.css.liquid` — appended a "Header restyle" CSS block. Targets Focal's existing `.header__*`, `.nav-dropdown__*`, `.drawer`, `.mobile-nav__*` classes. No HTML refactor — just visual overrides.
+- `sections/header.liquid` — replaced the logo render block. Now serves `nr-wordmark-white.png` from theme assets unconditionally (header is dark by design, white wordmark always applies). Removed the `transparent_logo` conditional and shop-name text fallback — both now obsolete.
+
+**Behavior**
+
+- Pure black header surface, white text, 1px bottom hairline.
+- Top-level nav links: uppercase, condensed feel (`font-stretch: 80%` engages variable-font axis when present), each prefixed with an Emerald Precision+ glyph that rotates 90° on hover (turns Neon).
+- Icons (search/account/cart) white; Emerald on hover. Cart count badge in Emerald.
+- Locale/country popover buttons match the dark canvas with muted white.
+- Dropdown menus and Focal's mega-menu adopt the dark surface.
+- Mobile drawer: dark canvas, items larger and uppercase with Precision+ prefix, subtle hairline dividers.
+
+**Preview**
+
+- Self-contained: `/tmp/component-previews/header-{desktop,mobile}.png`.
+- Live: http://127.0.0.1:9292/ — verified the white wordmark asset is serving from Shopify CDN.
+
+**Caveats / follow-ups**
+
+- Logo `src` is now hardcoded to the staged asset. If we want merchant-editable logo swap later (e.g. seasonal mark), reintroduce the `section.settings.logo` reference behind a "use brand revamp logo" toggle in the section schema. Defer.
+- Approved white wordmark works for the dark header. When we get to surfaces that need the black wordmark (e.g. white-card areas, email templates, certain promo sections), the asset is already staged as `nr-wordmark-black.png`.
+- Transparent-header variant is forced to black via `.header--transparent { background: ... !important }` — no longer supports image overlay heroes with a see-through nav. If the hero design requires a transparent header, we'll need to revisit.

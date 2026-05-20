@@ -169,19 +169,15 @@ IMPLEMENTATION NOTE: the header in Focal is pretty complex as it allows a lot of
       </nav>
 
       <!-- LOGO PART -->
+      {%- comment -%}
+        Brand Revamp 2026: header serves the approved white wordmark from theme assets
+        (nr-wordmark-white.png) regardless of the legacy section.settings.logo value, since
+        the header is dark by design now. Symbol/black variants are staged for other surfaces.
+      {%- endcomment -%}
       {%- capture logo -%}
         <a class="header__logo-link" href="{{ routes.root_url }}">
-          {%- if section.settings.logo != blank -%}
-            {%- assign logo_size = section.settings.logo_max_width | at_least: section.settings.mobile_logo_max_width | times: 2 -%}
-            <span class="visually-hidden">{{ shop.name }}</span>
-            <img class="header__logo-image" fetchpriority='high' width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" src="{{ section.settings.logo | image_url: width: logo_size }}" alt="{{ section.settings.logo.alt | escape }}">
-
-            {%- if request.page_type == 'index' and section.settings.enable_transparent_header and section.settings.transparent_logo != blank -%}
-              <img fetchpriority='high' class="header__logo-image header__logo-image--transparent" width="{{ section.settings.transparent_logo.width }}" height="{{ section.settings.transparent_logo.height }}" src="{{ section.settings.transparent_logo | image_url: width: logo_size }}" alt="{{ section.settings.transparent_logo.alt | escape }}">
-            {%- endif -%}
-          {%- else -%}
-            <span class="header__logo-text heading h5">{{ shop.name }}</span>
-          {%- endif -%}
+          <span class="visually-hidden">{{ shop.name }}</span>
+          <img class="header__logo-image" fetchpriority='high' width="1200" height="387" src="{{ 'nr-wordmark-white.png' | asset_url }}" alt="{{ shop.name | escape }}">
         </a>
       {%- endcapture -%}
 

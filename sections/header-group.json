@@ -27,6 +27,7 @@
     },
     "announcement-bar": {
       "type": "announcement-bar",
+      "disabled": true,
       "blocks": {
         "message-1": {
           "type": "message",

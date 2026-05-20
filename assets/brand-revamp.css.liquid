@@ -205,3 +205,134 @@
   mask: var(--brand-grid-tile-white) no-repeat center / contain;
   -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
 }
+
+/* ============================================================
+   Header restyle (Phase 3 / task #5)
+   Overrides Focal's .header__* classes without touching markup.
+   Settings tokens (header_background, header_text_color) are
+   already Black/White from the Phase 1 token pass.
+   ============================================================ */
+
+.shopify-section--header,
+.shopify-section-group-header-group .header,
+.header {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+  border-bottom: 1px solid rgba(var(--brand-white), .08);
+}
+
+/* Tighten desktop padding to match mockup compact feel. */
+@media (min-width: 1000px) {
+  .header__wrapper { padding-block: 14px; }
+}
+
+/* Nav links: uppercase, condensed, with Precision+ glyph prefix. */
+.header__linklist-item > .header__linklist-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-stretch: 80%;
+  color: rgb(var(--brand-white));
+  text-decoration: none;
+  padding-block: 8px;
+  transition: color .15s ease;
+}
+.header__linklist-item > .header__linklist-link::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background-color: rgb(var(--brand-emerald));
+  mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  transition: background-color .15s ease, transform .2s ease;
+}
+.header__linklist-item > .header__linklist-link:hover {
+  color: rgb(var(--brand-emerald));
+}
+.header__linklist-item > .header__linklist-link:hover::before {
+  background-color: rgb(var(--brand-neon));
+  transform: rotate(90deg);
+}
+
+/* Icons: white, Emerald on hover. */
+.header .header__icon-wrapper,
+.header__icon-wrapper svg { color: rgb(var(--brand-white)); }
+.header .header__icon-wrapper:hover { color: rgb(var(--brand-emerald)); }
+
+/* Cart count badge in Emerald. */
+.header__cart-count {
+  background: rgb(var(--brand-emerald)) !important;
+  color: rgb(var(--brand-white)) !important;
+  font-weight: 700;
+}
+
+/* Locale / country popover trigger buttons match dark canvas. */
+.header__cross-border .popover-button {
+  color: rgba(var(--brand-white), .8);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.header__cross-border .popover-button:hover { color: rgb(var(--brand-white)); }
+
+/* Dropdown menus: dark surface to match. */
+.nav-dropdown {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+  border: 1px solid rgba(var(--brand-white), .1);
+}
+.nav-dropdown__link {
+  color: rgba(var(--brand-white), .85);
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.nav-dropdown__link:hover {
+  color: rgb(var(--brand-emerald));
+}
+
+/* Mega menu (if a link triggers Focal's mega menu) — dark canvas. */
+.mega-menu {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+  border-top: 1px solid rgba(var(--brand-white), .08);
+}
+
+/* Mobile drawer + nav. */
+.drawer { background: rgb(var(--brand-black)); color: rgb(var(--brand-white)); }
+.drawer__header,
+.drawer__footer { border-color: rgba(var(--brand-white), .08); }
+
+.mobile-nav__item { border-bottom: 1px solid rgba(var(--brand-white), .06); }
+.mobile-nav__link {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  color: rgb(var(--brand-white));
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding-block: 18px;
+}
+.mobile-nav__link::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-color: rgb(var(--brand-emerald));
+  mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  -webkit-mask: var(--brand-grid-tile-white) no-repeat center / contain;
+  flex-shrink: 0;
+}
+
+/* Transparent-header variant: don't fight the dark default — keep it black. */
+.header--transparent { background: rgb(var(--brand-black)) !important; }
