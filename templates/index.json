@@ -9,8 +9,24 @@
  */
 {
   "sections": {
+    "brand_hero_train_with_intent": {
+      "type": "brand-hero",
+      "settings": {
+        "height": "full",
+        "overlay_strength": 55,
+        "eyebrow": "The Net Return",
+        "heading_lead": "Train With",
+        "heading_em": "Intent.",
+        "body": "Physical repetition. Digital progression. Daily discipline. We connect the work to the score.",
+        "cta_text": "Shop nets",
+        "cta_link": "shopify://collections/nets-1",
+        "secondary_cta_text": "Build your setup",
+        "secondary_cta_link": "shopify://pages/build-your-setup"
+      }
+    },
     "slideshow": {
       "type": "slideshow",
+      "disabled": true,
       "blocks": {
         "image_Xqzptn": {
           "type": "image",
@@ -652,6 +668,7 @@
     }
   },
   "order": [
+    "brand_hero_train_with_intent",
     "slideshow",
     "trust_bar_DdPqga",
     "17621461567133e3c2",

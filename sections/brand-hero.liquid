@@ -1,0 +1,194 @@
+{%- liquid
+  assign section_id = section.id
+  assign eyebrow = section.settings.eyebrow
+  assign heading_lead = section.settings.heading_lead
+  assign heading_em = section.settings.heading_em
+  assign body = section.settings.body
+  assign cta_text = section.settings.cta_text
+  assign cta_link = section.settings.cta_link
+  assign secondary_cta_text = section.settings.secondary_cta_text
+  assign secondary_cta_link = section.settings.secondary_cta_link
+  assign image_desktop = section.settings.image_desktop
+  assign image_mobile = section.settings.image_mobile
+  assign height = section.settings.height | default: 'full'
+  assign overlay_strength = section.settings.overlay_strength | default: 55
+
+  comment
+    Fall back to staged Train-With-Intent assets if the merchant hasn't picked
+    a custom image yet — keeps the homepage looking right out of the box.
+  endcomment
+  if image_desktop == blank
+    assign default_desktop_url = 'brand-hero-train-with-intent-desktop.jpg' | asset_url
+  endif
+  if image_mobile == blank
+    assign default_mobile_url = 'brand-hero-train-with-intent-mobile.jpg' | asset_url
+  endif
+-%}
+
+<section
+  id="brand-hero-{{ section_id }}"
+  class="brand-hero brand-hero--{{ height }}"
+  aria-labelledby="brand-hero-heading-{{ section_id }}"
+  style="--brand-hero-overlay: {{ overlay_strength | divided_by: 100.0 }}; --brand-hero-overlay-mid: {{ overlay_strength | minus: 25 | at_least: 0 | divided_by: 100.0 }}; --brand-hero-overlay-top: {{ overlay_strength | minus: 40 | at_least: 0 | divided_by: 100.0 }};"
+>
+  <picture class="brand-hero__image">
+    {%- if image_mobile != blank -%}
+      <source media="(max-width: 749px)" srcset="{{ image_mobile | image_url: width: 1080 }}">
+    {%- elsif default_mobile_url -%}
+      <source media="(max-width: 749px)" srcset="{{ default_mobile_url }}">
+    {%- endif -%}
+
+    {%- if image_desktop != blank -%}
+      <source media="(min-width: 750px)" srcset="{{ image_desktop | image_url: width: 2560 }}">
+      <img src="{{ image_desktop | image_url: width: 1920 }}" alt="{{ image_desktop.alt | default: heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
+    {%- else -%}
+      <source media="(min-width: 750px)" srcset="{{ default_desktop_url }}">
+      <img src="{{ default_desktop_url }}" alt="{{ heading_em | default: heading_lead | escape }}" fetchpriority="high" width="2560" height="1707">
+    {%- endif -%}
+  </picture>
+
+  <div class="brand-hero__overlay" aria-hidden="true"></div>
+
+  <div class="brand-hero__content brand-container">
+    {%- if eyebrow != blank -%}
+      <p class="brand-eyebrow brand-hero__eyebrow">{{ eyebrow }}</p>
+    {%- endif -%}
+
+    {%- if heading_lead != blank or heading_em != blank -%}
+      <h1 id="brand-hero-heading-{{ section_id }}" class="brand-headline brand-hero__heading">
+        {%- if heading_lead != blank -%}{{ heading_lead }} {% endif -%}
+        {%- if heading_em != blank -%}<span class="brand-headline__em">{{ heading_em }}</span>{% endif -%}
+      </h1>
+    {%- endif -%}
+
+    {%- if body != blank -%}
+      <p class="brand-body brand-hero__body">{{ body }}</p>
+    {%- endif -%}
+
+    {%- if cta_text != blank -%}
+      <div class="brand-hero__actions">
+        <a class="brand-btn brand-btn--primary brand-hero__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+        {%- if secondary_cta_text != blank -%}
+          <a class="brand-btn brand-btn--outline brand-hero__cta brand-hero__cta--secondary" href="{{ secondary_cta_link | default: '#' }}">{{ secondary_cta_text }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand hero",
+  "tag": "section",
+  "class": "brand-hero-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Full-bleed immersive hero with mixed-weight headline. Ships defaulted to 'Train With Intent.' over photo #14 (male swing) from the brand toolkit; both can be overridden here."
+    },
+    {
+      "type": "header",
+      "content": "Imagery"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop background image",
+      "info": "Optional. Defaults to brand-hero-train-with-intent-desktop.jpg from theme assets."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile background image",
+      "info": "Optional. Defaults to brand-hero-train-with-intent-mobile.jpg."
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        { "value": "full", "label": "Full (92vh)" },
+        { "value": "large", "label": "Large (75vh)" },
+        { "value": "medium", "label": "Medium (60vh)" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "overlay_strength",
+      "label": "Overlay darkness",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 55,
+      "info": "Bottom-up gradient that keeps text legible on lighter photography."
+    },
+    {
+      "type": "header",
+      "content": "Copy"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)",
+      "default": "The Net Return"
+    },
+    {
+      "type": "text",
+      "id": "heading_lead",
+      "label": "Heading — light weight",
+      "default": "Train With"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading — emphasis (condensed bold)",
+      "default": "Intent."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body (optional)",
+      "default": "Physical repetition. Digital progression. Daily discipline. We connect the work to the score."
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Primary CTA text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Primary CTA link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_text",
+      "label": "Secondary CTA text (optional)"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary CTA link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand hero — Train With Intent",
+      "settings": {
+        "eyebrow": "The Net Return",
+        "heading_lead": "Train With",
+        "heading_em": "Intent.",
+        "body": "Physical repetition. Digital progression. Daily discipline. We connect the work to the score.",
+        "cta_text": "Shop now"
+      }
+    }
+  ]
+}
+{% endschema %}
