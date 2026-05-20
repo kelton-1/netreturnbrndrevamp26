@@ -90,8 +90,9 @@ NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing 
     <link rel="stylesheet" data-href="{{ 'custom.css' | asset_url }}">
     <noscript><link rel="stylesheet" href="{{ 'custom.css' | asset_url }}"></noscript>
 
-    <link rel="stylesheet" data-href="{{ 'brand-revamp.css' | asset_url }}">
-    <noscript><link rel="stylesheet" href="{{ 'brand-revamp.css' | asset_url }}"></noscript>
+    {%- comment -%} Brand revamp CSS loads eagerly to prevent FOUC on the marquee/header. {%- endcomment -%}
+    <link rel="preload" as="style" href="{{ 'brand-revamp.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'brand-revamp.css' | asset_url }}">
 
     <script>
       var upgradePropertyLabel = null;
