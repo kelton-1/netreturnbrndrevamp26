@@ -8,8 +8,7 @@
     "theme:list": "shopify theme list --store the-net-return",
     "theme:pull": "shopify theme pull --store the-net-return --theme 149365096541 --nodelete",
     "theme:dev": "shopify theme dev --store the-net-return",
-    "theme:check": "shopify theme check",
-    "theme:push:revamp": "shopify theme push --store the-net-return --theme 149365096541 --nodelete"
+    "theme:check": "shopify theme check"
   },
   "devDependencies": {
     "@shopify/cli": "^3.94.3"

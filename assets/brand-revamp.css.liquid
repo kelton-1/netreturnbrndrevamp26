@@ -5,6 +5,45 @@
    (--primary-button-background, --header-background, etc.)
    ============================================================ */
 
+@font-face {
+  font-family: "Crystal";
+  src: url('{{ "brand-crystal-light.ttf" | asset_url }}') format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crystal";
+  src: url('{{ "brand-crystal-regular.ttf" | asset_url }}') format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crystal";
+  src: url('{{ "brand-crystal-semibold.ttf" | asset_url }}') format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Crystal Ultra Condensed";
+  src: url('{{ "brand-crystal-ultra-condensed-semibold.ttf" | asset_url }}') format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Miracle Mono";
+  src: url('{{ "brand-miracle-mono-regular.otf" | asset_url }}') format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Brand palette as RGB triplets, so they can be used with rgb() / rgba(). */
   --brand-emerald: 0, 156, 67;        /* #009C43 */
@@ -23,6 +62,21 @@
      visible at small sizes. The grid tile is a 80x80 array of plus marks —
      wrong asset to mask down to a 12px box. */
   --brand-plus-glyph: url('{{ "precision-plus-white.svg" | asset_url }}');
+
+  --brand-font-sans-fallback: Arial, Helvetica, sans-serif;
+  --brand-font-body: "Crystal", var(--brand-font-sans-fallback);
+  --brand-font-heading: "Crystal", var(--brand-font-sans-fallback);
+  --brand-font-display: "Crystal Ultra Condensed", "Crystal", var(--brand-font-sans-fallback);
+  --brand-font-accent: "Miracle Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --brand-font-mono: var(--brand-font-accent);
+
+  --text-font-family: var(--brand-font-body);
+  --text-font-weight: 400;
+  --text-font-style: normal;
+  --text-font-bold-weight: 600;
+  --heading-font-family: var(--brand-font-heading);
+  --heading-font-weight: 600;
+  --heading-font-style: normal;
 }
 
 /* ---------- Surfaces ---------- */
@@ -47,13 +101,6 @@
   background-image: var(--brand-grid-tile-black);
 }
 
-/* When a surface has both a base color and the pattern, stack them. */
-.brand-surface.brand-surface--pattern,
-.brand-surface--shadow.brand-surface--pattern,
-.brand-surface--emerald.brand-surface--pattern {
-  background-color: inherit; /* preserve base color from non-pattern class */
-}
-
 /* ---------- Containers ---------- */
 
 .brand-container {
@@ -67,40 +114,69 @@
 .brand-section--tight { padding-block: clamp(24px, 4vw, 48px); }
 
 /* ---------- Typography ---------- */
-/* Crystal-stand-in until licensed font lands.
-   Mixed-weight headlines via .brand-headline + .brand-headline__em. */
+/* Brand guide mapping: Crystal for body/headings, Ultra Condensed for display, Miracle Mono for small accents. */
+
+.heading,
+.h2,
+.h3,
+.h5,
+.h6 {
+  font-family: var(--brand-font-heading);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.heading--large,
+.h1 {
+  font-family: var(--brand-font-display);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0;
+}
+
+.heading--xsmall,
+.heading--small,
+.text--xsmall,
+.input__label,
+.product-item__label-list,
+.product-item__quick-buy-button,
+.popover-button,
+.button:not(.brand-btn) {
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
+}
 
 .brand-eyebrow {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: var(--brand-font-accent);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0 0 12px;
   opacity: .8;
 }
 
 .brand-headline {
-  font-family: inherit;
-  font-weight: 300;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
   font-size: clamp(40px, 7.5vw, 112px);
   line-height: .96;
-  letter-spacing: -.015em;
+  letter-spacing: 0;
   margin: 0;
   text-wrap: balance;
 }
 .brand-headline__em {
-  font-weight: 900;
-  font-stretch: 75%;     /* engages variable-font condensed axis when available */
-  letter-spacing: -.03em;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .brand-headline--display {
-  font-weight: 900;
-  font-stretch: 60%;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
   font-size: clamp(80px, 18vw, 280px);
   line-height: .85;
-  letter-spacing: -.04em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 .brand-headline--stroke {
@@ -109,8 +185,8 @@
 }
 
 .brand-body {
-  font-family: inherit;
-  font-weight: 300;
+  font-family: var(--brand-font-body);
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.55;
   max-width: 56ch;
@@ -125,8 +201,8 @@
   justify-content: center;
   gap: .5rem;
   padding: 16px 32px;
-  font-family: inherit;
-  font-weight: 700;
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
   font-size: 13px;
   letter-spacing: .12em;
   line-height: 1;
@@ -175,12 +251,12 @@
 .brand-marquee {
   background: rgb(var(--brand-glow));
   color: rgb(var(--brand-black));
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: var(--brand-font-accent);
   font-size: 12px;
   line-height: 1.4;
   letter-spacing: .14em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   overflow: hidden;
   position: relative;
   min-height: 36px;
@@ -189,20 +265,26 @@
 }
 .brand-marquee__track {
   display: flex;
-  gap: 64px;
   padding: 10px 0;
   white-space: nowrap;
   animation: brand-marquee-scroll 28s linear infinite;
   will-change: transform;
   flex: 1 1 auto;
 }
-.brand-marquee__item { display: inline-flex; align-items: center; gap: 64px; }
+.brand-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 64px;
+  padding-right: 64px;
+}
 @keyframes brand-marquee-scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .brand-marquee__track { animation: none; justify-content: center; }
+  .brand-marquee__track { animation: none; justify-content: center; white-space: normal; }
+  .brand-marquee__item { flex-wrap: wrap; justify-content: center; padding-right: 0; }
+  .brand-marquee__item[aria-hidden="true"] { display: none; }
 }
 
 /* ---------- Precision+ inline mark helper ---------- */
@@ -218,15 +300,107 @@
 }
 
 /* ============================================================
+   Brand hero (Phase 3 / task #7)
+   Full-bleed Train With Intent homepage lead.
+   ============================================================ */
+
+.brand-hero {
+  position: relative;
+  color: rgb(var(--brand-white));
+  background: rgb(var(--brand-black));
+  overflow: hidden;
+  isolation: isolate;
+  margin-top: 0;
+}
+.brand-hero--full { min-height: clamp(560px, 92vh, 920px); }
+.brand-hero--large { min-height: clamp(480px, 75vh, 760px); }
+.brand-hero--medium { min-height: clamp(380px, 60vh, 600px); }
+
+.brand-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  display: block;
+}
+.brand-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.brand-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, var(--brand-hero-overlay, .55)) 0%,
+      rgba(0, 0, 0, var(--brand-hero-overlay-mid, .3)) 45%,
+      rgba(0, 0, 0, var(--brand-hero-overlay-top, .15)) 100%
+    );
+}
+.brand-hero__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  min-height: inherit;
+  padding-block: 88px;
+  gap: 20px;
+  max-width: 1440px;
+}
+.brand-hero__eyebrow { margin: 0; }
+.brand-hero__heading {
+  max-width: 18ch;
+  font-size: 112px;
+  line-height: .9;
+  letter-spacing: 0;
+}
+.brand-hero__heading .brand-headline__em { display: inline-block; }
+.brand-hero__body {
+  max-width: 48ch;
+  opacity: .92;
+}
+.brand-hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+@media (max-width: 1199px) {
+  .brand-hero__heading { font-size: 84px; }
+}
+@media (max-width: 749px) {
+  .brand-hero--full { min-height: 640px; }
+  .brand-hero__content {
+    padding-inline: 20px;
+    padding-block: 40px;
+  }
+  .brand-hero__heading {
+    max-width: 11ch;
+    font-size: 52px;
+  }
+  .brand-hero__actions {
+    width: 100%;
+    align-items: stretch;
+  }
+  .brand-hero__cta { flex: 1 1 100%; }
+}
+
+/* ============================================================
    Header restyle (Phase 3 / task #5)
    Overrides Focal's .header__* classes without touching markup.
    Settings tokens (header_background, header_text_color) are
    already Black/White from the Phase 1 token pass.
    ============================================================ */
 
-.shopify-section--header,
+.shopify-section--header .header,
 .shopify-section-group-header-group .header,
-.header {
+#shopify-section-header .header {
   background: rgb(var(--brand-black));
   color: rgb(var(--brand-white));
   border-bottom: 1px solid rgba(var(--brand-white), .08);
@@ -237,17 +411,16 @@
   .header__wrapper { padding-block: 14px; }
 }
 
-/* Nav links: uppercase, condensed, with Precision+ glyph prefix. */
+/* Nav links: mono accents with Precision+ glyph prefix. */
 .header__linklist-item > .header__linklist-link {
   display: inline-flex;
   align-items: center;
   gap: .45em;
-  font-family: inherit;
-  font-weight: 700;
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
   font-size: 12px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  font-stretch: 80%;
   color: rgb(var(--brand-white));
   text-decoration: none;
   padding-block: 8px;
@@ -280,48 +453,53 @@
 .header__cart-count {
   background: rgb(var(--brand-emerald)) !important;
   color: rgb(var(--brand-white)) !important;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Locale / country popover trigger buttons match dark canvas. */
 .header__cross-border .popover-button {
   color: rgba(var(--brand-white), .8);
+  font-family: var(--brand-font-accent);
   font-size: 11px;
   letter-spacing: .12em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
 }
 .header__cross-border .popover-button:hover { color: rgb(var(--brand-white)); }
 
 /* Dropdown menus: dark surface to match. */
-.nav-dropdown {
+.shopify-section-group-header-group .nav-dropdown,
+#shopify-section-header .nav-dropdown {
   background: rgb(var(--brand-black));
   color: rgb(var(--brand-white));
   border: 1px solid rgba(var(--brand-white), .1);
 }
-.nav-dropdown__link {
+.shopify-section-group-header-group .nav-dropdown__link,
+#shopify-section-header .nav-dropdown__link {
   color: rgba(var(--brand-white), .85);
-  font-family: inherit;
-  font-weight: 600;
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
   font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.nav-dropdown__link:hover {
+.shopify-section-group-header-group .nav-dropdown__link:hover,
+#shopify-section-header .nav-dropdown__link:hover {
   color: rgb(var(--brand-emerald));
 }
 
 /* Mega menu (if a link triggers Focal's mega menu) — dark canvas. */
-.mega-menu {
+.shopify-section-group-header-group .mega-menu,
+#shopify-section-header .mega-menu {
   background: rgb(var(--brand-black));
   color: rgb(var(--brand-white));
   border-top: 1px solid rgba(var(--brand-white), .08);
 }
 
-/* Mobile drawer + nav. */
-.drawer { background: rgb(var(--brand-black)); color: rgb(var(--brand-white)); }
-.drawer__header,
-.drawer__footer { border-color: rgba(var(--brand-white), .08); }
+/* Mobile navigation drawer only. Product, filter, cart, and search drawers keep their own Focal styling. */
+#mobile-menu-drawer.drawer { background: rgb(var(--brand-black)); color: rgb(var(--brand-white)); }
+#mobile-menu-drawer .drawer__header,
+#mobile-menu-drawer .drawer__footer { border-color: rgba(var(--brand-white), .08); }
 
 .mobile-nav__item { border-bottom: 1px solid rgba(var(--brand-white), .06); }
 .mobile-nav__link {
@@ -329,8 +507,8 @@
   align-items: center;
   gap: .6em;
   color: rgb(var(--brand-white));
-  font-family: inherit;
-  font-weight: 700;
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
   font-size: 18px;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -350,6 +528,247 @@
 .header--transparent { background: rgb(var(--brand-black)) !important; }
 
 /* ============================================================
+   Category grid section (Phase 4 / task #8)
+   Four-card grid (Nets / Packages / Simulation / Accessories)
+   that sits under the hero. Dark canvas; each card a photo with
+   an Emerald Precision+ glyph + display caps label.
+   ============================================================ */
+
+.brand-category-grid {
+  background: rgb(var(--brand-black));
+  color: rgb(var(--brand-white));
+  padding-block: clamp(48px, 6vw, 96px);
+}
+.brand-category-grid__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: clamp(24px, 3vw, 40px);
+}
+.brand-category-grid__heading {
+  font-family: var(--brand-font-heading);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.brand-category-grid__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--brand-category-cols, 4), 1fr);
+  gap: clamp(12px, 1.5vw, 20px);
+}
+@media (max-width: 999px) {
+  .brand-category-grid__list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .brand-category-grid__list { grid-template-columns: 1fr; }
+}
+
+.brand-category-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  text-decoration: none;
+  color: rgb(var(--brand-white));
+  background: rgb(var(--brand-shadow));
+  isolation: isolate;
+}
+.brand-category-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+  transition: transform .6s ease;
+}
+.brand-category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.7) 0%,
+    rgba(0,0,0,.2) 55%,
+    rgba(0,0,0,0)   100%
+  );
+}
+.brand-category-card:hover .brand-category-card__image { transform: scale(1.04); }
+.brand-category-card:focus-visible {
+  outline: 2px solid rgb(var(--brand-emerald));
+  outline-offset: 4px;
+}
+.brand-category-card__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  padding: clamp(16px, 2vw, 24px);
+  gap: 8px;
+}
+.brand-category-card__label {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  font-family: var(--brand-font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2.6vw, 36px);
+  letter-spacing: 0;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+.brand-category-card__label::before {
+  content: "";
+  width: .7em;
+  height: .7em;
+  background-color: rgb(var(--brand-emerald));
+  mask: var(--brand-plus-glyph) no-repeat center / contain;
+  -webkit-mask: var(--brand-plus-glyph) no-repeat center / contain;
+  flex-shrink: 0;
+  transition: background-color .15s ease;
+}
+.brand-category-card:hover .brand-category-card__label::before {
+  background-color: rgb(var(--brand-neon));
+}
+.brand-category-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  font-family: var(--brand-font-accent);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 400;
+  opacity: .85;
+}
+.brand-category-card__cta::after { content: "→"; transition: transform .2s ease; }
+.brand-category-card:hover .brand-category-card__cta::after { transform: translateX(4px); }
+
+/* ============================================================
+   Product story section (Phase 4 / task #9)
+   White Precision+ editorial band: "Don't Settle For Less".
+   ============================================================ */
+
+.brand-product-story {
+  position: relative;
+  overflow: hidden;
+  background: rgb(var(--brand-white));
+  color: rgb(var(--brand-black));
+  isolation: isolate;
+}
+.brand-product-story::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--brand-grid-tile-black);
+  background-size: 80px 80px;
+  background-repeat: repeat;
+  opacity: .08;
+  pointer-events: none;
+}
+.brand-product-story__inner {
+  min-height: clamp(620px, 72vw, 860px);
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 92px);
+  padding-block: clamp(64px, 8vw, 128px);
+}
+.brand-product-story__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(20px, 2vw, 28px);
+  max-width: 560px;
+}
+.brand-product-story__heading {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: rgb(var(--brand-emerald));
+  font-family: var(--brand-font-display);
+  font-size: clamp(76px, 10vw, 176px);
+  font-weight: 600;
+  line-height: .8;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+.brand-product-story__heading-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(var(--brand-emerald), .42);
+}
+.brand-product-story__body {
+  max-width: 38ch;
+  margin: 0;
+  color: rgba(var(--brand-black), .78);
+  font-family: var(--brand-font-body);
+  font-size: clamp(16px, 1.2vw, 19px);
+  font-weight: 400;
+  line-height: 1.65;
+}
+.brand-product-story__cta {
+  width: min(100%, 520px);
+  min-height: 64px;
+}
+.brand-product-story__media {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 420px;
+}
+.brand-product-story__image {
+  width: min(100%, 760px);
+  max-height: 680px;
+  object-fit: contain;
+  filter: drop-shadow(0 32px 42px rgba(var(--brand-black), .18));
+}
+
+@media (max-width: 999px) {
+  .brand-product-story__inner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    gap: 36px;
+  }
+  .brand-product-story__copy {
+    max-width: 100%;
+  }
+  .brand-product-story__media {
+    justify-content: center;
+    min-height: 320px;
+  }
+  .brand-product-story__image {
+    width: min(100%, 620px);
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 749px) {
+  .brand-product-story__inner {
+    padding-inline: 20px;
+    padding-block: 56px 68px;
+  }
+  .brand-product-story__heading {
+    font-size: clamp(72px, 21vw, 116px);
+  }
+  .brand-product-story__body {
+    max-width: 31ch;
+  }
+  .brand-product-story__cta {
+    width: 100%;
+  }
+}
+
+/* ============================================================
    Footer CTA section (Phase 3 / task #6)
    Standalone "Book a Call" panel above the main footer.
    ============================================================ */
@@ -365,8 +784,8 @@
 }
 .brand-footer-cta__heading {
   font-size: clamp(32px, 5vw, 64px);
-  font-weight: 300;
-  letter-spacing: -.015em;
+  font-weight: 600;
+  letter-spacing: 0;
 }
 .brand-footer-cta__body {
   opacity: .85;
@@ -386,16 +805,16 @@
 /* Block headings (e.g. "Shop", "Explore", "Follow"). */
 .footer__item-content > .heading,
 .footer__item-content h2 {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: var(--brand-font-accent);
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   opacity: .7;
   margin-bottom: 18px;
 }
 
-/* Footer link list items: condensed caps + Emerald Precision+ glyph prefix. */
+/* Footer link list items: mono caps + Emerald Precision+ glyph prefix. */
 .footer .linklist__item { padding-block: 4px; }
 .footer .linklist__item a {
   display: inline-flex;
@@ -403,12 +822,11 @@
   gap: .55em;
   color: rgb(var(--brand-white));
   text-decoration: none;
-  font-family: inherit;
-  font-weight: 600;
+  font-family: var(--brand-font-accent);
+  font-weight: 400;
   font-size: 14px;
   letter-spacing: .1em;
   text-transform: uppercase;
-  font-stretch: 80%;
   transition: color .15s ease;
 }
 .footer .linklist__item a::before {
@@ -463,7 +881,7 @@
 .footer__aside {
   border-top: 1px solid rgba(var(--brand-white), .08);
   padding-block: 24px;
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: var(--brand-font-accent);
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;

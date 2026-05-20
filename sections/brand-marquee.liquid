@@ -7,14 +7,19 @@
   >
     <div class="brand-marquee__track">
       {%- for repeat in (1..2) -%}
-        <div class="brand-marquee__item" {% if repeat == 2 %}aria-hidden="true"{% endif %}>
+        {%- assign is_clone = false -%}
+        {%- if repeat == 2 -%}
+          {%- assign is_clone = true -%}
+        {%- endif -%}
+
+        <div class="brand-marquee__item" {% if is_clone %}aria-hidden="true"{% endif %}>
           {%- for block in section.blocks -%}
             {%- assign item_text = block.settings.text | strip -%}
             {%- if item_text != blank -%}
               {%- if block.settings.link != blank -%}
-                <a href="{{ block.settings.link }}" {{ block.shopify_attributes }}>{{ item_text | escape }}</a>
+                <a href="{{ block.settings.link }}" {% if is_clone %}tabindex="-1"{% else %}{{ block.shopify_attributes }}{% endif %}>{{ item_text | escape }}</a>
               {%- else -%}
-                <span {{ block.shopify_attributes }}>{{ item_text | escape }}</span>
+                <span {% unless is_clone %}{{ block.shopify_attributes }}{% endunless %}>{{ item_text | escape }}</span>
               {%- endif -%}
               {%- unless forloop.last -%}
                 <span class="brand-plus" aria-hidden="true"></span>
