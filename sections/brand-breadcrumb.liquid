@@ -1,0 +1,106 @@
+{%- comment -%}
+  Brand breadcrumb (brand-revamp 2026).
+  Thin dark strip sitting just under the header. Renders the trail set in
+  schema (blocks) OR auto-fills from the current context (collection / page).
+  Hidden on small phones — the trail collapses to a single back-link.
+{%- endcomment -%}
+
+{%- liquid
+  assign auto_trail = false
+  if section.blocks.size == 0
+    assign auto_trail = true
+  endif
+-%}
+
+<nav class="brand-breadcrumb" aria-label="Breadcrumb" data-brand-breadcrumb>
+  <div class="brand-container brand-breadcrumb__inner">
+    <ol class="brand-breadcrumb__list" role="list">
+      {%- if auto_trail -%}
+        <li class="brand-breadcrumb__item">
+          <a class="brand-breadcrumb__link" href="{{ routes.root_url }}">Home</a>
+        </li>
+        {%- if template contains 'collection' and collection != blank -%}
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ collection.title }}</li>
+        {%- elsif template contains 'product' and product != blank -%}
+          {%- if collection != blank and collection.handle != blank -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="{{ collection.url }}">{{ collection.title }}</a></li>
+          {%- endif -%}
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ product.title }}</li>
+        {%- elsif template contains 'page' and page != blank -%}
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ page.title }}</li>
+        {%- elsif template contains 'blog' and blog != blank -%}
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ blog.title }}</li>
+        {%- elsif template contains 'article' and article != blank -%}
+          {%- if blog != blank -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="{{ blog.url }}">{{ blog.title }}</a></li>
+          {%- endif -%}
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ article.title }}</li>
+        {%- endif -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          {%- assign crumb_label = block.settings.label -%}
+          {%- assign crumb_link = block.settings.link -%}
+          {%- if crumb_label == blank -%}{% continue %}{%- endif -%}
+          {%- unless forloop.first -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          {%- endunless -%}
+          {%- if forloop.last or crumb_link == blank -%}
+            <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page" {{ block.shopify_attributes }}>{{ crumb_label }}</li>
+          {%- else -%}
+            <li class="brand-breadcrumb__item" {{ block.shopify_attributes }}>
+              <a class="brand-breadcrumb__link" href="{{ crumb_link }}">{{ crumb_label }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </ol>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Brand breadcrumb",
+  "tag": "section",
+  "class": "brand-breadcrumb-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Thin Miracle Mono breadcrumb. Auto-fills from the current collection / product / page when no blocks are added. Add blocks below to override the trail manually."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "crumb",
+      "name": "Breadcrumb item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link",
+          "info": "Leave blank on the last (current) crumb."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand breadcrumb",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,219 @@
+{%- comment -%}
+  Brand series rail (brand-revamp 2026).
+  Three large photo cards that act as a tier chooser between the brand
+  collection intro and the product grid. Pattern rhymes with the homepage
+  brand-category-grid card, scaled up: more body copy, larger image frame,
+  Emerald action with arrow.
+{%- endcomment -%}
+
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign columns = section.settings.columns | default: 3
+-%}
+
+<section
+  class="brand-series-rail brand-surface brand-surface--shadow brand-surface--pattern"
+  data-brand-series-rail
+  data-brand-reveal
+  style="--brand-series-cols: {{ columns }};"
+  {% if heading != blank %}aria-labelledby="brand-series-rail-heading-{{ section.id }}"{% endif %}
+>
+  <div class="brand-container brand-series-rail__inner">
+    {%- if eyebrow != blank or heading != blank or body != blank -%}
+      <header class="brand-series-rail__header">
+        {%- if eyebrow != blank -%}
+          <p class="brand-eyebrow brand-series-rail__eyebrow">
+            <span class="brand-plus" aria-hidden="true"></span>
+            {{ eyebrow }}
+          </p>
+        {%- endif -%}
+        {%- if heading != blank -%}
+          <h2 id="brand-series-rail-heading-{{ section.id }}" class="brand-headline brand-series-rail__heading">{{ heading }}</h2>
+        {%- endif -%}
+        {%- if body != blank -%}
+          <p class="brand-body brand-series-rail__body">{{ body }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul class="brand-series-rail__list" role="list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign label = block.settings.label
+          assign body_copy = block.settings.body
+          assign size_hint = block.settings.size_hint
+          assign price_hint = block.settings.price_hint
+          assign link = block.settings.link
+          assign cta = block.settings.cta_text | default: 'Explore series'
+          assign image = block.settings.image
+          assign default_image_filename = block.settings.default_image_filename
+          assign card_index = forloop.index0
+        -%}
+        {%- if label != blank -%}
+          <li {{ block.shopify_attributes }}>
+            <a
+              class="brand-series-card"
+              href="{{ link | default: '#' }}"
+              aria-label="{{ label | escape }}"
+              style="--brand-card-index: {{ card_index }};"
+            >
+              <span class="brand-series-card__frame">
+                {%- if image != blank -%}
+                  <img
+                    class="brand-series-card__image"
+                    src="{{ image | image_url: width: 1200 }}"
+                    srcset="{{ image | image_url: width: 600 }} 600w, {{ image | image_url: width: 1200 }} 1200w, {{ image | image_url: width: 1600 }} 1600w"
+                    sizes="(max-width: 540px) 100vw, (max-width: 999px) 50vw, 33vw"
+                    alt="{{ image.alt | default: label | escape }}"
+                    loading="lazy"
+                    width="1200"
+                    height="900">
+                {%- elsif default_image_filename != blank -%}
+                  <img
+                    class="brand-series-card__image"
+                    src="{{ default_image_filename | asset_url }}"
+                    alt="{{ label | escape }}"
+                    loading="lazy"
+                    width="1200"
+                    height="900">
+                {%- endif -%}
+              </span>
+
+              <div class="brand-series-card__inner">
+                {%- if size_hint != blank -%}
+                  <p class="brand-series-card__size-hint">{{ size_hint }}</p>
+                {%- endif -%}
+                <h3 class="brand-series-card__label">{{ label }}</h3>
+                {%- if body_copy != blank -%}
+                  <p class="brand-series-card__body">{{ body_copy }}</p>
+                {%- endif -%}
+                <div class="brand-series-card__footer">
+                  {%- if price_hint != blank -%}
+                    <span class="brand-series-card__price">{{ price_hint }}</span>
+                  {%- endif -%}
+                  <span class="brand-series-card__cta">
+                    {{ cta }}
+                    <span class="brand-series-card__cta-arrow" aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </div>
+            </a>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand series rail",
+  "tag": "section",
+  "class": "brand-series-rail-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "3-card series chooser. Sits between the brand collection intro and the product grid. Each card links to a sub-collection or tier landing page."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Choose your series"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pick the tier built for your space."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "blocks": [
+    {
+      "type": "series",
+      "name": "Series card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "default_image_filename",
+          "label": "Fallback theme asset filename",
+          "info": "Used only when no image is picked. Example: brand-series-pro.jpg"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Series name",
+          "default": "Pro Series"
+        },
+        {
+          "type": "text",
+          "id": "size_hint",
+          "label": "Size hint",
+          "info": "Short fit cue shown above the label. Example: '8 – 10 ft wide · indoor + outdoor'",
+          "default": "8 – 10 ft wide · indoor + outdoor"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body",
+          "default": "Engineered for serious training. Larger footprint, heavier-duty frame, sim-ready."
+        },
+        {
+          "type": "text",
+          "id": "price_hint",
+          "label": "Price hint",
+          "info": "Optional. Example: 'From $695'"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Explore series"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand series rail",
+      "settings": {
+        "eyebrow": "Choose your series",
+        "heading": "Pick the tier built for your space.",
+        "columns": 3
+      },
+      "blocks": [
+        { "type": "series", "settings": { "label": "Home Series",       "size_hint": "5 – 8 ft wide · indoor",          "cta_text": "Explore Home Series" } },
+        { "type": "series", "settings": { "label": "Pro Series",        "size_hint": "8 – 10 ft wide · indoor + outdoor", "cta_text": "Explore Pro Series" } },
+        { "type": "series", "settings": { "label": "Commercial Series", "size_hint": "10 ft+ · commercial spaces",        "cta_text": "Explore Commercial" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,232 @@
+{%- comment -%}
+  Brand collection grid (brand-revamp 2026).
+  Standalone product grid that renders the brand product card instead of
+  Focal's stock product-item. Filters are intentionally omitted in this
+  pass — sort-by + product count only. The original main-collection section
+  remains available (and disabled) in templates that need filter UI.
+{%- endcomment -%}
+
+{%- liquid
+  assign collection_sort_by = collection.sort_by | default: collection.default_sort_by
+  assign desktop_cols = section.settings.desktop_products_per_row | default: 4
+  assign mobile_cols = section.settings.mobile_products_per_row | default: 2
+  assign per_page = section.settings.products_per_page | default: 24
+  assign show_sort = section.settings.show_sort_by
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign surface = section.settings.surface | default: 'white'
+  assign card_review_rating = section.settings.review_rating | default: '4.9'
+  assign card_review_count = section.settings.review_count | default: 2007
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --brand-grid-cols-mobile: {{ mobile_cols }};
+    --brand-grid-cols-desktop: {{ desktop_cols }};
+  }
+</style>
+
+<section
+  class="brand-collection-grid brand-surface brand-surface--{{ surface }}"
+  data-brand-collection-grid
+  aria-labelledby="brand-collection-grid-heading-{{ section.id }}"
+>
+  <div class="brand-container brand-collection-grid__inner">
+    {%- if eyebrow != blank or heading != blank -%}
+      <header class="brand-collection-grid__header">
+        {%- if eyebrow != blank -%}
+          <p class="brand-eyebrow brand-collection-grid__eyebrow">
+            <span class="brand-plus" aria-hidden="true"></span>
+            {{ eyebrow }}
+          </p>
+        {%- endif -%}
+        {%- if heading != blank -%}
+          <h2 id="brand-collection-grid-heading-{{ section.id }}" class="brand-collection-grid__heading">{{ heading }}</h2>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    {%- if collection.products_count > 0 -%}
+      <div class="brand-collection-grid__meta">
+        <span class="brand-collection-grid__count" role="status">
+          {{ 'collection.general.products_count' | t: count: collection.products_count }}
+        </span>
+
+        {%- if show_sort -%}
+          <div class="brand-collection-grid__sort popover-container">
+            {%- for option in collection.sort_options -%}
+              {%- if option.value == collection_sort_by -%}
+                {%- assign collection_sort_by_name = option.name -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+
+            <button type="button" is="toggle-button" class="brand-collection-grid__sort-button popover-button" aria-expanded="false" aria-controls="brand-sort-popover-{{ section.id }}">
+              <span class="brand-collection-grid__sort-label">{{ 'collection.general.sort_by' | t }}</span>
+              <span id="brand-sort-by-selected-{{ section.id }}" class="brand-collection-grid__sort-value">{{ collection_sort_by_name }}</span>
+              {%- render 'icon' with 'chevron', inline: true -%}
+            </button>
+
+            <sort-by-popover id="brand-sort-popover-{{ section.id }}" class="popover">
+              <span class="popover__overlay"></span>
+              <header class="popover__header">
+                <span class="popover__title heading h6">{{- 'collection.general.sort_by' | t -}}</span>
+                <button type="button" class="popover__close-button tap-area tap-area--large" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
+                  {%- render 'icon' with 'close' -%}
+                </button>
+              </header>
+              <div class="popover__content">
+                <div class="popover__choice-list">
+                  {%- for sort_option in collection.sort_options -%}
+                    <label class="popover__choice-item">
+                      <input type="radio" data-bind-value="brand-sort-by-selected-{{ section.id }}" class="visually-hidden" {% if sort_option.value == collection_sort_by %}checked="checked"{% endif %} name="sort_by" value="{{ sort_option.value }}" title="{{ sort_option.name }}">
+                      <span class="popover__choice-label">{{ sort_option.name }}</span>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </div>
+            </sort-by-popover>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- paginate collection.products by per_page -%}
+        {%- capture sizes_attribute -%}(max-width: 740px) calc({{ 100.0 | divided_by: mobile_cols | ceil }}vw - 24px), calc((min(100vw - 80px, 1520px)) / {{ desktop_cols }} - 24px){%- endcapture -%}
+
+        <product-list class="brand-collection-grid__list" {% if settings.stagger_products_apparition %}stagger-apparition{% endif %}>
+          <div class="brand-collection-grid__inner-list">
+            {%- for product in collection.products -%}
+              {% if product.tags contains 'hidden' %}{% continue %}{% endif %}
+              {%- render 'product-item-brand',
+                  product: product,
+                  collection: collection,
+                  sizes_attribute: sizes_attribute,
+                  reveal: settings.stagger_products_apparition,
+                  review_rating: card_review_rating,
+                  review_count: card_review_count
+              -%}
+            {%- endfor -%}
+          </div>
+        </product-list>
+
+        {%- render 'pagination', paginate: paginate, use_ajax: true -%}
+      {%- endpaginate -%}
+
+    {%- else -%}
+      <div class="brand-collection-grid__empty">
+        {%- if collection.all_products_count == 0 -%}
+          <h3 class="brand-collection-grid__empty-heading">{{ 'collection.general.empty_title' | t }}</h3>
+          <p class="brand-body">{{ 'collection.general.empty_label' | t }}</p>
+          <div class="brand-collection-grid__empty-actions">
+            <a href="{{ routes.all_products_collection_url }}" class="brand-btn brand-btn--primary">{{ 'collection.general.empty_button' | t }}</a>
+          </div>
+        {%- else -%}
+          <h3 class="brand-collection-grid__empty-heading">{{ 'collection.general.no_results_title' | t }}</h3>
+          <p class="brand-body">{{ 'collection.general.no_results_label' | t }}</p>
+          <div class="brand-collection-grid__empty-actions">
+            <a href="{{ collection.url }}?sort_by={{ collection_sort_by }}" data-action="clear-filters" class="brand-btn brand-btn--primary">{{ 'collection.general.no_results_button' | t }}</a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand collection grid",
+  "tag": "section",
+  "class": "brand-collection-grid-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Standalone brand-styled product grid. Uses the brand product card (product-item-brand snippet). Sort-by + count only; no filter UI in this version."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Surface color",
+      "options": [
+        { "value": "white", "label": "White" },
+        { "value": "shadow", "label": "Shadow Green" },
+        { "value": "glow", "label": "Glow Green" }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort_by",
+      "label": "Show sort dropdown",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "mobile_products_per_row",
+      "label": "Mobile columns",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "desktop_products_per_row",
+      "label": "Desktop columns",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Social proof"
+    },
+    {
+      "type": "text",
+      "id": "review_rating",
+      "label": "Review rating",
+      "info": "Hardcoded average shown under each product. Mirrors the CRO grid pattern. Example: 4.9",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "info": "Hardcoded review-count number shown alongside the stars.",
+      "default": "2007"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand collection grid",
+      "settings": {
+        "surface": "white",
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "desktop_products_per_row": 4
+      }
+    }
+  ]
+}
+{% endschema %}
+

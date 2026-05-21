@@ -1,0 +1,158 @@
+{%- comment -%}
+  Brand product card (brand-revamp 2026).
+  Same calling contract as snippets/product-item.liquid:
+    - product (required)
+    - collection (optional, for analytics scope)
+    - sizes_attribute (string), reveal (bool)
+    - review_rating, review_count (optional — passed from the section,
+      mirrors the CRO grid's hardcoded social-proof approach so
+      collection landings keep consistent merchandising weight)
+
+  Data architecture is intentionally aligned with sections/cro-collection-grid.liquid
+  so the merchant only has to populate one set of metafields per product:
+    - product.metafields.custom.ideal_for       (list) → left-corner chip
+    - product.metafields.custom.most_popular    (string) → right-corner chip
+    - product.metafields.custom.secondary_text  (string) → dimensions line
+    - product.metafields.custom.micro_benefit   (string) → green italic tagline
+    - product.metafields.custom.lifestyle_image (image) → optional hover image
+  This card replaces the CRO card's visual treatment with the brand
+  type system (Crystal Ultra Condensed title, Miracle Mono accents,
+  Emerald CTA) while keeping the information architecture identical.
+{%- endcomment -%}
+
+{%- liquid
+  assign ideal_for_tags = product.metafields.custom.ideal_for.value | default: ''
+  assign popular_tag    = product.metafields.custom.most_popular.value | default: ''
+  assign secondary_text = product.metafields.custom.secondary_text | default: ''
+  assign micro_benefit  = product.metafields.custom.micro_benefit.value | default: ''
+  assign lifestyle_img  = product.metafields.custom.lifestyle_image.value
+
+  comment
+    Resolve the left-corner badge from the first ideal_for value.
+    Same six categories as the CRO grid filter — keeps merchandising vocabulary aligned.
+  endcomment
+  assign badge_label = ''
+  if ideal_for_tags != blank
+    assign first_tag = ideal_for_tags | first
+    case first_tag
+      when 'kids'         ; assign badge_label = 'Kids'
+      when 'small_spaces' ; assign badge_label = 'Small Spaces'
+      when 'home_garage'  ; assign badge_label = 'Home / Garage'
+      when 'yard'         ; assign badge_label = 'Yard'
+      when 'commercial'   ; assign badge_label = 'Commercial'
+      when 'pro_training' ; assign badge_label = 'Pro Training'
+    endcase
+  endif
+
+  comment
+    Hardcoded social-proof rating, exactly as the CRO grid does it.
+    Falls back to passed-in args (from brand-collection-grid section
+    settings), then to a sensible default. Per-product review counts
+    will come from Judge.me badges injected client-side, not from this
+    Liquid layer — same as the CRO card.
+  endcomment
+  assign card_rating = review_rating | default: '4.9'
+  assign card_review_count = review_count | default: 2007
+-%}
+
+<product-item
+  class="product-item brand-product-card {% unless product.available %}product-item--sold-out brand-product-card--sold-out{% endunless %}"
+  data-product-id="{{ product.id }}"
+  data-ideal-for="{% if ideal_for_tags != blank %}{% for tag in ideal_for_tags %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endif %}"
+  data-net-size="{{ secondary_text | escape }}"
+  data-available="{{ product.available }}"
+  {% if reveal %}reveal{% endif %}
+>
+  <div class="brand-product-card__media-wrapper">
+    <a href="{{ product.url }}" data-instant class="brand-product-card__media" aria-label="{{ product.title | escape }}">
+      {%- if product.featured_media -%}
+        {{ product.featured_media | image_url: width: 1200 | image_tag:
+            class: 'brand-product-card__image brand-product-card__image--primary',
+            loading: 'lazy',
+            sizes: sizes_attribute,
+            widths: '320,480,640,800,1000,1200',
+            alt: product.featured_media.alt | default: product.title
+        }}
+      {%- else -%}
+        {{- 'product-1' | placeholder_svg_tag: 'placeholder-background brand-product-card__image' -}}
+      {%- endif -%}
+
+      {%- if lifestyle_img != blank -%}
+        <img
+          class="brand-product-card__image brand-product-card__image--alt"
+          src="{{ lifestyle_img | image_url: width: 1200 }}"
+          alt="{{ product.title | escape }} — lifestyle"
+          loading="lazy"
+          width="1200"
+          height="1200">
+      {%- elsif product.media.size > 1 -%}
+        {{ product.media[1] | image_url: width: 1200 | image_tag:
+            class: 'brand-product-card__image brand-product-card__image--alt',
+            loading: 'lazy',
+            sizes: sizes_attribute,
+            widths: '320,480,640,800,1000,1200',
+            alt: product.title
+        }}
+      {%- endif -%}
+    </a>
+
+    <div class="brand-product-card__badges-left">
+      {%- if badge_label != blank -%}
+        <span class="brand-product-card__badge brand-product-card__badge--ideal-for">{{ badge_label }}</span>
+      {%- endif -%}
+      {%- unless product.available -%}
+        <span class="brand-product-card__badge brand-product-card__badge--sold-out">Sold Out</span>
+      {%- endunless -%}
+      {%- if product.compare_at_price > product.price and product.available -%}
+        {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        <span class="brand-product-card__badge brand-product-card__badge--save">Save {{ savings }}%</span>
+      {%- endif -%}
+    </div>
+
+    {%- if popular_tag != blank -%}
+      <div class="brand-product-card__badges-right">
+        <span class="brand-product-card__badge brand-product-card__badge--popular">{{ popular_tag }}</span>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="brand-product-card__body">
+    <a href="{{ product.url }}" data-instant class="brand-product-card__title-link">
+      <h3 class="brand-product-card__title">{{ product.title }}</h3>
+    </a>
+
+    {%- if secondary_text != blank -%}
+      <p class="brand-product-card__spec">{{ secondary_text }}</p>
+    {%- endif -%}
+
+    <div class="brand-product-card__reviews" aria-label="{{ card_rating }} out of 5 stars">
+      <span class="brand-product-card__stars" aria-hidden="true">
+        {%- for i in (1..5) -%}
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+        {%- endfor -%}
+      </span>
+      <span class="brand-product-card__reviews-text">{{ card_rating }} ({{ card_review_count }} reviews)</span>
+    </div>
+
+    <div class="brand-product-card__price-group">
+      {%- if product.price_varies -%}
+        <span class="brand-product-card__price">{{ 'collection.product.from_price_html' | t: price_min: product.price_min | money }}</span>
+      {%- elsif product.compare_at_price > product.price -%}
+        <span class="brand-product-card__price brand-product-card__price--sale">{{ product.price | money }}</span>
+        <span class="brand-product-card__price-compare">{{ product.compare_at_price | money }}</span>
+      {%- else -%}
+        <span class="brand-product-card__price">{{ product.price | money }}</span>
+      {%- endif -%}
+    </div>
+
+    {%- if micro_benefit != blank -%}
+      <p class="brand-product-card__benefit">{{ micro_benefit }}</p>
+    {%- endif -%}
+
+    {%- if product.available -%}
+      <a href="{{ product.url }}" data-instant class="brand-product-card__cta">View Details</a>
+    {%- else -%}
+      <span class="brand-product-card__cta brand-product-card__cta--disabled">Sold Out</span>
+    {%- endif -%}
+  </div>
+</product-item>

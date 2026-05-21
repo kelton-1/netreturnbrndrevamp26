@@ -156,6 +156,7 @@
     },
     "rich_text_tkbxXR": {
       "type": "rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "Need more info?",
         "title": "Find The Perfect Setup",
@@ -354,58 +355,74 @@
     },
     "brand_category_mosaic": {
       "type": "brand-category-accordion",
+      "disabled": true,
       "blocks": {
-        "cat_nets": {
+        "series_home": {
           "type": "category",
           "settings": {
-            "label": "Nets",
-            "cta_text": "Shop nets",
-            "link": "/collections/nets-1",
-            "default_image_filename": "brand-category-nets.jpg",
-            "description": "Patented S-shape returns the ball to your feet. Five sizes — garage to backyard to commercial-grade."
+            "label": "Home Series",
+            "cta_text": "Shop Home Series",
+            "link": "/collections/home-series",
+            "default_image_filename": "home-nets.jpg",
+            "description": "Compact builds for tight spaces, kids, and quick warm-ups. Junior, Mini, and Home — same patented return, smaller footprint."
           }
         },
-        "cat_packages": {
+        "series_pro": {
           "type": "category",
           "settings": {
-            "label": "Packages",
-            "cta_text": "Shop packages",
-            "link": "/collections/packages",
-            "default_image_filename": "brand-category-packages.jpg",
-            "description": "Net, mat, side barriers, sandbags, tees, and a duffel — bundled to swing the day it lands."
-          }
-        },
-        "cat_simulation": {
-          "type": "category",
-          "settings": {
-            "label": "Simulation",
-            "cta_text": "Shop simulation",
-            "link": "/collections/simulation",
-            "default_image_filename": "brand-category-simulation.jpg",
-            "description": "Pair a Net Return with a launch monitor and screen. Tour-grade simulation, at home."
-          }
-        },
-        "cat_accessories": {
-          "type": "category",
-          "settings": {
-            "label": "Accessories",
-            "cta_text": "Shop accessories",
-            "link": "/collections/general-accessories",
-            "default_image_filename": "brand-category-accessories.jpg",
-            "description": "Frame pads, training aids, and sim add-ons. Finish, protect, and extend your setup."
+            "label": "Pro Series",
+            "cta_text": "Shop Pro Series",
+            "link": "/collections/pro-series",
+            "default_image_filename": "home-sim-series.jpg",
+            "description": "For dedicated practice. Garage to commercial-grade footprints, all with the same 225 MPH ball return."
           }
         }
       },
       "block_order": [
-        "cat_nets",
-        "cat_packages",
-        "cat_simulation",
-        "cat_accessories"
+        "series_home",
+        "series_pro"
       ],
       "settings": {
         "show_concept_badge": false,
         "eyebrow": "Shop the system",
-        "heading": "Industry-leading sport nets. Made to bring training to you."
+        "heading": "Pick the series built for your space."
+      }
+    },
+    "brand_series_cards_main": {
+      "type": "brand-series-cards",
+      "blocks": {
+        "card_home": {
+          "type": "series",
+          "settings": {
+            "label": "Home Series",
+            "card_eyebrow": "Series",
+            "cta_text": "Shop Home Series",
+            "link": "/collections/home-series",
+            "image": "shopify://shop_images/1080x1500-home.png",
+            "default_image_filename": "home-nets.jpg",
+            "description": "Compact builds for tight spaces, kids, and quick warm-ups. Junior, Mini, and Home — same patented return, smaller footprint."
+          }
+        },
+        "card_pro": {
+          "type": "series",
+          "settings": {
+            "label": "Pro Series",
+            "card_eyebrow": "Series",
+            "cta_text": "Shop Pro Series",
+            "link": "/collections/pro-series",
+            "image": "shopify://shop_images/1400x1400-pro.png",
+            "default_image_filename": "home-sim-series.jpg",
+            "description": "For dedicated practice. Garage to commercial-grade footprints, all with the same 225 MPH ball return."
+          }
+        }
+      },
+      "block_order": [
+        "card_home",
+        "card_pro"
+      ],
+      "settings": {
+        "eyebrow": "Shop the system",
+        "heading": "Pick the series built for your space."
       }
     },
     "brand_category_rail": {
@@ -464,6 +481,7 @@
     },
     "brand_setup_rooms_main": {
       "type": "brand-setup-rooms",
+      "disabled": true,
       "blocks": {
         "room_garage": {
           "type": "scenario",
@@ -473,7 +491,7 @@
             "default_image_filename": "home-packages.jpg",
             "layout": "image-left",
             "cta_text": "Shop this setup",
-            "cta_link": "shopify://collections/home-series-2"
+            "cta_link": "shopify://collections/home-series"
           }
         },
         "room_backyard": {
@@ -714,25 +732,26 @@
         "quote": "<p>\"I bought three nets before this one. The first ripped in a month. The second sagged. The third lost tension. This is the only one I haven't had to replace.\"</p>",
         "attribution": "Mike T.",
         "attribution_meta": "Owner since 2019",
-        "grid_columns": 4,
-        "cycle_seconds": 5
+        "grid_columns": 5,
+        "cycle_seconds": 4
       }
     }
   },
   "order": [
     "brand_hero_train_with_intent",
+    "brand_film_homepage",
+    "brand_series_cards_main",
     "brand_category_grid_main",
     "brand_category_mosaic",
     "brand_customer_setups_main",
     "brand_category_rail",
     "brand_product_story_dont_settle",
-    "brand_film_homepage",
-    "brand_bryson_feature",
+    "brand_setup_rooms_main",
     "17621461567133e3c2",
     "1732595390d1c0d5bd",
-    "brand_setup_rooms_main",
     "brand_proof_system_main",
     "brand_proof_system_diagram",
+    "brand_bryson_feature",
     "brand_mini_builder_main",
     "rich_text_tkbxXR",
     "brand_testimonial_wall_main"

@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "brand_collection_intro": {
       "type": "brand-collection-intro",
       "settings": {
@@ -22,6 +26,113 @@
         "image": "shopify://shop_images/backyard-home.png",
         "overlay_opacity": 55,
         "surface": "shadow"
+      }
+    },
+    "brand_series_rail": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "series_home": {
+          "type": "series",
+          "settings": {
+            "label": "Home Series",
+            "size_hint": "5 – 8 ft wide · indoor",
+            "body": "Compact nets engineered for spare rooms, basements, and 1-car garages. The everyday practice net.",
+            "price_hint": "From $295",
+            "link": "/collections/home-series-nets",
+            "cta_text": "Explore Home Series"
+          }
+        },
+        "series_pro": {
+          "type": "series",
+          "settings": {
+            "label": "Pro Series",
+            "size_hint": "8 – 10 ft wide · indoor + outdoor",
+            "body": "Larger footprint, heavier-duty frame, sim-ready. Built for dedicated training rooms and backyards.",
+            "price_hint": "From $695",
+            "link": "/collections/pro-series-nets",
+            "cta_text": "Explore Pro Series"
+          }
+        },
+        "series_simulation": {
+          "type": "series",
+          "settings": {
+            "label": "Simulation",
+            "size_hint": "Sim-ready setups · indoor",
+            "body": "Pair a Net Return with a launch monitor or full simulator. Built to handle real ball speeds in indoor sim bays.",
+            "price_hint": "Shop the system",
+            "link": "/collections/simulation",
+            "cta_text": "Shop simulation"
+          }
+        }
+      },
+      "block_order": [
+        "series_home",
+        "series_pro",
+        "series_simulation"
+      ],
+      "settings": {
+        "eyebrow": "Choose your series",
+        "heading": "Pick the tier built for your space.",
+        "body": "<p>Three tiers. Same patented ball-return. The difference is footprint and frame weight — match it to where you'll train.</p>",
+        "columns": 3
+      }
+    },
+    "brand_main_grid": {
+      "type": "brand-collection-grid",
+      "settings": {
+        "eyebrow": "All nets",
+        "heading": "Every net we make.",
+        "surface": "white",
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare side-by-side",
+            "body": "See every net's dimensions, weight, and best-fit space in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Answer five questions about your space and we'll narrow it to one net.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_expert": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Free shipping and setup guidance on the way out.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "cross_compare",
+        "cross_quiz",
+        "cross_expert"
+      ],
+      "settings": {
+        "eyebrow": "Still deciding?",
+        "heading": "Three ways to land on the right net.",
+        "surface": "glow",
+        "columns": 3
       }
     },
     "image_with_text_block_m9rGeW": {
@@ -168,6 +279,7 @@
         "collection_yCPV9z",
         "collection_LXnMA9"
       ],
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -237,6 +349,7 @@
         "image_LW4Exc",
         "image_wPFmNz"
       ],
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -247,6 +360,7 @@
     },
     "video_LWhEwt": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -262,6 +376,7 @@
     },
     "rich_text_ifqe9e": {
       "type": "rich-text",
+      "disabled": true,
       "settings": {
         "subheading": "",
         "title": "",
@@ -313,7 +428,7 @@
           "settings": {
             "title": "Is it easy to learn how to set up a golf net at home?",
             "icon": "check_mark",
-            "content": "<p>Yes, The Net Return’s golf nets for home are incredibly easy to assemble, thanks to our Quick Color Connect System. This tool-free setup takes 10 minutes or less, and detailed instructions are provided with each net. In addition, the nets are just as easy to disassemble and store, making them perfect for small spaces. Whether you’re setting up an indoor golf net or a golf net for backyard use, you’ll find the process intuitive and hassle-free. Check out our <a href=\"https://www.thenetreturn.com/pages/setups\"><span style=\"text-decoration:underline\">Setups</span></a> page to see real-life examples of our customers’ golf nets in and around the home. </p>",
+            "content": "<p>Yes, The Net Return’s golf nets for home are incredibly easy to assemble, thanks to our Quick Color Connect System. This tool-free setup takes 10 minutes or less, and detailed instructions are provided with each net. In addition, the nets are just as easy to disassemble and store, making them perfect for small spaces. Whether you’re setting up an indoor golf net or a golf net for backyard use, you’ll find the process intuitive and hassle-free. Check out our <a href=\"https://www.thenetreturn.com/pages/setups\"><span style=\"text-decoration:underline\">Setups</span></a> page to see real-life examples of our customers’ golf nets in and around the home. </p>",
             "page": ""
           }
         },
@@ -357,7 +472,11 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "brand_collection_intro",
+    "brand_series_rail",
+    "brand_main_grid",
+    "brand_cross_links",
     "image_with_text_block_m9rGeW",
     "collection-banner",
     "multi_column_zFY8g3",
@@ -369,4 +488,3 @@
     "accordion_content_YALWAi"
   ]
 }
-
