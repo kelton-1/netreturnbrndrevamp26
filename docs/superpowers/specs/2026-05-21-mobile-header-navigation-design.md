@@ -71,6 +71,11 @@ Scrolled state:
 - The transition should be subtle and use existing brand motion tokens.
 - Sticky behavior should reuse the existing Focal sticky-header mechanics where possible.
 
+Transparency scope:
+
+- Transparent island behavior is approved for the homepage hero only.
+- Do not extend transparent header behavior to other hero-led templates in this implementation pass.
+
 Non-homepage state:
 
 - Do not force transparent behavior on every page.
@@ -85,6 +90,7 @@ Required structure:
 - Keep the header island visible at the top of the open menu.
 - Replace the far-right menu icon with a close icon in the same position.
 - Render the menu as a full-screen surface, not the current partial slide-in feel.
+- Use a dark brand surface for the menu, drawing from `--brand-black`, `--brand-shadow`, `--brand-white`, `--brand-glow`, and `--brand-emerald`.
 - Primary links should be large, high-contrast, and right-arrow oriented.
 - Bottom utility links should remain available without competing with the main buying paths.
 
@@ -134,7 +140,8 @@ Likely implementation files:
 - Modify `assets/brand-revamp.css.liquid` for header island, transparent/solid states, mobile full-screen menu styling, and motion.
 - Modify `sections/header.liquid` only if the mobile icon order, account visibility, or transparent-state hooks cannot be achieved with existing markup.
 - Modify `snippets/mobile-menu.liquid` for the full-screen menu structure and utility link placement.
-- Modify `sections/header-group.json` only to enable transparent header or set a dedicated mobile menu handle after confirming the correct theme target.
+- Modify `sections/header-group.json` only to enable homepage transparent header behavior or set a dedicated mobile menu handle after confirming the correct theme target.
+- Mobile menu content should be controlled by Shopify Navigation through `sidebar_navigation_menu`, not hardcoded as the final production source of truth.
 
 Do not push, publish, or mutate the Shopify source theme without explicit approval.
 
@@ -151,8 +158,8 @@ Before claiming implementation complete, validate:
 - Theme Check does not introduce new errors in changed files.
 - Existing validator `scripts/validate-header-footer-navigation.mjs` still passes or is updated deliberately if requirements change.
 
-## Open Decisions Before Implementation
+## Decisions Confirmed Before Implementation
 
-- Confirm whether the transparent island should apply only to the homepage or also to any other hero-led templates.
-- Confirm whether the open full-screen menu should use a light surface, dark brand surface, or light-by-default with dark variants later.
-- Confirm whether the current hardcoded mobile menu paths should remain, or whether the final menu should be controlled by Shopify Navigation through `sidebar_navigation_menu`.
+- Transparent island behavior applies only to the homepage hero.
+- The open full-screen mobile menu should use a dark brand surface.
+- Final mobile menu content should be controlled by Shopify Navigation through `sidebar_navigation_menu`.
