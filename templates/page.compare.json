@@ -14,10 +14,15 @@
         "eyebrow": "Compare nets",
         "heading": "Find your fit.",
         "body": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train.",
+        "show_fit_finder": true,
+        "width_label": "How much space do you have?",
+        "use_case_label": "Where will you use it?",
         "primary_label": "Take the quiz",
         "primary_link": "/pages/quiz",
         "secondary_label": "Talk to an expert",
-        "secondary_link": "/pages/contact"
+        "secondary_link": "/pages/contact",
+        "size_guide_label": "Watch the size guide",
+        "size_guide_link": "/pages/assembly"
       }
     },
     "brand_compare_pro": {
@@ -29,11 +34,14 @@
             "link_url": "shopify://products/pro-series-golf-net",
             "image": "shopify://shop_images/comp-pro.jpg",
             "title": "Pro",
-            "dimensions": "8'w × 7'6\"h × 3'6\"d",
+            "dimensions": "8'w \u00d7 7'6\"h \u00d7 3'6\"d",
             "weight": "Weight: 28 lbs.",
             "use_product_price": false,
             "price_text": "$795",
-            "cta_label": "Shop Pro"
+            "cta_label": "Shop Pro",
+            "fit_width": "8",
+            "fit_use_cases": "garage yard",
+            "fit_note": "Standard Pro footprint \u2014 fits a two-car garage or open backyard."
           }
         },
         "pro_8": {
@@ -42,11 +50,14 @@
             "link_url": "shopify://products/large-8-pro-series-golf-net",
             "image": "shopify://shop_images/comp-pro_8.jpg",
             "title": "Pro 8",
-            "dimensions": "8'w × 8'h × 3'6\"d",
+            "dimensions": "8'w \u00d7 8'h \u00d7 3'6\"d",
             "weight": "Weight: 32 lbs.",
             "use_product_price": false,
             "price_text": "$895",
-            "cta_label": "Shop Pro 8"
+            "cta_label": "Shop Pro 8",
+            "fit_width": "8",
+            "fit_use_cases": "garage yard",
+            "fit_note": "Taller 8 ft ceiling clearance, same 8 ft Pro width."
           }
         },
         "pro_9": {
@@ -55,11 +66,14 @@
             "link_url": "shopify://products/large-9-pro-series-golf-net",
             "image": "shopify://shop_images/comp-pro_9.jpg",
             "title": "Pro 9",
-            "dimensions": "9'w × 8'h × 3'6\"d",
+            "dimensions": "9'w \u00d7 8'h \u00d7 3'6\"d",
             "weight": "Weight: 33 lbs.",
             "use_product_price": false,
             "price_text": "$995",
-            "cta_label": "Shop Pro 9"
+            "cta_label": "Shop Pro 9",
+            "fit_width": "10",
+            "fit_use_cases": "yard commercial",
+            "fit_note": "Wider 9 ft hitting area for full swings outdoors."
           }
         },
         "pro_10": {
@@ -68,11 +82,14 @@
             "link_url": "shopify://products/large-10-pro-series-golf-net",
             "image": "shopify://shop_images/comp-pro_10.jpg",
             "title": "Pro 10",
-            "dimensions": "10'w × 8'h × 3'6\"d",
+            "dimensions": "10'w \u00d7 8'h \u00d7 3'6\"d",
             "weight": "Weight: 34 lbs.",
             "use_product_price": false,
             "price_text": "$1,095",
-            "cta_label": "Shop Pro 10"
+            "cta_label": "Shop Pro 10",
+            "fit_width": "10",
+            "fit_use_cases": "yard commercial",
+            "fit_note": "10 ft \u00d7 8 ft hitting area for big backyards or commercial bays."
           }
         },
         "pro_xl": {
@@ -81,11 +98,14 @@
             "link_url": "shopify://products/xl-pro-series-golf-net",
             "image": "shopify://shop_images/comp-XL.jpg",
             "title": "Pro XL",
-            "dimensions": "10'w × 9'6\"h × 3'6\"d",
+            "dimensions": "10'w \u00d7 9'6\"h \u00d7 3'6\"d",
             "weight": "Weight: 48 lbs.",
             "use_product_price": false,
             "price_text": "$1,599",
-            "cta_label": "Shop Pro XL"
+            "cta_label": "Shop Pro XL",
+            "fit_width": "10",
+            "fit_use_cases": "commercial",
+            "fit_note": "Tallest, widest footprint \u2014 built for commercial-grade setups."
           }
         }
       },
@@ -112,11 +132,14 @@
             "link_url": "shopify://products/junior-golf-net",
             "image": "shopify://shop_images/comp-junior.jpg",
             "title": "Junior",
-            "dimensions": "4'6\"w × 4'6\"h × 2'4\"d",
+            "dimensions": "4'6\"w \u00d7 4'6\"h \u00d7 2'4\"d",
             "weight": "Weight: 15 lbs.",
             "use_product_price": false,
             "price_text": "$295",
-            "cta_label": "Shop Junior"
+            "cta_label": "Shop Junior",
+            "fit_width": "5",
+            "fit_use_cases": "small-space",
+            "fit_note": "Built for kids in tight spaces and small rooms."
           }
         },
         "mini": {
@@ -125,11 +148,14 @@
             "link_url": "shopify://products/mini-pro-series-golf-net",
             "image": "shopify://shop_images/comp-mini.jpg",
             "title": "Mini",
-            "dimensions": "5'w × 6'h × 3'6\"d",
+            "dimensions": "5'w \u00d7 6'h \u00d7 3'6\"d",
             "weight": "Weight: 24 lbs.",
             "use_product_price": false,
             "price_text": "$549",
-            "cta_label": "Shop Mini"
+            "cta_label": "Shop Mini",
+            "fit_width": "7",
+            "fit_use_cases": "small-space garage",
+            "fit_note": "Fits inside a single-car garage or studio with a 6 ft ceiling."
           }
         },
         "home": {
@@ -138,11 +164,14 @@
             "link_url": "shopify://products/golf-and-multi-sport-nets",
             "image": "shopify://shop_images/comp-home.jpg",
             "title": "Home",
-            "dimensions": "7'w × 7'h × 3'6\"d",
+            "dimensions": "7'w \u00d7 7'h \u00d7 3'6\"d",
             "weight": "Weight: 26 lbs.",
             "use_product_price": false,
             "price_text": "$695",
-            "cta_label": "Shop Home"
+            "cta_label": "Shop Home",
+            "fit_width": "7",
+            "fit_use_cases": "garage yard",
+            "fit_note": "Standard 7\u00d77 home setup \u2014 fits a two-car garage or backyard."
           }
         }
       },

@@ -6,11 +6,17 @@
   assign primary_link = section.settings.primary_link
   assign secondary_label = section.settings.secondary_label
   assign secondary_link = section.settings.secondary_link
+  assign size_guide_label = section.settings.size_guide_label
+  assign size_guide_link = section.settings.size_guide_link
+  assign show_fit_finder = section.settings.show_fit_finder
+  assign width_label = section.settings.width_label
+  assign use_case_label = section.settings.use_case_label
 -%}
 
 <section
   class="brand-compare-hero brand-surface brand-surface--shadow brand-surface--pattern"
   aria-labelledby="brand-compare-hero-heading-{{ section.id }}"
+  data-brand-compare-finder
 >
   <div class="brand-compare-hero__inner brand-container">
     {%- if eyebrow != blank -%}
@@ -28,7 +34,33 @@
       <p class="brand-body brand-compare-hero__body">{{ body }}</p>
     {%- endif -%}
 
-    {%- if primary_label != blank or secondary_label != blank -%}
+    {%- if show_fit_finder -%}
+      <div class="brand-compare-finder" data-fit-finder>
+        <div class="brand-compare-finder__group" data-fit-group="width">
+          <p class="brand-compare-finder__label">{{ width_label | default: 'How much space do you have?' }}</p>
+          <div class="brand-compare-finder__chips" role="group" aria-label="{{ width_label | default: 'Width' | escape }}">
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="width" data-fit-value="5">Under 5 ft wide</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="width" data-fit-value="7">Up to 7 ft wide</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="width" data-fit-value="8">Up to 8 ft wide</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="width" data-fit-value="10">9-10 ft wide</button>
+          </div>
+        </div>
+
+        <div class="brand-compare-finder__group" data-fit-group="use">
+          <p class="brand-compare-finder__label">{{ use_case_label | default: 'Where will you use it?' }}</p>
+          <div class="brand-compare-finder__chips" role="group" aria-label="{{ use_case_label | default: 'Use case' | escape }}">
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="use" data-fit-value="small-space">Small space</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="use" data-fit-value="garage">Garage</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="use" data-fit-value="yard">Backyard</button>
+            <button type="button" class="brand-compare-finder__chip" data-fit-chip="use" data-fit-value="commercial">Commercial</button>
+          </div>
+        </div>
+
+        <div class="brand-compare-finder__pills" data-fit-pills aria-live="polite" hidden></div>
+      </div>
+    {%- endif -%}
+
+    {%- if primary_label != blank or secondary_label != blank or size_guide_label != blank -%}
       <div class="brand-compare-hero__actions">
         {%- if primary_label != blank -%}
           <a class="brand-btn brand-btn--primary" href="{{ primary_link | default: '#' }}">{{ primary_label }}</a>
@@ -36,10 +68,159 @@
         {%- if secondary_label != blank -%}
           <a class="brand-btn brand-btn--outline" href="{{ secondary_link | default: '#' }}">{{ secondary_label }}</a>
         {%- endif -%}
+        {%- if size_guide_label != blank -%}
+          <a class="brand-compare-hero__tertiary" href="{{ size_guide_link | default: '#' }}">{{ size_guide_label }}</a>
+        {%- endif -%}
       </div>
     {%- endif -%}
   </div>
 </section>
+
+{% javascript %}
+  (function () {
+    if (window.__brandCompareFinderBound) return;
+    window.__brandCompareFinderBound = true;
+
+    var STORAGE_KEY = 'brand-compare-fit';
+
+    function getState() {
+      var params = new URLSearchParams(window.location.search);
+      return { width: params.get('width') || '', use: params.get('use') || '' };
+    }
+
+    function setState(next) {
+      var params = new URLSearchParams(window.location.search);
+      if (next.width) params.set('width', next.width); else params.delete('width');
+      if (next.use)   params.set('use',   next.use);   else params.delete('use');
+      var qs = params.toString();
+      var url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+      window.history.replaceState({}, '', url);
+    }
+
+    function cardMatches(card, state) {
+      var widthOK = true;
+      var useOK = true;
+      if (state.width) {
+        var w = parseInt(card.getAttribute('data-fit-width'), 10);
+        var target = parseInt(state.width, 10);
+        // Card matches if its width bucket is <= the selected bucket
+        // (a Mini at 5 ft also fits when you pick "Up to 7 ft").
+        widthOK = !isNaN(w) && !isNaN(target) && w <= target;
+      }
+      if (state.use) {
+        var uses = (card.getAttribute('data-fit-use-cases') || '').toLowerCase().split(/\s+/);
+        useOK = uses.indexOf(state.use) !== -1;
+      }
+      return widthOK && useOK;
+    }
+
+    function applyFilter(finder, state) {
+      var hasFilter = !!(state.width || state.use);
+      var cards = document.querySelectorAll('[data-fit-card]');
+
+      cards.forEach(function (card) {
+        card.classList.remove('is-best', 'is-other');
+        var note = card.querySelector('[data-fit-note-target]');
+        if (note) { note.hidden = true; note.textContent = ''; }
+
+        if (!hasFilter) return;
+
+        if (cardMatches(card, state)) {
+          card.classList.add('is-best');
+          if (note) {
+            var text = card.getAttribute('data-fit-note') || '';
+            if (text) {
+              note.textContent = text;
+              note.hidden = false;
+            }
+          }
+        } else {
+          card.classList.add('is-other');
+        }
+      });
+
+      // Per-grid heading state: has-best / has-only-other / (none)
+      document.querySelectorAll('[data-brand-compare-grid]').forEach(function (grid) {
+        grid.classList.remove('has-best', 'has-only-other');
+        if (!hasFilter) return;
+        var gridCards = grid.querySelectorAll('[data-fit-card]');
+        var bestCount = 0;
+        var otherCount = 0;
+        gridCards.forEach(function (c) {
+          if (c.classList.contains('is-best')) bestCount++;
+          else if (c.classList.contains('is-other')) otherCount++;
+        });
+        if (bestCount > 0) grid.classList.add('has-best');
+        else if (otherCount > 0) grid.classList.add('has-only-other');
+      });
+
+      // Chip + pill UI updates
+      finder.querySelectorAll('[data-fit-chip]').forEach(function (chip) {
+        var key = chip.getAttribute('data-fit-chip');
+        var val = chip.getAttribute('data-fit-value');
+        chip.classList.toggle('is-active', state[key] === val);
+        chip.setAttribute('aria-pressed', state[key] === val ? 'true' : 'false');
+      });
+
+      var pillHost = finder.querySelector('[data-fit-pills]');
+      if (pillHost) {
+        var pills = [];
+        if (state.width) {
+          var widthLabels = { '5': 'Under 5 ft wide', '7': 'Up to 7 ft wide', '8': 'Up to 8 ft wide', '10': '9-10 ft wide' };
+          pills.push({ key: 'width', label: widthLabels[state.width] || state.width });
+        }
+        if (state.use) {
+          var useLabels = { 'small-space': 'Small space', 'garage': 'Garage', 'yard': 'Backyard', 'commercial': 'Commercial' };
+          pills.push({ key: 'use', label: useLabels[state.use] || state.use });
+        }
+        pillHost.innerHTML = pills.map(function (p) {
+          return '<button type="button" class="brand-compare-finder__pill" data-clear-fit="' + p.key + '" aria-label="Clear ' + p.label + ' filter">' + p.label + ' ×</button>';
+        }).join('');
+        pillHost.hidden = pills.length === 0;
+      }
+    }
+
+    function bind(finder) {
+      if (finder.__bound) return;
+      finder.__bound = true;
+
+      finder.addEventListener('click', function (event) {
+        var chip = event.target.closest('[data-fit-chip]');
+        if (chip) {
+          event.preventDefault();
+          var key = chip.getAttribute('data-fit-chip');
+          var val = chip.getAttribute('data-fit-value');
+          var state = getState();
+          state[key] = state[key] === val ? '' : val;
+          setState(state);
+          applyFilter(finder, state);
+          return;
+        }
+        var clear = event.target.closest('[data-clear-fit]');
+        if (clear) {
+          event.preventDefault();
+          var key2 = clear.getAttribute('data-clear-fit');
+          var state2 = getState();
+          state2[key2] = '';
+          setState(state2);
+          applyFilter(finder, state2);
+        }
+      });
+
+      applyFilter(finder, getState());
+    }
+
+    function init() {
+      document.querySelectorAll('[data-fit-finder]').forEach(bind);
+    }
+
+    if (document.readyState !== 'loading') init();
+    else document.addEventListener('DOMContentLoaded', init);
+
+    // Re-init on Shopify theme editor section reloads.
+    document.addEventListener('shopify:section:load', init);
+  })();
+{% endjavascript %}
 
 {% schema %}
 {
@@ -49,7 +230,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Shadow Green decision-support hero for the Compare Nets page. Pairs with one or more Brand compare grid sections below."
+      "content": "Shadow Green decision-support hero for the Compare Nets page. Pairs with one or more Brand compare grid sections below. Optional fit-finder chip strip filters cards in the grids below as the shopper taps choices."
     },
     {
       "type": "text",
@@ -68,6 +249,29 @@
       "id": "body",
       "label": "Body",
       "default": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train."
+    },
+    {
+      "type": "header",
+      "content": "Fit finder"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fit_finder",
+      "label": "Show fit-finder chips",
+      "default": true,
+      "info": "Guided choice chips filter the model cards below. Shoppers can tap chips to narrow results without using detail filters."
+    },
+    {
+      "type": "text",
+      "id": "width_label",
+      "label": "Width question label",
+      "default": "How much space do you have?"
+    },
+    {
+      "type": "text",
+      "id": "use_case_label",
+      "label": "Use-case question label",
+      "default": "Where will you use it?"
     },
     {
       "type": "header",
@@ -98,6 +302,21 @@
       "type": "url",
       "id": "secondary_link",
       "label": "Secondary CTA link"
+    },
+    {
+      "type": "header",
+      "content": "Tertiary link"
+    },
+    {
+      "type": "text",
+      "id": "size_guide_label",
+      "label": "Tertiary link label",
+      "default": "Watch the size guide"
+    },
+    {
+      "type": "url",
+      "id": "size_guide_link",
+      "label": "Tertiary link"
     }
   ],
   "presets": [
@@ -108,7 +327,8 @@
         "heading": "Find your fit.",
         "body": "Every Net Return is built with the same high-performance materials. Pick the size that matches your space and how you train.",
         "primary_label": "Take the quiz",
-        "secondary_label": "Talk to an expert"
+        "secondary_label": "Talk to an expert",
+        "size_guide_label": "Watch the size guide"
       }
     }
   ]

@@ -14,13 +14,14 @@
 <section
   class="brand-compare-grid {{ surface_class }}"
   aria-labelledby="brand-compare-grid-heading-{{ section.id }}"
+  data-brand-compare-grid
 >
   <div class="brand-compare-grid__inner brand-container">
     <header class="brand-compare-grid__header">
       {%- if eyebrow != blank -%}
         <p class="brand-eyebrow brand-compare-grid__eyebrow">
           <span class="brand-plus" aria-hidden="true"></span>
-          {{ eyebrow }}
+          <span data-grid-eyebrow>{{ eyebrow }}</span>
         </p>
       {%- endif -%}
 
@@ -55,9 +56,19 @@
             endif
 
             assign card_title = block.settings.title | default: card_product.title
+            assign fit_width = block.settings.fit_width | default: ''
+            assign fit_use_cases = block.settings.fit_use_cases | default: ''
+            assign fit_note = block.settings.fit_note | default: ''
           -%}
 
-          <li class="brand-compare-card" {{ block.shopify_attributes }}>
+          <li
+            class="brand-compare-card"
+            data-fit-card
+            data-fit-width="{{ fit_width }}"
+            data-fit-use-cases="{{ fit_use_cases }}"
+            data-fit-note="{{ fit_note | escape }}"
+            {{ block.shopify_attributes }}
+          >
             <div class="brand-compare-card__media">
               {%- if card_image != blank -%}
                 {{ card_image | image_url: width: 720 | image_tag:
@@ -89,6 +100,8 @@
                 <p class="brand-compare-card__price">{{ card_price }}</p>
               {%- endif -%}
 
+              <p class="brand-compare-card__fit-note" data-fit-note-target hidden></p>
+
               {%- if card_url != blank -%}
                 <a class="brand-btn brand-btn--primary brand-compare-card__cta" href="{{ card_url }}">
                   {{ block.settings.cta_label | default: 'Shop now' }}
@@ -111,7 +124,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Series grid for the Compare Nets page. Add one block per model — the grid auto-fits 3 to 5 cards across at desktop."
+      "content": "Series grid for the Compare Nets page. Add one block per model — the grid auto-fits 3 to 5 cards across at desktop. Per-block fit metadata lets the hero's chip strip filter cards into 'Best matches' and 'Other sizes'."
     },
     {
       "type": "text",
@@ -199,6 +212,36 @@
           "id": "cta_label",
           "label": "CTA label",
           "default": "Shop now"
+        },
+        {
+          "type": "header",
+          "content": "Fit metadata (for hero chip filter)"
+        },
+        {
+          "type": "select",
+          "id": "fit_width",
+          "label": "Width bucket",
+          "info": "Largest space this model fits. Matches a chip in the hero's fit-finder. Leave on '(none)' to skip filtering.",
+          "options": [
+            { "value": "none", "label": "(none)" },
+            { "value": "5",    "label": "Under 5 ft wide" },
+            { "value": "7",    "label": "Up to 7 ft wide" },
+            { "value": "8",    "label": "Up to 8 ft wide" },
+            { "value": "10",   "label": "9-10 ft wide" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "text",
+          "id": "fit_use_cases",
+          "label": "Use cases",
+          "info": "Space-separated keywords: small-space garage yard commercial. The card matches any chip in this list. Leave blank to skip filtering."
+        },
+        {
+          "type": "text",
+          "id": "fit_note",
+          "label": "Why this fits",
+          "info": "Short reason shown when this card is a best match. e.g. 'Fits a 9' ceiling garage with room to swing.' Leave blank to hide the note."
         }
       ]
     }

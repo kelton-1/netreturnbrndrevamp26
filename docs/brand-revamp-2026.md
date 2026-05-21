@@ -621,3 +621,83 @@ Single shared section applied to all four homepage-linked collection landings so
 **Caveat on the index.json trim**
 
 The removed apps section was `disabled: true` so it had no live rendering impact. Its data still exists in git history if anyone needs to recover it. The actual ceiling problem is Codex's homepage continuing to grow — once another brand section lands on the homepage, the 25-limit will bite again. Either keep pruning disabled legacy from `order/sections`, or split the homepage across additional templates (e.g. `index.context.b2b.json` already exists; could also move a chunk into a reusable section group).
+
+---
+
+## Sitewide copy realignment
+
+**Date:** 2026-05-20
+
+The "Train With Intent" brand-kit direction has been retracted from commercial storefront surfaces because it pointed toward unreleased product messaging. Current storefront copy now centers The Net Return's live offer: automatic ball return, durable net construction, fast setup, space fit, simulator compatibility, warranty, and trusted proof.
+
+Preserve this rule going forward: homepage, collection, product, and support copy should sell the net and current setup ecosystem first. Practice philosophy can appear in blog/editorial content, but it should not replace concrete product proof on shopping pages.
+
+**Files touched**
+
+- `templates/index.json` — hero (`The Net That Returns.`), category-grid heading (`Start with the net. Build around your space.`), brand-film label (`Every Ball Comes Back`), product-story (`Stop Chasing Golf Balls`), Bryson copy (`Trusted by Bryson` / `The net he trusts at home.`), both proof-system instances (`Built around the return.` + four net-specific proof blocks), mini-builder body.
+- `sections/brand-hero.liquid`, `sections/brand-film.liquid`, `sections/brand-bryson-feature.liquid`, `sections/brand-proof-system.liquid`, `sections/brand-proof-system-cinematic.liquid`, `sections/brand-proof-system-diagram.liquid`, `sections/brand-category-grid.liquid`, `sections/brand-category-rail.liquid`, `sections/brand-category-mosaic.liquid`, `sections/brand-category-accordion.liquid`, `sections/brand-mini-builder.liquid` — schema defaults and presets aligned with the new voice so future merchant-added instances ship correct copy.
+- `templates/page.our-story.json` — 2024 entry rewritten to ground the rebrand in the existing product story, not an unreleased platform.
+- `templates/page.browse-all-products.json` — hero rewritten to point shoppers at nets/packages/add-ons.
+
+**Preserved on purpose**
+
+- Vendor / third-party product descriptions for Uneekor, FlightScope, Foresight, Full Swing simulators and the ExtraPoint football net — they describe vendor product, not Net Return commercial messaging.
+- `sections/academy-skill-tabs.liquid` "Train smarter with a clear focus each week." — academy/editorial context.
+- Existing CRO proof points on product pages (50,000+ golfers, 225 MPH ball speed, <5 min assembly, etc.) — current, factual, conversion-load-bearing.
+
+**Plan step skipped**
+
+- Task 4 Step 4 asked to replace a Pro Series FAQ *intro* paragraph in `templates/product.pro-series.json` (`accordion_content_cDkVRL`). The block has no intro paragraph — only Q&A items — so there was nothing to overwrite. The FAQ items themselves are already net-specific and factual. Revisit if/when an intro field is added to that accordion.
+
+**Validation**
+
+- All five edited JSON templates parse clean (`templates/index.json`, `templates/index.context.b2b.json`, `templates/page.our-story.json`, `templates/page.browse-all-products.json`, `sections/header-group.json`).
+- Theme Check: `383 files inspected with 161 total offenses found across 88 files. 1 errors. 160 warnings.` — same baseline as before the copy pass.
+- Residual ripgrep scan over `templates`/`sections`/`snippets` for the retracted phrases returns zero hits.
+
+**Follow-ups**
+
+- Verify `shopify://pages/bryson-dechambeau-the-net-return` exists in admin before the Bryson CTA goes live — the link was changed from `/collections/best-sellers` to a dedicated page per the plan, and the page handle needs to resolve.
+- `rich_text_tkbxXR` on the homepage still uses an absolute `https://www.thenetreturn.com/pages/quiz` URL — flagged in earlier audit. Convert to relative `/pages/quiz` next time that section is touched.
+
+---
+
+## Compare page fit-finder
+
+**Date:** 2026-05-20
+
+The 2026-05-13 `compare-mobile-guided-flow` plan was written before the brand revamp rewired the Compare page. Its target file `sections/mobile-compare-nets.liquid` is now orphaned (no template references it). Rather than execute the plan literally against dead code, the same goal was ported onto the new `brand-compare-hero` + `brand-compare-grid` sections that the brand revamp ships.
+
+**What landed**
+
+- `sections/brand-compare-hero.liquid` — added a fit-finder chip strip ("How much space do you have?" / "Where will you use it?"), an active-filter pill list, and a tertiary "Watch the size guide" link. New schema settings: `show_fit_finder`, `width_label`, `use_case_label`, `size_guide_label`, `size_guide_link`. Inline `{% javascript %}` block contains the chip/pill/filter coordinator — single instance, guarded by `window.__brandCompareFinderBound` so it doesn't double-bind if the hero renders twice.
+- `sections/brand-compare-grid.liquid` — added per-block `fit_width`, `fit_use_cases`, `fit_note` settings. Cards render `data-fit-width`, `data-fit-use-cases`, `data-fit-note` attributes. A hidden `.brand-compare-card__fit-note` element gets populated when JS marks the card as a best match. Each grid carries `data-brand-compare-grid` so the coordinator can flip eyebrow state per grid (`has-best` vs `has-only-other`).
+- `assets/brand-revamp.css.liquid` — appended ~140 lines for chips, pills, the tertiary link, card `.is-best`/`.is-other` ordering and dimming, the inline fit-note callout, and `prefers-reduced-motion` fallbacks. Grid eyebrows prefix with "Best matches · " or "Other sizes · " via CSS pseudo-elements driven by JS-applied classes.
+- `templates/page.compare.json` — populated fit metadata for all 8 models (Junior, Mini, Home, Pro, Pro 8, Pro 9, Pro 10, Pro XL) plus enabled the fit-finder on the hero and added the size-guide link to `/pages/assembly`.
+
+**Behavior**
+
+- All cards visible by default (no JS-required state).
+- Tap a chip → JS finds matching cards (width ≤ selected bucket AND use case present), gives them `.is-best`, the others `.is-other`. Best matches sort first via `order: 1`, others sort to `order: 2` and dim to 65 % opacity (full opacity on hover/focus).
+- A short "why this fits" line appears on best-match cards, sourced from the per-block `fit_note`.
+- Active filters render as Glow-Green pills the shopper can tap to clear.
+- URL state persists via `?width=…&use=…` (`history.replaceState`), so the result is deep-linkable.
+- Reset by clearing all pills returns the page to the default all-cards-visible state.
+
+**Width bucket logic**
+
+Cards match a chip selection when their bucket fits inside the chosen one. Junior (5) matches any width chip. Mini (7) matches "Up to 7" / "Up to 8" / "9-10". Pro 8 (8) doesn't match "Under 5" or "Up to 7" but does match "Up to 8" and "9-10". This mirrors a shopper's mental model — "I have 8 ft of width" means a 5-ft Junior still fits.
+
+**Validation**
+
+- Theme Check: `383 files inspected with 161 total offenses found across 88 files. 1 errors. 160 warnings.` — same baseline as before. No new offenses introduced.
+- `templates/page.compare.json` parses clean.
+- Curl-fetched HTML confirms all 8 chips render, all 8 cards carry the correct `data-fit-width` and `data-fit-use-cases` attributes, and all 8 fit notes render in `data-fit-note`. The hero's `{% javascript %}` block bundles into Shopify's per-theme `compiled_assets/scripts.js` and contains the coordinator function (`__brandCompareFinderBound`, `cardMatches`, `applyFilter`).
+
+**Gotcha for future agents**
+
+When a section's `{% schema %}` adds new select options for a setting that the JSON template already references, Shopify's dev sync can cache the JSON against the old schema and silently fall back to the option default. If new fit values render as `"none"` on the live preview, force a JSON re-sync (touch the file with a trivial content change) — the second sync picks up the new schema.
+
+**Plan supersession**
+
+`docs/superpowers/plans/2026-05-13-compare-mobile-guided-flow.md` is now superseded. The orphan section `sections/mobile-compare-nets.liquid` (1,105 lines, no template references it) can be archived in a follow-up cleanup pass — it's dead weight in the theme repo.
