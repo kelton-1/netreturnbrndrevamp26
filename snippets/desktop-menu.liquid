@@ -4,6 +4,10 @@
       {%- assign link_title_downcase = link.title | strip | downcase -%}
       {%- assign mega_menu_block = '' -%}
       {%- assign mega_menu_images = '' -%}
+      {%- assign is_shop_menu = false -%}
+      {%- if link_title_downcase == 'shop' -%}
+        {%- assign is_shop_menu = true -%}
+      {%- endif -%}
 
       {%- for block in section.blocks -%}
         {%- assign menu_item_downcase = block.settings.menu_item | strip | downcase -%}
@@ -38,8 +42,34 @@
           {%- assign fc_body = mega_menu_block.settings.featured_collection_body | default: mega_menu_block.settings.image_2_text -%}
           {%- assign fc_url = fc.url | default: mega_menu_block.settings.image_2_link | default: '#' -%}
 
-          <div hidden id="desktop-menu-{{ forloop.index }}" class="mega-menu mega-menu--brand" {{ mega_menu_block.shopify_attributes }}>
+          <div hidden id="desktop-menu-{{ forloop.index }}" class="mega-menu mega-menu--brand mega-menu--brand--text-left {% if is_shop_menu %}mega-menu--brand--shop{% endif %}" {{ mega_menu_block.shopify_attributes }}>
             <div class="mega-menu--brand__grid">
+              {%- if link.links.size > 0 -%}
+                <div class="mega-menu--brand__nav">
+                  <div class="mega-menu--brand__nav-header">
+                    <p class="mega-menu--brand__section-label">{% if is_shop_menu %}Shop by category{% else %}Browse {{ link.title }}{% endif %}</p>
+                    <p class="mega-menu--brand__nav-heading">{% if is_shop_menu %}Start with the right path.{% else %}Choose a path{% endif %}</p>
+                  </div>
+
+                  {%- for sub_link in link.links -%}
+                    <div class="mega-menu--brand__nav-col">
+                      {%- if sub_link.url == '#' -%}
+                        <span class="mega-menu--brand__nav-eyebrow">{{ sub_link.title }}</span>
+                      {%- else -%}
+                        <a class="mega-menu--brand__nav-eyebrow" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+                      {%- endif -%}
+                      {%- if sub_link.links.size > 0 -%}
+                        <ul class="mega-menu--brand__nav-links list--unstyled">
+                          {%- for sub_sub_link in sub_link.links -%}
+                            <li><a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a></li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </div>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+
               {%- if fp_image != blank or fp_title != blank -%}
                 <a class="mega-menu--brand__card mega-menu--brand__card--product" href="{{ fp_url }}">
                   {%- if fp_image != blank -%}
@@ -78,32 +108,6 @@
                     {%- endif -%}
                   </div>
                 </a>
-              {%- endif -%}
-
-              {%- if link.links.size > 0 -%}
-                <div class="mega-menu--brand__nav">
-                  <div class="mega-menu--brand__nav-header">
-                    <p class="mega-menu--brand__section-label">Browse {{ link.title }}</p>
-                    <p class="mega-menu--brand__nav-heading">Choose a path</p>
-                  </div>
-
-                  {%- for sub_link in link.links -%}
-                    <div class="mega-menu--brand__nav-col">
-                      {%- if sub_link.url == '#' -%}
-                        <span class="mega-menu--brand__nav-eyebrow">{{ sub_link.title }}</span>
-                      {%- else -%}
-                        <a class="mega-menu--brand__nav-eyebrow" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
-                      {%- endif -%}
-                      {%- if sub_link.links.size > 0 -%}
-                        <ul class="mega-menu--brand__nav-links list--unstyled">
-                          {%- for sub_sub_link in sub_link.links -%}
-                            <li><a href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a></li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
-                    </div>
-                  {%- endfor -%}
-                </div>
               {%- endif -%}
             </div>
           </div>
