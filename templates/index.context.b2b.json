@@ -12,56 +12,5 @@
   "context": {
     "market": "all-b2b"
   },
-  "sections": {
-    "slideshow": {
-      "settings": {},
-      "blocks": {
-        "image_ktJUCw": {
-          "disabled": true,
-          "settings": {}
-        },
-        "image_9xPJfV": {
-          "settings": {
-            "subheading": "Where Better Begins",
-            "title": "The #1 Net in Golf",
-            "button_1_text": "B2B Portal",
-            "button_1_link": "shopify://pages/b2b-portal"
-          }
-        }
-      }
-    },
-    "video_49RaHd": {
-      "disabled": true,
-      "settings": {},
-      "blocks": {}
-    },
-    "image-with-text": {
-      "settings": {},
-      "blocks": {}
-    },
-    "image_with_text_overlay_YtBHJk": {
-      "disabled": true,
-      "settings": {},
-      "blocks": {}
-    },
-    "image_with_text_8dmRyz": {
-      "disabled": true,
-      "settings": {},
-      "blocks": {}
-    },
-    "image_with_text_overlay_FUPQcD": {
-      "disabled": false,
-      "settings": {},
-      "blocks": {}
-    },
-    "image_with_text_block_9YtgJ7": {
-      "disabled": true,
-      "settings": {},
-      "blocks": {}
-    },
-    "video_dN76e7": {
-      "settings": {},
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }

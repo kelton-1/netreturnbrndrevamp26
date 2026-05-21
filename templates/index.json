@@ -15,13 +15,13 @@
         "height": "full",
         "overlay_strength": 55,
         "eyebrow": "The Net Return",
-        "heading_lead": "Train With",
-        "heading_em": "Intent.",
-        "body": "Physical repetition. Digital progression. Daily discipline. We connect the work to the score.",
+        "heading_lead": "The Net That",
+        "heading_em": "Returns.",
+        "body": "Hit real golf balls at home without chasing them down. The Net Return sends every shot back, sets up fast, and fits garages, backyards, studios, and simulator builds.",
         "cta_text": "Shop nets",
         "cta_link": "shopify://collections/nets-1",
-        "secondary_cta_text": "Build your setup",
-        "secondary_cta_link": "shopify://pages/build-your-setup"
+        "secondary_cta_text": "Compare models",
+        "secondary_cta_link": "shopify://pages/compare"
       }
     },
     "brand_category_grid_main": {
@@ -71,19 +71,20 @@
         "cat_accessories"
       ],
       "settings": {
-        "eyebrow": "Shop the system",
-        "heading": "Built for every part of the work.",
+        "eyebrow": "Shop by setup",
+        "heading": "Start with the net. Build around your space.",
         "columns": 4
       },
       "disabled": true
     },
     "brand_product_story_dont_settle": {
       "type": "brand-product-story",
+      "disabled": true,
       "settings": {
-        "heading_line_1": "Don't",
-        "heading_line_2": "Settle",
-        "heading_outline": "For less",
-        "body": "Caught in endless doubts about your swing? Finding consistency hard to nail down? You're not alone. The Net Return helps you turn effort into results.",
+        "heading_line_1": "Stop",
+        "heading_line_2": "Chasing",
+        "heading_outline": "Golf Balls",
+        "body": "A cheaper net can slow practice down with rebounds, resets, and doubt. The Net Return is built to absorb the shot, return the ball, and keep your session moving.",
         "cta_text": "See the difference",
         "cta_link": "shopify://pages/compare",
         "image": "shopify://shop_images/1400x1400-pro.png",
@@ -95,7 +96,7 @@
       "settings": {
         "video_asset_filename": "home-brand-film-8s.mp4",
         "step_number": "02",
-        "label_text": "Train With Intent",
+        "label_text": "Every Ball Comes Back",
         "gradient_colorway": "shadow",
         "show_drift": false,
         "enable_pin": false
@@ -107,136 +108,12 @@
         "image_position": "right",
         "overlay_strength": 35,
         "display_word": "BRYSON",
-        "eyebrow": "Official ambassador",
-        "tagline": "Trained on a Net Return.",
-        "body": "Bryson DeChambeau trains the way he plays \u2014 relentlessly, on his own terms. His daily reps land on a Net Return because the ball comes back, the math holds, and nothing slows the work.",
+        "eyebrow": "Trusted by Bryson",
+        "tagline": "The net he trusts at home.",
+        "body": "Bryson DeChambeau has used The Net Return since he was 15. The reason is simple: the ball comes back, the setup holds up, and practice keeps moving.",
         "cta_text": "Shop Bryson's setup",
-        "cta_link": "shopify://collections/best-sellers"
+        "cta_link": "shopify://pages/bryson-dechambeau-the-net-return"
       }
-    },
-    "slideshow": {
-      "type": "slideshow",
-      "disabled": true,
-      "blocks": {
-        "image_Xqzptn": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/2000x1000.png",
-            "mobile_image": "shopify://shop_images/Socials_1.png",
-            "text_position": "bottom_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "https://www.thenetreturn.com/pages/master-2026",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "image_dVHiPV": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/image_0b4da264-fac0-43cd-a65e-b45f57b51974.png",
-            "mobile_image": "shopify://shop_images/Mobile_6.png",
-            "text_position": "bottom_center",
-            "subheading": "",
-            "title": "",
-            "button_1_text": "",
-            "button_1_link": "shopify://collections/azalea",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#101010",
-            "overlay_color": "#000000",
-            "overlay_opacity": 0
-          }
-        },
-        "slide-1": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/bryson-posed.png",
-            "mobile_image": "shopify://shop_images/1080x1500-bryson-posed.png",
-            "text_position": "middle_left",
-            "subheading": "Bryson Dechambeau",
-            "title": "Trusted by the Pros",
-            "button_1_text": "Shop Nets",
-            "button_1_link": "shopify://collections/nets-1",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#00994d",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 5
-          }
-        },
-        "image_ktJUCw": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/brysonwin-2160x1080.jpg",
-            "mobile_image": "shopify://shop_images/brysonwin-1080x1500.jpg",
-            "text_position": "middle_left",
-            "subheading": "Bryson Dechambeau - 2024 U.S. Open Champion",
-            "title": "Trusted by the Champion",
-            "button_1_text": "Shop Nets",
-            "button_1_link": "shopify://collections/nets-1",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#00994d",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 20
-          }
-        },
-        "image_9xPJfV": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/front-home2.png",
-            "mobile_image": "shopify://shop_images/1080x1500-home.png",
-            "text_position": "middle_left",
-            "subheading": "Where Better Begins",
-            "title": "The #1 Net in Golf",
-            "button_1_text": "Shop Nets",
-            "button_1_link": "shopify://collections/nets-1",
-            "button_2_text": "",
-            "button_2_link": "",
-            "text_color": "#ffffff",
-            "button_background": "#00994d",
-            "button_text_color": "#ffffff",
-            "overlay_color": "#000000",
-            "overlay_opacity": 22
-          }
-        }
-      },
-      "block_order": [
-        "image_Xqzptn",
-        "image_dVHiPV",
-        "slide-1",
-        "image_ktJUCw",
-        "image_9xPJfV"
-      ],
-      "settings": {
-        "section_height": "auto",
-        "transition_type": "sweep",
-        "autoplay": true,
-        "cycle_speed": 5,
-        "background": "rgba(0,0,0,0)"
-      }
-    },
-    "trust_bar_DdPqga": {
-      "type": "trust-bar",
-      "disabled": true,
-      "name": "Trust bar",
-      "settings": {}
     },
     "17621461567133e3c2": {
       "type": "_blocks",
@@ -244,7 +121,7 @@
         "ai_gen_block_af24d37_YB8jBj": {
           "type": "ai_gen_block_af24d37",
           "settings": {
-            "message": "Free Shipping on All Products \u2014 Limited time. Shop now \u2192",
+            "message": "Free Shipping on All Products — Limited time. Shop now →",
             "link_url": "",
             "background_color": "#101010",
             "text_color": "#ffffff",
@@ -277,230 +154,6 @@
         "include_vertical_margins": true
       }
     },
-    "theme_banner_ELtemE": {
-      "type": "theme-banner",
-      "blocks": {
-        "slide_iRWwpJ": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/front-home2.webp",
-            "kicker": "TRENDING #1",
-            "heading": "The Golf Practice Net That Sends Every Ball Back",
-            "richtext": "<p><strong>Authentic ball return, genuine ball speeds, quick 60-second setup - indoor or outdoor.</strong></p>",
-            "button_label": "Shop Golf Nets",
-            "button_link": "shopify://collections/nets-1",
-            "image_position": "left",
-            "text_position": "right",
-            "image_focal": "right center"
-          }
-        },
-        "slide_Jxqhbw": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/brysonwin-2160x1080.webp",
-            "kicker": "TRENDING #1",
-            "heading": "Trusted by Coaches, Loved by Home Golfers",
-            "richtext": "<p><strong>Training-grade durability with service that actually answers.</strong></p>",
-            "button_label": "Buy Nets",
-            "button_link": "shopify://collections/nets-sims",
-            "image_position": "left",
-            "text_position": "right",
-            "image_focal": "left center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_iRWwpJ",
-        "slide_Jxqhbw"
-      ],
-      "disabled": true,
-      "name": "Image + Text Slideshow",
-      "settings": {
-        "show_arrows": true,
-        "show_dots": true,
-        "brand_green": "#0a8f44",
-        "brand_black": "#000000",
-        "band_bg": "rgba(0,0,0,0)",
-        "side_padding": 20,
-        "text_max_width": 420,
-        "grid_gap": 2,
-        "min_vh_desktop": 95,
-        "autoplay_ms": 8000
-      }
-    },
-    "badge_scroller_crWTND": {
-      "type": "badge-scroller",
-      "disabled": true,
-      "name": "Badge Scroller",
-      "settings": {}
-    },
-    "176557648414d76531": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_74536a9_zQN8y8": {
-          "type": "ai_gen_block_74536a9",
-          "settings": {
-            "heading": "Best Sellers",
-            "heading_alignment": "left",
-            "collection": "best-sellers-bfcm",
-            "products_limit": 12,
-            "show_vendor": false,
-            "show_badge": true,
-            "badge_text": "Best Seller",
-            "badge_background": "#17a349",
-            "badge_text_color": "#ffffff",
-            "show_starting_from_tag": true,
-            "starting_from_product": "universal-side-barriers",
-            "starting_from_text": "",
-            "button_text": "Add to cart",
-            "button_border_radius": 10,
-            "button_background": "#00994d",
-            "button_hover_background": "#007a3d",
-            "button_text_color": "#ffffff",
-            "heading_size": 28,
-            "card_spacing": 32,
-            "card_border_radius": 4,
-            "background_color": "#ffffff",
-            "card_background": "#ffffff",
-            "heading_color": "#101010",
-            "text_color": "#101010",
-            "sale_color": "#00994d",
-            "arrow_background": "#ffffff",
-            "arrow_hover_background": "#f4f4f4",
-            "arrow_color": "#101010"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_74536a9_zQN8y8"
-      ],
-      "settings": {}
-    },
-    "text_with_icons_BQA78q": {
-      "type": "text-with-icons",
-      "disabled": true,
-      "blocks": {
-        "item_gMihGm": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-return-box",
-            "custom_icon_width": 200,
-            "title": "Instant Ball Return",
-            "content": ""
-          }
-        },
-        "item_NhEtBA": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-shield",
-            "custom_icon_width": 200,
-            "title": "Easy to Assemble",
-            "content": ""
-          }
-        },
-        "item_EcxThm": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-address-pin",
-            "custom_icon_width": 200,
-            "title": "Indoor or Outdoor",
-            "content": ""
-          }
-        },
-        "item_48t3ia": {
-          "type": "item",
-          "settings": {
-            "icon": "picto-warranty",
-            "custom_icon_width": 200,
-            "title": "Premium Design",
-            "content": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_gMihGm",
-        "item_NhEtBA",
-        "item_EcxThm",
-        "item_48t3ia"
-      ],
-      "settings": {
-        "icon_align_mobile": "left",
-        "hide_dots": true,
-        "auto_rotate": true,
-        "cycle_speed": 3,
-        "background": "#000000",
-        "text_color": "#ffffff"
-      }
-    },
-    "image_with_text_overlay_YtBHJk": {
-      "type": "image-with-text-overlay",
-      "settings": {
-        "reveal_on_scroll": true,
-        "section_height": "auto",
-        "image": "shopify://shop_images/2160x850-setup.jpg",
-        "subheading": "",
-        "title": "Build Your Practice Setup",
-        "content": "",
-        "button_text": "Get Started",
-        "button_link": "shopify://pages/build-your-setup",
-        "link_style": "link",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "middle_center",
-        "text_color": "#ffffff",
-        "button_background": "#00994d",
-        "button_text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 25
-      }
-    },
-    "image_with_text_8dmRyz": {
-      "type": "image-with-text",
-      "disabled": true,
-      "blocks": {
-        "item_nr33fH": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/return.png",
-            "tab_label": "Instant Ball Return",
-            "subheading": "",
-            "title": "Instant Ball Return",
-            "content": "<p>Our patented S-Shape Design absorbs the force of the ball and returns it gently back to you.</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "item_Xqq8Yn": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/assemble.png",
-            "tab_label": "Quick Assembly",
-            "subheading": "",
-            "title": "Quick Assembly",
-            "content": "<p>Assemble or disassemble in under 10 minutes with our push-button Quick Color Connect System</p>",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_nr33fH",
-        "item_Xqq8Yn"
-      ],
-      "settings": {
-        "reveal_on_scroll": true,
-        "background_type": "full_width",
-        "background_overlap": "both",
-        "image_position": "left",
-        "text_alignment": "center",
-        "cycle_speed": 8,
-        "accent_background": "#ffffff",
-        "text_color": "#101010",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
     "rich_text_tkbxXR": {
       "type": "rich-text",
       "settings": {
@@ -517,79 +170,6 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "image_with_text_overlay_FUPQcD": {
-      "type": "image-with-text-overlay",
-      "disabled": true,
-      "settings": {
-        "reveal_on_scroll": true,
-        "section_height": "auto",
-        "image": "shopify://shop_images/2160x850-simroom_38e95a9b-e968-4f98-a9f5-b386f8731f08.png",
-        "subheading": "",
-        "title": "Simulation",
-        "content": "<p>The Optimal Path to Reaching Your Goals</p>",
-        "button_text": "Shop Simulation",
-        "button_link": "shopify://collections/simulation",
-        "link_style": "link",
-        "background_type": "full_width",
-        "text_width": "medium",
-        "text_position": "middle_center",
-        "text_color": "#ffffff",
-        "button_background": "#00994d",
-        "button_text_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 50
-      }
-    },
-    "image_with_text_block_9YtgJ7": {
-      "type": "image-with-text-block",
-      "disabled": true,
-      "settings": {
-        "reveal_on_scroll": true,
-        "image": "shopify://shop_images/1500x1800-4.jpg",
-        "subheading": "BRYSON DECHAMBEAU",
-        "title": "Trusted by the Pros",
-        "content": "<p>\"I've been using Net Return since I was 15 years old. There is not another net out there that I would trust.\"</p>",
-        "button_text": "BRYSON collection",
-        "button_link": "shopify://pages/bryson-dechambeau-the-net-return",
-        "background_type": "full_width",
-        "text_position": "overlap_left",
-        "text_alignment": "center",
-        "text_background": "#ffffff",
-        "text_color": "#101010",
-        "button_background": "rgba(0,0,0,0)",
-        "button_text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "video_dN76e7": {
-      "type": "video",
-      "disabled": true,
-      "settings": {
-        "subheading": "",
-        "title": "",
-        "video_url": "https://vimeo.com/949289364?share=copy",
-        "background_type": "full_width",
-        "video_size": "auto",
-        "autoplay": true,
-        "show_video_controls": false,
-        "background": "rgba(0,0,0,0)",
-        "text_color": "rgba(0,0,0,0)"
-      }
-    },
-    "blog_posts_GXwHk8": {
-      "type": "blog-posts",
-      "disabled": true,
-      "settings": {
-        "blog": "tips-tricks",
-        "subheading": "Practice Like a Pro with Net Return",
-        "title": "Tips & Tricks",
-        "articles_count": 3,
-        "stack_mobile": false,
-        "show_category": true,
-        "show_excerpt": false,
-        "background": "#ffffff",
-        "text_color": "rgba(0,0,0,0)"
       }
     },
     "brand_testimonial_wall_main": {
@@ -663,32 +243,32 @@
           "type": "proof",
           "settings": {
             "stat": "Patented",
-            "title": "Patented S-shape frame",
-            "text": "Curved side panels absorb impact and feed the ball back to your feet \u2014 every rep, no chasing."
+            "title": "Automatic ball return",
+            "text": "The patented S-shape frame absorbs the shot and returns the ball to your feet."
           }
         },
         "proof_guarantee": {
           "type": "proof",
           "settings": {
             "stat": "250K",
-            "title": "250,000-shot guarantee",
-            "text": "Tour-grade netting backed by our warranty. Train as hard as you want \u2014 it holds."
+            "title": "Built for real golf balls",
+            "text": "Commercial-grade netting and a stable frame are made for repeat practice."
           }
         },
         "proof_setup": {
           "type": "proof",
           "settings": {
             "stat": "10 min",
-            "title": "10-minute setup",
-            "text": "Color-coded push-button connections \u2014 no tools, no manual. Breaks down just as fast."
+            "title": "Tool-free setup",
+            "text": "Quick Color Connect pieces make setup and breakdown simple."
           }
         },
         "proof_versatile": {
           "type": "proof",
           "settings": {
-            "stat": "Any sport",
-            "title": "Durable & versatile",
-            "text": "Indoor or outdoor, multi-sport ready, sleek enough to live in your space \u2014 not just your garage."
+            "stat": "Any space",
+            "title": "Indoor, outdoor, simulator-ready",
+            "text": "Use it in a garage, backyard, studio, or as the foundation for a simulator build."
           }
         }
       },
@@ -700,9 +280,9 @@
       ],
       "settings": {
         "show_concept_badge": true,
-        "eyebrow": "Why it works",
-        "heading": "Built to return more than the ball.",
-        "body": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving. Set it up fast, train anywhere, and build from net to full simulator when your game is ready.</p>",
+        "eyebrow": "Why golfers choose it",
+        "heading": "Built around the return.",
+        "body": "<p>The patented S-shape frame absorbs impact and sends the ball back to your feet. Set it up without tools, use it indoors or outdoors, and build from a standalone net to a simulator setup when you are ready.</p>",
         "cta_text": "Build your setup",
         "cta_link": "shopify://pages/build-your-setup",
         "default_image_filename": "home-packages-backyard-patio.jpg"
@@ -710,14 +290,13 @@
     },
     "brand_proof_system_diagram": {
       "type": "brand-proof-system-diagram",
-      "disabled": true,
       "blocks": {
         "callout_s_shape": {
           "type": "callout",
           "settings": {
             "stat": "Patented",
-            "title": "Patented S-shape frame",
-            "text": "Curved side panels absorb impact and feed the ball back to your feet \u2014 every rep, no chasing.",
+            "title": "Automatic ball return",
+            "text": "The patented S-shape frame absorbs the shot and returns the ball to your feet.",
             "callout_position": "top-left",
             "dot_x": 14,
             "dot_y": 55
@@ -727,8 +306,8 @@
           "type": "callout",
           "settings": {
             "stat": "250K",
-            "title": "250,000-shot guarantee",
-            "text": "Tour-grade netting backed by our warranty. Train as hard as you want \u2014 it holds.",
+            "title": "Built for real golf balls",
+            "text": "Commercial-grade netting and a stable frame are made for repeat practice.",
             "callout_position": "top-right",
             "dot_x": 55,
             "dot_y": 42
@@ -738,8 +317,8 @@
           "type": "callout",
           "settings": {
             "stat": "10 min",
-            "title": "10-minute setup",
-            "text": "Color-coded push-button connections \u2014 no tools, no manual. Breaks down just as fast.",
+            "title": "Tool-free setup",
+            "text": "Quick Color Connect pieces make setup and breakdown simple.",
             "callout_position": "bottom-right",
             "dot_x": 84,
             "dot_y": 16
@@ -748,9 +327,9 @@
         "callout_versatile": {
           "type": "callout",
           "settings": {
-            "stat": "Any sport",
-            "title": "Durable & versatile",
-            "text": "Indoor or outdoor, multi-sport ready, sleek enough to live in your space \u2014 not just your garage.",
+            "stat": "Any space",
+            "title": "Indoor, outdoor, simulator-ready",
+            "text": "Use it in a garage, backyard, studio, or as the foundation for a simulator build.",
             "callout_position": "bottom-left",
             "dot_x": 12,
             "dot_y": 92
@@ -765,16 +344,16 @@
       ],
       "settings": {
         "show_concept_badge": true,
-        "eyebrow": "Why it works",
-        "heading": "Built to return more than the ball.",
-        "body": "<p>The S-shape frame absorbs impact, sends the ball back, and keeps every rep moving.</p>",
+        "eyebrow": "Why golfers choose it",
+        "heading": "Built around the return.",
+        "body": "<p>The patented S-shape frame absorbs impact and sends the ball back to your feet. Set it up without tools, use it indoors or outdoors, and build from a standalone net to a simulator setup when you are ready.</p>",
         "cta_text": "Build your setup",
         "cta_link": "shopify://pages/build-your-setup",
         "default_image_filename": "brand-proof-diagram-net.jpg"
       }
     },
     "brand_category_mosaic": {
-      "type": "brand-category-mosaic",
+      "type": "brand-category-accordion",
       "blocks": {
         "cat_nets": {
           "type": "category",
@@ -782,7 +361,8 @@
             "label": "Nets",
             "cta_text": "Shop nets",
             "link": "/collections/nets-1",
-            "default_image_filename": "brand-category-nets.jpg"
+            "default_image_filename": "brand-category-nets.jpg",
+            "description": "Patented S-shape returns the ball to your feet. Five sizes — garage to backyard to commercial-grade."
           }
         },
         "cat_packages": {
@@ -791,7 +371,8 @@
             "label": "Packages",
             "cta_text": "Shop packages",
             "link": "/collections/packages",
-            "default_image_filename": "brand-category-packages.jpg"
+            "default_image_filename": "brand-category-packages.jpg",
+            "description": "Net, mat, side barriers, sandbags, tees, and a duffel — bundled to swing the day it lands."
           }
         },
         "cat_simulation": {
@@ -800,7 +381,8 @@
             "label": "Simulation",
             "cta_text": "Shop simulation",
             "link": "/collections/simulation",
-            "default_image_filename": "brand-category-simulation.jpg"
+            "default_image_filename": "brand-category-simulation.jpg",
+            "description": "Pair a Net Return with a launch monitor and screen. Tour-grade simulation, at home."
           }
         },
         "cat_accessories": {
@@ -809,7 +391,8 @@
             "label": "Accessories",
             "cta_text": "Shop accessories",
             "link": "/collections/general-accessories",
-            "default_image_filename": "brand-category-accessories.jpg"
+            "default_image_filename": "brand-category-accessories.jpg",
+            "description": "Frame pads, training aids, and sim add-ons. Finish, protect, and extend your setup."
           }
         }
       },
@@ -822,7 +405,7 @@
       "settings": {
         "show_concept_badge": true,
         "eyebrow": "Shop the system",
-        "heading": "Built for every part of the work."
+        "heading": "Industry-leading sport nets. Made to bring training to you."
       }
     },
     "brand_category_rail": {
@@ -873,9 +456,266 @@
       ],
       "settings": {
         "show_concept_badge": true,
-        "eyebrow": "Shop the system",
-        "heading": "Built for every part of the work.",
+        "eyebrow": "Shop by setup",
+        "heading": "Start with the net. Build around your space.",
         "scroll_seconds": 60
+      },
+      "disabled": true
+    },
+    "brand_setup_rooms_main": {
+      "type": "brand-setup-rooms",
+      "blocks": {
+        "room_garage": {
+          "type": "scenario",
+          "settings": {
+            "name": "The Garage",
+            "tagline": "Concrete floor, low ceiling, big swings.",
+            "default_image_filename": "home-packages.jpg",
+            "layout": "image-left",
+            "cta_text": "Shop this setup",
+            "cta_link": "shopify://collections/home-series-2"
+          }
+        },
+        "room_backyard": {
+          "type": "scenario",
+          "settings": {
+            "name": "The Backyard",
+            "tagline": "Sun, breeze, and a real range vibe.",
+            "default_image_filename": "home-packages-backyard-patio.jpg",
+            "layout": "image-right",
+            "cta_text": "Shop this setup",
+            "cta_link": "shopify://collections/packages"
+          }
+        },
+        "room_studio": {
+          "type": "scenario",
+          "settings": {
+            "name": "The Studio",
+            "tagline": "Indoor reps, tour-grade simulation.",
+            "default_image_filename": "home-sim-series.jpg",
+            "layout": "image-left",
+            "cta_text": "Shop this setup",
+            "cta_link": "shopify://collections/simulation"
+          }
+        },
+        "room_pro_shop": {
+          "type": "scenario",
+          "settings": {
+            "name": "The Pro Shop",
+            "tagline": "Commercial-grade bay built to hold up.",
+            "default_image_filename": "home-sim-series.jpg",
+            "layout": "image-right",
+            "cta_text": "Shop this setup",
+            "cta_link": "shopify://collections/commercial-simulators"
+          }
+        }
+      },
+      "block_order": [
+        "room_garage",
+        "room_backyard",
+        "room_studio",
+        "room_pro_shop"
+      ],
+      "settings": {
+        "eyebrow": "Setup rooms",
+        "heading": "Where will you train?",
+        "body": "Different spaces. Same system. Pick the room you're building for and we'll show you the gear that fits.",
+        "show_bundle_total": true,
+        "surface": "white"
+      }
+    },
+    "brand_mini_builder_main": {
+      "type": "brand-mini-builder",
+      "settings": {
+        "eyebrow": "Build your setup",
+        "heading": "Build the bay you'll show up to.",
+        "body": "Five picks, one click. Net to simulator — live total, one button adds the whole bundle.",
+        "step_1_label": "Choose your net.",
+        "step_1_short": "Net",
+        "nets_collection": "nets-1",
+        "nets_limit": 4,
+        "step_2_label": "Add a mat.",
+        "step_2_short": "Mat",
+        "step_2_skip_label": "I'll skip the mat",
+        "surfaces_collection": "general-accessories",
+        "surfaces_limit": 4,
+        "step_3_label": "Add a launch monitor.",
+        "step_3_short": "Monitor",
+        "step_3_skip_label": "Skip the launch monitor",
+        "launch_monitors_collection": "",
+        "launch_monitors_limit": 4,
+        "step_4_label": "Add a screen.",
+        "step_4_short": "Screen",
+        "step_4_skip_label": "Skip the screen",
+        "screens_collection": "",
+        "screens_limit": 4,
+        "step_5_label": "Stack the extras.",
+        "step_5_short": "Extras",
+        "accessories_collection": "general-accessories",
+        "accessories_limit": 5,
+        "empty_bundle_label": "Pick a net to start your setup.",
+        "cta_text": "Add this setup to cart",
+        "surface_concept": "studio-light"
+      }
+    },
+    "brand_customer_setups_main": {
+      "type": "brand-customer-setups",
+      "blocks": {
+        "setup_01": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-2.jpg",
+            "alt": "Customer Net Return setup #1"
+          }
+        },
+        "setup_02": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-3_b74da4bb-10df-47bf-8a99-fcb2cf12e91e.jpg",
+            "alt": "Customer Net Return setup #2"
+          }
+        },
+        "setup_03": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-4_a85973a0-fa9a-4dd1-86de-ef4b09501fcb.jpg",
+            "alt": "Customer Net Return setup #3"
+          }
+        },
+        "setup_04": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-6.jpg",
+            "alt": "Customer Net Return setup #4"
+          }
+        },
+        "setup_05": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-6_20566da9-5568-4450-a03e-67c7ebd9881d.jpg",
+            "alt": "Customer Net Return setup #5"
+          }
+        },
+        "setup_06": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-7_00504a3e-a208-44da-bdc6-ebc0ee0ff95d.jpg",
+            "alt": "Customer Net Return setup #6"
+          }
+        },
+        "setup_07": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-8_94c5c3a8-2057-4e35-bbe1-4aec769c358e.jpg",
+            "alt": "Customer Net Return setup #7"
+          }
+        },
+        "setup_08": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-9_f138de55-f1e6-468f-ba67-c482e072cb4e.jpg",
+            "alt": "Customer Net Return setup #8"
+          }
+        },
+        "setup_09": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-10_96abef09-57c7-4a0d-a00a-05b008098849.jpg",
+            "alt": "Customer Net Return setup #9"
+          }
+        },
+        "setup_10": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-12.jpg",
+            "alt": "Customer Net Return setup #10"
+          }
+        },
+        "setup_11": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-13.jpg",
+            "alt": "Customer Net Return setup #11"
+          }
+        },
+        "setup_12": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-15.jpg",
+            "alt": "Customer Net Return setup #12"
+          }
+        },
+        "setup_13": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-15_43607f6d-c4ab-4e55-93d7-11c75cc7f98e.jpg",
+            "alt": "Customer Net Return setup #13"
+          }
+        },
+        "setup_14": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-16.jpg",
+            "alt": "Customer Net Return setup #14"
+          }
+        },
+        "setup_15": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-17.jpg",
+            "alt": "Customer Net Return setup #15"
+          }
+        },
+        "setup_16": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-19.jpg",
+            "alt": "Customer Net Return setup #16"
+          }
+        },
+        "setup_17": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-24.jpg",
+            "alt": "Customer Net Return setup #17"
+          }
+        },
+        "setup_18": {
+          "type": "setup",
+          "settings": {
+            "image": "shopify://shop_images/nr-setups-25.jpg",
+            "alt": "Customer Net Return setup #18"
+          }
+        }
+      },
+      "block_order": [
+        "setup_01",
+        "setup_02",
+        "setup_03",
+        "setup_04",
+        "setup_05",
+        "setup_06",
+        "setup_07",
+        "setup_08",
+        "setup_09",
+        "setup_10",
+        "setup_11",
+        "setup_12",
+        "setup_13",
+        "setup_14",
+        "setup_15",
+        "setup_16",
+        "setup_17",
+        "setup_18"
+      ],
+      "settings": {
+        "show_concept_badge": true,
+        "eyebrow": "From our reviews",
+        "quote": "<p>\"I bought three nets before this one. The first ripped in a month. The second sagged. The third lost tension. This is the only one I haven't had to replace.\"</p>",
+        "attribution": "Mike T.",
+        "attribution_meta": "Owner since 2019",
+        "grid_columns": 4,
+        "cycle_seconds": 5
       }
     }
   },
@@ -883,27 +723,18 @@
     "brand_hero_train_with_intent",
     "brand_category_grid_main",
     "brand_category_mosaic",
+    "brand_customer_setups_main",
     "brand_category_rail",
     "brand_product_story_dont_settle",
     "brand_film_homepage",
     "brand_bryson_feature",
-    "slideshow",
-    "trust_bar_DdPqga",
     "17621461567133e3c2",
     "1732595390d1c0d5bd",
-    "theme_banner_ELtemE",
-    "badge_scroller_crWTND",
-    "176557648414d76531",
+    "brand_setup_rooms_main",
     "brand_proof_system_main",
     "brand_proof_system_diagram",
-    "text_with_icons_BQA78q",
-    "image_with_text_overlay_YtBHJk",
-    "image_with_text_8dmRyz",
+    "brand_mini_builder_main",
     "rich_text_tkbxXR",
-    "image_with_text_overlay_FUPQcD",
-    "image_with_text_block_9YtgJ7",
-    "video_dN76e7",
-    "blog_posts_GXwHk8",
     "brand_testimonial_wall_main"
   ]
 }
