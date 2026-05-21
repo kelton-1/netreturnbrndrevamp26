@@ -15,6 +15,7 @@ yarn-error.log*
 
 # Local-only dev tooling (not part of the theme, never push)
 .claude/
+.superpowers/
 output/
 
 # Python bytecode (from scripts/)
