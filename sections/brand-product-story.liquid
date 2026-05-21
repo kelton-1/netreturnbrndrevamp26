@@ -10,21 +10,21 @@
   assign image_alt = image.alt | default: heading_line_1 | default: shop.name
 -%}
 
-<section class="brand-product-story" aria-labelledby="brand-product-story-heading-{{ section.id }}">
+<section class="brand-product-story" aria-labelledby="brand-product-story-heading-{{ section.id }}" data-brand-reveal>
   <div class="brand-product-story__inner brand-container">
     <div class="brand-product-story__copy">
-      <h2 id="brand-product-story-heading-{{ section.id }}" class="brand-product-story__heading">
+      <h2 id="brand-product-story-heading-{{ section.id }}" class="brand-product-story__heading" data-reveal-headline>
         {%- if heading_line_1 != blank -%}<span>{{ heading_line_1 }}</span>{%- endif -%}
         {%- if heading_line_2 != blank -%}<span>{{ heading_line_2 }}</span>{%- endif -%}
         {%- if heading_outline != blank -%}<span class="brand-product-story__heading-outline">{{ heading_outline }}</span>{%- endif -%}
       </h2>
 
       {%- if body != blank -%}
-        <p class="brand-product-story__body">{{ body }}</p>
+        <p class="brand-product-story__body" data-reveal-body>{{ body }}</p>
       {%- endif -%}
 
       {%- if cta_text != blank -%}
-        <a class="brand-btn brand-btn--primary brand-product-story__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+        <a class="brand-btn brand-btn--primary brand-product-story__cta" href="{{ cta_link | default: '#' }}" data-reveal-cta>{{ cta_text }}</a>
       {%- endif -%}
     </div>
 

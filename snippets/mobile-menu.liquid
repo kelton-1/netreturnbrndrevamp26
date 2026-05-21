@@ -8,55 +8,84 @@
   <span class="drawer__overlay"></span>
 
   <div class="drawer__header drawer__header--shadowed">
+    <a class="mobile-nav__drawer-logo" href="{{ routes.root_url }}">
+      <span class="visually-hidden">{{ shop.name }}</span>
+      <img class="mobile-nav__drawer-logo-image" width="1200" height="387" src="{{ 'nr-wordmark-white.png' | asset_url }}" alt="{{ shop.name | escape }}">
+    </a>
+
+    <div class="mobile-nav__drawer-actions">
+      <a href="{{ routes.search_url }}" is="toggle-link" class="drawer__close-button tap-area" aria-controls="search-drawer" aria-expanded="false" aria-label="{{ 'search.general.title' | t | escape }}">
+        {%- render 'icon' with 'header-search' -%}
+      </a>
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="drawer__close-button tap-area" aria-label="{% if customer %}{{ 'header.general.account' | t | escape }}{% else %}{{ 'header.general.login' | t | escape }}{% endif %}">
+          {%- render 'icon' with 'header-customer' -%}
+        </a>
+      {%- endif -%}
+
+      <a href="{{ routes.cart_url }}" {% unless settings.cart_type == 'page' or request.page_type == 'cart' %}is="toggle-link" aria-controls="mini-cart" aria-expanded="false"{% endunless %} class="drawer__close-button tap-area" aria-label="{{ 'header.general.cart' | t | escape }}" data-no-instant>
+        {%- case settings.cart_icon -%}
+          {%- when 'shopping_bag' -%}
+            {%- render 'icon' with 'header-cart' -%}
+
+          {%- when 'shopping_cart' -%}
+            {%- render 'icon' with 'header-shopping-cart' -%}
+
+          {%- when 'tote_bag' -%}
+            {%- render 'icon' with 'header-tote-bag' -%}
+        {%- endcase -%}
+      </a>
+    </div>
+
     <button type="button" class="drawer__close-button drawer__close-button--block tap-area" data-action="close" title="{{ 'general.accessibility.close' | t | escape }}">
       {%- render 'icon' with 'close' -%}
     </button>
   </div>
 
   <div class="drawer__content">
-    <div class="mobile-nav__panel">
-      <div class="mobile-nav__intro">
-        <p class="mobile-nav__eyebrow">Shop the system</p>
-        <p class="mobile-nav__intro-title">Find the right net faster.</p>
-      </div>
+    <nav class="mobile-nav__menu" aria-label="{{ 'header.general.navigation' | t | escape }}">
+      <p class="mobile-nav__eyebrow">Shop the system</p>
 
-      <nav class="mobile-nav__primary-grid" aria-label="Primary shopping paths">
-        <a href="{{ routes.collections_url }}/nets-1" class="mobile-nav__primary-card">
-          <span class="mobile-nav__primary-card-kicker">Shop</span>
-          <span class="mobile-nav__primary-card-title">Shop Nets</span>
-          <span class="mobile-nav__primary-card-meta">Golf and multi-sport nets built for daily reps.</span>
-        </a>
-        <a href="{{ routes.collections_url }}/packages" class="mobile-nav__primary-card">
-          <span class="mobile-nav__primary-card-kicker">Shop</span>
-          <span class="mobile-nav__primary-card-title">Shop Packages</span>
-          <span class="mobile-nav__primary-card-meta">Complete net, turf, and accessory bundles.</span>
-        </a>
-        <a href="{{ routes.collections_url }}/simulation" class="mobile-nav__primary-card">
-          <span class="mobile-nav__primary-card-kicker">Shop</span>
-          <span class="mobile-nav__primary-card-title">Shop Sim Bays</span>
-          <span class="mobile-nav__primary-card-meta">Bays, screens, turf, and room-ready setups.</span>
-        </a>
-        <a href="{{ routes.collections_url }}/general-accessories" class="mobile-nav__primary-card">
-          <span class="mobile-nav__primary-card-kicker">Shop</span>
-          <span class="mobile-nav__primary-card-title">Shop Accessories</span>
-          <span class="mobile-nav__primary-card-meta">Turf, covers, bags, and replacement parts.</span>
-        </a>
-      </nav>
+      {%- if menu.links.size > 0 -%}
+        <ul class="mobile-nav__menu-list list--unstyled" role="list">
+          {%- for link in menu.links -%}
+            <li class="mobile-nav__menu-item {% if link.links.size > 0 %}mobile-nav__menu-item--has-children{% endif %}">
+              <a class="mobile-nav__menu-link" href="{{ link.url }}">
+                <span>{{ link.title }}</span>
+                {%- render 'icon' with 'nav-arrow-right-small', direction_aware: true -%}
+              </a>
 
-      <nav class="mobile-nav__decision-links" aria-label="Guided shopping">
-        <a href="/pages/compare" class="mobile-nav__decision-link">Compare Nets</a>
-        <a href="/pages/build-your-setup" class="mobile-nav__decision-link">Build Your Setup</a>
-        <a href="/pages/quiz" class="mobile-nav__decision-link">Find My Net</a>
-        <a href="/pages/contact" class="mobile-nav__decision-link">Talk To An Expert</a>
-      </nav>
-    </div>
+              {%- if link.links.size > 0 -%}
+                <ul class="mobile-nav__submenu list--unstyled" role="list">
+                  {%- for child_link in link.links -%}
+                    <li class="mobile-nav__submenu-item">
+                      <a class="mobile-nav__submenu-link" href="{{ child_link.url }}">
+                        <span>{{ child_link.title }}</span>
+                        {%- if child_link.links.size > 0 -%}
+                          {%- render 'icon' with 'nav-arrow-right-small', direction_aware: true -%}
+                        {%- endif -%}
+                      </a>
 
-    <nav class="mobile-nav__support-links" aria-label="Learn and support">
-      <p class="mobile-nav__support-title">Learn & support</p>
-      <a href="/pages/our-story" class="mobile-nav__support-link">Why Net Return</a>
-      <a href="/pages/testimonials" class="mobile-nav__support-link">Customer Proof</a>
-      <a href="/pages/setups" class="mobile-nav__support-link">Setup Ideas</a>
-      <a href="/pages/support" class="mobile-nav__support-link">Support</a>
+                      {%- if child_link.links.size > 0 -%}
+                        <ul class="mobile-nav__subsubmenu list--unstyled" role="list">
+                          {%- for grandchild_link in child_link.links -%}
+                            <li class="mobile-nav__subsubmenu-item">
+                              <a class="mobile-nav__subsubmenu-link" href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="mobile-nav__empty">Choose a mobile menu in the header settings.</p>
+      {%- endif -%}
     </nav>
   </div>
 
@@ -72,11 +101,14 @@
     <div class="drawer__footer drawer__footer--tight drawer__footer--bordered">
       <div class="mobile-nav__footer">
         {%- if shop.customer_accounts_enabled -%}
-          <a class="icon-text" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">
+          <a class="mobile-nav__utility-link icon-text" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">
             {%- render 'icon' with 'header-customer' -%}
             {{- 'header.general.account' | t -}}
           </a>
         {%- endif -%}
+
+        <a class="mobile-nav__utility-link" href="/apps/track-order">Order Status</a>
+        <a class="mobile-nav__utility-link" href="/pages/support">Product Support</a>
 
         {%- if locale_selector or country_selector -%}
           {%- form 'localization', id: 'header-sidebar-localization-form', class: 'header__cross-border' -%}

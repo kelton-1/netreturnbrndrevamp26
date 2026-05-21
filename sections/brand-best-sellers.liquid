@@ -1,0 +1,394 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign source_collection = section.settings.collection
+  assign products_limit = section.settings.products_limit | default: 8
+
+  assign badge_text = section.settings.badge_text
+  assign show_badge = section.settings.show_badge
+  assign show_starting_from_tag = section.settings.show_starting_from_tag
+  assign starting_from_product = section.settings.starting_from_product
+  assign starting_from_text = section.settings.starting_from_text
+
+  assign cta_text = section.settings.cta_text | default: 'Quick add'
+  assign view_all_text = section.settings.view_all_text
+  assign view_all_link = section.settings.view_all_link
+  if view_all_link == blank and source_collection != blank
+    assign view_all_link = source_collection.url
+  endif
+
+  assign surface = section.settings.surface | default: 'white'
+  assign surface_class = 'brand-surface--white'
+  if surface == 'shadow'
+    assign surface_class = 'brand-surface brand-surface--shadow'
+  elsif surface == 'glow'
+    assign surface_class = 'brand-surface brand-surface--glow'
+  endif
+-%}
+
+<section
+  class="brand-best-sellers {{ surface_class }}"
+  data-brand-best-sellers
+  aria-labelledby="brand-best-sellers-heading-{{ section.id }}"
+>
+  <div class="brand-best-sellers__inner brand-container">
+    <header class="brand-best-sellers__header">
+      <div class="brand-best-sellers__header-text">
+        {%- if eyebrow != blank -%}
+          <p class="brand-eyebrow brand-best-sellers__eyebrow">
+            <span class="brand-plus" aria-hidden="true"></span>
+            {{ eyebrow }}
+          </p>
+        {%- endif -%}
+
+        {%- if heading != blank -%}
+          <h2 id="brand-best-sellers-heading-{{ section.id }}" class="brand-best-sellers__heading">{{ heading }}</h2>
+        {%- endif -%}
+
+        {%- if body != blank -%}
+          <p class="brand-body brand-best-sellers__body">{{ body }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- if view_all_text != blank and view_all_link != blank -%}
+        <a class="brand-best-sellers__view-all" href="{{ view_all_link }}">
+          {{ view_all_text }}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      {%- endif -%}
+    </header>
+
+    {%- if source_collection != blank and source_collection.products.size > 0 -%}
+      <div class="brand-best-sellers__viewport">
+        <button
+          type="button"
+          class="brand-best-sellers__nav brand-best-sellers__nav--prev"
+          aria-label="Previous products"
+          data-bs-nav="prev"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <ul class="brand-best-sellers__track" role="list" data-bs-track>
+          {%- for product in source_collection.products limit: products_limit -%}
+            {%- liquid
+              assign featured_variant = product.selected_or_first_available_variant
+              assign on_sale = false
+              if product.compare_at_price > product.price
+                assign on_sale = true
+              endif
+
+              assign show_starting_here = false
+              if show_starting_from_tag and starting_from_product != blank and starting_from_text != blank and product.handle == starting_from_product.handle
+                assign show_starting_here = true
+              endif
+            -%}
+            <li class="brand-bs-card{% if on_sale %} brand-bs-card--sale{% endif %}">
+              <a class="brand-bs-card__link" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+                <div class="brand-bs-card__media">
+                  {%- if show_badge and badge_text != blank -%}
+                    <span class="brand-bs-card__badge" aria-hidden="true">{{ badge_text }}</span>
+                  {%- endif -%}
+
+                  {%- if product.featured_media != blank -%}
+                    {{ product.featured_media | image_url: width: 720 | image_tag:
+                        class: 'brand-bs-card__image',
+                        loading: 'lazy',
+                        sizes: '(max-width: 749px) 75vw, (max-width: 1199px) 33vw, 280px',
+                        widths: '240, 360, 480, 640, 720, 960',
+                        alt: product.featured_media.alt | default: product.title
+                    }}
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'brand-bs-card__placeholder' }}
+                  {%- endif -%}
+                </div>
+
+                <div class="brand-bs-card__body">
+                  <h3 class="brand-bs-card__title">{{ product.title }}</h3>
+
+                  <div class="brand-bs-card__price">
+                    {%- if on_sale -%}
+                      <span class="brand-bs-card__price-sale">{{ product.price | money }}</span>
+                      <s class="brand-bs-card__price-compare">{{ product.compare_at_price | money }}</s>
+                    {%- else -%}
+                      <span>{{ product.price | money }}</span>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if show_starting_here -%}
+                    <p class="brand-bs-card__anchor">{{ starting_from_text }}</p>
+                  {%- endif -%}
+                </div>
+              </a>
+
+              <button
+                type="button"
+                class="brand-btn brand-btn--primary brand-bs-card__cta"
+                data-bs-add
+                data-variant-id="{{ featured_variant.id }}"
+                {% unless product.available %}disabled{% endunless %}
+              >
+                {%- if product.available -%}{{ cta_text }}{%- else -%}Sold out{%- endif -%}
+              </button>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <button
+          type="button"
+          class="brand-best-sellers__nav brand-best-sellers__nav--next"
+          aria-label="Next products"
+          data-bs-nav="next"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    {%- else -%}
+      <p class="brand-best-sellers__empty">Pick a collection in the theme editor to populate this section.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    var roots = document.querySelectorAll('[data-brand-best-sellers]:not([data-bs-bound])');
+    if (!roots.length) return;
+
+    roots.forEach(function (root) {
+      root.setAttribute('data-bs-bound', '1');
+      var track = root.querySelector('[data-bs-track]');
+      var prev  = root.querySelector('[data-bs-nav="prev"]');
+      var next  = root.querySelector('[data-bs-nav="next"]');
+      if (!track) return;
+
+      // Arrow nav: scroll by ~one full card + gap, twice (2 cards per click).
+      function step(direction) {
+        var firstCard = track.querySelector('.brand-bs-card');
+        if (!firstCard) return;
+        var cardW = firstCard.getBoundingClientRect().width;
+        var gap = parseFloat(getComputedStyle(track).columnGap || 24);
+        var delta = (cardW + gap) * 2;
+        track.scrollBy({ left: direction === 'next' ? delta : -delta, behavior: 'smooth' });
+      }
+
+      if (prev) prev.addEventListener('click', function () { step('prev'); });
+      if (next) next.addEventListener('click', function () { step('next'); });
+
+      // Hide arrows at scroll extremes (small UX nicety so they don't look broken).
+      function updateNavState() {
+        if (!prev || !next) return;
+        var tol = 4;
+        prev.toggleAttribute('disabled', track.scrollLeft <= tol);
+        next.toggleAttribute('disabled', track.scrollLeft + track.offsetWidth >= track.scrollWidth - tol);
+      }
+      track.addEventListener('scroll', updateNavState, { passive: true });
+      window.addEventListener('resize', updateNavState);
+      updateNavState();
+
+      // Drag-to-scroll on desktop (mouse). Touch handled natively by overflow-x.
+      var isDown = false, startX = 0, startScroll = 0;
+      track.addEventListener('mousedown', function (e) {
+        // Don't hijack clicks on the CTA button or product link.
+        if (e.target.closest('[data-bs-add]') || e.target.closest('a')) return;
+        isDown = true;
+        track.classList.add('is-dragging');
+        startX = e.pageX - track.offsetLeft;
+        startScroll = track.scrollLeft;
+      });
+      ['mouseup', 'mouseleave'].forEach(function (evt) {
+        track.addEventListener(evt, function () {
+          isDown = false;
+          track.classList.remove('is-dragging');
+        });
+      });
+      track.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var x = e.pageX - track.offsetLeft;
+        track.scrollLeft = startScroll - (x - startX) * 1.5;
+      });
+
+      // Add-to-cart AJAX: fire on click, restore label after 1.5s.
+      var addButtons = root.querySelectorAll('[data-bs-add]');
+      addButtons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          var variantId = btn.getAttribute('data-variant-id');
+          if (!variantId || btn.hasAttribute('disabled')) return;
+
+          var originalLabel = btn.textContent;
+          btn.setAttribute('disabled', '');
+          btn.textContent = 'Adding…';
+
+          var routeBase = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+          fetch(routeBase + 'cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ id: variantId, quantity: 1 })
+          })
+            .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+            .then(function (result) {
+              if (!result.ok) throw new Error((result.data && result.data.description) || 'Add failed');
+              btn.textContent = 'Added ✓';
+              // Tell other parts of the theme (Focal's cart drawer etc.) to refresh.
+              document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+              setTimeout(function () {
+                btn.textContent = originalLabel;
+                btn.removeAttribute('disabled');
+              }, 1500);
+            })
+            .catch(function () {
+              btn.textContent = 'Try again';
+              setTimeout(function () {
+                btn.textContent = originalLabel;
+                btn.removeAttribute('disabled');
+              }, 1800);
+            });
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Brand best sellers",
+  "tag": "section",
+  "class": "brand-best-sellers-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Horizontal product carousel pulling from a collection. Brand-styled replacement for the AI-generated 'Product carousel' block."
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Best sellers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What golfers keep buying."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View-all link label",
+      "default": "View all best sellers"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View-all link URL",
+      "info": "Optional. Falls back to the selected collection's URL."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Source collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Maximum products",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Add-to-cart button label",
+      "default": "Quick add"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge on each card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Best Seller"
+    },
+    {
+      "type": "header",
+      "content": "Starting-from anchor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_starting_from_tag",
+      "label": "Show 'Starting from' line under an anchor product",
+      "default": false
+    },
+    {
+      "type": "product",
+      "id": "starting_from_product",
+      "label": "Anchor product"
+    },
+    {
+      "type": "text",
+      "id": "starting_from_text",
+      "label": "Anchor line text",
+      "default": "Starting from $99"
+    },
+    {
+      "type": "header",
+      "content": "Surface"
+    },
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Surface",
+      "options": [
+        { "value": "white",  "label": "White (default)" },
+        { "value": "shadow", "label": "Shadow Green" },
+        { "value": "glow",   "label": "Glow Green" }
+      ],
+      "default": "white"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand best sellers",
+      "settings": {
+        "eyebrow": "Best sellers",
+        "heading": "What golfers keep buying.",
+        "products_limit": 8,
+        "cta_text": "Quick add",
+        "show_badge": true,
+        "badge_text": "Best Seller",
+        "surface": "white"
+      }
+    }
+  ]
+}
+{% endschema %}

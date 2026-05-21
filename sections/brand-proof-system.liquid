@@ -9,7 +9,7 @@
   assign image_alt = image.alt | default: heading | default: shop.name
 -%}
 
-<section class="brand-proof-system brand-surface--gradient brand-surface--gradient--clear-grey" aria-labelledby="brand-proof-system-heading-{{ section.id }}">
+<section class="brand-proof-system brand-surface--gradient brand-surface--gradient--clear-grey" aria-labelledby="brand-proof-system-heading-{{ section.id }}" data-brand-reveal>
   <div class="brand-container brand-proof-system__inner">
     <div class="brand-proof-system__copy">
       {%- if eyebrow != blank -%}
@@ -17,15 +17,15 @@
       {%- endif -%}
 
       {%- if heading != blank -%}
-        <h2 id="brand-proof-system-heading-{{ section.id }}" class="brand-headline brand-proof-system__heading">{{ heading }}</h2>
+        <h2 id="brand-proof-system-heading-{{ section.id }}" class="brand-headline brand-proof-system__heading" data-reveal-headline>{{ heading }}</h2>
       {%- endif -%}
 
       {%- if body != blank -%}
-        <div class="brand-body brand-proof-system__body">{{ body }}</div>
+        <div class="brand-body brand-proof-system__body" data-reveal-body>{{ body }}</div>
       {%- endif -%}
 
       {%- if cta_text != blank -%}
-        <a class="brand-btn brand-btn--ghost-dark brand-proof-system__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+        <a class="brand-btn brand-btn--ghost-dark brand-proof-system__cta" href="{{ cta_link | default: '#' }}" data-reveal-cta>{{ cta_text }}</a>
       {%- endif -%}
     </div>
 

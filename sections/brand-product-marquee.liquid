@@ -1,0 +1,207 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+  assign scroll_seconds = section.settings.scroll_seconds | default: 60
+  assign show_badge = section.settings.show_concept_badge
+
+  comment
+    Continuous horizontal product marquee. Blocks reference real Shopify
+    products (image, title, price, URL all pulled from product data). Each
+    block is rendered twice in the track for a seamless translateX(-50%)
+    loop — same pattern as brand-marquee and the parked brand-category-rail.
+    Hover pauses the animation and reveals the price + CTA; mobile drops
+    the loop entirely and gives users a native finger-drag scroll-snap rail.
+  endcomment
+-%}
+
+<section
+  class="brand-product-marquee"
+  data-brand-product-marquee
+  style="--brand-marquee-duration: {{ scroll_seconds }}s;"
+  {% if heading != blank %}aria-labelledby="brand-product-marquee-heading-{{ section.id }}"{% endif %}
+>
+  {%- if show_badge -%}
+    <span class="brand-product-marquee__badge" aria-hidden="true">Product Marquee</span>
+  {%- endif -%}
+
+  {%- if eyebrow != blank or heading != blank or body != blank -%}
+    <header class="brand-product-marquee__header brand-container">
+      {%- if eyebrow != blank -%}
+        <p class="brand-eyebrow">
+          <span class="brand-plus" aria-hidden="true"></span>
+          {{ eyebrow }}
+        </p>
+      {%- endif -%}
+      {%- if heading != blank -%}
+        <h2 id="brand-product-marquee-heading-{{ section.id }}" class="brand-product-marquee__heading">{{ heading }}</h2>
+      {%- endif -%}
+      {%- if body != blank -%}
+        <p class="brand-body brand-product-marquee__body">{{ body }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <div class="brand-product-marquee__viewport">
+    <ul class="brand-product-marquee__track" role="list">
+      {%- for pass in (1..2) -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign product = block.settings.product
+            assign alt_label = block.settings.alt_label
+            assign cta_text = block.settings.cta_text | default: 'Shop'
+            assign show_price = block.settings.show_price
+
+            comment
+              The product picker is the merchant-friendly path. JSON defaults
+              can also wire a product by handle via the product_handle text
+              field — handy when seeding the section from templates/index.json
+              before a merchant opens the editor.
+            endcomment
+            if product == blank and block.settings.product_handle != blank
+              assign product = all_products[block.settings.product_handle]
+            endif
+
+            assign label = alt_label
+            if label == blank and product != blank
+              assign label = product.title
+            endif
+          -%}
+          {%- if product != blank -%}
+            <li
+              class="brand-product-marquee__tile"
+              {% if pass == 1 %}{{ block.shopify_attributes }}{% else %}aria-hidden="true"{% endif %}
+            >
+              <a
+                class="brand-product-marquee__link"
+                href="{{ product.url }}"
+                {% if pass == 2 %}tabindex="-1" aria-hidden="true"{% else %}aria-label="{{ label | escape }}"{% endif %}
+              >
+                <div class="brand-product-marquee__frame">
+                  {%- if product.featured_image != blank -%}
+                    <img
+                      class="brand-product-marquee__image"
+                      src="{{ product.featured_image | image_url: width: 900 }}"
+                      srcset="{{ product.featured_image | image_url: width: 480 }} 480w, {{ product.featured_image | image_url: width: 720 }} 720w, {{ product.featured_image | image_url: width: 900 }} 900w"
+                      sizes="(max-width: 749px) 78vw, 360px"
+                      alt="{% if pass == 1 %}{{ label | escape }}{% endif %}"
+                      loading="lazy"
+                      width="900"
+                      height="1200">
+                  {%- endif -%}
+                </div>
+                <div class="brand-product-marquee__content">
+                  <h3 class="brand-product-marquee__label">{{ label }}</h3>
+                  <div class="brand-product-marquee__meta">
+                    {%- if show_price and product.price != blank -%}
+                      <p class="brand-product-marquee__price">{{ product.price | money }}</p>
+                    {%- endif -%}
+                    <span class="brand-product-marquee__cta">
+                      {{ cta_text }}
+                      <span class="brand-product-marquee__cta-arrow" aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Brand product marquee",
+  "tag": "section",
+  "class": "brand-product-marquee-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Continuous horizontal product marquee. Tall portrait tiles scroll left-to-right; hover pauses the loop and reveals the price + CTA. Mobile drops the auto-scroll and gives users a native finger-drag scroll-snap rail. Each block picks a real Shopify product."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_concept_badge",
+      "label": "Show 'Product Marquee' badge (for preview)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)",
+      "default": "The lineup"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Pick the size that fits your space."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body (optional)"
+    },
+    {
+      "type": "range",
+      "id": "scroll_seconds",
+      "label": "Scroll duration",
+      "info": "Seconds for one full loop. Higher is slower.",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "s"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Featured product",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_handle",
+          "label": "Product handle (fallback)",
+          "info": "Used only when the picker above is blank. Useful for JSON-seeded defaults."
+        },
+        {
+          "type": "text",
+          "id": "alt_label",
+          "label": "Override label (optional)",
+          "info": "Falls back to the product's own title if blank."
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "Shop"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show price",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand product marquee",
+      "settings": {
+        "eyebrow": "The lineup",
+        "heading": "Pick the size that fits your space."
+      }
+    }
+  ]
+}
+{% endschema %}

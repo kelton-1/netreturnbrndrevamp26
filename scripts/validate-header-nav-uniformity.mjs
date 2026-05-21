@@ -48,12 +48,22 @@ check('desktop Shop feature cards prioritize core buying paths over simulation-o
   ].join(' ').toLowerCase();
 
   return suggestedCopy.includes('find your net') &&
-    suggestedCopy.includes('build a package') &&
-    suggestedCopy.includes('shop nets') &&
     suggestedCopy.includes('shop packages') &&
+    suggestedCopy.includes('shop nets') &&
+    !suggestedCopy.includes('build a package') &&
+    !suggestedCopy.includes('custom builder') &&
     !suggestedCopy.includes('simulator bay 10') &&
     !suggestedCopy.includes('launch monitor');
 });
+
+check('desktop Shop mega menu uses the same compact scale as Explore and Learn', () =>
+  desktopMenu.includes('mega-menu--brand--shop') &&
+  desktopMenu.includes('Shop by category') &&
+  desktopMenu.includes('Start with the right path.') &&
+  desktopMenu.includes('{%- unless is_shop_menu -%}') &&
+  brandCss.includes('.mega-menu--brand--shop .mega-menu--brand__grid') &&
+  brandCss.includes('.mega-menu--brand--shop .mega-menu--brand__nav-col')
+);
 
 check('mobile drawer uses a single premium primary grid instead of stacked quick links plus full Shop menu', () =>
   mobileMenu.includes('mobile-nav__primary-grid') &&
@@ -69,9 +79,9 @@ check('mobile primary paths match the desktop Shop north star categories', () =>
     'Shop Packages',
     'Shop Sim Bays',
     'Shop Accessories',
+    'Find Your Net',
     'Compare Nets',
-    'Build Your Setup',
-    'Find My Net',
+    'Best Sellers',
     'Talk To An Expert',
   ].every((label) => mobileMenu.includes(label))
 );
@@ -79,7 +89,7 @@ check('mobile primary paths match the desktop Shop north star categories', () =>
 check('mobile copy is product-led and the drawer edge glow is suppressed', () =>
   mobileMenu.includes('Find the right net faster.') &&
   mobileMenu.includes('Golf and multi-sport nets built for daily reps.') &&
-  mobileMenu.includes('Complete net, turf, and accessory bundles.') &&
+  mobileMenu.includes('Ready-made bundles for faster setup.') &&
   mobileMenu.includes('Bays, screens, turf, and room-ready setups.') &&
   brandCss.includes('#mobile-menu-drawer.drawer {') &&
   brandCss.includes('box-shadow: none') &&

@@ -27,6 +27,7 @@
 <section
   class="brand-collection-intro brand-surface brand-surface--{{ surface }}{% if image == blank %} brand-surface--pattern{% endif %}"
   aria-labelledby="brand-collection-intro-heading-{{ section.id }}"
+  data-brand-reveal
 >
   {%- if image != blank -%}
     <div class="brand-collection-intro__media" aria-hidden="true">
@@ -51,15 +52,15 @@
     {%- endif -%}
 
     {%- if heading != blank -%}
-      <h1 id="brand-collection-intro-heading-{{ section.id }}" class="brand-headline brand-collection-intro__heading">{{ heading }}</h1>
+      <h1 id="brand-collection-intro-heading-{{ section.id }}" class="brand-headline brand-collection-intro__heading" data-reveal-headline>{{ heading }}</h1>
     {%- endif -%}
 
     {%- if body != blank -%}
-      <div class="brand-body brand-collection-intro__body rte">{{ body }}</div>
+      <div class="brand-body brand-collection-intro__body rte" data-reveal-body>{{ body }}</div>
     {%- endif -%}
 
     {%- if primary_label != blank or secondary_label != blank -%}
-      <div class="brand-collection-intro__actions">
+      <div class="brand-collection-intro__actions" data-reveal-cta>
         {%- if primary_label != blank -%}
           <a class="brand-btn brand-btn--primary" href="{{ primary_link | default: '#' }}">{{ primary_label }}</a>
         {%- endif -%}

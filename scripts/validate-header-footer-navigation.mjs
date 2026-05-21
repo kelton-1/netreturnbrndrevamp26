@@ -30,9 +30,9 @@ check('mobile drawer exposes conversion-first primary paths', () =>
     'Shop Packages',
     'Shop Sim Bays',
     'Shop Accessories',
+    'Find Your Net',
     'Compare Nets',
-    'Build Your Setup',
-    'Find My Net',
+    'Best Sellers',
     'Talk To An Expert',
   ].every((label) => mobileMenu.includes(label)) &&
     mobileMenu.includes('mobile-nav__primary-grid') &&

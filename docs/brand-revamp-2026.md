@@ -662,6 +662,44 @@ Preserve this rule going forward: homepage, collection, product, and support cop
 
 ---
 
+## Readability pass v2 — typography tokens
+
+**Date:** 2026-05-20
+
+**Why this happened**
+
+Stakeholder feedback after the brand revamp's first font pass: key items (nav, buttons, prices, body) feel hard to read; only side messaging (eyebrows, marquee, SEO long-tail, fine print) should have a leash on small/decorative sizing. The previous pass followed the brand-guide direction literally — Miracle Mono Regular at 10-13px fixed pixels on every "small copy and accent" surface, including load-bearing UI like header nav, dropdown items, buttons, footer link lists, and the mobile drawer. Mono fonts at small fixed sizes with heavy caps and 0.18-0.22em letter-spacing read as decorative texture, not as navigation.
+
+**Files**
+
+- `assets/brand-revamp.css.liquid` — two additions:
+  1. Typography token system v2 appended to the existing `:root` block. Introduces fluid `--brand-fs-*` size tokens (display, headline, title, subtitle, body, body-sm, nav, action, action-sm, meta, eyebrow, micro) and role-based `--brand-font-{nav,action,meta}` tokens, plus a tighter `--brand-ls-*` letter-spacing scale. Documented inline with the role / font / use-on table.
+  2. "Readability pass v2" override block appended at the end of the file. Intentionally last in the cascade so it overrides the 145 prior `font-size` declarations without needing to touch each one. Targets the load-bearing surfaces only — buttons, body copy, header top-level nav, header dropdown items, mega-menu copy, mobile drawer, footer link list — and switches them off Miracle Mono onto Crystal (higher x-height, more legible) at fluid 15-18px minimums. Mobile floors set so buttons / nav / footer links stay at 16px on phones regardless of fluid math.
+
+**What did NOT change**
+
+- The Crystal / Crystal Ultra Condensed / Miracle Mono font stack itself. Same fonts, repositioned by role.
+- Eyebrows, marquee, micro-labels, and footer block headings. These are intentional "side messaging" surfaces — they kept Miracle Mono with minor letter-spacing tightening and a small min-size bump (11 -> 12-13).
+- Display headlines for hero / Bryson / "Don't Settle" custom layouts. Section-specific clamps remain; only the generic `.brand-headline` and `.brand-headline--display` defaults were tuned so they don't blow out at 4K or crush below the floor on phones.
+- The 145 existing `font-size` declarations sprinkled through section-specific rules. These remain on intention; only declarations for the documented KEY surfaces are overridden by the v2 pass.
+
+**Tradeoffs**
+
+The brand guide explicitly assigned Miracle Mono to "nav, eyebrows, meta, marquee, buttons." This pass reinterprets that direction: Miracle Mono stays on **accents** (eyebrows, marquee, meta, micro) but moves off **interactive load-bearing UI** (nav, buttons, footer links). The argument is that the brand-guide language "small copy and accents" was about typographic flavor, not about applying mono to every link on the site. If marketing / design wants to revisit, the role tokens are isolated to a single `:root` block — flipping `--brand-font-nav` / `--brand-font-action` back to `var(--brand-font-accent)` reverts the entire pass.
+
+**Validation**
+
+- Theme Check: `383 files inspected with 161 total offenses found across 88 files. 1 errors. 160 warnings.` — exact baseline, no new offenses.
+- No `font-family`, `font-size`, or `letter-spacing` declaration in the rest of `brand-revamp.css.liquid` was edited; the override block at the end does the work via cascade order.
+
+**Follow-ups**
+
+- Live preview QA on `theme:dev` to walk through the surfaces touched: homepage hero, header nav (desktop + mobile drawer), footer, compare page, a PDP, and a collection landing. Validate nothing reads worse on small screens; validate the 4K hero does not feel "shrunk."
+- Optional next pass: audit the 145 section-specific `font-size: clamp(...)` declarations and migrate the mid-range ones (subtitles, card bodies, meta lines) onto the new tokens so the next visual change is a one-line edit at the token layer rather than a multi-section sweep.
+- If marketing decides Miracle Mono should stay on header nav / buttons, swap the `--brand-font-nav` and `--brand-font-action` tokens back to `var(--brand-font-accent)` and bump `--brand-fs-nav` / `--brand-fs-action` floors a little higher to compensate. One-line revert per role.
+
+---
+
 ## Compare page fit-finder
 
 **Date:** 2026-05-20

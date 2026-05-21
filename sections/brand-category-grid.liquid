@@ -9,16 +9,17 @@
   class="brand-category-grid {% if frame_style == 'shadow' %}brand-category-grid--framed{% endif %}"
   style="--brand-category-cols: {{ columns }};"
   data-brand-category-grid
+  data-brand-reveal
   {% if heading != blank %}aria-labelledby="brand-category-grid-heading-{{ section.id }}"{% endif %}
 >
   <div class="brand-container">
     {%- if eyebrow != blank or heading != blank -%}
       <header class="brand-category-grid__header">
         {%- if eyebrow != blank -%}
-          <p class="brand-eyebrow">{{ eyebrow }}</p>
+          <p class="brand-eyebrow" data-reveal-eyebrow>{{ eyebrow }}</p>
         {%- endif -%}
         {%- if heading != blank -%}
-          <h2 id="brand-category-grid-heading-{{ section.id }}" class="brand-headline brand-category-grid__heading">{{ heading }}</h2>
+          <h2 id="brand-category-grid-heading-{{ section.id }}" class="brand-headline brand-category-grid__heading" data-reveal-headline>{{ heading }}</h2>
         {%- endif -%}
       </header>
     {%- endif -%}

@@ -49,6 +49,7 @@
   id="brand-hero-{{ section_id }}"
   class="brand-hero brand-hero--{{ height }}"
   aria-labelledby="brand-hero-heading-{{ section_id }}"
+  data-brand-reveal
   style="--brand-hero-overlay: {{ overlay_strength | divided_by: 100.0 }}; --brand-hero-overlay-mid: {{ overlay_strength | minus: 25 | at_least: 0 | divided_by: 100.0 }}; --brand-hero-overlay-top: {{ overlay_strength | minus: 40 | at_least: 0 | divided_by: 100.0 }};"
 >
   {%- if has_video -%}
@@ -103,18 +104,18 @@
     {%- endif -%}
 
     {%- if heading_lead != blank or heading_em != blank -%}
-      <h1 id="brand-hero-heading-{{ section_id }}" class="brand-headline brand-hero__heading">
+      <h1 id="brand-hero-heading-{{ section_id }}" class="brand-headline brand-hero__heading" data-reveal-headline>
         {%- if heading_lead != blank -%}{{ heading_lead }} {% endif -%}
         {%- if heading_em != blank -%}<span class="brand-headline__em">{{ heading_em }}</span>{% endif -%}
       </h1>
     {%- endif -%}
 
     {%- if body != blank -%}
-      <p class="brand-body brand-hero__body">{{ body }}</p>
+      <p class="brand-body brand-hero__body" data-reveal-body>{{ body }}</p>
     {%- endif -%}
 
     {%- if cta_text != blank -%}
-      <div class="brand-hero__actions">
+      <div class="brand-hero__actions" data-reveal-cta>
         <a class="brand-btn brand-btn--primary brand-hero__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
         {%- if secondary_cta_text != blank -%}
           <a class="brand-btn brand-btn--outline brand-hero__cta brand-hero__cta--secondary" href="{{ secondary_cta_link | default: '#' }}">{{ secondary_cta_text }}</a>

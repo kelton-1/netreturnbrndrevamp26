@@ -17,6 +17,7 @@
   class="brand-compare-hero brand-surface brand-surface--shadow brand-surface--pattern"
   aria-labelledby="brand-compare-hero-heading-{{ section.id }}"
   data-brand-compare-finder
+  data-brand-reveal
 >
   <div class="brand-compare-hero__inner brand-container">
     {%- if eyebrow != blank -%}
@@ -27,11 +28,11 @@
     {%- endif -%}
 
     {%- if heading != blank -%}
-      <h1 id="brand-compare-hero-heading-{{ section.id }}" class="brand-headline brand-compare-hero__heading">{{ heading }}</h1>
+      <h1 id="brand-compare-hero-heading-{{ section.id }}" class="brand-headline brand-compare-hero__heading" data-reveal-headline>{{ heading }}</h1>
     {%- endif -%}
 
     {%- if body != blank -%}
-      <p class="brand-body brand-compare-hero__body">{{ body }}</p>
+      <p class="brand-body brand-compare-hero__body" data-reveal-body>{{ body }}</p>
     {%- endif -%}
 
     {%- if show_fit_finder -%}

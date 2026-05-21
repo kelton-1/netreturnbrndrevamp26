@@ -7,7 +7,7 @@
   assign featured_label = section.settings.featured_label
 -%}
 
-<section class="brand-testimonial-wall brand-surface--shadow brand-surface--pattern" aria-labelledby="brand-testimonial-wall-heading-{{ section.id }}">
+<section class="brand-testimonial-wall brand-surface--shadow brand-surface--pattern" aria-labelledby="brand-testimonial-wall-heading-{{ section.id }}" data-brand-reveal>
   <div class="brand-container brand-testimonial-wall__inner">
     <header class="brand-testimonial-wall__header">
       <div>
@@ -16,12 +16,12 @@
         {%- endif -%}
 
         {%- if heading != blank -%}
-          <h2 id="brand-testimonial-wall-heading-{{ section.id }}" class="brand-headline brand-testimonial-wall__heading">{{ heading }}</h2>
+          <h2 id="brand-testimonial-wall-heading-{{ section.id }}" class="brand-headline brand-testimonial-wall__heading" data-reveal-headline>{{ heading }}</h2>
         {%- endif -%}
       </div>
 
       {%- if body != blank -%}
-        <div class="brand-body brand-testimonial-wall__body">{{ body }}</div>
+        <div class="brand-body brand-testimonial-wall__body" data-reveal-body>{{ body }}</div>
       {%- endif -%}
     </header>
 

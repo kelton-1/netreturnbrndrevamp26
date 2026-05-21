@@ -94,6 +94,67 @@
   --heading-font-family: var(--brand-font-heading);
   --heading-font-weight: 600;
   --heading-font-style: normal;
+
+  /* ----------------------------------------------------------
+     Typography system v2 — 2026-05-20 readability pass.
+
+     Feedback: KEY items (nav, buttons, prices, product names,
+     primary copy) must be easily readable regardless. SIDE
+     messaging (eyebrows, marquee, micro-meta, fine print, SEO
+     long-tail) has more leash for decorative sizing/font.
+
+     The earlier brand-revamp put Miracle Mono Regular at
+     10-13px fixed pixels on load-bearing surfaces (header nav,
+     buttons, footer links, mobile drawer). Mono at small sizes
+     with heavy caps + letter-spacing reads as decorative
+     texture, not navigation. The role tokens below pull KEY
+     surfaces onto Crystal (higher x-height, more legible) and
+     leave Miracle Mono on true accents. The "Readability pass
+     v2" block at the end of this file applies them.
+
+     Role     | Font                | Used on
+     ---------|---------------------|---------------------------
+     display  | Crystal Ultra Cond. | hero, Bryson, oversized
+     heading  | Crystal SemiBold    | section headings
+     body     | Crystal Regular     | reading copy
+     nav      | Crystal SemiBold    | header/footer/drawer nav (KEY)
+     action   | Crystal SemiBold    | buttons, CTAs (KEY)
+     meta     | Crystal Regular     | breadcrumbs, sub-meta
+     accent   | Miracle Mono Reg.   | eyebrows, marquee (SIDE)
+     micro    | Miracle Mono Reg.   | fine print, slugs (SIDE)
+     ---------------------------------------------------------- */
+
+  /* Role-based font assignments. Crystal for load-bearing UI. */
+  --brand-font-nav:    var(--brand-font-body);
+  --brand-font-action: var(--brand-font-body);
+  --brand-font-meta:   var(--brand-font-body);
+
+  /* Fluid type scale. Min sizes are tuned for mobile readability;
+     max sizes are tuned to stop blowing out on 4K monitors. The
+     vw factors keep each role within a sensible band. */
+  --brand-fs-display:    clamp(48px, 9vw, 160px);
+  --brand-fs-headline:   clamp(34px, 5vw, 80px);
+  --brand-fs-title:      clamp(22px, 2vw, 30px);
+  --brand-fs-subtitle:   clamp(18px, 1.4vw, 22px);
+  --brand-fs-body:       clamp(16px, 1.05vw, 18px);
+  --brand-fs-body-sm:    clamp(15px, 0.95vw, 16px);
+  --brand-fs-nav:        clamp(15px, 0.95vw, 16px);
+  --brand-fs-action:     clamp(15px, 0.95vw, 16px);
+  --brand-fs-action-sm:  14px;
+  --brand-fs-meta:       clamp(13px, 0.85vw, 14px);
+  --brand-fs-eyebrow:    clamp(12px, 0.85vw, 13px);
+  --brand-fs-micro:      12px;
+
+  /* Letter-spacing tokens. The previous pass used 0.18-0.22em on
+     nav links, which scans as editorial display type — beautiful
+     in mockups, hostile to actual reading. KEY surfaces drop to
+     0.02-0.06em; SIDE caps keep their wider 0.12-0.14em. */
+  --brand-ls-tight:  -0.005em;
+  --brand-ls-normal: 0;
+  --brand-ls-nav:    0.04em;
+  --brand-ls-action: 0.06em;
+  --brand-ls-caps:   0.12em;
+  --brand-ls-caps-wide: 0.16em;
 }
 
 /* ---------- Surfaces ---------- */
@@ -279,9 +340,22 @@
   margin: 0;
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Buttons (tactile) ---------- */
+/*
+ * Shared motion tokens. "Return motion" — slight spring on the lift, snappy
+ * ease-out everywhere else. Critical: NO transition affects layout width
+ * (otherwise the button visibly grows on hover and the page-navigation
+ * freeze-frame catches it at peak width — the "really big" bug v1 had).
+ */
+:root {
+  --brand-motion-curve: cubic-bezier(0.22, 1.2, 0.36, 1);   /* lift spring, ~3% overshoot */
+  --brand-motion-out:   cubic-bezier(0.4, 0, 0.2, 1);       /* settle / press */
+  --brand-motion-in-duration: 260ms;
+  --brand-motion-out-duration: 160ms;
+}
 
 .brand-btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -297,18 +371,63 @@
   border: 0;
   border-radius: 2px;
   cursor: pointer;
-  transition: background-color .18s ease, color .18s ease, transform .15s ease;
+  isolation: isolate;
+  overflow: hidden;
   white-space: nowrap;
+  transition:
+    background-color var(--brand-motion-in-duration) var(--brand-motion-out),
+    color            var(--brand-motion-in-duration) var(--brand-motion-out),
+    transform        var(--brand-motion-in-duration) var(--brand-motion-curve),
+    box-shadow       var(--brand-motion-in-duration) var(--brand-motion-curve);
 }
-.brand-btn:hover { transform: translateY(-1px); }
+.brand-btn:not(:hover):not(:active) {
+  transition:
+    background-color var(--brand-motion-out-duration) var(--brand-motion-out),
+    color            var(--brand-motion-out-duration) var(--brand-motion-out),
+    transform        var(--brand-motion-out-duration) var(--brand-motion-out),
+    box-shadow       var(--brand-motion-out-duration) var(--brand-motion-out);
+}
+/* Press feedback. Snappy ease-out, no spring — a springy press feels weird
+   because the scale "bounces" on its way down. */
+.brand-btn:active {
+  transform: scale(0.97) !important;
+  transition: transform 100ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Click ripple span (added by brand-motion.js). Positioned at click point,
+   expands outward, fades. Clipped by the button's overflow: hidden. The
+   explicit z-index of -1 sits it BELOW the label without needing a separate
+   rule on the label — fixes the same-specificity conflict the previous
+   version had with .brand-btn > *. */
+.brand-btn__ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(var(--brand-glow), 0.50);
+  transform: scale(0);
+  opacity: 1;
+  animation: brand-btn-ripple 560ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  z-index: -1;
+}
+@keyframes brand-btn-ripple {
+  0%   { transform: scale(0); opacity: 0.50; }
+  60%  { opacity: 0.22; }
+  100% { transform: scale(1); opacity: 0; }
+}
 
 .brand-btn--primary {
   background: rgb(var(--brand-emerald));
   color: rgb(var(--brand-white));
 }
 .brand-btn--primary:hover {
+  /* Restored the original Emerald → Neon flip on hover. The lift + Emerald
+     shadow stays. */
   background: rgb(var(--brand-neon));
   color: rgb(var(--brand-black));
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 18px rgba(var(--brand-emerald), 0.30),
+    0 2px 6px rgba(var(--brand-emerald), 0.16);
 }
 
 .brand-btn--outline {
@@ -316,10 +435,26 @@
   color: rgb(var(--brand-white));
   box-shadow: inset 0 0 0 1.5px currentColor;
 }
-.brand-btn--outline:hover {
-  background: rgb(var(--brand-white));
-  color: rgb(var(--brand-black));
+.brand-btn--outline::before {
+  /* Left-to-right Emerald wipe. Uses ease-out (no spring) so scaleX never
+     exceeds 1 — keeps the fill from briefly stretching past the right edge
+     during hover-in. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(var(--brand-emerald));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--brand-motion-in-duration) var(--brand-motion-out);
+  z-index: -2;
 }
+.brand-btn--outline:hover {
+  background: transparent;
+  color: rgb(var(--brand-white));
+  box-shadow: inset 0 0 0 1.5px rgb(var(--brand-emerald));
+  transform: translateY(-2px);
+}
+.brand-btn--outline:hover::before { transform: scaleX(1); }
 
 .brand-btn--ghost-dark {
   background: transparent;
@@ -329,10 +464,299 @@
 .brand-btn--ghost-dark:hover {
   background: rgb(var(--brand-black));
   color: rgb(var(--brand-white));
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-btn,
+  .brand-btn:not(:hover):not(:active),
+  .brand-btn--outline::before {
+    transition: background-color 120ms linear, color 120ms linear !important;
+    transform: none !important;
+  }
+  .brand-btn:hover  { transform: none !important; box-shadow: none !important; }
+  .brand-btn:active { transform: none !important; }
+  .brand-btn__ripple { display: none !important; }
+}
+
+/* ---------- Reveal cascade ---------- */
+/*
+ * Opt-in section-entrance choreography. Section roots carry [data-brand-reveal] and the
+ * JS adds .brand-motion-ready once it's attached IntersectionObserver. Without the JS class,
+ * children never hide — so a JS-load failure degrades to "no animation," not "blank section."
+ *
+ * Element-by-element:
+ *   .brand-eyebrow / [data-reveal-eyebrow] — fades up 8px, glyph rotates -45° → 0°
+ *   [data-reveal-headline] — split into words by JS; each word slides up 24px with stagger
+ *   [data-reveal-body] / .brand-reveal__body — fades in after the last word lands
+ *   [data-reveal-cta] / .brand-reveal__cta — fades in slightly after body
+ */
+[data-brand-reveal].brand-motion-ready .brand-reveal__eyebrow {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 240ms var(--brand-motion-curve),
+    transform 240ms var(--brand-motion-curve);
+}
+[data-brand-reveal].brand-motion-ready .brand-reveal__eyebrow .brand-plus {
+  transform: rotate(-45deg);
+  transition: transform 320ms var(--brand-motion-curve);
+}
+[data-brand-reveal].brand-motion-ready.is-revealed .brand-reveal__eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-brand-reveal].brand-motion-ready.is-revealed .brand-reveal__eyebrow .brand-plus {
+  transform: rotate(0);
+}
+
+.brand-reveal__word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom; /* keeps descenders/ascenders aligned to the surrounding text */
+}
+.brand-reveal__word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 480ms var(--brand-motion-curve),
+    transform 480ms var(--brand-motion-curve);
+  will-change: transform, opacity;
+}
+[data-brand-reveal].brand-motion-ready.is-revealed .brand-reveal__word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-brand-reveal].brand-motion-ready .brand-reveal__body-line {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 480ms var(--brand-motion-out),
+    transform 480ms var(--brand-motion-curve);
+}
+[data-brand-reveal].brand-motion-ready.is-revealed .brand-reveal__body-line {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-brand-reveal].brand-motion-ready .brand-reveal__cta-layer {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 240ms var(--brand-motion-out),
+    transform 240ms var(--brand-motion-curve);
+}
+[data-brand-reveal].brand-motion-ready.is-revealed .brand-reveal__cta-layer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-brand-reveal].brand-motion-ready .brand-reveal__eyebrow,
+  [data-brand-reveal].brand-motion-ready .brand-reveal__eyebrow .brand-plus,
+  [data-brand-reveal].brand-motion-ready .brand-reveal__word,
+  [data-brand-reveal].brand-motion-ready .brand-reveal__body-line,
+  [data-brand-reveal].brand-motion-ready .brand-reveal__cta-layer {
+    transition: opacity 200ms linear !important;
+    transform: none !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* ---------- Premium lift (cards v2) ---------- */
+/*
+ * Opt-in card upgrade. Add .brand-lift to any card root. JS (brand-motion.js)
+ * tracks the cursor inside the card and sets --mx, --my, --lx, --ly custom
+ * properties. CSS reads them to:
+ *   1. tilt the whole card (rotateX/rotateY, max 3°) with strong perspective
+ *   2. parallax-shift the inner image (8px max) opposite to cursor
+ *   3. paint a Glow-Green radial light at the cursor position inside the card
+ *   4. lift the card 8px on hover with a layered Emerald shadow + glow halo
+ *   5. micro-shift content (title up 4px, CTA reveals from below)
+ *
+ * Cards opt their image element in via .brand-lift__image and their CTA via
+ * .brand-lift__cta — both classes can be applied to existing components without
+ * collateral damage. If a card uses .brand-lift but doesn't add the inner
+ * classes, the card still gets lift + tilt + cursor light — just no parallax or
+ * CTA reveal.
+ *
+ * Touch + reduced motion: JS skips binding the mousemove listener entirely, and
+ * the media query below drops the tilt + cursor light + content shifts.
+ */
+.brand-lift {
+  --mx: 0;
+  --my: 0;
+  --lx: 50%;
+  --ly: 50%;
+  position: relative;
+  isolation: isolate;
+  transform: perspective(1200px) rotateX(0) rotateY(0) translateY(0);
+  transform-style: preserve-3d;
+  /* Lift uses a softened overshoot — the spring on .brand-btn is intentional
+     because buttons benefit from snap, but a card-sized element overshooting
+     can read as a "bulge", especially if the user clicks mid-transition and
+     the browser freezes the frame during navigation. cubic-bezier(0.22, 1.2,
+     0.36, 1) overshoots ~3% (vs ~8% for the button curve) — feels alive,
+     doesn't visibly pop. */
+  transition:
+    transform 280ms cubic-bezier(0.22, 1.2, 0.36, 1),
+    box-shadow 280ms cubic-bezier(0.22, 1.2, 0.36, 1),
+    border-color 280ms cubic-bezier(0.22, 1.2, 0.36, 1);
+  will-change: transform;
+}
+.brand-lift:not(:hover) {
+  transition:
+    transform var(--brand-motion-out-duration) var(--brand-motion-out),
+    box-shadow var(--brand-motion-out-duration) var(--brand-motion-out),
+    border-color var(--brand-motion-out-duration) var(--brand-motion-out);
+}
+
+/* Snap-to-neutral state. Added by brand-motion.js on pointerdown so the click-
+   to-navigate frame shows a calm card, not an overshoot peak. Removed after
+   ~320ms so subsequent hovers animate normally (matters for in-page anchor
+   clicks and bfcache restores). */
+.brand-lift.brand-lift--snap,
+.brand-lift.brand-lift--snap:hover {
+  transform: perspective(1200px) rotateX(0) rotateY(0) translateY(0) !important;
+  transition: transform 0ms linear, box-shadow 80ms linear, border-color 80ms linear !important;
+}
+.brand-lift.brand-lift--snap .brand-lift__image,
+.brand-lift.brand-lift--snap:hover .brand-lift__image {
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  transition: transform 0ms linear !important;
+}
+.brand-lift.brand-lift--snap::after,
+.brand-lift.brand-lift--snap:hover::after { opacity: 0 !important; }
+
+/* Cursor light: a soft Glow-Green radial overlay that sits above the image but
+   below the text. pointer-events: none so it never blocks interactions. Hidden
+   until hover so the card reads as static at rest. Plain alpha compositing —
+   mix-blend-mode: screen can render erratically during the frame-freeze that
+   happens when the browser begins a same-origin navigation. */
+.brand-lift::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    220px circle at var(--lx) var(--ly),
+    rgba(var(--brand-glow), 0.28) 0%,
+    rgba(var(--brand-glow), 0.10) 30%,
+    rgba(var(--brand-glow), 0) 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--brand-motion-in-duration) var(--brand-motion-curve);
+  z-index: 2;
+}
+.brand-lift:hover {
+  transform:
+    perspective(1200px)
+    rotateX(calc(var(--my) * -3deg))
+    rotateY(calc(var(--mx) * 3deg))
+    translateY(-8px);
+  box-shadow:
+    0 20px 36px rgba(var(--brand-emerald), 0.20),
+    0 8px 14px rgba(var(--brand-emerald), 0.14),
+    0 0 0 1px rgba(var(--brand-emerald), 0.18);
+}
+.brand-lift:hover::after { opacity: 1; }
+
+/* Inner image parallax + scale on hover. Opt in by adding .brand-lift__image
+   to the existing image element. We translate against the cursor (translates
+   away from where the cursor is, like the image is being pulled by the
+   parallax) and apply a subtle scale-up so the edges don't reveal the card
+   background. Uses the same softened spring as the card lift so the image
+   doesn't overshoot dramatically on entry. */
+.brand-lift__image {
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 280ms cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+.brand-lift:hover .brand-lift__image {
+  transform:
+    translate3d(
+      calc(var(--mx) * -6px),
+      calc(var(--my) * -6px),
+      0
+    )
+    scale(1.04);
+}
+
+/* Content micro-shift: the title rises slightly on hover, CTA fades in from
+   below. Both opt in via class — un-classed cards keep their static layout. */
+.brand-lift__title {
+  transition: transform var(--brand-motion-in-duration) var(--brand-motion-curve);
+}
+.brand-lift:hover .brand-lift__title {
+  transform: translateY(-3px) translateZ(8px);
+}
+
+.brand-lift__cta {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--brand-motion-in-duration) var(--brand-motion-curve),
+    transform var(--brand-motion-in-duration) var(--brand-motion-curve);
+}
+.brand-lift:hover .brand-lift__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Border draw-in — 4 segments around the card perimeter, staggered. Each is a
+   pseudo-element child of a wrapper. To keep it simple, we use 2 pseudo
+   elements (::before on .brand-lift handles top+right via clip-path; not
+   feasible in pure CSS without extra wrappers). Trade-off: we use a single
+   inset shadow that "draws" by transitioning its spread. Cheaper than 4
+   wrappers, reads similarly enough at this scale. */
+.brand-lift::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: inset 0 0 0 0 rgb(var(--brand-emerald));
+  transition: box-shadow var(--brand-motion-in-duration) var(--brand-motion-curve);
+}
+.brand-lift:hover::before { box-shadow: inset 0 0 0 1.5px rgb(var(--brand-emerald)); }
+
+/* Reduced motion + touch fallback: keep the lift + shadow + emerald border,
+   drop tilt, cursor light, parallax, scale, and content shifts. */
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .brand-lift, .brand-lift:hover {
+    transform: none !important;
+  }
+  .brand-lift:hover {
+    box-shadow: 0 8px 18px rgba(var(--brand-emerald), 0.16) !important;
+  }
+  .brand-lift::after { display: none !important; }
+  .brand-lift:hover .brand-lift__image { transform: none !important; }
+  .brand-lift:hover .brand-lift__title { transform: none !important; }
+  .brand-lift__cta, .brand-lift:hover .brand-lift__cta {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* ---------- Marquee announcement bar ---------- */
 /* The Glow Green strip above the header in the mockup. */
+
+/* The marquee section's outer wrapper pins to the top of the viewport so the
+   crosshair-rotation reads as the user scrolls. z-index 5 keeps it above the
+   sticky header (z-index 4). --brand-marquee-height is set on :root by
+   brand-motion.js after the marquee lays out; the header's own top calc lives
+   in sections/header.liquid (ID-level specificity required to beat the
+   header's own #shopify-section-... sticky-top rule) and reads the same
+   variable to offset its sticky top. */
+.brand-marquee-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
 
 .brand-marquee {
   background: rgb(var(--brand-glow));
@@ -367,10 +791,24 @@
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+/* Precision+ glyphs in the marquee rotate with page scroll. brand-motion.js
+   writes --brand-scroll-rotation on :root once per rAF tick; the variable
+   defaults to 0deg when JS hasn't run yet, so the glyphs stay still on the
+   first paint and on JS-disabled browsers. Scoped to .brand-marquee so the
+   identical .brand-plus glyphs used in section eyebrows, footer link prefixes,
+   and reveal cascades stay fixed. */
+.brand-marquee .brand-plus {
+  transform: rotate(var(--brand-scroll-rotation, 0deg));
+  /* No transition — the rAF tick updates the variable smoothly enough on its
+     own. Adding a transition lags the rotation behind the scroll and the
+     coupling stops feeling tight. */
+  will-change: transform;
+}
 @media (prefers-reduced-motion: reduce) {
   .brand-marquee__track { animation: none; justify-content: center; white-space: normal; }
   .brand-marquee__item { flex-wrap: wrap; justify-content: center; padding-right: 0; }
   .brand-marquee__item[aria-hidden="true"] { display: none; }
+  .brand-marquee .brand-plus { transform: none !important; }
 }
 
 /* ---------- Precision+ inline mark helper ---------- */
@@ -2208,6 +2646,11 @@ a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
   padding: 8px;
   background: rgba(var(--brand-shadow), .04);
   border-radius: 2px;
+  /* Clip the parallax/scale image inside the wrapper. Without this, when the
+     image transitions on hover the scaled edges briefly bleed past the card
+     and read as the whole card "bulging" — especially noticeable if the user
+     clicks mid-transition and the browser freezes the frame during navigation. */
+  overflow: hidden;
 }
 .brand-compare-card__image,
 .brand-compare-card__placeholder {
@@ -5156,4 +5599,201 @@ a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
 
 @media (prefers-reduced-motion: reduce) {
   .brand-customer-setups__image { transition: none; }
+}
+
+/* ============================================================
+   READABILITY PASS v2 (2026-05-20)
+   ============================================================
+   Feedback: key items must be readable regardless; SEO/side
+   messaging has more leash. See token doc in :root above.
+
+   This block is intentionally last in the cascade so it
+   overrides the earlier brand-revamp declarations without
+   needing to touch the 145 existing font-size rules. Each
+   selector below was previously assigning Miracle Mono at
+   10-13px fixed pixels on a load-bearing UI surface; this
+   pass swaps the font to Crystal and bumps the min size
+   into a readable band. Eyebrows, marquee, and micro-copy
+   are deliberately NOT pulled off Miracle Mono — those are
+   accents and the brand wants them to feel typographic.
+   ============================================================ */
+
+/* --- KEY: Primary buttons (was 13px Miracle Mono / 0.12em) --- */
+.brand-btn {
+  font-family: var(--brand-font-action);
+  font-weight: 600;
+  font-size: var(--brand-fs-action);
+  letter-spacing: var(--brand-ls-action);
+  padding: 16px 28px;
+}
+
+/* --- KEY: Body / reading copy (was 16px fixed; thin on 4K) --- */
+.brand-body {
+  font-family: var(--brand-font-body);
+  font-size: var(--brand-fs-body);
+  line-height: 1.6;
+}
+
+/* --- KEY: Header top-level nav (was 12px Miracle Mono / 0.22em) ---
+   Keep uppercase for brand consistency, but swap font + tighten
+   letter-spacing so the link is a link, not a graphic. */
+.header__linklist-item > .header__linklist-link {
+  font-family: var(--brand-font-nav);
+  font-weight: 600;
+  font-size: var(--brand-fs-nav);
+  letter-spacing: var(--brand-ls-nav);
+}
+
+/* --- KEY: Header dropdown items (was 13px Miracle Mono uppercase) ---
+   Dropdown items are utility nav — drop uppercase entirely so
+   long words like "Replacement parts" are scannable. */
+.shopify-section-group-header-group .nav-dropdown__link,
+#shopify-section-header .nav-dropdown__link {
+  font-family: var(--brand-font-nav);
+  font-weight: 500;
+  font-size: var(--brand-fs-nav);
+  letter-spacing: var(--brand-ls-tight);
+  text-transform: none;
+}
+
+/* --- KEY: Mega-menu copy ---
+   Card eyebrow keeps mono accent treatment (it's a SIDE label).
+   Card title bumps min size for legibility on smaller laptops.
+   Card meta switches to Crystal so reviews / specs are readable. */
+.mega-menu--brand__card-title {
+  font-size: clamp(24px, 2vw, 32px);
+}
+.mega-menu--brand__card-meta {
+  font-family: var(--brand-font-body);
+  font-size: var(--brand-fs-body-sm);
+  line-height: 1.5;
+}
+.mega-menu--brand__nav-link {
+  font-family: var(--brand-font-nav);
+  font-weight: 500;
+  font-size: var(--brand-fs-nav);
+  letter-spacing: var(--brand-ls-tight);
+  text-transform: none;
+}
+.mega-menu--brand__nav-eyebrow {
+  /* Eyebrow stays a caps label — minor bump only. */
+  font-size: var(--brand-fs-eyebrow);
+  letter-spacing: var(--brand-ls-caps);
+}
+
+/* --- KEY: Mobile drawer nav ---
+   Mobile is where small mono text hurts most (longer lines,
+   thumb scanning). Crystal SemiBold + 16-18px fluid, sentence
+   case for utility labels. Top-level primary links stay caps
+   because they're 1-2 words. */
+.mobile-nav__link {
+  font-family: var(--brand-font-nav);
+  font-weight: 600;
+  font-size: clamp(16px, 4.5vw, 18px);
+  letter-spacing: var(--brand-ls-nav);
+}
+.mobile-nav__primary-card-kicker {
+  font-size: var(--brand-fs-eyebrow);
+  letter-spacing: var(--brand-ls-caps);
+}
+.mobile-nav__primary-card-title {
+  font-family: var(--brand-font-heading);
+  font-weight: 600;
+  font-size: clamp(18px, 4.8vw, 22px);
+  letter-spacing: var(--brand-ls-normal);
+  text-transform: none;
+}
+.mobile-nav__primary-card-meta {
+  font-family: var(--brand-font-body);
+  font-size: var(--brand-fs-meta);
+}
+.mobile-nav__decision-link,
+.mobile-nav__support-link {
+  font-family: var(--brand-font-nav);
+  font-weight: 500;
+  font-size: var(--brand-fs-nav);
+  letter-spacing: var(--brand-ls-tight);
+  text-transform: none;
+}
+
+/* --- KEY: Footer link list (was 11px Miracle Mono — way too small) ---
+   Footer links are nav. Treat as nav. */
+.footer .linklist__item a {
+  font-family: var(--brand-font-nav);
+  font-weight: 500;
+  font-size: var(--brand-fs-nav);
+  letter-spacing: var(--brand-ls-tight);
+  text-transform: none;
+}
+
+/* --- SIDE: Footer block headings ---
+   These are categorical labels above link columns. Stay caps,
+   stay mono, but bump from 11 to 13 and tighten letter-spacing
+   so the heading->link relationship reads cleanly. */
+.footer__item-title,
+.footer__item-content > .heading,
+.footer__item-content h2 {
+  font-size: var(--brand-fs-eyebrow);
+  letter-spacing: var(--brand-ls-caps);
+}
+
+/* --- SIDE: Eyebrows (caps labels above headlines) ---
+   Keep mono, minor min-size bump for scanability, tighter on
+   max so they don't grow into headline territory. */
+.brand-eyebrow,
+.mega-menu__guided-title,
+.mobile-nav__eyebrow,
+.mobile-nav__guided-title,
+.mobile-nav__support-title,
+.mega-menu--brand__card-eyebrow,
+.mega-menu--brand__section-label {
+  font-size: var(--brand-fs-eyebrow);
+  letter-spacing: var(--brand-ls-caps);
+}
+
+/* --- SIDE: Marquee ---
+   Marquee is decorative. Bump one notch (12->13) and slightly
+   tighten letter-spacing for scan, but keep mono treatment. */
+.brand-marquee {
+  font-size: 13px;
+  letter-spacing: var(--brand-ls-caps);
+}
+
+/* --- SIDE: Locale / cross-border popover buttons --- */
+.header__cross-border .popover-button {
+  font-size: var(--brand-fs-meta);
+  letter-spacing: var(--brand-ls-caps);
+}
+
+/* --- KEY: Display headlines — cap the wildest top ends ---
+   .brand-headline--display was clamp(80, 18vw, 280px). At 280px
+   on a 4K monitor that's billboard-sized; at 18vw on a 360px
+   phone it shrinks below the 80px floor. New scale is tighter.
+   The Bryson outlined word and similar custom hero treatments
+   keep their bespoke clamps (those are in section-specific
+   rules and remain on intention). */
+.brand-headline {
+  font-size: var(--brand-fs-headline);
+  line-height: 1;
+}
+.brand-headline--display {
+  font-size: var(--brand-fs-display);
+  line-height: 0.9;
+}
+
+/* --- KEY: Mobile readability floors ---
+   On small viewports, force buttons and primary nav lists to
+   stay at thumb-readable sizes regardless of fluid math. */
+@media (max-width: 749px) {
+  .brand-btn { font-size: 16px; }
+  .footer .linklist__item a { font-size: 16px; }
+  .header__linklist-item > .header__linklist-link { font-size: 16px; }
+}
+
+/* --- Accessibility: respect user font scaling ---
+   .brand-body inherits the parent size so user zoom + browser
+   default-size preferences propagate cleanly. */
+.brand-body p,
+.brand-body li {
+  font-size: inherit;
 }

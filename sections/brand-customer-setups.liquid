@@ -1,0 +1,310 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign quote = section.settings.quote
+  assign attribution = section.settings.attribution
+  assign attribution_meta = section.settings.attribution_meta
+  assign grid_cols = section.settings.grid_columns | default: 4
+  assign cycle_seconds = section.settings.cycle_seconds | default: 5
+  assign show_badge = section.settings.show_concept_badge
+  assign visible_count = grid_cols | times: 2
+
+  comment
+    Customer setups section: a review quote at the top, then a cycling
+    mosaic of customer setup photos. visible_count tiles are rendered in
+    the grid; JS preloads any additional block photos as a "pool" and
+    swaps a random tile to a random pool photo every cycle_seconds, with
+    a soft opacity cross-fade. Cycling pauses when the section leaves
+    the viewport (via IntersectionObserver) and is fully disabled under
+    prefers-reduced-motion.
+  endcomment
+-%}
+
+<section
+  class="brand-customer-setups"
+  data-brand-customer-setups
+  data-cycle-seconds="{{ cycle_seconds }}"
+  style="--brand-setups-cols: {{ grid_cols }};"
+  aria-labelledby="brand-customer-setups-quote-{{ section.id }}"
+>
+  {%- if show_badge -%}
+    <span class="brand-customer-setups__badge" aria-hidden="true">Customer Setups</span>
+  {%- endif -%}
+
+  <div class="brand-container brand-customer-setups__quote">
+    {%- if eyebrow != blank -%}
+      <p class="brand-eyebrow brand-customer-setups__eyebrow">
+        <span class="brand-plus" aria-hidden="true"></span>
+        {{ eyebrow }}
+      </p>
+    {%- endif -%}
+
+    {%- if quote != blank -%}
+      <blockquote id="brand-customer-setups-quote-{{ section.id }}" class="brand-customer-setups__quote-text">
+        {{ quote }}
+      </blockquote>
+    {%- endif -%}
+
+    {%- if attribution != blank or attribution_meta != blank -%}
+      <p class="brand-customer-setups__attribution">
+        {%- if attribution != blank -%}<span class="brand-customer-setups__attribution-name">{{ attribution }}</span>{%- endif -%}
+        {%- if attribution != blank and attribution_meta != blank -%}<span class="brand-customer-setups__attribution-sep" aria-hidden="true"> · </span>{%- endif -%}
+        {%- if attribution_meta != blank -%}<span class="brand-customer-setups__attribution-meta">{{ attribution_meta }}</span>{%- endif -%}
+      </p>
+    {%- endif -%}
+  </div>
+
+  <ul class="brand-customer-setups__grid" role="list">
+    {%- for block in section.blocks limit: visible_count -%}
+      {%- liquid
+        assign image = block.settings.image
+        assign default_image_filename = block.settings.default_image_filename
+        assign alt = block.settings.alt | default: 'Customer Net Return setup'
+      -%}
+      <li class="brand-customer-setups__tile" data-tile-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+        {%- if image != blank -%}
+          <img
+            class="brand-customer-setups__image"
+            src="{{ image | image_url: width: 800 }}"
+            srcset="{{ image | image_url: width: 400 }} 400w, {{ image | image_url: width: 800 }} 800w"
+            sizes="(max-width: 749px) 50vw, 25vw"
+            alt="{{ alt | escape }}"
+            loading="lazy"
+            width="800"
+            height="800">
+        {%- elsif default_image_filename != blank -%}
+          <img
+            class="brand-customer-setups__image"
+            src="{{ default_image_filename | asset_url }}"
+            alt="{{ alt | escape }}"
+            loading="lazy"
+            width="800"
+            height="800">
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- comment -%}
+    Pool of every block's photo URL as JSON for the cycler to choose from.
+    All blocks beyond visible_count are included here so they enter the
+    visible grid through the swap mechanism. Hidden from layout via CSS.
+  {%- endcomment -%}
+  <script type="application/json" data-customer-setups-pool>
+[
+{%- for block in section.blocks -%}
+  {%- if block.settings.image != blank -%}
+    "{{ block.settings.image | image_url: width: 800 }}"{%- unless forloop.last -%},{%- endunless -%}
+  {%- elsif block.settings.default_image_filename != blank -%}
+    "{{ block.settings.default_image_filename | asset_url }}"{%- unless forloop.last -%},{%- endunless -%}
+  {%- endif -%}
+{%- endfor -%}
+]
+  </script>
+</section>
+
+{% javascript %}
+  (function () {
+    var sections = document.querySelectorAll('[data-brand-customer-setups]:not([data-brand-setups-bound])');
+    if (!sections.length) return;
+
+    sections.forEach(function (section) {
+      section.setAttribute('data-brand-setups-bound', '1');
+
+      var poolScript = section.querySelector('[data-customer-setups-pool]');
+      if (!poolScript) return;
+
+      var pool;
+      try {
+        pool = JSON.parse(poolScript.textContent || '[]').filter(Boolean);
+      } catch (e) { return; }
+      if (pool.length === 0) return;
+
+      var tiles = Array.prototype.slice.call(section.querySelectorAll('[data-tile-index]'));
+      if (tiles.length === 0) return;
+
+      var cycleSeconds = parseFloat(section.dataset.cycleSeconds) || 5;
+      if (cycleSeconds < 1) cycleSeconds = 1;
+
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (reduceMotion && reduceMotion.matches) return;
+
+      // Track currently-visible photo URL per tile.
+      var visible = tiles.map(function (tile) {
+        var img = tile.querySelector('img');
+        return img ? img.currentSrc || img.src : null;
+      });
+
+      function pickTargetUrl(currentSrc) {
+        // Prefer photos not currently shown anywhere on the grid; fall back
+        // to anything in the pool that isn't the tile's own current src.
+        var unused = pool.filter(function (url) {
+          return visible.indexOf(url) === -1 && url.indexOf(currentSrc) === -1;
+        });
+        if (unused.length === 0) {
+          unused = pool.filter(function (url) { return url.indexOf(currentSrc) === -1; });
+        }
+        if (unused.length === 0) return null;
+        return unused[Math.floor(Math.random() * unused.length)];
+      }
+
+      function cycleOne() {
+        // Skip when the document is hidden — saves cycles when the tab is
+        // backgrounded or the user has switched apps.
+        if (document.hidden) return;
+
+        var tileIdx = Math.floor(Math.random() * tiles.length);
+        var tile = tiles[tileIdx];
+        var img = tile.querySelector('img');
+        if (!img) return;
+
+        var nextUrl = pickTargetUrl(img.src);
+        if (!nextUrl) return;
+
+        // Preload first so the cross-fade lands on a fully-decoded image.
+        var preload = new Image();
+        preload.onload = function () {
+          tile.classList.add('is-fading');
+          setTimeout(function () {
+            img.src = nextUrl;
+            visible[tileIdx] = nextUrl;
+            requestAnimationFrame(function () {
+              tile.classList.remove('is-fading');
+            });
+          }, 280); // matches the CSS opacity transition
+        };
+        preload.src = nextUrl;
+      }
+
+      // Cycle only when the section is in view. Stops when it scrolls out.
+      var interval = null;
+      function startCycling() {
+        if (interval) return;
+        interval = setInterval(cycleOne, cycleSeconds * 1000);
+      }
+      function stopCycling() {
+        if (interval) {
+          clearInterval(interval);
+          interval = null;
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) startCycling();
+            else stopCycling();
+          });
+        }, { threshold: 0.1 });
+        io.observe(section);
+      } else {
+        startCycling();
+      }
+    });
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Brand customer setups",
+  "tag": "section",
+  "class": "brand-customer-setups-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Review quote at the top, cycling mosaic of customer setup photos below. Add as many photo blocks as you can — the grid renders 2 rows worth (e.g. 8 tiles at 4 columns) and the rest cycle in over time via a soft cross-fade. Recommended: 16+ photos for a feeling of inexhaustible variety."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_concept_badge",
+      "label": "Show 'Customer Setups' badge (for preview)",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow (mono caps)",
+      "default": "From our reviews"
+    },
+    {
+      "type": "richtext",
+      "id": "quote",
+      "label": "Customer quote",
+      "info": "Use a real verbatim review before launch. Wrap in quotes if you want them rendered (Liquid won't add them).",
+      "default": "<p>\"I bought three nets before this one. The first ripped in a month. The second sagged. The third lost tension. This is the only one I haven't had to replace.\"</p>"
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution",
+      "default": "Mike T."
+    },
+    {
+      "type": "text",
+      "id": "attribution_meta",
+      "label": "Attribution meta",
+      "info": "Where, when, or how long the customer has owned the product.",
+      "default": "Owner since 2019"
+    },
+    {
+      "type": "header",
+      "content": "Mosaic behavior"
+    },
+    {
+      "type": "range",
+      "id": "grid_columns",
+      "label": "Columns (desktop)",
+      "info": "Mobile collapses to 2 columns automatically. Total visible tiles = columns × 2.",
+      "min": 3,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "cycle_seconds",
+      "label": "Cycle interval",
+      "info": "Seconds between tile swaps. Lower = more activity.",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "default": 5,
+      "unit": "s"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "setup",
+      "name": "Setup photo",
+      "limit": 30,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "text",
+          "id": "default_image_filename",
+          "label": "Fallback theme asset filename"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "info": "Defaults to 'Customer Net Return setup' if blank."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand customer setups",
+      "settings": {
+        "eyebrow": "From our reviews",
+        "attribution": "Mike T.",
+        "attribution_meta": "Owner since 2019"
+      }
+    }
+  ]
+}
+{% endschema %}

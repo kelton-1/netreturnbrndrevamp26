@@ -102,6 +102,10 @@
 
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
     var hasViewTransitions = typeof document.startViewTransition === 'function';
+    var DESKTOP_MQ = '(min-width: 1000px)';
+    var DWELL_MS = 120;        // pointer must rest on a sibling this long before swap
+    var COOLDOWN_VT_MS = 80;   // post-View-Transition settle buffer
+    var COOLDOWN_FALLBACK_MS = 400; // settle buffer when VT API isn't available
 
     sections.forEach(function (section) {
       section.setAttribute('data-brand-mosaic-bound', '1');
@@ -109,41 +113,73 @@
       var cards = Array.prototype.slice.call(section.querySelectorAll('[data-card-id]'));
       if (cards.length < 2) return;
 
-      // Per-card mouseenter is unreliable here: when a swap rearranges the
-      // grid, a different card slides under the (static) cursor, the browser
-      // fires mouseenter on that card, and we cascade into a swap loop.
-      // Instead we listen for real pointer movement at the section level and
-      // resolve which card is genuinely under the cursor via elementFromPoint.
-      // No movement, no swap — layout shifts can no longer trigger us.
       var lastCardId = null;
-      var lastCheck = 0;
+      var pendingCardId = null;
+      var pendingTimer = null;
       var transitioning = false;
 
+      // 1) Viewport gate — only run the hero Ken Burns drift once the
+      //    section has been scrolled into view. Avoids competing with the
+      //    brand-film motion above and saves cycles when the section is
+      //    off-screen.
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              section.classList.add('is-in-view');
+              io.unobserve(section);
+            }
+          });
+        }, { threshold: 0.25 });
+        io.observe(section);
+      } else {
+        section.classList.add('is-in-view');
+      }
+
+      function isDesktop() {
+        return window.matchMedia(DESKTOP_MQ).matches;
+      }
+
+      function clearPending() {
+        if (pendingTimer) clearTimeout(pendingTimer);
+        pendingTimer = null;
+        pendingCardId = null;
+      }
+
+      // 2) applyHero — gated by `transitioning` so back-to-back swaps don't
+      //    pile up. The cooldown is the View Transitions duration (~480ms)
+      //    plus an 80ms buffer; for browsers without VT, a flat 400ms keeps
+      //    the section from feeling frantic.
       function applyHero(newHeroId) {
         if (transitioning) return;
         if (section.dataset.heroId === String(newHeroId)) return;
+
+        transitioning = true;
         var doSwap = function () { section.dataset.heroId = String(newHeroId); };
+        var release = function () { transitioning = false; };
+
         if (hasViewTransitions && (!reduceMotion || !reduceMotion.matches)) {
-          transitioning = true;
           var t = document.startViewTransition(doSwap);
           if (t && t.finished && typeof t.finished.finally === 'function') {
-            t.finished.finally(function () { transitioning = false; });
+            t.finished.finally(function () { setTimeout(release, COOLDOWN_VT_MS); });
           } else {
-            // Older View Transitions implementations: fall back to a timer
-            // that matches our 480ms animation-duration plus a small buffer.
-            setTimeout(function () { transitioning = false; }, 560);
+            setTimeout(release, COOLDOWN_VT_MS + 480);
           }
         } else {
           doSwap();
+          setTimeout(release, COOLDOWN_FALLBACK_MS);
         }
       }
 
+      // 3) Pointer-driven swap with dwell-time gate.
+      //    We do NOT bind per-card mouseenter (that cascaded when the grid
+      //    rearranged under a static cursor). Instead, every pointermove on
+      //    the section figures out which card is genuinely under the cursor
+      //    via elementFromPoint. Entering a new card starts a 120ms dwell
+      //    timer; the swap fires only if the cursor is still on that card
+      //    when the timer expires. Quick sweeps no longer flip the layout.
       section.addEventListener('pointermove', function (event) {
-        // Throttle pointer reads — elementFromPoint is cheap but firing on
-        // every micro-pixel of motion would be wasteful.
-        var now = event.timeStamp;
-        if (now - lastCheck < 40) return;
-        lastCheck = now;
+        if (!isDesktop()) return;
 
         var target = document.elementFromPoint(event.clientX, event.clientY);
         if (!target) return;
@@ -151,28 +187,37 @@
         if (!card || !section.contains(card)) return;
 
         var id = card.dataset.cardId;
-        if (id === lastCardId) return; // still over the same card — no swap
-        lastCardId = id;
-        applyHero(id);
+        if (id === lastCardId) return;     // still resting on the same card
+        if (id === pendingCardId) return;  // dwell already running for this card
+
+        clearPending();
+        pendingCardId = id;
+        pendingTimer = setTimeout(function () {
+          if (pendingCardId === id) {
+            lastCardId = id;
+            applyHero(id);
+          }
+          pendingTimer = null;
+          pendingCardId = null;
+        }, DWELL_MS);
       });
 
-      // Reset the tracker when the pointer leaves the section so re-entering
-      // the same card after a brief exit works.
       section.addEventListener('pointerleave', function () {
+        clearPending();
         lastCardId = null;
       });
 
-      // Keyboard: focus inside any card promotes it. No cascade risk because
-      // focus moves only on explicit user input.
+      // 4) Keyboard focus is explicit — no dwell, swap immediately.
       cards.forEach(function (card) {
-        card.addEventListener('focusin', function () { applyHero(card.dataset.cardId); });
+        card.addEventListener('focusin', function () {
+          if (isDesktop()) applyHero(card.dataset.cardId);
+        });
       });
 
-      // Touch: tap a sibling to promote it. The link still navigates after.
-      section.addEventListener('touchstart', function (event) {
-        var card = event.target.closest('[data-card-id]');
-        if (card) applyHero(card.dataset.cardId);
-      }, { passive: true });
+      // 5) Touch / mobile is intentionally NOT bound to a swap. Below
+      //    1000px CSS lays out a static 2x2 grid where each card links
+      //    directly to its collection; the hero/sibling concept doesn't
+      //    translate to a tap-only interface, so we skip the model entirely.
     });
   })();
 {% endjavascript %}
@@ -203,7 +248,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Built for every part of the work."
+      "default": "Start with the net. Build around your space."
     }
   ],
   "blocks": [
@@ -247,7 +292,7 @@
       "name": "Brand category mosaic",
       "settings": {
         "eyebrow": "Shop the system",
-        "heading": "Built for every part of the work."
+        "heading": "Start with the net. Build around your space."
       },
       "blocks": [
         { "type": "category", "settings": { "label": "Nets",        "cta_text": "Shop nets",        "link": "/collections/nets-1",            "default_image_filename": "brand-category-nets.jpg" } },

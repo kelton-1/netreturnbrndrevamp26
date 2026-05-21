@@ -23,6 +23,7 @@
   id="brand-bryson-feature-{{ section_id }}"
   class="brand-bryson-feature brand-bryson-feature--image-{{ image_position }}"
   aria-labelledby="brand-bryson-feature-heading-{{ section_id }}"
+  data-brand-reveal
   style="--brand-bryson-overlay: {{ overlay_strength | divided_by: 100.0 }};"
 >
   <picture class="brand-bryson-feature__image">
@@ -54,15 +55,15 @@
       {%- endif -%}
 
       {%- if tagline != blank -%}
-        <h2 id="brand-bryson-feature-heading-{{ section_id }}" class="brand-headline brand-bryson-feature__tagline">{{ tagline }}</h2>
+        <h2 id="brand-bryson-feature-heading-{{ section_id }}" class="brand-headline brand-bryson-feature__tagline" data-reveal-headline>{{ tagline }}</h2>
       {%- endif -%}
 
       {%- if body != blank -%}
-        <p class="brand-body brand-bryson-feature__body">{{ body }}</p>
+        <p class="brand-body brand-bryson-feature__body" data-reveal-body>{{ body }}</p>
       {%- endif -%}
 
       {%- if cta_text != blank -%}
-        <a class="brand-btn brand-btn--primary brand-bryson-feature__cta" href="{{ cta_link | default: '#' }}">{{ cta_text }}</a>
+        <a class="brand-btn brand-btn--primary brand-bryson-feature__cta" href="{{ cta_link | default: '#' }}" data-reveal-cta>{{ cta_text }}</a>
       {%- endif -%}
     </div>
   </div>

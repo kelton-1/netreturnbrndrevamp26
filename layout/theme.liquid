@@ -93,6 +93,9 @@ NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing 
     {%- comment -%} Brand revamp CSS loads eagerly to prevent FOUC on the marquee/header. {%- endcomment -%}
     {{ 'brand-revamp.css' | asset_url | stylesheet_tag: preload: true }}
 
+    {%- comment -%} Brand motion language (ripple, reveal cascade, premium lift). Deferred so it doesn't block paint. {%- endcomment -%}
+    <script src="{{ 'brand-motion.js' | asset_url }}" defer></script>
+
     <script>
       var upgradePropertyLabel = null;
     </script>

@@ -1,0 +1,679 @@
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign body = section.settings.body
+
+  assign nets_collection = section.settings.nets_collection
+  assign mats_collection = section.settings.surfaces_collection
+  assign launch_monitors_collection = section.settings.launch_monitors_collection
+  assign screens_collection = section.settings.screens_collection
+  assign accessories_collection = section.settings.accessories_collection
+
+  assign nets_limit = section.settings.nets_limit | default: 4
+  assign mats_limit = section.settings.surfaces_limit | default: 4
+  assign launch_monitors_limit = section.settings.launch_monitors_limit | default: 4
+  assign screens_limit = section.settings.screens_limit | default: 4
+  assign accessories_limit = section.settings.accessories_limit | default: 5
+
+  assign step_1_label = section.settings.step_1_label | default: 'Choose your net.'
+  assign step_2_label = section.settings.step_2_label | default: 'Add a mat.'
+  assign step_3_label = section.settings.step_3_label | default: 'Add a launch monitor.'
+  assign step_4_label = section.settings.step_4_label | default: 'Add a screen.'
+  assign step_5_label = section.settings.step_5_label | default: 'Stack the extras.'
+
+  assign step_1_short = section.settings.step_1_short | default: 'Net'
+  assign step_2_short = section.settings.step_2_short | default: 'Mat'
+  assign step_3_short = section.settings.step_3_short | default: 'Monitor'
+  assign step_4_short = section.settings.step_4_short | default: 'Screen'
+  assign step_5_short = section.settings.step_5_short | default: 'Extras'
+
+  assign step_2_skip_label = section.settings.step_2_skip_label | default: "I'll skip the mat"
+  assign step_3_skip_label = section.settings.step_3_skip_label | default: 'Skip the launch monitor'
+  assign step_4_skip_label = section.settings.step_4_skip_label | default: 'Skip the screen'
+  assign empty_bundle_label = section.settings.empty_bundle_label | default: 'Pick a net to start your setup.'
+
+  assign cta_text = section.settings.cta_text | default: 'Add this setup to cart'
+
+  assign surface_concept = section.settings.surface_concept | default: 'studio-light'
+
+  comment
+    Steps are conditionally rendered: any step whose collection isn't picked
+    just drops out of both the indicator and the stage. Build the list of
+    rendered step ids here so the step indicator and the JS state machine
+    agree on what exists. id, kind (radio/check), short label, full label,
+    collection, limit, skip label (empty = no skip option).
+  endcomment
+
+  assign first_net = nets_collection.products.first
+-%}
+
+<section
+  class="brand-mini-builder"
+  data-brand-mini-builder
+  data-bb-concept="{{ surface_concept }}"
+  aria-labelledby="brand-mini-builder-heading-{{ section.id }}"
+>
+  <div class="brand-mini-builder__inner brand-container">
+    {%- if eyebrow != blank or heading != blank or body != blank -%}
+      <header class="brand-mini-builder__header">
+        {%- if eyebrow != blank -%}
+          <p class="brand-eyebrow brand-mini-builder__eyebrow">
+            <span class="brand-plus" aria-hidden="true"></span>
+            {{ eyebrow }}
+          </p>
+        {%- endif -%}
+        {%- if heading != blank -%}
+          <h2 id="brand-mini-builder-heading-{{ section.id }}" class="brand-mini-builder__heading">{{ heading }}</h2>
+        {%- endif -%}
+        {%- if body != blank -%}
+          <p class="brand-body brand-mini-builder__body">{{ body }}</p>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <div class="brand-mini-builder__layout">
+      {%- comment -%}
+        ====== LEFT: form column ======
+        Step indicator, single-active fieldset stage, prev/next nav,
+        live bundle summary, primary CTA.
+      {%- endcomment -%}
+      <div class="brand-mini-builder__form-col">
+        <ol class="brand-mini-builder__steps" role="list" data-bb-steps>
+          {%- if nets_collection != blank -%}
+            <li class="brand-mini-builder__step-tab">
+              <button type="button" class="brand-mini-builder__step-button" data-bb-go="1" aria-current="step">
+                <span class="brand-mini-builder__step-num">01</span>
+                <span class="brand-mini-builder__step-shortlabel">{{ step_1_short }}</span>
+              </button>
+            </li>
+          {%- endif -%}
+          {%- if mats_collection != blank -%}
+            <li class="brand-mini-builder__step-tab">
+              <button type="button" class="brand-mini-builder__step-button" data-bb-go="2">
+                <span class="brand-mini-builder__step-num">02</span>
+                <span class="brand-mini-builder__step-shortlabel">{{ step_2_short }}</span>
+              </button>
+            </li>
+          {%- endif -%}
+          {%- if launch_monitors_collection != blank -%}
+            <li class="brand-mini-builder__step-tab">
+              <button type="button" class="brand-mini-builder__step-button" data-bb-go="3">
+                <span class="brand-mini-builder__step-num">03</span>
+                <span class="brand-mini-builder__step-shortlabel">{{ step_3_short }}</span>
+              </button>
+            </li>
+          {%- endif -%}
+          {%- if screens_collection != blank -%}
+            <li class="brand-mini-builder__step-tab">
+              <button type="button" class="brand-mini-builder__step-button" data-bb-go="4">
+                <span class="brand-mini-builder__step-num">04</span>
+                <span class="brand-mini-builder__step-shortlabel">{{ step_4_short }}</span>
+              </button>
+            </li>
+          {%- endif -%}
+          {%- if accessories_collection != blank -%}
+            <li class="brand-mini-builder__step-tab">
+              <button type="button" class="brand-mini-builder__step-button" data-bb-go="5">
+                <span class="brand-mini-builder__step-num">05</span>
+                <span class="brand-mini-builder__step-shortlabel">{{ step_5_short }}</span>
+              </button>
+            </li>
+          {%- endif -%}
+        </ol>
+
+        <div class="brand-mini-builder__stage" data-bb-stage>
+          {%- comment -%} STEP 01 — Net (required) {%- endcomment -%}
+          {%- if nets_collection != blank and nets_collection.products.size > 0 -%}
+            <fieldset class="brand-mini-builder__step" data-bb-step="1" data-bb-active>
+              <legend class="brand-mini-builder__step-heading">{{ step_1_label }}</legend>
+              <ul class="brand-mini-builder__options" role="list">
+                {%- for product in nets_collection.products limit: nets_limit -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <li class="brand-mini-builder__option">
+                    <label class="brand-mini-builder__option-label">
+                      <input
+                        type="radio"
+                        name="bb-{{ section.id }}-net"
+                        value="{{ product.id }}"
+                        data-bb-input="net"
+                        data-bb-variant-id="{{ variant.id }}"
+                        data-bb-price="{{ product.price }}"
+                        data-bb-title="{{ product.title | escape }}"
+                        {% if product.featured_media != blank -%}
+                          data-bb-image-600="{{ product.featured_media | image_url: width: 600 }}"
+                          data-bb-image-1200="{{ product.featured_media | image_url: width: 1200 }}"
+                        {%- endif %}
+                        {% if forloop.first %}checked{% endif %}
+                        {% unless product.available %}disabled{% endunless %}
+                        class="brand-mini-builder__radio">
+                      <span class="brand-mini-builder__option-text">
+                        <span class="brand-mini-builder__option-name">{{ product.title }}</span>
+                        <span class="brand-mini-builder__option-price">{{ product.price | money }}{% unless product.available %} · Sold out{% endunless %}</span>
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </fieldset>
+          {%- endif -%}
+
+          {%- comment -%} STEP 02 — Mat (optional, skip pre-selected) {%- endcomment -%}
+          {%- if mats_collection != blank and mats_collection.products.size > 0 -%}
+            <fieldset class="brand-mini-builder__step" data-bb-step="2">
+              <legend class="brand-mini-builder__step-heading">{{ step_2_label }}</legend>
+              <ul class="brand-mini-builder__options" role="list">
+                <li class="brand-mini-builder__option brand-mini-builder__option--skip">
+                  <label class="brand-mini-builder__option-label">
+                    <input type="radio" name="bb-{{ section.id }}-mat" value="0"
+                      data-bb-input="surface" data-bb-variant-id="" data-bb-price="0" data-bb-title="No mat"
+                      checked class="brand-mini-builder__radio">
+                    <span class="brand-mini-builder__option-text">
+                      <span class="brand-mini-builder__option-name">{{ step_2_skip_label }}</span>
+                      <span class="brand-mini-builder__option-price brand-mini-builder__option-price--muted">—</span>
+                    </span>
+                  </label>
+                </li>
+                {%- for product in mats_collection.products limit: mats_limit -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <li class="brand-mini-builder__option">
+                    <label class="brand-mini-builder__option-label">
+                      <input type="radio" name="bb-{{ section.id }}-mat" value="{{ product.id }}"
+                        data-bb-input="surface" data-bb-variant-id="{{ variant.id }}"
+                        data-bb-price="{{ product.price }}" data-bb-title="{{ product.title | escape }}"
+                        {% unless product.available %}disabled{% endunless %}
+                        class="brand-mini-builder__radio">
+                      <span class="brand-mini-builder__option-text">
+                        <span class="brand-mini-builder__option-name">{{ product.title }}</span>
+                        <span class="brand-mini-builder__option-price">{{ product.price | money }}{% unless product.available %} · Sold out{% endunless %}</span>
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </fieldset>
+          {%- endif -%}
+
+          {%- comment -%} STEP 03 — Launch monitor (optional, skip pre-selected) {%- endcomment -%}
+          {%- if launch_monitors_collection != blank and launch_monitors_collection.products.size > 0 -%}
+            <fieldset class="brand-mini-builder__step" data-bb-step="3">
+              <legend class="brand-mini-builder__step-heading">{{ step_3_label }}</legend>
+              <ul class="brand-mini-builder__options" role="list">
+                <li class="brand-mini-builder__option brand-mini-builder__option--skip">
+                  <label class="brand-mini-builder__option-label">
+                    <input type="radio" name="bb-{{ section.id }}-monitor" value="0"
+                      data-bb-input="monitor" data-bb-variant-id="" data-bb-price="0" data-bb-title="No launch monitor"
+                      checked class="brand-mini-builder__radio">
+                    <span class="brand-mini-builder__option-text">
+                      <span class="brand-mini-builder__option-name">{{ step_3_skip_label }}</span>
+                      <span class="brand-mini-builder__option-price brand-mini-builder__option-price--muted">—</span>
+                    </span>
+                  </label>
+                </li>
+                {%- for product in launch_monitors_collection.products limit: launch_monitors_limit -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <li class="brand-mini-builder__option">
+                    <label class="brand-mini-builder__option-label">
+                      <input type="radio" name="bb-{{ section.id }}-monitor" value="{{ product.id }}"
+                        data-bb-input="monitor" data-bb-variant-id="{{ variant.id }}"
+                        data-bb-price="{{ product.price }}" data-bb-title="{{ product.title | escape }}"
+                        {% unless product.available %}disabled{% endunless %}
+                        class="brand-mini-builder__radio">
+                      <span class="brand-mini-builder__option-text">
+                        <span class="brand-mini-builder__option-name">{{ product.title }}</span>
+                        <span class="brand-mini-builder__option-price">{{ product.price | money }}{% unless product.available %} · Sold out{% endunless %}</span>
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </fieldset>
+          {%- endif -%}
+
+          {%- comment -%} STEP 04 — Screen / sim bay (optional, skip pre-selected) {%- endcomment -%}
+          {%- if screens_collection != blank and screens_collection.products.size > 0 -%}
+            <fieldset class="brand-mini-builder__step" data-bb-step="4">
+              <legend class="brand-mini-builder__step-heading">{{ step_4_label }}</legend>
+              <ul class="brand-mini-builder__options" role="list">
+                <li class="brand-mini-builder__option brand-mini-builder__option--skip">
+                  <label class="brand-mini-builder__option-label">
+                    <input type="radio" name="bb-{{ section.id }}-screen" value="0"
+                      data-bb-input="screen" data-bb-variant-id="" data-bb-price="0" data-bb-title="No screen"
+                      checked class="brand-mini-builder__radio">
+                    <span class="brand-mini-builder__option-text">
+                      <span class="brand-mini-builder__option-name">{{ step_4_skip_label }}</span>
+                      <span class="brand-mini-builder__option-price brand-mini-builder__option-price--muted">—</span>
+                    </span>
+                  </label>
+                </li>
+                {%- for product in screens_collection.products limit: screens_limit -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <li class="brand-mini-builder__option">
+                    <label class="brand-mini-builder__option-label">
+                      <input type="radio" name="bb-{{ section.id }}-screen" value="{{ product.id }}"
+                        data-bb-input="screen" data-bb-variant-id="{{ variant.id }}"
+                        data-bb-price="{{ product.price }}" data-bb-title="{{ product.title | escape }}"
+                        {% unless product.available %}disabled{% endunless %}
+                        class="brand-mini-builder__radio">
+                      <span class="brand-mini-builder__option-text">
+                        <span class="brand-mini-builder__option-name">{{ product.title }}</span>
+                        <span class="brand-mini-builder__option-price">{{ product.price | money }}{% unless product.available %} · Sold out{% endunless %}</span>
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </fieldset>
+          {%- endif -%}
+
+          {%- comment -%} STEP 05 — Add-ons (checkboxes, none pre-selected) {%- endcomment -%}
+          {%- if accessories_collection != blank and accessories_collection.products.size > 0 -%}
+            <fieldset class="brand-mini-builder__step" data-bb-step="5">
+              <legend class="brand-mini-builder__step-heading">{{ step_5_label }}</legend>
+              <ul class="brand-mini-builder__options brand-mini-builder__options--check" role="list">
+                {%- for product in accessories_collection.products limit: accessories_limit -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <li class="brand-mini-builder__option">
+                    <label class="brand-mini-builder__option-label">
+                      <input type="checkbox" name="bb-{{ section.id }}-accessory[]" value="{{ product.id }}"
+                        data-bb-input="accessory" data-bb-variant-id="{{ variant.id }}"
+                        data-bb-price="{{ product.price }}" data-bb-title="{{ product.title | escape }}"
+                        {% unless product.available %}disabled{% endunless %}
+                        class="brand-mini-builder__check">
+                      <span class="brand-mini-builder__option-text">
+                        <span class="brand-mini-builder__option-name">{{ product.title }}</span>
+                        <span class="brand-mini-builder__option-price">+ {{ product.price | money }}{% unless product.available %} · Sold out{% endunless %}</span>
+                      </span>
+                    </label>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </fieldset>
+          {%- endif -%}
+        </div>
+
+        <nav class="brand-mini-builder__nav" aria-label="Step navigation">
+          <button type="button" class="brand-mini-builder__nav-btn brand-mini-builder__nav-btn--prev" data-bb-prev>
+            <span aria-hidden="true">&larr;</span>
+            <span>Back</span>
+          </button>
+          <p class="brand-mini-builder__step-position" data-bb-position aria-live="polite">Step 1 of 5</p>
+          <button type="button" class="brand-mini-builder__nav-btn brand-mini-builder__nav-btn--next" data-bb-next>
+            <span>Continue</span>
+            <span aria-hidden="true">&rarr;</span>
+          </button>
+        </nav>
+
+        <div class="brand-mini-builder__summary">
+          <p class="brand-mini-builder__summary-label">
+            <span class="brand-plus" aria-hidden="true"></span>
+            Your setup
+          </p>
+          <ul class="brand-mini-builder__bundle" role="list" data-bb-bundle-list>
+            <li class="brand-mini-builder__bundle-empty" data-bb-bundle-empty>{{ empty_bundle_label }}</li>
+          </ul>
+          <div class="brand-mini-builder__total">
+            <span class="brand-mini-builder__total-label">Bundle total</span>
+            <span class="brand-mini-builder__total-value" data-bb-total>$0.00</span>
+          </div>
+          <button type="button" class="brand-btn brand-btn--primary brand-mini-builder__cta" data-bb-add disabled>
+            <span data-bb-cta-label>{{ cta_text }}</span>
+          </button>
+        </div>
+      </div>
+
+      {%- comment -%}
+        ====== RIGHT: preview image ======
+        Single hero image of the currently selected net. Caption underneath.
+        Kept editorial — no chrome, no overlays. The "Your setup" summary
+        lives in the left column so the right can breathe.
+      {%- endcomment -%}
+      <div class="brand-mini-builder__preview-col">
+        <div class="brand-mini-builder__preview-frame">
+          {%- if first_net != blank and first_net.featured_media != blank -%}
+            <img
+              class="brand-mini-builder__preview-image"
+              data-bb-preview-image
+              src="{{ first_net.featured_media | image_url: width: 1200 }}"
+              srcset="{{ first_net.featured_media | image_url: width: 600 }} 600w, {{ first_net.featured_media | image_url: width: 1200 }} 1200w"
+              sizes="(max-width: 999px) 100vw, 45vw"
+              alt="{{ first_net.title | escape }}"
+              width="1200"
+              height="1200"
+              loading="lazy">
+          {%- else -%}
+            <div class="brand-mini-builder__preview-empty" data-bb-preview-image>
+              Pick a net to preview your setup.
+            </div>
+          {%- endif -%}
+        </div>
+        <p class="brand-mini-builder__preview-caption" data-bb-preview-caption>
+          {{ first_net.title | default: 'Your setup' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var roots = document.querySelectorAll('[data-brand-mini-builder]:not([data-bb-bound])');
+    if (!roots.length) return;
+
+    roots.forEach(function (root) {
+      root.setAttribute('data-bb-bound', '1');
+
+      // ---------- Element refs ----------
+      var stepTabs = Array.prototype.slice.call(root.querySelectorAll('[data-bb-go]'));
+      var stage = root.querySelector('[data-bb-stage]');
+      var fieldsets = Array.prototype.slice.call(root.querySelectorAll('[data-bb-step]'));
+      var prevBtn = root.querySelector('[data-bb-prev]');
+      var nextBtn = root.querySelector('[data-bb-next]');
+      var positionEl = root.querySelector('[data-bb-position]');
+      var previewImage = root.querySelector('[data-bb-preview-image]');
+      var previewCaption = root.querySelector('[data-bb-preview-caption]');
+      var totalEl = root.querySelector('[data-bb-total]');
+      var ctaBtn = root.querySelector('[data-bb-add]');
+      var ctaLabel = root.querySelector('[data-bb-cta-label]');
+      var bundleList = root.querySelector('[data-bb-bundle-list]');
+      var bundleEmpty = root.querySelector('[data-bb-bundle-empty]');
+      var originalCtaText = ctaLabel ? ctaLabel.textContent : 'Add this setup to cart';
+
+      // Build the ordered list of step numbers that actually got rendered.
+      // (Steps with empty collections drop out in Liquid; the JS state
+      // machine should agree with what's in the DOM, not the static 1-5.)
+      var stepOrder = fieldsets
+        .map(function (f) { return parseInt(f.getAttribute('data-bb-step'), 10); })
+        .filter(function (n) { return !isNaN(n); })
+        .sort(function (a, b) { return a - b; });
+      if (!stepOrder.length) return;
+
+      var currentIdx = 0; // index into stepOrder
+
+      // ---------- Money formatting (Intl with graceful fallback) ----------
+      var currency = (window.Shopify && window.Shopify.currency && window.Shopify.currency.active) || 'USD';
+      var locale = (window.Shopify && window.Shopify.locale) || (document.documentElement.lang || 'en-US');
+      var formatMoney;
+      try {
+        var fmt = new Intl.NumberFormat(locale, { style: 'currency', currency: currency, minimumFractionDigits: 2 });
+        formatMoney = function (cents) { return fmt.format((cents || 0) / 100); };
+      } catch (e) {
+        formatMoney = function (cents) { return '$' + ((cents || 0) / 100).toFixed(2); };
+      }
+
+      // ---------- Step navigation ----------
+      function showStep(idx) {
+        if (idx < 0) idx = 0;
+        if (idx > stepOrder.length - 1) idx = stepOrder.length - 1;
+        currentIdx = idx;
+        var activeNum = stepOrder[idx];
+
+        fieldsets.forEach(function (f) {
+          var n = parseInt(f.getAttribute('data-bb-step'), 10);
+          if (n === activeNum) f.setAttribute('data-bb-active', '');
+          else f.removeAttribute('data-bb-active');
+        });
+
+        stepTabs.forEach(function (tab) {
+          var n = parseInt(tab.getAttribute('data-bb-go'), 10);
+          if (n === activeNum) tab.setAttribute('aria-current', 'step');
+          else tab.removeAttribute('aria-current');
+          // Mark steps the shopper has already passed as "complete" for CSS.
+          var idxOfTab = stepOrder.indexOf(n);
+          tab.toggleAttribute('data-bb-complete', idxOfTab !== -1 && idxOfTab < currentIdx);
+        });
+
+        if (prevBtn) prevBtn.toggleAttribute('disabled', idx === 0);
+        if (nextBtn) {
+          var atEnd = idx === stepOrder.length - 1;
+          // Hide Continue on final step; CTA below carries the action.
+          nextBtn.toggleAttribute('hidden', atEnd);
+        }
+        if (positionEl) positionEl.textContent = 'Step ' + (idx + 1) + ' of ' + stepOrder.length;
+      }
+
+      stepTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var n = parseInt(tab.getAttribute('data-bb-go'), 10);
+          var idx = stepOrder.indexOf(n);
+          if (idx !== -1) showStep(idx);
+        });
+      });
+      if (prevBtn) prevBtn.addEventListener('click', function () { showStep(currentIdx - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { showStep(currentIdx + 1); });
+
+      // Keyboard shortcuts inside the form column — arrow keys advance steps.
+      // Skip if user is editing a real text field (none yet, but defensive).
+      root.addEventListener('keydown', function (e) {
+        if (e.target.matches('input, textarea, select, button')) {
+          // Allow arrow keys to navigate radio groups natively; only intercept
+          // when the focused element doesn't care about left/right itself.
+          if (e.target.matches('input[type="radio"], input[type="checkbox"], textarea')) return;
+        }
+        if (e.key === 'ArrowRight') { e.preventDefault(); showStep(currentIdx + 1); }
+        if (e.key === 'ArrowLeft')  { e.preventDefault(); showStep(currentIdx - 1); }
+      });
+
+      // ---------- Selection state ----------
+      function selectedInputs() {
+        return Array.prototype.slice.call(root.querySelectorAll('input[data-bb-input]:checked'));
+      }
+
+      function buildSpan(cls, text) {
+        var s = document.createElement('span');
+        s.className = cls;
+        s.textContent = text;
+        return s;
+      }
+
+      var labelByKind = {
+        net: 'Net',
+        surface: 'Mat',
+        monitor: 'Monitor',
+        screen: 'Screen',
+        accessory: 'Add-on'
+      };
+
+      function renderBundleList(inputs) {
+        if (!bundleList) return;
+        Array.prototype.slice.call(bundleList.children).forEach(function (child) {
+          if (child !== bundleEmpty) child.remove();
+        });
+        var added = 0;
+        inputs.forEach(function (input) {
+          var variantId = input.getAttribute('data-bb-variant-id');
+          if (!variantId) return;
+          var title = input.getAttribute('data-bb-title') || 'Item';
+          var price = parseInt(input.getAttribute('data-bb-price') || '0', 10);
+          var kind = input.getAttribute('data-bb-input');
+          var li = document.createElement('li');
+          li.className = 'brand-mini-builder__bundle-item';
+          li.appendChild(buildSpan('brand-mini-builder__bundle-kind', labelByKind[kind] || 'Item'));
+          li.appendChild(buildSpan('brand-mini-builder__bundle-name', title));
+          li.appendChild(buildSpan('brand-mini-builder__bundle-price', formatMoney(price)));
+          bundleList.appendChild(li);
+          added += 1;
+        });
+        if (bundleEmpty) bundleEmpty.hidden = added > 0;
+      }
+
+      function updateTotalAndCta() {
+        var inputs = selectedInputs();
+        var total = 0;
+        var addable = 0;
+        inputs.forEach(function (input) {
+          var price = parseInt(input.getAttribute('data-bb-price') || '0', 10);
+          var variantId = input.getAttribute('data-bb-variant-id');
+          if (variantId) {
+            total += isNaN(price) ? 0 : price;
+            addable += 1;
+          }
+        });
+        if (totalEl) totalEl.textContent = formatMoney(total);
+        if (ctaBtn) ctaBtn.toggleAttribute('disabled', addable === 0);
+        renderBundleList(inputs);
+      }
+
+      function updatePreview() {
+        var net = root.querySelector('input[data-bb-input="net"]:checked');
+        if (!net || !previewImage) return;
+        var img600 = net.getAttribute('data-bb-image-600');
+        var img1200 = net.getAttribute('data-bb-image-1200');
+        var title = net.getAttribute('data-bb-title') || 'Your setup';
+        if (previewImage.tagName === 'IMG') {
+          if (img1200) previewImage.setAttribute('src', img1200);
+          if (img600 && img1200) previewImage.setAttribute('srcset', img600 + ' 600w, ' + img1200 + ' 1200w');
+          previewImage.setAttribute('alt', title);
+        } else if (img1200) {
+          var newImg = document.createElement('img');
+          newImg.className = 'brand-mini-builder__preview-image';
+          newImg.setAttribute('data-bb-preview-image', '');
+          newImg.setAttribute('src', img1200);
+          newImg.setAttribute('srcset', (img600 || img1200) + ' 600w, ' + img1200 + ' 1200w');
+          newImg.setAttribute('sizes', '(max-width: 999px) 100vw, 45vw');
+          newImg.setAttribute('alt', title);
+          newImg.setAttribute('loading', 'lazy');
+          previewImage.parentNode.replaceChild(newImg, previewImage);
+          previewImage = newImg;
+        }
+        if (previewCaption) previewCaption.textContent = title;
+      }
+
+      root.querySelectorAll('input[data-bb-input]').forEach(function (input) {
+        input.addEventListener('change', function () {
+          if (input.getAttribute('data-bb-input') === 'net') updatePreview();
+          updateTotalAndCta();
+        });
+      });
+
+      // Initial state.
+      showStep(0);
+      updatePreview();
+      updateTotalAndCta();
+
+      // ---------- Bundle add-to-cart ----------
+      if (ctaBtn) {
+        ctaBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          if (ctaBtn.hasAttribute('disabled')) return;
+          var items = selectedInputs()
+            .map(function (input) {
+              var vid = input.getAttribute('data-bb-variant-id');
+              return vid ? { id: parseInt(vid, 10), quantity: 1 } : null;
+            })
+            .filter(Boolean);
+          if (!items.length) return;
+
+          if (ctaLabel) ctaLabel.textContent = 'Adding…';
+          ctaBtn.setAttribute('disabled', '');
+          var routeBase = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+          fetch(routeBase + 'cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: items })
+          })
+            .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+            .then(function (result) {
+              if (!result.ok) throw new Error((result.data && result.data.description) || 'Add failed');
+              if (ctaLabel) ctaLabel.textContent = 'Added to cart ✓';
+              document.documentElement.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+              setTimeout(function () {
+                if (ctaLabel) ctaLabel.textContent = originalCtaText;
+                ctaBtn.removeAttribute('disabled');
+              }, 1800);
+            })
+            .catch(function (err) {
+              if (ctaLabel) ctaLabel.textContent = 'Try again';
+              console.warn('[brand-mini-builder] add failed:', err);
+              setTimeout(function () {
+                if (ctaLabel) ctaLabel.textContent = originalCtaText;
+                ctaBtn.removeAttribute('disabled');
+              }, 1800);
+            });
+        });
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Brand mini builder",
+  "tag": "section",
+  "class": "brand-mini-builder-section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Stepped bundle configurator. 5 steps — Net → Mat → Launch monitor → Screen → Add-ons. Steps with empty collections auto-skip. Designed to fit a desktop viewport without scrolling."
+    },
+    { "type": "header", "content": "Header" },
+    { "type": "text",     "id": "eyebrow", "label": "Eyebrow", "default": "Build your setup" },
+    { "type": "text",     "id": "heading", "label": "Heading", "default": "Build the bay you'll show up to." },
+    { "type": "textarea", "id": "body",    "label": "Body",    "default": "Five picks, one click. Net to simulator — live total, one button adds the whole bundle." },
+
+    { "type": "header", "content": "Step 01 — Net (required)" },
+    { "type": "text",       "id": "step_1_label", "label": "Step 1 heading", "default": "Choose your net." },
+    { "type": "text",       "id": "step_1_short", "label": "Step 1 tab label", "default": "Net" },
+    { "type": "collection", "id": "nets_collection", "label": "Nets collection" },
+    { "type": "range",      "id": "nets_limit",      "label": "Max nets shown", "min": 2, "max": 8, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Step 02 — Mat (optional)" },
+    { "type": "text",       "id": "step_2_label", "label": "Step 2 heading", "default": "Add a mat." },
+    { "type": "text",       "id": "step_2_short", "label": "Step 2 tab label", "default": "Mat" },
+    { "type": "text",       "id": "step_2_skip_label", "label": "Skip option label", "default": "I'll skip the mat" },
+    { "type": "collection", "id": "surfaces_collection", "label": "Mats collection",
+      "info": "Hitting mats / turf only. Not side barriers or accessories — those belong in step 5." },
+    { "type": "range",      "id": "surfaces_limit",      "label": "Max mats shown", "min": 2, "max": 6, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Step 03 — Launch monitor (optional)" },
+    { "type": "text",       "id": "step_3_label", "label": "Step 3 heading", "default": "Add a launch monitor." },
+    { "type": "text",       "id": "step_3_short", "label": "Step 3 tab label", "default": "Monitor" },
+    { "type": "text",       "id": "step_3_skip_label", "label": "Skip option label", "default": "Skip the launch monitor" },
+    { "type": "collection", "id": "launch_monitors_collection", "label": "Launch monitors collection",
+      "info": "FlightScope, Foresight, Uneekor, Full Swing, etc." },
+    { "type": "range",      "id": "launch_monitors_limit",      "label": "Max monitors shown", "min": 2, "max": 6, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Step 04 — Screen / sim bay (optional)" },
+    { "type": "text",       "id": "step_4_label", "label": "Step 4 heading", "default": "Add a screen." },
+    { "type": "text",       "id": "step_4_short", "label": "Step 4 tab label", "default": "Screen" },
+    { "type": "text",       "id": "step_4_skip_label", "label": "Skip option label", "default": "Skip the screen" },
+    { "type": "collection", "id": "screens_collection", "label": "Screens / sim bay collection",
+      "info": "Impact screens, sim bays, projection enclosures." },
+    { "type": "range",      "id": "screens_limit",      "label": "Max screens shown", "min": 2, "max": 6, "step": 1, "default": 4 },
+
+    { "type": "header", "content": "Step 05 — Add-ons (optional)" },
+    { "type": "text",       "id": "step_5_label", "label": "Step 5 heading", "default": "Stack the extras." },
+    { "type": "text",       "id": "step_5_short", "label": "Step 5 tab label", "default": "Extras" },
+    { "type": "collection", "id": "accessories_collection", "label": "Add-ons collection",
+      "info": "Side barriers, frame pads, sandbags, training aids, tees — everything that finishes the setup." },
+    { "type": "range",      "id": "accessories_limit",      "label": "Max add-ons shown", "min": 3, "max": 8, "step": 1, "default": 5 },
+
+    { "type": "header", "content": "Summary" },
+    { "type": "text", "id": "empty_bundle_label", "label": "Empty-bundle placeholder", "default": "Pick a net to start your setup." },
+    { "type": "text", "id": "cta_text",           "label": "Bundle CTA text",         "default": "Add this setup to cart" },
+
+    { "type": "header", "content": "Visual concept" },
+    {
+      "type": "select",
+      "id": "surface_concept",
+      "label": "Background concept",
+      "info": "Switch the section's surface treatment. Studio light = Shadow Green with a soft Glow radial. The Bay = pure black with Emerald accents.",
+      "options": [
+        { "value": "studio-light", "label": "Studio light (Shadow + Glow radial)" },
+        { "value": "bay",          "label": "The Bay (Black + Emerald accent)" },
+        { "value": "shadow-flat",  "label": "Pure Shadow (flat, no gradient)" }
+      ],
+      "default": "studio-light"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand mini builder",
+      "settings": {
+        "eyebrow": "Build your setup",
+        "heading": "Build the bay you'll show up to.",
+        "cta_text": "Add this setup to cart"
+      }
+    }
+  ]
+}
+{% endschema %}

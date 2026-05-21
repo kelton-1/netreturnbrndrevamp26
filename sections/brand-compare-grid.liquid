@@ -62,7 +62,7 @@
           -%}
 
           <li
-            class="brand-compare-card"
+            class="brand-compare-card brand-lift"
             data-fit-card
             data-fit-width="{{ fit_width }}"
             data-fit-use-cases="{{ fit_use_cases }}"
@@ -72,20 +72,20 @@
             <div class="brand-compare-card__media">
               {%- if card_image != blank -%}
                 {{ card_image | image_url: width: 720 | image_tag:
-                    class: 'brand-compare-card__image',
+                    class: 'brand-compare-card__image brand-lift__image',
                     loading: 'lazy',
                     sizes: '(max-width: 749px) 90vw, (max-width: 1199px) 45vw, 280px',
                     widths: '240, 360, 480, 640, 720',
                     alt: card_title
                 }}
               {%- else -%}
-                {{ 'product-1' | placeholder_svg_tag: 'brand-compare-card__placeholder' }}
+                {{ 'product-1' | placeholder_svg_tag: 'brand-compare-card__placeholder brand-lift__image' }}
               {%- endif -%}
             </div>
 
             <div class="brand-compare-card__body">
               {%- if card_title != blank -%}
-                <h3 class="brand-compare-card__title">{{ card_title }}</h3>
+                <h3 class="brand-compare-card__title brand-lift__title">{{ card_title }}</h3>
               {%- endif -%}
 
               {%- if block.settings.dimensions != blank -%}
