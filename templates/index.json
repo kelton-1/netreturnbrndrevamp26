@@ -279,7 +279,7 @@
         "proof_versatile"
       ],
       "settings": {
-        "show_concept_badge": true,
+        "show_concept_badge": false,
         "eyebrow": "Why golfers choose it",
         "heading": "Built around the return.",
         "body": "<p>The patented S-shape frame absorbs impact and sends the ball back to your feet. Set it up without tools, use it indoors or outdoors, and build from a standalone net to a simulator setup when you are ready.</p>",
@@ -343,7 +343,7 @@
         "callout_versatile"
       ],
       "settings": {
-        "show_concept_badge": true,
+        "show_concept_badge": false,
         "eyebrow": "Why golfers choose it",
         "heading": "Built around the return.",
         "body": "<p>The patented S-shape frame absorbs impact and sends the ball back to your feet. Set it up without tools, use it indoors or outdoors, and build from a standalone net to a simulator setup when you are ready.</p>",
@@ -403,7 +403,7 @@
         "cat_accessories"
       ],
       "settings": {
-        "show_concept_badge": true,
+        "show_concept_badge": false,
         "eyebrow": "Shop the system",
         "heading": "Industry-leading sport nets. Made to bring training to you."
       }
@@ -455,7 +455,7 @@
         "cat_accessories"
       ],
       "settings": {
-        "show_concept_badge": true,
+        "show_concept_badge": false,
         "eyebrow": "Shop by setup",
         "heading": "Start with the net. Build around your space.",
         "scroll_seconds": 60
@@ -709,7 +709,7 @@
         "setup_18"
       ],
       "settings": {
-        "show_concept_badge": true,
+        "show_concept_badge": false,
         "eyebrow": "From our reviews",
         "quote": "<p>\"I bought three nets before this one. The first ripped in a month. The second sagged. The third lost tension. This is the only one I haven't had to replace.\"</p>",
         "attribution": "Mike T.",

@@ -912,10 +912,16 @@
   .brand-hero__heading { font-size: 84px; }
 }
 @media (max-width: 749px) {
-  .brand-hero--full { min-height: 640px; }
+  /* Cap the hero so the headline + body + CTAs sit above the fold on small phones.
+     100svh accounts for the retractable browser chrome on iOS/Android.
+     min-height keeps the image from collapsing on very short viewports. */
+  .brand-hero--full {
+    min-height: 520px;
+    max-height: 100svh;
+  }
   .brand-hero__content {
     padding-inline: 20px;
-    padding-block: 40px;
+    padding-block: 24px 32px;
   }
   .brand-hero__heading {
     max-width: 11ch;

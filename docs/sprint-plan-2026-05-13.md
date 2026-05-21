@@ -1,5 +1,7 @@
 # Shopify Theme Development Sprint Plan
 
+> **Status (2026-05-21):** Workstreams 1, 2, 3, and 5 are effectively done — the active workstream is now the brand revamp on branch `brand-revamp-2026`. Start with [brand-revamp-2026.md](brand-revamp-2026.md) for current state. Workstream 4 (cart 400 / variant handling investigation) was never executed and remains open if needed.
+
 > **For the next agent session:** Start by reading `README.md`, `docs/setup-status.md`, and this file. Use the Shopify skills in `.agents/skills` when working on Liquid, Shopify CLI, Admin/API behavior, or storefront GraphQL. Do not push, publish, or mutate a Shopify theme unless the user explicitly asks for that action in the active session.
 
 **Sprint Goal:** Turn the freshly initialized TheNetReturn Shopify theme workspace into a safe, repeatable development lane and begin reducing risk in the pulled theme with focused quality fixes and storefront-flow verification.
@@ -13,7 +15,7 @@
 
 ## Operating Rules
 
-- Work locally in `/Users/kelton1/Desktop/TheNetReturn/Shopify`.
+- Work locally in `/Users/kelton1/Developer/TheNetReturn/Shopify`.
 - Use `PATH=/Users/kelton1/.local/bin:$PATH` for commands unless `npm` is already available.
 - Keep Shopify actions read-only or development-theme-only by default.
 - Use `npm run theme:dev` for preview QA; stop it before ending the session.
@@ -36,13 +38,13 @@ By the end of the sprint, the next agent should leave behind:
 
 **Intent:** Make the workspace safe for repeated agent sessions before changing theme behavior.
 
-- [ ] Confirm Codex was restarted after MCP setup and Shopify Dev MCP is available.
-- [ ] Review current Git status and distinguish setup files from pulled theme files.
-- [ ] Decide with the user whether to commit the full pulled-theme baseline before feature work.
-- [ ] If committing, create a baseline commit message such as `chore: initialize TheNetReturn Shopify theme workspace`.
-- [ ] Confirm `.shopifyignore` excludes repo-only files: `.git/*`, `.agents/*`, `node_modules/*`, package files, `README.md`, and `docs/*`.
-- [ ] Confirm `npm run theme:list` still lists source theme `149365096541`.
-- [ ] Confirm `npm run theme:dev` starts a development preview and stop it after verification.
+- [x] Confirm Codex was restarted after MCP setup and Shopify Dev MCP is available.
+- [x] Review current Git status and distinguish setup files from pulled theme files.
+- [x] Decide with the user whether to commit the full pulled-theme baseline before feature work.
+- [x] If committing, create a baseline commit message such as `chore: initialize TheNetReturn Shopify theme workspace`.
+- [x] Confirm `.shopifyignore` excludes repo-only files: `.git/*`, `.agents/*`, `node_modules/*`, package files, `README.md`, and `docs/*`.
+- [x] Confirm `npm run theme:list` still lists source theme `149365096541`.
+- [x] Confirm `npm run theme:dev` starts a development preview and stop it after verification.
 
 **Acceptance Criteria**
 
@@ -71,14 +73,14 @@ Known example errors:
 
 **Sprint Tasks**
 
-- [ ] Run `npm run theme:check` and capture the current summary in `docs/theme-check-baseline.md`.
-- [ ] Group findings into `must fix`, `needs product/design review`, and `defer`.
-- [ ] Fix low-risk correctness errors first:
+- [x] Run `npm run theme:check` and capture the current summary in `docs/theme-check-baseline.md`.
+- [x] Group findings into `must fix`, `needs product/design review`, and `defer`.
+- [x] Fix low-risk correctness errors first:
   - `snippets/trust-badges.liquid`: add explicit image dimensions.
   - `sections/academy-expanding-cards.liquid`: replace parser-blocking `script_tag` with a deferred script tag.
   - `blocks/ai_gen_block_ecefba7.liquid`: replace invalid `limit` filter usage with valid Liquid iteration limiting.
-- [ ] Re-run `npm run theme:check` after each focused fix.
-- [ ] Leave `layout/theme.liquid` `ContentForHeaderModification` for a separate reviewed task unless the user explicitly wants it handled now.
+- [x] Re-run `npm run theme:check` after each focused fix.
+- [x] Leave `layout/theme.liquid` `ContentForHeaderModification` for a separate reviewed task unless the user explicitly wants it handled now.
 
 **Acceptance Criteria**
 
@@ -100,12 +102,12 @@ Known example errors:
 
 **Sprint Tasks**
 
-- [ ] Start `npm run theme:dev`.
-- [ ] Capture the local preview URL and development theme ID in the sprint notes.
-- [ ] Identify representative storefront URLs from existing templates, theme settings, or Shopify preview navigation.
-- [ ] Use browser QA to walk through the flows above.
-- [ ] Record failures in `docs/qa-notes.md` with page URL, reproduction steps, expected result, actual result, and likely file owner.
-- [ ] Stop `theme:dev` before ending the session.
+- [x] Start `npm run theme:dev`.
+- [x] Capture the local preview URL and development theme ID in the sprint notes.
+- [x] Identify representative storefront URLs from existing templates, theme settings, or Shopify preview navigation.
+- [x] Use browser QA to walk through the flows above.
+- [x] Record failures in `docs/qa-notes.md` with page URL, reproduction steps, expected result, actual result, and likely file owner.
+- [x] Stop `theme:dev` before ending the session.
 
 **Acceptance Criteria**
 
@@ -144,13 +146,13 @@ Known example errors:
 
 **Intent:** Make future sessions faster and safer.
 
-- [ ] Add `docs/development-workflow.md` if workflow knowledge grows beyond `README.md`.
+- [x] Add `docs/development-workflow.md` if workflow knowledge grows beyond `README.md`. — Captured instead in [Shopify/CLAUDE.md](../CLAUDE.md) Commands + Safety sections.
 - [ ] Consider adding npm scripts for common safe commands if the user wants them:
   - `theme:check:strict`
   - `theme:dev:open`
   - `theme:pull:dry-note` documentation only, since Shopify CLI does not provide a true pull dry run.
 - [ ] Add a short `docs/release-checklist.md` before any future push/publish work.
-- [ ] Keep local-only docs excluded from Shopify uploads via `.shopifyignore`.
+- [x] Keep local-only docs excluded from Shopify uploads via `.shopifyignore`.
 
 **Acceptance Criteria**
 
@@ -172,7 +174,7 @@ This order favors knowing the current storefront behavior before making fixes. I
 Use this prompt to start the next implementation session:
 
 ```text
-We are in /Users/kelton1/Desktop/TheNetReturn/Shopify, a local Shopify theme workspace for TheNetReturn theme 149365096541. Read README.md, docs/setup-status.md, and docs/sprint-plan-2026-05-13.md first. Use the installed Shopify skills in .agents/skills and the Shopify Dev MCP after confirming Codex has been restarted. Start with Workstream 1 from the sprint plan: verify the safe baseline, check Git status, confirm theme:list, and decide whether the baseline should be committed before edits. Do not push, publish, or mutate the source Shopify theme without explicit approval. Use npm run theme:dev only for development-theme preview QA and stop it before ending.
+We are in /Users/kelton1/Developer/TheNetReturn/Shopify, a local Shopify theme workspace for TheNetReturn theme 149365096541. Read README.md, docs/setup-status.md, and docs/sprint-plan-2026-05-13.md first. Use the installed Shopify skills in .agents/skills and the Shopify Dev MCP after confirming Codex has been restarted. Start with Workstream 1 from the sprint plan: verify the safe baseline, check Git status, confirm theme:list, and decide whether the baseline should be committed before edits. Do not push, publish, or mutate the source Shopify theme without explicit approval. Use npm run theme:dev only for development-theme preview QA and stop it before ending.
 ```
 
 ## Definition Of Done For This Sprint

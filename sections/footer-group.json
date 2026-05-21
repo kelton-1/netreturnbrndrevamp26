@@ -75,7 +75,7 @@
             "icon": "picto-box",
             "custom_icon_width": 50,
             "title": "Free shipping",
-            "content": "<p>Free Standard UPS Shipping for all the orders.</p>"
+            "content": "<p>Free shipping on orders over $250.</p>"
           }
         },
         "item-2": {
