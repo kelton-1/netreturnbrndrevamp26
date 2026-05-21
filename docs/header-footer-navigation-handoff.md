@@ -13,6 +13,12 @@ Workspace: `/Users/kelton1/Developer/TheNetReturn/Shopify`
 
 ## Fixed In Code
 
+- 2026-05-21 mobile header update:
+  - Mobile header controls now follow the approved order: logo, open space, search, account/login, cart, menu.
+  - The mobile menu toggle is on the far right for right-handed thumb access.
+  - Homepage transparent header behavior is enabled; the transparent floating island is scoped to the homepage hero through Focal's existing `request.page_type == 'index'` logic.
+  - The mobile drawer is now a full-screen dark brand surface, styled from the 2026 brand tokens.
+  - Mobile menu content renders from Shopify Navigation through `sidebar_navigation_menu`; this checkout currently points that setting at `main-menu-2024` until a dedicated mobile menu is created in Admin.
 - Mobile drawer now starts with direct conversion-first paths before the inherited menu:
   - `Shop Nets`
   - `Shop Packages`
@@ -37,6 +43,8 @@ Workspace: `/Users/kelton1/Developer/TheNetReturn/Shopify`
 Shopify Navigation linklists are store data, so the cleanest final IA still belongs in Admin rather than hardcoded theme files.
 
 Recommended mobile menu:
+
+Configure this as a dedicated Shopify Navigation menu and assign it to the header section's `Mobile menu` / `sidebar_navigation_menu` setting. Do not hardcode this final order in `snippets/mobile-menu.liquid`.
 
 1. `Shop Nets` -> `/collections/nets-1`
 2. `Shop Packages` -> `/collections/packages`
@@ -104,6 +112,9 @@ Artifacts:
 
 Confirmed in the rendered preview before Shopify connection verification appeared:
 
+- 2026-05-21 update: local preview restarted at `http://127.0.0.1:9292` for development theme `149375975517`.
+- 2026-05-21 update: mobile DOM checks at 390px confirmed the full-screen drawer opens, uses Shopify Navigation content from `sidebar_navigation_menu`, and presents account/order/support utilities in the footer.
+- 2026-05-21 update: Shopify validation passed for the changed header/menu/config/CSS artifacts, and `node scripts/validate-header-footer-navigation.mjs` passed `13` checks.
 - Conversion-first mobile quick links exist in the drawer markup in the approved order.
 - Stale BFCM selectors are absent from the rendered header.
 - Desktop/menu guided label text is present.
@@ -116,6 +127,7 @@ Confirmed in the rendered preview before Shopify connection verification appeare
 
 Not completed visually:
 
+- 2026-05-21 update: screenshot capture through the in-app browser timed out on the Shopify-rendered page, even though DOM/computed-state checks confirmed the full-screen drawer state. A manual browser screenshot pass is still useful before source-theme push/publish.
 - Desktop hover screenshots for `Explore` and `Learn`, plus the mobile drawer screenshot at 390px. A first preview attempt was blocked by an unrelated dirty homepage config issue in `templates/index.json` (`order: must have a maximum of 25`). Running the preview while ignoring that homepage file allowed the local route to load, but Shopify then returned "Your connection needs to be verified before you can proceed" for browser automation. The final visual check needs a human/browser session that can pass the storefront verification layer.
 
 ## Code Files Touched

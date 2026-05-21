@@ -13,39 +13,50 @@ function check(name, predicate) {
 const mobileMenu = read('snippets/mobile-menu.liquid');
 const desktopMenu = read('snippets/desktop-menu.liquid');
 const header = read('sections/header.liquid');
+const brandCss = read('assets/brand-revamp.css.liquid');
 const headerGroup = JSON.parse(stripShopifyJsonComment(read('sections/header-group.json')));
 const footerGroup = JSON.parse(stripShopifyJsonComment(read('sections/footer-group.json')));
 const brandDocs = read('docs/brand-revamp-2026.md');
 
-check('mobile drawer has no inherited accordion rows below the primary cards', () =>
+check('mobile drawer is Shopify Navigation-driven instead of hardcoded cards', () =>
   !mobileMenu.includes('mobile-nav__link-row') &&
   !mobileMenu.includes('mobile-nav__toggle') &&
   !mobileMenu.includes('collapsible-content id="mobile-menu-') &&
-  mobileMenu.includes('mobile-nav__support-links')
+  !mobileMenu.includes('mobile-nav__primary-grid') &&
+  !mobileMenu.includes('mobile-nav__decision-links') &&
+  mobileMenu.includes('{%- for link in menu.links -%}') &&
+  mobileMenu.includes('mobile-nav__menu-list') &&
+  mobileMenu.includes('mobile-nav__menu-link') &&
+  mobileMenu.includes('mobile-nav__submenu')
 );
 
-check('mobile drawer exposes conversion-first primary paths', () =>
-  [
-    'Shop Nets',
-    'Shop Packages',
-    'Shop Sim Bays',
-    'Shop Accessories',
-    'Find Your Net',
-    'Compare Nets',
-    'Best Sellers',
-    'Talk To An Expert',
-  ].every((label) => mobileMenu.includes(label)) &&
-    mobileMenu.includes('mobile-nav__primary-grid') &&
-    mobileMenu.includes('mobile-nav__decision-links') &&
-    mobileMenu.includes('mobile-nav__support-links') &&
-    !mobileMenu.includes('mobile-nav__quick-links')
+check('mobile utility links remain in the full-screen drawer footer', () =>
+  mobileMenu.includes('mobile-nav__utility-link') &&
+  mobileMenu.includes('Order Status') &&
+  mobileMenu.includes('Product Support') &&
+  mobileMenu.includes('header.general.account')
 );
 
-check('mobile primary shopping paths render before support links', () => {
-  const primaryIndex = mobileMenu.indexOf('mobile-nav__primary-grid');
-  const supportIndex = mobileMenu.indexOf('mobile-nav__support-links');
-  return primaryIndex !== -1 && supportIndex !== -1 && primaryIndex < supportIndex;
-});
+check('header mobile controls follow approved order and menu placement', () =>
+  header.includes('header__icon-wrapper--mobile-account') &&
+  header.includes('header__icon-wrapper--mobile-menu') &&
+  header.indexOf('header__icon-wrapper--mobile-account') < header.indexOf('routes.cart_url') &&
+  header.indexOf('routes.cart_url') < header.indexOf('header__icon-wrapper--mobile-menu')
+);
+
+check('header uses homepage transparent mode and dedicated sidebar navigation setting', () =>
+  headerGroup.sections.header.settings.enable_transparent_header === true &&
+  headerGroup.sections.header.settings.sidebar_navigation_menu !== ''
+);
+
+check('brand CSS implements island header and full-screen dark mobile drawer', () =>
+  brandCss.includes('Mobile header island + full-screen menu') &&
+  brandCss.includes('.header.header--transparent .header__wrapper') &&
+  brandCss.includes('#mobile-menu-drawer.drawer') &&
+  brandCss.includes('width: 100vw') &&
+  brandCss.includes('mobile-nav__menu-link') &&
+  brandCss.includes('mobile-nav__drawer-logo')
+);
 
 check('desktop mega menu has guided decision-support label', () =>
   desktopMenu.includes('mega-menu__guided-title') &&
@@ -73,10 +84,10 @@ check('desktop Explore and Learn use brand mega menus with distinct imagery', ()
   });
 });
 
-check('mobile replaces inherited nested menus with direct support links', () =>
+check('mobile replaces inherited nested accordions with full-screen menu rows', () =>
   !mobileMenu.includes("unless link_title_downcase == 'shop'") &&
   !mobileMenu.includes('mobile-nav__secondary') &&
-  mobileMenu.includes('mobile-nav__support-links') &&
+  mobileMenu.includes('mobile-nav__menu') &&
   !mobileMenu.includes('show_mobile_mega_images') &&
   !mobileMenu.includes('mobile-nav__guided')
 );

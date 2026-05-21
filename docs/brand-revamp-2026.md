@@ -739,3 +739,43 @@ When a section's `{% schema %}` adds new select options for a setting that the J
 **Plan supersession**
 
 `docs/superpowers/plans/2026-05-13-compare-mobile-guided-flow.md` is now superseded. The orphan section `sections/mobile-compare-nets.liquid` (1,105 lines, no template references it) can be archived in a follow-up cleanup pass — it's dead weight in the theme repo.
+
+---
+
+## Mobile header island and full-screen menu
+
+**Date:** 2026-05-21
+
+The approved Allbirds / SharkNinja-inspired mobile header direction has been implemented in the local theme code. The design spec lives at `docs/superpowers/specs/2026-05-21-mobile-header-navigation-design.md`, with inspiration screenshots preserved under `docs/inspiration/header-mobile-nav-2026-05-21/`.
+
+**What landed**
+
+- `sections/header.liquid` — mobile control order now supports logo, flexible space, search, account/login, cart, and far-right menu. The original left-side mobile hamburger is reserved for the desktop drawer layout, and a mobile-only menu toggle now renders after cart.
+- `snippets/mobile-menu.liquid` — the drawer content now renders from the `menu` parameter, which is supplied by `section.settings.sidebar_navigation_menu | default: section.settings.navigation_menu`. Hardcoded mobile shopping cards were removed as the production source of truth.
+- `sections/header-group.json` — `enable_transparent_header` is enabled for Focal's homepage-only transparent header behavior, and `sidebar_navigation_menu` is explicitly set to `main-menu-2024` until a dedicated mobile Shopify Navigation menu is created in Admin.
+- `assets/brand-revamp.css.liquid` — a final cascade block adds the floating header island, homepage transparent/glass island state, mobile control layout, and full-screen dark brand drawer using the current `--brand-*` color, typography, spacing, and motion tokens.
+- `scripts/validate-header-footer-navigation.mjs` — updated to validate the Shopify Navigation-driven mobile menu, far-right mobile toggle, transparent header setting, and dark full-screen menu classes.
+
+**Admin follow-up**
+
+Create a dedicated mobile Shopify Navigation menu and assign it to the header section's `sidebar_navigation_menu` / `Mobile menu` setting. Recommended order remains:
+
+1. Shop Nets
+2. Shop Packages
+3. Simulation
+4. Accessories
+5. Compare Nets
+6. Build Your Setup
+7. Talk To An Expert
+8. Learn & Support
+
+Until that Admin menu exists, the local config points `sidebar_navigation_menu` at `main-menu-2024` so the mobile menu is still Navigation-controlled rather than hardcoded.
+
+**Validation**
+
+- Shopify skill validation passed for `sections/header.liquid`, `snippets/mobile-menu.liquid`, `sections/header-group.json`, and `assets/brand-revamp.css.liquid` when run with the absolute theme path.
+- Static validator passed: `node scripts/validate-header-footer-navigation.mjs` (`13` checks).
+- Theme Check remained on the known baseline: `383 files inspected`, `161 total offenses`, `1 error`, `160 warnings`.
+- Local preview restarted at `http://127.0.0.1:9292` using development theme `149375975517`.
+- Mobile DOM verification at 390px confirmed header controls render as search, logo, login, cart, menu in the banner semantics, and the far-right menu button opens `#mobile-menu-drawer` as a visible `390px x 844px` full-screen drawer.
+- Screenshot capture through the in-app browser timed out on Shopify's rendered page, so final visual screenshot artifacts were not produced in this pass.
