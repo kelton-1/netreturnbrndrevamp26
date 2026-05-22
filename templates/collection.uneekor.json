@@ -9,8 +9,77 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_sim": { "type": "crumb", "settings": { "label": "Simulation", "link": "/collections/simulation" } },
+        "crumb_monitors": { "type": "crumb", "settings": { "label": "Launch Monitors", "link": "/collections/simulation#launch-monitors" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "Uneekor" } }
+      },
+      "block_order": ["crumb_home", "crumb_sim", "crumb_monitors", "crumb_current"],
+      "settings": {}
+    },
+    "brand_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Uneekor × Net Return",
+        "heading": "Uneekor launch monitors.",
+        "body": "<p>Overhead camera-based tracking with full ball and club data — built for indoor sim bays. Paired with the Net Return ball-return system.</p>",
+        "primary_label": "Shop Uneekor",
+        "primary_link": "#uneekor-grid",
+        "secondary_label": "Compare nets first",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/nrxuneekor.png",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_other_monitors": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Compare brands",
+            "heading": "All launch monitors",
+            "body": "FlightScope, Foresight, Full Swing, Uneekor, Garmin — see every option side-by-side.",
+            "cta_text": "Browse all monitors",
+            "link": "/collections/simulation#launch-monitors"
+          }
+        },
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Build your sim setup",
+            "body": "Pair a Uneekor with the right net, screen, and projector in one flow.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a sim specialist",
+            "body": "Which Uneekor model fits your ceiling height and software stack? Real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_other_monitors", "cross_build", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to keep moving.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "image_with_text_overlay_F9xFKi": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "section_height": "auto",
@@ -269,6 +338,8 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_intro",
     "image_with_text_overlay_F9xFKi",
     "image_with_text_block_bBbGkY",
     "featured_collections_gXV9p9",
@@ -279,6 +350,7 @@
     "collection-banner",
     "main",
     "featured_collections_cQ6eJM",
+    "brand_cross_links",
     "image_with_text_overlay_FDkGTA"
   ]
 }
