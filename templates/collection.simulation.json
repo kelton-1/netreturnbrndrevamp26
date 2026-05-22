@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "brand_collection_intro": {
       "type": "brand-collection-intro",
       "settings": {
@@ -16,12 +20,69 @@
         "heading": "Build your home sim.",
         "body": "<p>Pair a Net Return with a launch monitor, screen, and projector to bring tour-grade simulation home. Bays, packages, and add-ons — all in one place.</p>",
         "primary_label": "Shop sim bays",
-        "primary_link": "/collections/sim-bays",
+        "primary_link": "#simulator-bays",
         "secondary_label": "Sim packages",
         "secondary_link": "#simulator-packages",
         "image": "shopify://shop_images/simbay-slider.jpg",
         "overlay_opacity": 55,
         "surface": "shadow"
+      }
+    },
+    "brand_section_nav": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "nav_bays": {
+          "type": "series",
+          "settings": {
+            "label": "Simulator Bays",
+            "size_hint": "Stationary indoor setups",
+            "body": "Pre-built bays in 8, 10, and 12 ft widths. Net + side barriers + impact screen, ready to mount a projector and play.",
+            "link": "#simulator-bays",
+            "cta_text": "See sim bays"
+          }
+        },
+        "nav_packages": {
+          "type": "series",
+          "settings": {
+            "label": "Simulator Packages",
+            "size_hint": "Bundled with a launch monitor",
+            "body": "Net + launch monitor or full sim bay + launch monitor, picked to play together right out of the box.",
+            "link": "#simulator-packages",
+            "cta_text": "See packages"
+          }
+        },
+        "nav_monitors": {
+          "type": "series",
+          "settings": {
+            "label": "Launch Monitors",
+            "size_hint": "Flightscope · Foresight · Full Swing · Garmin · Uneekor",
+            "body": "Tour-grade radar and camera monitors that read your real ball and feed the sim software in real time.",
+            "link": "#launch-monitors",
+            "cta_text": "Shop monitors"
+          }
+        },
+        "nav_addons": {
+          "type": "series",
+          "settings": {
+            "label": "Sim Add-Ons",
+            "size_hint": "Already own a Net Return",
+            "body": "Sim Screen, Valence, frame pads, and No Fly Zone — upgrade an existing net into a sim setup without starting over.",
+            "link": "#simulator-add-ons",
+            "cta_text": "Shop add-ons"
+          }
+        }
+      },
+      "block_order": [
+        "nav_bays",
+        "nav_packages",
+        "nav_monitors",
+        "nav_addons"
+      ],
+      "settings": {
+        "eyebrow": "Jump to a section",
+        "heading": "Pick your starting point.",
+        "body": "<p>Whether you're building from scratch or upgrading a net you already own, find the part of the system you need first.</p>",
+        "columns": 4
       }
     },
     "image_with_text_block_bBbGkY": {
@@ -142,6 +203,52 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Build your setup",
+            "body": "Walk through the bay, screen, monitor, and projector choices in one quick flow.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Five questions about your space and your game — we'll narrow it to one sim recommendation.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a sim specialist",
+            "body": "Real humans who've built dozens of bays. Free advice, no obligation.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "cross_build",
+        "cross_quiz",
+        "cross_call"
+      ],
+      "settings": {
+        "eyebrow": "Need a hand?",
+        "heading": "Three ways to land on the right sim.",
+        "surface": "glow",
+        "columns": 3
       }
     },
     "faq_BTGyy6": {
@@ -668,12 +775,15 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "brand_collection_intro",
+    "brand_section_nav",
     "image_with_text_block_bBbGkY",
     "custom_liquid_zUppqJ",
     "featured_collections_gXV9p9",
     "custom_liquid_hAjaPB",
     "featured_collections_PRAMfw",
+    "brand_cross_links",
     "faq_BTGyy6",
     "video_wtNGUW",
     "logo_list_PkmgTn",
