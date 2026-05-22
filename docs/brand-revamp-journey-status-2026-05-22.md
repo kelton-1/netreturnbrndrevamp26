@@ -4,7 +4,7 @@
 **Checkpoint:** 2026-05-22
 **Session goal:** Extend brand cohesion from homepage to the full customer journey while owner was away. Every page, template, and card should feel like one brand. Navigation makes sense. Filtering makes sense. Mobile-optimized.
 
-## Shipped this session (10 commits on top of the prior homepage work)
+## Shipped this session (15 commits on top of the prior homepage work)
 
 | Surface | What changed | Commit |
 |---|---|---|
@@ -18,7 +18,11 @@
 | Navigation polish | Fixed broken `?simulator-bays` query-string anchor in `page.faq.json`. Wrote admin handoff doc for the mobile-menu and Shop-All-X work that needs to happen in Shopify Admin. | `3086344` |
 | Mobile CSS | 3 audit-driven fixes: cross-links gets a 2-col tablet step, brand-btn padding tightens at 540px, breadcrumb gap relaxed. | `6c5ce30` |
 | `/pages/compare`, `build-your-setup`, `quiz`, `contact` | Four cross-link destination pages branded. Build Your Setup gets a 3-step rail with anchor nav. Contact gets a click-to-call hero. | `61151c8` |
-| Journey QA fix | Repointed nets-1 series rail from `/home-series-nets` and `/pro-series-nets` (un-branded default fallback) to `/home-series` and `/pro-series` (the branded landing pages this session). | (this commit) |
+| Journey QA fix | Repointed nets-1 series rail from `/home-series-nets` and `/pro-series-nets` (un-branded default fallback) to `/home-series` and `/pro-series` (the branded landing pages this session). | `3701987` |
+| Launch monitor partner collections | FlightScope / Foresight / Full Swing / Uneekor collection pages branded with 4-segment breadcrumb (Home > Simulation > Launch Monitors > Brand), brand intro hero, and brand-cross-links. Legacy hero overlays kept disabled. | `892ccb2` |
+| Default collection.json catch-all | Replaces collection-banner with brand-collection-intro (auto-fills heading from `collection.title` and body from `collection.description`). Affects every Shopify collection that doesn't have a custom template. | `164935c` |
+| Bryson page | brand-breadcrumb + brand-cross-links wrap. Custom Bryson storytelling content (slideshow, timeline, video, image-with-text) preserved intact. | `7b42aac` |
+| Testimonials / Setups / Our Story | Same surgical pattern: breadcrumb + cross-links tuned per page's next-step intent. Custom rich-text/gallery/timeline content untouched. | `016be27` |
 
 ## State by surface
 
@@ -27,17 +31,19 @@
 - Homepage
 - 4 top-level collection pages: Nets, Packages, Simulation, Accessories
 - 3 sub-series collection pages: Home Series, Pro Series, Commercial Simulators
-- Compare, Build Your Setup, Quiz, Contact pages
+- 4 launch monitor partner collection pages: FlightScope, Foresight, Full Swing, Uneekor
+- Default `collection.json` catch-all (auto-fills hero from collection title/description, so every uncovered collection — sim-bays, accessories-essentials, bulletproof, azalea, resellers, etc. — now lands on a branded page)
+- 4 reference destination pages: Compare, Build Your Setup, Quiz, Contact
+- 4 storytelling / proof pages: Bryson DeChambeau, Testimonials, Setups, Our Story
 - Default PDP (`product.json`)
 - Pro Series and Home Series PDPs (breadcrumb only — see followups)
 
 **Not yet branded (followup candidates):**
 
-- Other product templates (~40 variants — Azalea, CRO, Bulletproof, Country Club Elite, Outdoor Cover, Pro Turf, Rubber Tees, Sim Series, brand-specific launch-monitor templates, package templates)
-- `collection.json` (the default catch-all — covers ~12 collections incl. Azalea, Bulletproof, Resellers, the launch-monitor brand pages: Flightscope, Foresight, Full Swing, Uneekor)
-- `collection.home-series-2.json`, `collection.home-series-og.json` (deprecation candidates — see followups)
+- Other product templates (~40 variants — Azalea, CRO, Country Club Elite, No Fly Zone, Outdoor Cover, Pro Turf, Rubber Tees, Sim Series, brand-specific launch-monitor product templates, package templates)
+- `collection.home-series-2.json`, `collection.home-series-og.json` (deprecation candidates — these are templates, not collections; will only render if the matching Shopify handle is still live. Admin-side verification needed)
 - Filter UI on `brand-collection-grid` (currently sort-only, no filter sidebar)
-- Sub-collection templates referenced from Build Your Setup: `sim-bays`, `accessories-essentials`, `accessories-safety`, `accessories-simulation` — these are valid Shopify handles (no 404) but they render via the default unbranded `collection.json` template. The branded section nav on `/collections/simulation` and `/collections/general-accessories` mitigates this for users who enter via those parents.
+- Other page templates not touched this session: support, faq, assembly, warranty, academy-landing, browse-all-products, ambassador, affiliate, BFCM/holiday landings, etc.
 
 ## Navigation cohesion
 
