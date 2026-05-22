@@ -35,12 +35,18 @@
   if ideal_for_tags != blank
     assign first_tag = ideal_for_tags | first
     case first_tag
-      when 'kids'         ; assign badge_label = 'Kids'
-      when 'small_spaces' ; assign badge_label = 'Small Spaces'
-      when 'home_garage'  ; assign badge_label = 'Home / Garage'
-      when 'yard'         ; assign badge_label = 'Yard'
-      when 'commercial'   ; assign badge_label = 'Commercial'
-      when 'pro_training' ; assign badge_label = 'Pro Training'
+      when 'kids'
+        assign badge_label = 'Kids'
+      when 'small_spaces'
+        assign badge_label = 'Small Spaces'
+      when 'home_garage'
+        assign badge_label = 'Home / Garage'
+      when 'yard'
+        assign badge_label = 'Yard'
+      when 'commercial'
+        assign badge_label = 'Commercial'
+      when 'pro_training'
+        assign badge_label = 'Pro Training'
     endcase
   endif
 
