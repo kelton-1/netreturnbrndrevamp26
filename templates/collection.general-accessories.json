@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "brand_collection_intro": {
       "type": "brand-collection-intro",
       "settings": {
@@ -22,6 +26,63 @@
         "image": "shopify://shop_images/2160x1200-poolside.jpg",
         "overlay_opacity": 55,
         "surface": "shadow"
+      }
+    },
+    "brand_section_nav": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "nav_essentials": {
+          "type": "series",
+          "settings": {
+            "label": "Essentials",
+            "size_hint": "Get the most out of your net",
+            "body": "Pro Turf, rubber tees, ball-return mats, and the core add-ons every owner buys.",
+            "link": "#essentials",
+            "cta_text": "Shop essentials"
+          }
+        },
+        "nav_safety": {
+          "type": "series",
+          "settings": {
+            "label": "Safety",
+            "size_hint": "Contain stray shots",
+            "body": "Side barriers, frame pads, No Fly Zone — protect the room, the net, and the people in it.",
+            "link": "#safety",
+            "cta_text": "Shop safety"
+          }
+        },
+        "nav_simulation": {
+          "type": "series",
+          "settings": {
+            "label": "Simulation",
+            "size_hint": "Upgrade an existing net",
+            "body": "Sim Screen, Valence, and the modular pieces that turn a Net Return into a sim setup.",
+            "link": "#simulation",
+            "cta_text": "Shop sim add-ons"
+          }
+        },
+        "nav_training": {
+          "type": "series",
+          "settings": {
+            "label": "Training aids",
+            "size_hint": "Sharpen the swing",
+            "body": "Precision targets, putting aids, alignment sticks — tools that turn reps into improvement.",
+            "link": "#training",
+            "cta_text": "Shop training aids"
+          }
+        }
+      },
+      "block_order": [
+        "nav_essentials",
+        "nav_safety",
+        "nav_simulation",
+        "nav_training"
+      ],
+      "settings": {
+        "eyebrow": "Jump to a section",
+        "heading": "Find the right add-on.",
+        "body": "<p>Browse by what you're trying to do — finish a setup, contain shots, upgrade for sim, or sharpen the swing.</p>",
+        "columns": 4
       }
     },
     "collection-banner": {
@@ -281,6 +342,52 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Build your setup",
+            "body": "Start with the net and we'll show you the matching accessories as you go.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Compare nets first",
+            "body": "Not sure which net you're accessorizing? Compare every model in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Tell us what you're trying to fix or finish — we'll point you to the exact part.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "cross_build",
+        "cross_compare",
+        "cross_call"
+      ],
+      "settings": {
+        "eyebrow": "Need a hand?",
+        "heading": "Three ways to get to the right accessory.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "accordion_content_KqmjxA": {
       "type": "accordion-content",
       "blocks": {
@@ -351,7 +458,9 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "brand_collection_intro",
+    "brand_section_nav",
     "collection-banner",
     "main",
     "custom_liquid_bemFi6",
@@ -364,6 +473,7 @@
     "featured_collections_rX8fjL",
     "custom_liquid_zUDQfp",
     "featured_collections_UVaqUf",
+    "brand_cross_links",
     "accordion_content_KqmjxA"
   ]
 }
