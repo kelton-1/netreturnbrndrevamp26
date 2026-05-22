@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "brand_collection_intro": {
       "type": "brand-collection-intro",
       "settings": {
@@ -22,6 +26,110 @@
         "image": "shopify://shop_images/new-package-slider.png",
         "overlay_opacity": 55,
         "surface": "shadow"
+      }
+    },
+    "brand_series_rail": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "series_home": {
+          "type": "series",
+          "settings": {
+            "label": "Home Series Packages",
+            "size_hint": "5 – 8 ft wide · indoor",
+            "body": "Home Series net plus everything you need to start — sized for spare rooms, basements, and 1-car garages.",
+            "link": "/collections/home-series-packages",
+            "cta_text": "Shop Home Series packages"
+          }
+        },
+        "series_pro": {
+          "type": "series",
+          "settings": {
+            "label": "Pro Series Packages",
+            "size_hint": "8 – 10 ft wide · indoor + outdoor",
+            "body": "Pro Series net, mat, barriers, sandbags, tees, and duffel — sized for dedicated practice rooms and backyards.",
+            "link": "/collections/pro-series-packages",
+            "cta_text": "Shop Pro Series packages"
+          }
+        },
+        "series_no_fly_zone": {
+          "type": "series",
+          "settings": {
+            "label": "No Fly Zone Packages",
+            "size_hint": "Backyard · outdoor",
+            "body": "Outdoor-first builds with side barriers and weight kits to keep every shot contained — designed for backyards.",
+            "link": "/collections/no-fly-zone-packages",
+            "cta_text": "Shop No Fly Zone packages"
+          }
+        }
+      },
+      "block_order": [
+        "series_home",
+        "series_pro",
+        "series_no_fly_zone"
+      ],
+      "settings": {
+        "eyebrow": "Pick your bundle",
+        "heading": "Three ways to land on a complete setup.",
+        "body": "<p>Every package starts with the same patented Net Return. The difference is what comes with it and where you plan to swing.</p>",
+        "columns": 3
+      }
+    },
+    "brand_main_grid": {
+      "type": "brand-collection-grid",
+      "settings": {
+        "eyebrow": "All packages",
+        "heading": "Browse every bundle.",
+        "surface": "white",
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare net sizes side-by-side",
+            "body": "See every net's dimensions, weight, and best-fit space in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Answer five questions about your space and we'll narrow it to one package.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_contact": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Free shipping advice on the way out.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "cross_compare",
+        "cross_quiz",
+        "cross_contact"
+      ],
+      "settings": {
+        "eyebrow": "Need a hand?",
+        "heading": "Three ways to land on the right package.",
+        "surface": "glow",
+        "columns": 3
       }
     },
     "image_with_text_block_7KExXY": {
@@ -78,6 +186,7 @@
     },
     "featured_collections_PY7E6G": {
       "type": "featured-collections",
+      "disabled": true,
       "blocks": {
         "collection_Vq6Yf6": {
           "type": "collection",
@@ -216,7 +325,11 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "brand_collection_intro",
+    "brand_series_rail",
+    "brand_main_grid",
+    "brand_cross_links",
     "image_with_text_block_7KExXY",
     "collection-banner",
     "main",
