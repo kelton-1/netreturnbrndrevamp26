@@ -9,6 +9,52 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_pro": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bryson's pick",
+            "heading": "Shop the Pro Series",
+            "body": "The net Bryson trusts at home — Pro Series. Larger footprint, heavier frame, sim-ready.",
+            "cta_text": "Shop Pro Series",
+            "link": "/collections/pro-series"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare every net",
+            "body": "Same patented return on every model. The difference is footprint and frame weight.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Same support team Bryson's setup runs through.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_pro", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to land on the right setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "slideshow_DP4ayq": {
       "type": "slideshow",
       "blocks": {
@@ -427,6 +473,7 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "slideshow_DP4ayq",
     "custom_html_KLB7cf",
     "main",
@@ -439,6 +486,7 @@
     "video_FYfr8G",
     "featured_collections_Fih4r8",
     "blog_posts_Xp6xrx",
-    "featured_collections_Azd3VL"
+    "featured_collections_Azd3VL",
+    "brand_cross_links"
   ]
 }
