@@ -6084,6 +6084,15 @@ a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
   .header__linklist-item > .header__linklist-link { font-size: 16px; }
 }
 
+/* --- Ultra-mobile button padding ---
+   Below 540px, brand-btn keeps its 16px text floor but tightens
+   horizontal padding so it sits proportional in stacked,
+   flex 1 1 100% button rows on 375px-class phones. Vertical
+   padding stays >= 14px to preserve a 44px tap target. */
+@media (max-width: 540px) {
+  .brand-btn { padding: 14px 20px; }
+}
+
 /* --- Accessibility: respect user font scaling ---
    .brand-body inherits the parent size so user zoom + browser
    default-size preferences propagate cleanly. */
@@ -6554,7 +6563,7 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
 }
 
 @media (max-width: 540px) {
-  .brand-breadcrumb__list { font-size: 11px; gap: 4px 6px; }
+  .brand-breadcrumb__list { font-size: 12px; gap: 6px 8px; }
 }
 
 /* --- Series rail ------------------------------------------- */
@@ -7054,6 +7063,9 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
   grid-template-columns: repeat(var(--brand-cross-cols, 3), 1fr);
 }
 @media (max-width: 899px) {
+  .brand-cross-links__list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
   .brand-cross-links__list { grid-template-columns: 1fr; }
 }
 
