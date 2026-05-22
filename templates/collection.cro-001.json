@@ -5,10 +5,86 @@
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
+ *
+ * This template is assigned to /collections/nets-1 (and any other
+ * collection whose template_suffix is set to "cro-001" in Shopify
+ * Admin). It composes:
+ *   - the existing CRO filtered product grid (cro-grid → keeps filters)
+ *   - the brand-revamp 2026 surrounds: breadcrumb, intro hero, series
+ *     rail, cross-links, plus the existing compare table, gallery,
+ *     video, and FAQ.
  * ------------------------------------------------------------
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Shop nets",
+        "heading": "Golf + multisport nets.",
+        "body": "<p>Every Net Return is engineered with the same patented ball-return design and high-performance materials. The difference is size — choose the footprint that fits how you train.</p>",
+        "primary_label": "Compare models",
+        "primary_link": "/pages/compare",
+        "secondary_label": "Take the quiz",
+        "secondary_link": "/pages/quiz",
+        "image": "shopify://shop_images/backyard-home.png",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_series_rail": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "series_home": {
+          "type": "series",
+          "settings": {
+            "label": "Home Series",
+            "size_hint": "5 – 8 ft wide · indoor",
+            "body": "Compact nets engineered for spare rooms, basements, and 1-car garages. The everyday practice net.",
+            "price_hint": "From $295",
+            "link": "/collections/home-series",
+            "cta_text": "Explore Home Series"
+          }
+        },
+        "series_pro": {
+          "type": "series",
+          "settings": {
+            "label": "Pro Series",
+            "size_hint": "8 – 10 ft wide · indoor + outdoor",
+            "body": "Larger footprint, heavier-duty frame, sim-ready. Built for dedicated training rooms and backyards.",
+            "price_hint": "From $695",
+            "link": "/collections/pro-series",
+            "cta_text": "Explore Pro Series"
+          }
+        },
+        "series_simulation": {
+          "type": "series",
+          "settings": {
+            "label": "Simulation",
+            "size_hint": "Sim-ready setups · indoor",
+            "body": "Pair a Net Return with a launch monitor or full simulator. Built to handle real ball speeds in indoor sim bays.",
+            "price_hint": "Shop the system",
+            "link": "/collections/simulation",
+            "cta_text": "Shop simulation"
+          }
+        }
+      },
+      "block_order": [
+        "series_home",
+        "series_pro",
+        "series_simulation"
+      ],
+      "settings": {
+        "eyebrow": "Choose your series",
+        "heading": "Pick the tier built for your space.",
+        "body": "<p>Three tiers. Same patented ball-return. The difference is footprint and frame weight — match it to where you'll train.</p>",
+        "columns": 3
+      }
+    },
     "cro-hero": {
       "type": "image-with-text-block",
       "disabled": true,
@@ -159,6 +235,52 @@
         "button_text_color": "rgba(0,0,0,0)"
       }
     },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare side-by-side",
+            "body": "See every net's dimensions, weight, and best-fit space in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Answer five questions about your space and we'll narrow it to one net.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Free shipping advice on the way out.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "cross_compare",
+        "cross_quiz",
+        "cross_call"
+      ],
+      "settings": {
+        "eyebrow": "Need a hand?",
+        "heading": "Three ways to land on the right net.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "accordion_content_YALWAi": {
       "type": "accordion-content",
       "blocks": {
@@ -237,6 +359,9 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "brand_series_rail",
     "cro-hero",
     "cro-grid",
     "rich_text_MR7W3T",
@@ -244,6 +369,7 @@
     "gallery_x9dWFT",
     "video_LWhEwt",
     "rich_text_ifqe9e",
+    "brand_cross_links",
     "accordion_content_YALWAi"
   ]
 }
