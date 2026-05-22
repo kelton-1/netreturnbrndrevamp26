@@ -9,8 +9,97 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": {
+          "type": "crumb",
+          "settings": { "label": "Home", "link": "/" }
+        },
+        "crumb_nets": {
+          "type": "crumb",
+          "settings": { "label": "Nets", "link": "/collections/nets-1" }
+        },
+        "crumb_current": {
+          "type": "crumb",
+          "settings": { "label": "Home Series" }
+        }
+      },
+      "block_order": ["crumb_home", "crumb_nets", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Home Series",
+        "heading": "Compact nets. Real game.",
+        "body": "<p>Sized for spare rooms, basements, and 1-car garages. Same patented S-shape return that built the brand — in a smaller footprint built to disappear when you're not training.</p>",
+        "primary_label": "Shop Home Series",
+        "primary_link": "#home-series-grid",
+        "secondary_label": "Compare with Pro Series",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/patio-slider.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_main_grid": {
+      "type": "brand-collection-grid",
+      "settings": {
+        "eyebrow": "Home Series lineup",
+        "heading": "Every Home Series net.",
+        "surface": "white",
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_pro": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Need more room?",
+            "heading": "Look at Pro Series",
+            "body": "Larger footprint, heavier frame, simulator-ready. Built for dedicated training rooms and backyards.",
+            "cta_text": "Explore Pro Series",
+            "link": "/collections/pro-series"
+          }
+        },
+        "cross_packages": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Home Series packages",
+            "body": "Net + barriers + Pro Turf + sandbags + tees + duffel, sized for the same compact spaces.",
+            "cta_text": "Shop packages",
+            "link": "/collections/home-series-packages"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Not sure?",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Five questions about your space and we'll narrow it to one net.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        }
+      },
+      "block_order": ["cross_pro", "cross_packages", "cross_quiz"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to land on the right Home Series setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "image_with_text_overlay_EDEU6b": {
       "type": "image-with-text-overlay",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "section_height": "auto",
@@ -114,6 +203,7 @@
     },
     "main": {
       "type": "main-collection",
+      "disabled": true,
       "settings": {
         "show_sort_by": true,
         "products_per_page": 24,
@@ -130,6 +220,10 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "brand_main_grid",
+    "brand_cross_links",
     "image_with_text_overlay_EDEU6b",
     "collection-banner",
     "multi_column_zFY8g3",

@@ -9,8 +9,85 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": {
+          "type": "crumb",
+          "settings": { "label": "Home", "link": "/" }
+        },
+        "crumb_sim": {
+          "type": "crumb",
+          "settings": { "label": "Simulation", "link": "/collections/simulation" }
+        },
+        "crumb_current": {
+          "type": "crumb",
+          "settings": { "label": "Commercial Simulators" }
+        }
+      },
+      "block_order": ["crumb_home", "crumb_sim", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Commercial simulators",
+        "heading": "Built for the business of golf.",
+        "body": "<p>Portable, durable simulator solutions that turn any space into a premium golf experience. Built for studios, training facilities, retail, and entertainment venues.</p>",
+        "primary_label": "Shop simulator bays",
+        "primary_link": "#simulator-bays",
+        "secondary_label": "Talk to commercial sales",
+        "secondary_link": "/pages/contact",
+        "image": "shopify://shop_images/Net_Return_SImulator_Bay.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_sales": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bulk + multi-site",
+            "heading": "Talk to commercial sales",
+            "body": "Volume pricing, install support, and white-label options for facilities running multiple bays.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        },
+        "cross_residential": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Residential setup?",
+            "heading": "Home simulators",
+            "body": "Pair a Net Return with a launch monitor at home — same tech, residential pricing.",
+            "cta_text": "Shop home simulation",
+            "link": "/collections/simulation"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare sim bays",
+            "body": "See every bay's dimensions, ceiling clearance, and shot envelope in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        }
+      },
+      "block_order": ["cross_sales", "cross_residential", "cross_compare"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three paths into a commercial install.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "image_with_text_block_bBbGkY": {
       "type": "image-with-text-block",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "image": "shopify://shop_images/Net_Return_SImulator_Bay.jpg",
@@ -407,6 +484,8 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
     "image_with_text_block_bBbGkY",
     "featured_collections_gXV9p9",
     "featured_collections_PRAMfw",
@@ -418,6 +497,7 @@
     "main",
     "featured_collections_cQ6eJM",
     "featured_collections_kXGkEY",
+    "brand_cross_links",
     "image_with_text_overlay_FDkGTA"
   ]
 }

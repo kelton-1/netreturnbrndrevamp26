@@ -9,6 +9,94 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": {
+          "type": "crumb",
+          "settings": { "label": "Home", "link": "/" }
+        },
+        "crumb_nets": {
+          "type": "crumb",
+          "settings": { "label": "Nets", "link": "/collections/nets-1" }
+        },
+        "crumb_current": {
+          "type": "crumb",
+          "settings": { "label": "Pro Series" }
+        }
+      },
+      "block_order": ["crumb_home", "crumb_nets", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Pro Series",
+        "heading": "Built for full-swing reps.",
+        "body": "<p>Larger footprint, heavier-duty frame, simulator-ready. Built for dedicated training rooms, backyards, and pro-grade indoor practice spaces.</p>",
+        "primary_label": "Shop Pro Series",
+        "primary_link": "#pro-series-grid",
+        "secondary_label": "Compare with Home Series",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/1080x1500-home.png",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_main_grid": {
+      "type": "brand-collection-grid",
+      "settings": {
+        "eyebrow": "Pro Series lineup",
+        "heading": "Every Pro Series net.",
+        "surface": "white",
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_sim": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Going sim?",
+            "heading": "Add simulation",
+            "body": "Pair your Pro Series net with a launch monitor, screen, and projector. Tour-grade simulation, at home.",
+            "cta_text": "Shop simulation",
+            "link": "/collections/simulation"
+          }
+        },
+        "cross_packages": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Pro Series packages",
+            "body": "Net + Pro Turf + side barriers + sandbags + tees + duffel, sized for the same dedicated practice rooms.",
+            "cta_text": "Shop packages",
+            "link": "/collections/pro-series-packages"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Big build?",
+            "heading": "Talk to a Net Return advisor",
+            "body": "Dedicated bays, commercial setups, and multi-room builds — get help spec'ing it right the first time.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_sim", "cross_packages", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to scale Pro Series up.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "collection-banner": {
       "type": "collection-banner",
       "disabled": true,
@@ -92,6 +180,7 @@
     },
     "main": {
       "type": "main-collection",
+      "disabled": true,
       "settings": {
         "show_sort_by": true,
         "products_per_page": 24,
@@ -108,6 +197,10 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "brand_main_grid",
+    "brand_cross_links",
     "collection-banner",
     "multi_column_zFY8g3",
     "main"
