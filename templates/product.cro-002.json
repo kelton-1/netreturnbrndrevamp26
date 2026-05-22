@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product-cro",
       "blocks": {
@@ -503,9 +507,52 @@
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare with other models",
+            "body": "See every net's dimensions, weight, and best-fit space side-by-side in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Complete it",
+            "heading": "Shop accessories",
+            "body": "Side barriers, frame pads, sandbags, training aids — built around your net.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Spec questions, install questions, or build-out advice — real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_accessories", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to keep moving.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "text_with_icons_wPPDRK",
     "vm_feature_DJtRiX",
@@ -516,6 +563,7 @@
     "gallery_WX6Wym",
     "compare_models_table_cro",
     "upgrade_cta",
+    "brand_cross_links",
     "image_with_text_block_X66BNa"
   ]
 }
