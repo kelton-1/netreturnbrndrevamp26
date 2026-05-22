@@ -9,8 +9,27 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "body": "",
+        "primary_label": "Compare nets",
+        "primary_link": "/pages/compare",
+        "secondary_label": "Talk to an expert",
+        "secondary_link": "/pages/contact",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "collection-banner": {
       "type": "collection-banner",
+      "disabled": true,
       "settings": {
         "show_collection_image": true,
         "show_collection_title": true,
@@ -38,10 +57,55 @@
         "promotion_position": "top",
         "promotion_height": "medium"
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare nets side-by-side",
+            "body": "Every net's dimensions, weight, and best-fit space in one table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Build your setup",
+            "body": "Pair your net with a mat, barriers, sandbags, and tees in one quick flow.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Free advice on the way out.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_build", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to keep moving.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_intro",
     "collection-banner",
-    "main"
+    "main",
+    "brand_cross_links"
   ]
 }
