@@ -9,6 +9,52 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_match": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Tell us about your space and we'll pick the right setup from these owner stories.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare every net",
+            "body": "Same patented return on every model — the difference is footprint and frame weight.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Send us a photo of your space and we'll spec the room with you.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_match", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "See one you like?",
+        "heading": "Three ways to land on the same setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -269,6 +315,7 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "rich_text_pRQmzQ",
     "gallery_yLqKXf",
@@ -276,6 +323,7 @@
     "gallery_Qhy7c6",
     "gallery_4aLrBX",
     "gallery_kd6mE9",
-    "rich_text_Lmr3zB"
+    "rich_text_Lmr3zB",
+    "brand_cross_links"
   ]
 }

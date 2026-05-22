@@ -9,6 +9,52 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Find your fit",
+            "heading": "Compare every net",
+            "body": "These owners pick the net that matches their space. See every model side-by-side.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_setups": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "See it in place",
+            "heading": "Real owner setups",
+            "body": "Garages, backyards, studios, and pro shops — see how owners actually set their nets up.",
+            "cta_text": "View setups",
+            "link": "/pages/setups"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. We'll point you to the model these owners chose.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_setups", "cross_call"],
+      "settings": {
+        "eyebrow": "Convinced?",
+        "heading": "Three ways to land on the right setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "main": {
       "type": "main-page",
       "settings": {
@@ -95,10 +141,12 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "rich_text_hJGbwY",
     "1713971175fed41a19",
     "image_with_text_block_LPzyD8",
-    "video_GnARmc"
+    "video_GnARmc",
+    "brand_cross_links"
   ]
 }

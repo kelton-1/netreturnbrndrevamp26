@@ -9,6 +9,52 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_shop": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Shop the system",
+            "heading": "Browse every net",
+            "body": "From Junior to Pro XL — same patented S-shape return, every size.",
+            "cta_text": "Shop nets",
+            "link": "/collections/nets-1"
+          }
+        },
+        "cross_testimonials": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Hear from owners",
+            "heading": "Owner stories",
+            "body": "Verified setups, photos, and what owners actually use their net for.",
+            "cta_text": "Read reviews",
+            "link": "/pages/testimonials"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Same team that's built and supported nets since 2009.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_shop", "cross_testimonials", "cross_call"],
+      "settings": {
+        "eyebrow": "Now you know",
+        "heading": "Three ways to keep going.",
+        "surface": "glow",
+        "columns": 3
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -167,10 +213,12 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "timeline_66XaEf",
     "timeline_Gd3HLT",
     "timeline_4X4KK3",
-    "logo_list_yEMQL6"
+    "logo_list_yEMQL6",
+    "brand_cross_links"
   ]
 }
