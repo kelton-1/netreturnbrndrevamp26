@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -882,6 +886,7 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "featured_collections_NbyT7a",
     "net_brand_usp_dcfhBm",
