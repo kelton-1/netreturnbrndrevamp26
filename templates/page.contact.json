@@ -9,8 +9,28 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Talk to us",
+        "heading": "Talk to a Net Return advisor.",
+        "body": "<p>Fastest way to land on the right net, package, or simulator for your space. Real humans — not a bot, not a script.</p>",
+        "primary_label": "Call (973) 636-7354",
+        "primary_link": "tel:+19736367354",
+        "secondary_label": "Compare nets",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/2160x1200-poolside.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "show_title": true,
         "page_width": "medium"
@@ -106,6 +126,8 @@
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_intro",
     "main",
     "contact-form",
     "custom_liquid_KMkw87",

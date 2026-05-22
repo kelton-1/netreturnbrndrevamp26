@@ -1,5 +1,9 @@
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -186,12 +190,56 @@
         "body": "Compact builds for tight spaces, kids, and quick warm-ups. Same materials, smaller footprint.",
         "surface": "white"
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Build your setup",
+            "body": "Pair your net with a mat, barriers, sandbags, and tees in one quick flow.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Still deciding?",
+            "heading": "Take the 60-second fit quiz",
+            "body": "Answer five questions about your space and we'll narrow it to one net.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans who've spec'd hundreds of bays. Fast answers, free advice.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_build", "cross_quiz", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to land on the right setup.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "brand_compare_hero",
     "brand_compare_pro",
-    "brand_compare_home"
+    "brand_compare_home",
+    "brand_cross_links"
   ]
 }

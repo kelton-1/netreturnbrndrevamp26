@@ -9,8 +9,69 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
+    "brand_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Build your setup",
+        "heading": "Three picks. One setup.",
+        "body": "<p>Choose your base, add a launch monitor if you're going sim, then layer in the accessories that finish the room. Built-in shortcuts to compare, quiz, or talk to a real human if you get stuck.</p>",
+        "primary_label": "Step 1 — Choose a base",
+        "primary_link": "#choose-base",
+        "secondary_label": "Compare nets first",
+        "secondary_link": "/pages/compare",
+        "image": "shopify://shop_images/2160x1560-setup.jpg",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "brand_step_nav": {
+      "type": "brand-series-rail",
+      "blocks": {
+        "step_base": {
+          "type": "series",
+          "settings": {
+            "label": "01 — Base",
+            "size_hint": "Net · Package · Sim Bay",
+            "body": "Start with the surface that catches the ball. Net for fastest setup, package for everything in one box, sim bay if you're going indoor full simulation.",
+            "link": "#choose-base",
+            "cta_text": "Choose a base"
+          }
+        },
+        "step_monitor": {
+          "type": "series",
+          "settings": {
+            "label": "02 — Launch monitor",
+            "size_hint": "Optional · sim only",
+            "body": "Skip if you're not going sim. Otherwise pick from FlightScope, Uneekor, Full Swing, or Foresight — all compatible with our nets and bays.",
+            "link": "#add-monitor",
+            "cta_text": "Add a monitor"
+          }
+        },
+        "step_accessories": {
+          "type": "series",
+          "settings": {
+            "label": "03 — Accessories",
+            "size_hint": "Finish the room",
+            "body": "Pro Turf, side barriers, frame pads, sandbags — the parts that protect the room and extend the practice.",
+            "link": "#add-accessories",
+            "cta_text": "Add accessories"
+          }
+        }
+      },
+      "block_order": ["step_base", "step_monitor", "step_accessories"],
+      "settings": {
+        "eyebrow": "How it works",
+        "heading": "Three steps. Stop at the one that fits.",
+        "columns": 3
+      }
+    },
     "image_with_text_block_kNPrw7": {
       "type": "image-with-text-block",
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "image": "shopify://shop_images/2160x1560-setup.jpg",
@@ -59,6 +120,19 @@
         "overlay_opacity": 30
       }
     },
+    "anchor_base": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"choose-base\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
     "featured_collections_VDbgJM": {
       "type": "featured-collections",
       "blocks": {
@@ -96,7 +170,7 @@
         "collection_hWhaen"
       ],
       "settings": {
-        "subheading": "",
+        "subheading": "Step 01",
         "title": "Choose a Base",
         "content": "",
         "products_count": 8,
@@ -107,6 +181,19 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "anchor_monitor": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"add-monitor\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "featured_collections_Fih4r8": {
@@ -143,7 +230,7 @@
           "type": "collection",
           "settings": {
             "collection": "foresight",
-            "label": "",
+            "label": "Foresight",
             "button_text": "",
             "button_url": ""
           }
@@ -156,7 +243,7 @@
         "collection_UnRQC8"
       ],
       "settings": {
-        "subheading": "",
+        "subheading": "Step 02 · optional",
         "title": "Add a Launch Monitor",
         "content": "",
         "products_count": 4,
@@ -167,6 +254,19 @@
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "anchor_accessories": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<div id=\"add-accessories\" class=\"anchor-offset\"></div>",
+        "add_vertical_spacing": false,
+        "disable_editor_execution": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
       }
     },
     "featured_collections_Azd3VL": {
@@ -206,7 +306,7 @@
         "collection_qP7fgX"
       ],
       "settings": {
-        "subheading": "",
+        "subheading": "Step 03",
         "title": "Add Accessories",
         "content": "",
         "products_count": 12,
@@ -218,14 +318,63 @@
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Compare",
+            "heading": "See every net side-by-side",
+            "body": "Dimensions, weights, and best-fit spaces in one quick table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_quiz": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Match",
+            "heading": "Take the 60-second quiz",
+            "body": "Five questions about your space and we'll narrow it to one net.",
+            "cta_text": "Start the quiz",
+            "link": "/pages/quiz"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Real humans, fast answers. Spec your room with someone who's done it.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_quiz", "cross_call"],
+      "settings": {
+        "eyebrow": "Stuck?",
+        "heading": "Three more ways to land on the right setup.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
+    "brand_intro",
+    "brand_step_nav",
     "image_with_text_block_kNPrw7",
     "main",
     "image_with_text_overlay_h3xx4K",
+    "anchor_base",
     "featured_collections_VDbgJM",
+    "anchor_monitor",
     "featured_collections_Fih4r8",
-    "featured_collections_Azd3VL"
+    "anchor_accessories",
+    "featured_collections_Azd3VL",
+    "brand_cross_links"
   ]
 }
