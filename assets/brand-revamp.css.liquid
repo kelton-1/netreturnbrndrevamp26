@@ -6621,13 +6621,15 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
    first; pattern is reusable across other collection landings.
    ============================================================ */
 
-/* --- Breadcrumb -------------------------------------------- */
+/* --- Breadcrumb (brand-revamp 2026 — v2 polish) -----------
+   Reads as navigation, not a uppercase label strip. Sentence-case
+   body font, slightly larger, with refined separator + hover. */
 .brand-breadcrumb {
   background: rgb(var(--brand-black));
-  border-bottom: 1px solid rgba(var(--brand-white), .08);
+  border-bottom: 1px solid rgba(var(--brand-white), .06);
 }
 .brand-breadcrumb__inner {
-  padding: 10px 0;
+  padding: 12px 0;
 }
 .brand-breadcrumb__list {
   list-style: none;
@@ -6636,16 +6638,18 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 8px;
-  font-family: var(--brand-font-accent);
-  font-size: var(--brand-fs-meta, clamp(11px, 0.85vw, 13px));
-  letter-spacing: var(--brand-ls-meta, .12em);
-  text-transform: uppercase;
-  color: rgba(var(--brand-white), .58);
+  gap: 4px 8px;
+  font-family: var(--brand-font-body);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.4;
+  color: rgba(var(--brand-white), .55);
 }
 .brand-breadcrumb__item { margin: 0; }
 .brand-breadcrumb__link {
-  color: rgba(var(--brand-white), .72);
+  color: rgba(var(--brand-white), .75);
   text-decoration: none;
   transition: color .18s ease;
 }
@@ -6655,13 +6659,17 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
 }
 .brand-breadcrumb__item--current {
   color: rgb(var(--brand-white));
+  font-weight: 500;
 }
 .brand-breadcrumb__sep {
-  color: rgba(var(--brand-white), .35);
+  color: rgba(var(--brand-white), .28);
+  font-size: 12px;
+  user-select: none;
 }
 
 @media (max-width: 540px) {
-  .brand-breadcrumb__list { font-size: 12px; gap: 6px 8px; }
+  .brand-breadcrumb__inner { padding: 10px 0; }
+  .brand-breadcrumb__list { font-size: 13px; gap: 3px 6px; }
 }
 
 /* --- Series rail ------------------------------------------- */

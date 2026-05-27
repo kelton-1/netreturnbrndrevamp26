@@ -1,8 +1,32 @@
+{% # theme-check-disable HardcodedRoutes %}
 {%- comment -%}
-  Brand breadcrumb (brand-revamp 2026).
-  Thin dark strip sitting just under the header. Renders the trail set in
-  schema (blocks) OR auto-fills from the current context (collection / page).
-  Hidden on small phones — the trail collapses to a single back-link.
+  Brand breadcrumb (brand-revamp 2026, v2 — multi-step hierarchy).
+
+  Theme check note: HardcodedRoutes is disabled for this file. The
+  routes object only resolves to the collections INDEX (/collections),
+  not specific handles. The breadcrumb is by design a stable hierarchy
+  map keyed on known collection handles, so the explicit /collections/X
+  paths are intentional. If a referenced handle is renamed in Shopify
+  Admin, update it here too.
+{%- endcomment -%}
+
+  Thin strip sitting just under the header. Two modes:
+
+  1. Auto trail (no blocks added in the editor):
+     - Renders Home › [parent crumbs derived from template_suffix /
+       handle] › [current page].
+     - Parent crumbs are explicit per known template suffix so a Pro
+       Series package PDP reads Home › Packages › Pro Package, not
+       just Home › Pro Package.
+     - Hidden on small phones — the trail collapses to a single
+       back-link.
+
+  2. Manual override (blocks present):
+     - Renders each block as a crumb. Useful for one-off pages where
+       the auto-derivation would be wrong.
+
+  Adding a new template_suffix? Add an `elsif` branch in the right
+  block (PRODUCTS / COLLECTIONS / PAGES) below.
 {%- endcomment -%}
 
 {%- liquid
@@ -19,22 +43,159 @@
         <li class="brand-breadcrumb__item">
           <a class="brand-breadcrumb__link" href="{{ routes.root_url }}">Home</a>
         </li>
-        {%- if template contains 'collection' and collection != blank -%}
-          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
-          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ collection.title }}</li>
-        {%- elsif template contains 'product' and product != blank -%}
-          {%- if collection != blank and collection.handle != blank -%}
+
+        {%- comment -%} ============ PRODUCTS ============ {%- endcomment -%}
+        {%- if template contains 'product' and product != blank -%}
+          {%- assign tsuffix = product.template_suffix -%}
+
+          {%- comment -%} Net PDPs → Nets {%- endcomment -%}
+          {%- if tsuffix == 'cro-002' or tsuffix == 'home-series' or tsuffix == 'pro-series' or tsuffix == 'home-series-og' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/nets-1">Nets</a></li>
+
+          {%- comment -%} Package PDPs → Packages {%- endcomment -%}
+          {%- elsif tsuffix == 'pro-package' or tsuffix == 'home-package' or tsuffix == 'bulletproof-package' or tsuffix == 'azalea-package' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/packages">Packages</a></li>
+
+          {%- comment -%} Sim bay PDPs → Simulation › Sim Bays {%- endcomment -%}
+          {%- elsif tsuffix == 'simseries' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#simulator-bays">Sim Bays</a></li>
+
+          {%- comment -%} Launch monitor PDPs → Simulation › Launch Monitors › [Brand] {%- endcomment -%}
+          {%- elsif tsuffix == 'foresight-gc3' or tsuffix == 'foresight-gc3s' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#launch-monitors">Launch Monitors</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/foresight">Foresight</a></li>
+
+          {%- elsif tsuffix == 'flightscope-mevo-plus' or tsuffix == 'flightscope-mevo-plus-le' or tsuffix == 'flightscope-mevo' or tsuffix == 'flightscope-x3' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#launch-monitors">Launch Monitors</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/flightscope">FlightScope</a></li>
+
+          {%- elsif tsuffix == 'full-swing' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#launch-monitors">Launch Monitors</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/full-swing">Full Swing</a></li>
+
+          {%- elsif tsuffix == 'uneekor' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#launch-monitors">Launch Monitors</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/uneekor">Uneekor</a></li>
+
+          {%- comment -%} Sim package PDPs → Simulation › Sim Packages {%- endcomment -%}
+          {%- elsif tsuffix == 'foresight-netpackage' or tsuffix == 'foresight-simpackage' or tsuffix == 'flightscope-netpackage' or tsuffix == 'flightscope-simpackage' or tsuffix == 'full-swing-netpackage' or tsuffix == 'full-swing-simpackage' or tsuffix == 'uneekor-lite-netpackage' or tsuffix == 'uneekor-lite-simpackage' or tsuffix == 'uneekor-mini-netpackage' or tsuffix == 'uneekor-mini-simpackage' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#simulator-packages">Sim Packages</a></li>
+
+          {%- comment -%} Safety / No Fly Zone → Accessories › Safety {%- endcomment -%}
+          {%- elsif tsuffix == 'no-fly-zone' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/general-accessories">Accessories</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/general-accessories#safety">Safety</a></li>
+
+          {%- comment -%} Surface accessories → Accessories {%- endcomment -%}
+          {%- elsif tsuffix == 'outdoor-cover' or tsuffix == 'rubber-tees' or tsuffix == 'pro-turf' or tsuffix == 'platinum-turf' or tsuffix == 'country-club-elite' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/general-accessories">Accessories</a></li>
+
+          {%- comment -%} Football → Football landing (no dedicated collection yet) {%- endcomment -%}
+          {%- elsif tsuffix == 'extrapoint' or tsuffix == 'mczr' or tsuffix == 'mczrmobile' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item">Football</li>
+
+          {%- comment -%} Azalea (golf simulator wall-mount net) → Nets › Azalea {%- endcomment -%}
+          {%- elsif tsuffix == 'azalea-net' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/nets-1">Nets</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/azalea">Azalea</a></li>
+
+          {%- comment -%} CRO-002 already handled above. CRO templates without
+                          a known parent (cro-001, cro-002 already above)
+                          fall to the catch-all referring-collection logic. {%- endcomment -%}
+          {%- elsif collection != blank and collection.handle != blank -%}
             <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
             <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="{{ collection.url }}">{{ collection.title }}</a></li>
           {%- endif -%}
+
           <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
           <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ product.title }}</li>
+
+        {%- comment -%} ============ COLLECTIONS ============ {%- endcomment -%}
+        {%- elsif template contains 'collection' and collection != blank -%}
+          {%- assign chandle = collection.handle -%}
+          {%- assign csuffix = collection.template_suffix -%}
+
+          {%- comment -%} Sub-series collections under Nets {%- endcomment -%}
+          {%- if chandle == 'home-series' or chandle == 'pro-series' or chandle == 'home-series-2' or chandle == 'home-series-nets' or chandle == 'pro-series-nets' or csuffix == 'nets' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/nets-1">Nets</a></li>
+
+          {%- comment -%} Launch monitor brand collections → Simulation › Launch Monitors {%- endcomment -%}
+          {%- elsif chandle == 'flightscope' or chandle == 'foresight' or chandle == 'full-swing' or chandle == 'fullswing' or chandle == 'uneekor' or chandle == 'garmin' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation#launch-monitors">Launch Monitors</a></li>
+
+          {%- comment -%} Commercial simulators → Simulation {%- endcomment -%}
+          {%- elsif chandle == 'commercial-simulators' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+
+          {%- comment -%} Sim bays / sim sub-collections → Simulation {%- endcomment -%}
+          {%- elsif chandle == 'sim-bays' or chandle == 'launch-monitor-net-package' or chandle == 'launch-monitor-sim-bay' or chandle == 'accessories-simulation' or chandle == 'computers-projectors' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/simulation">Simulation</a></li>
+
+          {%- comment -%} Package sub-collections → Packages {%- endcomment -%}
+          {%- elsif chandle == 'pro-series-packages' or chandle == 'home-series-packages' or chandle == 'no-fly-zone-packages' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/packages">Packages</a></li>
+
+          {%- comment -%} Accessory sub-collections → Accessories {%- endcomment -%}
+          {%- elsif chandle == 'accessories-essentials' or chandle == 'accessories-safety' or chandle == 'accessories-training-aids' or chandle == 'accessories-other' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/general-accessories">Accessories</a></li>
+
+          {%- comment -%} Azalea → Nets {%- endcomment -%}
+          {%- elsif chandle == 'azalea' -%}
+            <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+            <li class="brand-breadcrumb__item"><a class="brand-breadcrumb__link" href="/collections/nets-1">Nets</a></li>
+          {%- endif -%}
+
+          <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
+          <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ collection.title }}</li>
+
+        {%- comment -%} ============ PAGES ============ {%- endcomment -%}
         {%- elsif template contains 'page' and page != blank -%}
           <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
           <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ page.title }}</li>
+
+        {%- comment -%} ============ BLOG / ARTICLE ============ {%- endcomment -%}
         {%- elsif template contains 'blog' and blog != blank -%}
           <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
           <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ blog.title }}</li>
+
         {%- elsif template contains 'article' and article != blank -%}
           {%- if blog != blank -%}
             <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
@@ -43,6 +204,7 @@
           <li class="brand-breadcrumb__sep" aria-hidden="true">›</li>
           <li class="brand-breadcrumb__item brand-breadcrumb__item--current" aria-current="page">{{ article.title }}</li>
         {%- endif -%}
+
       {%- else -%}
         {%- for block in section.blocks -%}
           {%- assign crumb_label = block.settings.label -%}
@@ -72,7 +234,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "Thin Miracle Mono breadcrumb. Auto-fills from the current collection / product / page when no blocks are added. Add blocks below to override the trail manually."
+      "content": "Multi-step trail. Auto-fills from the current product / collection / page when no blocks are added (smart hierarchy derived from template_suffix). Add blocks below to override the trail manually."
     }
   ],
   "blocks": [
