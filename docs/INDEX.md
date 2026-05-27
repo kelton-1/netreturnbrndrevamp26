@@ -14,6 +14,7 @@ Quick map of what's here. Order within each group is alphabetical, not chronolog
 
 ## Audits — static / read-only inspections
 
+- **[template-usage-map-2026-05-26.md](template-usage-map-2026-05-26.md)** — Full crosswalk of every `templates/*.json` file vs every live Shopify product/collection/page `templateSuffix`. Identifies ghost files, orphan references, and handle-vs-suffix landmines.
 - **[audit-critical-css.md](audit-critical-css.md)** — Per-template inline critical-CSS files (`snippets/*-css.liquid`).
 - **[audit-mobile-bugs.md](audit-mobile-bugs.md)** — Mobile bug catalog.
 - **[audit-third-party.md](audit-third-party.md)** — Third-party scripts and apps inventory.

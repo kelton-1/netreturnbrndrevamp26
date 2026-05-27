@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TheNetReturn — Template Audit Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['ui-sans-serif','-apple-system','SF Pro Text','Segoe UI','Roboto','sans-serif'],
+          mono: ['ui-monospace','SF Mono','Menlo','monospace'],
+        },
+        colors: {
+          ink: { 950: '#0b0f0e', 900: '#111716', 800: '#1a2321', 700: '#243330' },
+          emerald: { 500: '#009C43' },
+          shadow: '#233A35',
+          glow: '#A5E6C6',
+          neon: '#68FD00',
+        },
+      },
+    },
+  };
+</script>
+<style>
+  html { color-scheme: dark; }
+  body { background: #0b0f0e; color: #e5efe9; }
+  .pill { display:inline-flex; align-items:center; gap:.35rem; padding:.15rem .55rem; font-size:.7rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; border-radius:9999px; border:1px solid; }
+  .pill-good   { background:rgba(0,156,67,.12); color:#7be0a3; border-color:rgba(0,156,67,.3); }
+  .pill-ghost  { background:rgba(245,158,11,.1);  color:#fcd34d; border-color:rgba(245,158,11,.3); }
+  .pill-orphan { background:rgba(239,68,68,.12);  color:#fca5a5; border-color:rgba(239,68,68,.3); }
+  .pill-mismatch { background:rgba(99,102,241,.15); color:#a5b4fc; border-color:rgba(99,102,241,.35); }
+  .pill-neutral { background:rgba(148,163,184,.1); color:#cbd5e1; border-color:rgba(148,163,184,.25); }
+  .card { background:#111716; border:1px solid #1f2a27; border-radius:12px; transition: border-color .15s, transform .05s; }
+  .card:hover { border-color:#3a4d49; }
+  .card.is-orphan { border-color:rgba(239,68,68,.35); }
+  .card.is-ghost { border-color:rgba(245,158,11,.3); }
+  .card.is-mismatch { border-color:rgba(99,102,241,.4); }
+  .badge-count { background:#1a2321; border:1px solid #2a3936; color:#cbd5e1; }
+  .tab-btn { padding: .6rem 1rem; border-radius:8px; border:1px solid transparent; color:#94a3b8; font-weight:500; }
+  .tab-btn:hover { color:#e5efe9; background:#1a2321; }
+  .tab-btn.active { color:#0b0f0e; background:#A5E6C6; }
+  .chip { padding:.3rem .65rem; border-radius:9999px; border:1px solid #2a3936; color:#94a3b8; font-size:.75rem; cursor:pointer; user-select:none; }
+  .chip:hover { color:#e5efe9; border-color:#3a4d49; }
+  .chip.active { background:#009C43; color:#0b0f0e; border-color:#009C43; font-weight:600; }
+  .chip.active.danger { background:#ef4444; border-color:#ef4444; }
+  .chip.active.warn { background:#f59e0b; border-color:#f59e0b; }
+  .chip.active.violet { background:#6366f1; border-color:#6366f1; color:#fff; }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  .scrollbar::-webkit-scrollbar { width:8px; height:8px; }
+  .scrollbar::-webkit-scrollbar-track { background:#0b0f0e; }
+  .scrollbar::-webkit-scrollbar-thumb { background:#243330; border-radius:6px; }
+  .scrollbar::-webkit-scrollbar-thumb:hover { background:#3a4d49; }
+  .decision-btn { padding:.3rem .7rem; font-size:.7rem; font-weight:600; border-radius:6px; border:1px solid #243330; color:#94a3b8; }
+  .decision-btn:hover { color:#e5efe9; border-color:#3a4d49; }
+  .decision-btn.keep.on { background:rgba(0,156,67,.18); color:#7be0a3; border-color:rgba(0,156,67,.5); }
+  .decision-btn.delete.on { background:rgba(239,68,68,.18); color:#fca5a5; border-color:rgba(239,68,68,.5); }
+  .decision-btn.reassign.on { background:rgba(99,102,241,.18); color:#a5b4fc; border-color:rgba(99,102,241,.5); }
+  .decision-btn.investigate.on { background:rgba(245,158,11,.18); color:#fcd34d; border-color:rgba(245,158,11,.5); }
+  .row-flash { animation: rowflash .8s ease; }
+  @keyframes rowflash { from { background:#1a2321; } to { background:transparent; } }
+  .num-big { font-feature-settings: 'tnum'; }
+  a.ext { color:#a5b4fc; text-decoration:underline dotted; text-decoration-color:rgba(165,180,252,.4); }
+  a.ext:hover { color:#fff; }
+  kbd { background:#1a2321; border:1px solid #2a3936; padding:1px 5px; border-radius:4px; font-family: ui-monospace,monospace; font-size:.7rem; }
+</style>
+</head>
+<body class="font-sans antialiased">
+<header class="border-b border-ink-800 bg-ink-900/60 backdrop-blur sticky top-0 z-30">
+  <div class="max-w-[1500px] mx-auto px-6 py-3 flex items-center gap-4">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center font-bold text-emerald-500">NR</div>
+      <div>
+        <div class="text-sm font-semibold tracking-tight">TheNetReturn · Template Audit</div>
+        <div class="text-xs text-slate-400">Live Shopify Admin × <span class="font-mono">brand-revamp-2026</span> · 2026-05-26</div>
+      </div>
+    </div>
+    <div class="ml-auto flex items-center gap-3">
+      <input id="search" type="text" placeholder="Search templates, handles, URLs…   (press /)"
+        class="w-80 bg-ink-800 border border-ink-700 rounded-lg px-3 py-1.5 text-sm placeholder:text-slate-500 focus:outline-none focus:border-emerald-500/60" />
+      <button id="export" class="px-3 py-1.5 bg-glow text-ink-950 text-sm font-semibold rounded-lg hover:bg-emerald-500/90 hover:text-white transition">Export decisions</button>
+    </div>
+  </div>
+</header>
+
+<!-- KPI row -->
+<section class="max-w-[1500px] mx-auto px-6 pt-6">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+    <div class="card p-4">
+      <div class="text-xs text-slate-400 uppercase tracking-wider">Local files</div>
+      <div class="num-big text-3xl font-bold mt-1">131</div>
+      <div class="text-xs text-slate-500 mt-1">44 product · 22 coll · 53 page · 12 other</div>
+    </div>
+    <div class="card p-4">
+      <div class="text-xs text-slate-400 uppercase tracking-wider">Live resources</div>
+      <div class="num-big text-3xl font-bold mt-1">369</div>
+      <div class="text-xs text-slate-500 mt-1">104 active prod · 133 coll · 132 page</div>
+    </div>
+    <div class="card p-4 border-amber-500/30">
+      <div class="text-xs text-amber-300 uppercase tracking-wider">Ghost files</div>
+      <div class="num-big text-3xl font-bold text-amber-300 mt-1">38</div>
+      <div class="text-xs text-slate-500 mt-1">File exists · no live resource uses it</div>
+    </div>
+    <div class="card p-4 border-red-500/30">
+      <div class="text-xs text-red-300 uppercase tracking-wider">Orphan refs</div>
+      <div class="num-big text-3xl font-bold text-red-300 mt-1">37</div>
+      <div class="text-xs text-slate-500 mt-1">Live resource → file missing → renders default</div>
+    </div>
+    <div class="card p-4 border-indigo-500/30">
+      <div class="text-xs text-indigo-300 uppercase tracking-wider">Brand-revamp mismatches</div>
+      <div class="num-big text-3xl font-bold text-indigo-300 mt-1">6</div>
+      <div class="text-xs text-slate-500 mt-1">Handle ≠ templateSuffix landmines</div>
+    </div>
+  </div>
+</section>
+
+<!-- Tabs + filters -->
+<section class="max-w-[1500px] mx-auto px-6 pt-6">
+  <div class="flex items-center gap-2 border-b border-ink-800 pb-3">
+    <button data-tab="products"     class="tab-btn active">Products</button>
+    <button data-tab="collections"  class="tab-btn">Collections</button>
+    <button data-tab="pages"        class="tab-btn">Pages</button>
+    <button data-tab="plan"         class="tab-btn">Cleanup Plan</button>
+    <button data-tab="key"          class="tab-btn ml-auto text-xs">Legend</button>
+  </div>
+
+  <div id="filters" class="flex flex-wrap items-center gap-2 mt-3 text-xs">
+    <span class="text-slate-500 mr-2">Show:</span>
+    <button data-filter="all"      class="chip active">All</button>
+    <button data-filter="used"     class="chip">Used</button>
+    <button data-filter="ghost"    class="chip">Ghost (delete?)</button>
+    <button data-filter="orphan"   class="chip">Orphan (broken)</button>
+    <button data-filter="mismatch" class="chip">Brand-revamp mismatch</button>
+    <span class="ml-3 text-slate-500">Status:</span>
+    <button data-status="any"      class="chip active">Any</button>
+    <button data-status="live"     class="chip">Live</button>
+    <button data-status="hidden"   class="chip">Hidden</button>
+    <span class="ml-auto text-slate-500" id="result-count"></span>
+  </div>
+</section>
+
+<main class="max-w-[1500px] mx-auto px-6 py-6">
+  <div id="tab-products"    class="tab-pane"></div>
+  <div id="tab-collections" class="tab-pane hidden"></div>
+  <div id="tab-pages"       class="tab-pane hidden"></div>
+  <div id="tab-plan"        class="tab-pane hidden"></div>
+  <div id="tab-key"         class="tab-pane hidden"></div>
+</main>
+
+<!-- Detail drawer -->
+<aside id="drawer" class="fixed top-0 right-0 h-screen w-[480px] bg-ink-900 border-l border-ink-800 translate-x-full transition-transform z-40 overflow-y-auto scrollbar shadow-2xl">
+  <div class="p-5 border-b border-ink-800 flex items-start justify-between gap-2 sticky top-0 bg-ink-900">
+    <div>
+      <div id="drawer-kind" class="text-xs text-slate-400 uppercase tracking-widest"></div>
+      <div id="drawer-title" class="text-lg font-bold font-mono mt-0.5"></div>
+      <div id="drawer-status" class="mt-2"></div>
+    </div>
+    <button id="drawer-close" class="text-slate-400 hover:text-white text-2xl leading-none">×</button>
+  </div>
+  <div id="drawer-body" class="p-5 space-y-4 text-sm"></div>
+</aside>
+
+<script>
+// =================================================================
+// DATA — all aggregated from Shopify Admin GraphQL + local templates/
+// =================================================================
+const LOCAL = {
+  product: ["azalea-net","azalea-package","bulletproof","bulletproof-package","country-club-elite","cro-002","extrapoint","flightscope-mevo","flightscope-mevo-plus","flightscope-mevo-plus-le","flightscope-netpackage","flightscope-simpackage","flightscope-x3","foresight-gc3","foresight-gc3s","foresight-netpackage","foresight-simpackage","full-swing","full-swing-netpackage","full-swing-simpackage","home-package","home-series","home-series-og","mczr","mczrmobile","no-fly-zone","outdoor-cover","platinum-turf","pre-order","pro-package","pro-series","pro-turf","quick-buy-drawer","quick-buy-popover","rubber-tees","simseries","surfthing-computers","surfthing-laptop","uneekor","uneekor-lite-netpackage","uneekor-lite-simpackage","uneekor-mini-netpackage","uneekor-mini-simpackage"],
+  collection: ["accessories","azalea","bulletproof-series","commercial-simulators","cro-001","flightscope","foresight","full-swing","general-accessories","home-series","home-series-2","nets","nets-1","netsop","packages","packagesop","pro-series","resellers","simulation","simulation.context.b2b","uneekor"],
+  page: ["18th-club-giveaway","Forms - Fundraiser Program","Forms - Home Giveaway","academy-landing","affiliate","ambassador","assembly","assembly-new","bfcm","bfcm-25","bfcm-landing","big-deal-days","browse-all-products","bryson","build-your-setup","build-your-setup.context.b2b","certified-partner","compare","contact","countryclubreps","extrapoint","faq","fathers-day","flightscope","giveaway-customxp","holiday","holiday-vm","home-package-giveaway","international","labor-day","list-collections","masters-2026","masters-sale","negs","octane-quiz","our-story","pga-show","quiz","register","resellers","resellers.context.b2b","rewind_menu_backup_do_not_delete","ryder-cup-sale","setups","spring-2026","support","teamnetreturn","testimonials","thank-you","ultimate-golf-giveaway","uneekor","video"],
+};
+
+const PRODUCTS = [
+  // active products only, [handle, suffix, url]
+  ["sandbags","sand-bags","https://www.thenetreturn.com/products/sandbags"],
+  ["extra-point-football-net","extrapoint","https://www.thenetreturn.com/products/extra-point-football-net"],
+  ["1-x2-hitting-mat","hitting-mat","https://www.thenetreturn.com/products/1-x2-hitting-mat"],
+  ["mini-package-golf-net","pro-package","https://www.thenetreturn.com/products/mini-package-golf-net"],
+  ["regular-duffle-bag","accessories-no-material","https://www.thenetreturn.com/products/regular-duffle-bag"],
+  ["net-guardian","net-guardian","https://www.thenetreturn.com/products/net-guardian"],
+  ["rubber-tees1","rubber-tees","https://www.thenetreturn.com/products/rubber-tees1"],
+  ["platinum-turf","platinum-turf","https://www.thenetreturn.com/products/platinum-turf"],
+  ["pro-on-the-go-duffle-bag","accessories-no-material","https://www.thenetreturn.com/products/pro-on-the-go-duffle-bag"],
+  ["simulator-series-10-golf-bay","simseries","https://www.thenetreturn.com/products/simulator-series-10-golf-bay"],
+  ["simulator-series-12-golf-bay","simseries","https://www.thenetreturn.com/products/simulator-series-12-golf-bay"],
+  ["country-club-t-turf-reel-feel-2x3-thick-tee","accessories-no-material","https://www.thenetreturn.com/products/country-club-t-turf-reel-feel-2x3-thick-tee"],
+  ["copy-of-replacement-tubes-pro-series-v2",null,null],
+  ["replacement-tubes-home-series-v2",null,null],
+  ["the-net-return-neat-net",null,"https://www.thenetreturn.com/products/the-net-return-neat-net"],
+  ["the-net-return-caterpillar-bag",null,"https://www.thenetreturn.com/products/the-net-return-caterpillar-bag"],
+  ["precision-target","precision-target","https://www.thenetreturn.com/products/precision-target"],
+  ["replacement-nets",null,"https://www.thenetreturn.com/products/replacement-nets"],
+  ["gc3-birdie","foresight-gc3","https://www.thenetreturn.com/products/gc3-birdie"],
+  ["fullswing-kit-monitor","full-swing","https://www.thenetreturn.com/products/fullswing-kit-monitor"],
+  ["pro-turf-golf-practice-mat","pro-turf","https://www.thenetreturn.com/products/pro-turf-golf-practice-mat"],
+  ["universal-side-barriers","side-barriers","https://www.thenetreturn.com/products/universal-side-barriers"],
+  ["2-x3-target-new","2x2-target","https://www.thenetreturn.com/products/2-x3-target-new"],
+  ["golf-and-multi-sport-nets","cro-002","https://www.thenetreturn.com/products/golf-and-multi-sport-nets"],
+  ["pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/pro-series-golf-net"],
+  ["large-8-pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/large-8-pro-series-golf-net"],
+  ["junior-golf-net","cro-002","https://www.thenetreturn.com/products/junior-golf-net"],
+  ["mini-pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/mini-pro-series-golf-net"],
+  ["large-9-pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/large-9-pro-series-golf-net"],
+  ["large-10-pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/large-10-pro-series-golf-net"],
+  ["xl-pro-series-golf-net","cro-002","https://www.thenetreturn.com/products/xl-pro-series-golf-net"],
+  ["home-golf-net-package","pro-package","https://www.thenetreturn.com/products/home-golf-net-package"],
+  ["pro-package-golf-net-setup","pro-package","https://www.thenetreturn.com/products/pro-package-golf-net-setup"],
+  ["pro-series-large-8-pro-package","pro-package","https://www.thenetreturn.com/products/pro-series-large-8-pro-package"],
+  ["pro-series-large-9-pro-package-golf-net","pro-package","https://www.thenetreturn.com/products/pro-series-large-9-pro-package-golf-net"],
+  ["pro-series-10-large-package-golf-net","pro-package","https://www.thenetreturn.com/products/pro-series-10-large-package-golf-net"],
+  ["pro-series-xl-package-golf-net","pro-package","https://www.thenetreturn.com/products/pro-series-xl-package-golf-net"],
+  ["simulator-bay-8-golf-simulator-setup","simseries","https://www.thenetreturn.com/products/simulator-bay-8-golf-simulator-setup"],
+  ["other-accessories","","https://www.thenetreturn.com/products/other-accessories"],
+  ["golf-impact-screens","golf-impact-screens","https://www.thenetreturn.com/products/golf-impact-screens"],
+  ["custom-extra-point-net","mczr","https://www.thenetreturn.com/products/custom-extra-point-net"],
+  ["no-fly-zone-v2","no-fly-zone","https://www.thenetreturn.com/products/no-fly-zone-v2"],
+  ["no-fly-zone-v2-side-barriers","accessories-no-material","https://www.thenetreturn.com/products/no-fly-zone-v2-side-barriers"],
+  ["no-fly-zone-v2-kits","no-fly-zone","https://www.thenetreturn.com/products/no-fly-zone-v2-kits"],
+  ["uneekor-eye-mini","uneekor","https://www.thenetreturn.com/products/uneekor-eye-mini"],
+  ["uneekor-eye-mini-light","uneekor","https://www.thenetreturn.com/products/uneekor-eye-mini-light"],
+  ["outdoor-cover","outdoor-cover","https://www.thenetreturn.com/products/outdoor-cover"],
+  ["simulator-screen","accessories-no-material","https://www.thenetreturn.com/products/simulator-screen"],
+  ["simulator-kit-golf-simulator-screen-valence","simulator-kits","https://www.thenetreturn.com/products/simulator-kit-golf-simulator-screen-valence"],
+  ["simulator-valence","accessories-no-material","https://www.thenetreturn.com/products/simulator-valence"],
+  ["split-screen-add-on-for-nets","the-split-screen","https://www.thenetreturn.com/products/split-screen-add-on-for-nets"],
+  ["frame-pads","frame-pad","https://www.thenetreturn.com/products/frame-pads"],
+  ["extra-point-replacement-net-custom",null,"https://www.thenetreturn.com/products/extra-point-replacement-net-custom"],
+  ["foresight-gc3-with-net-return-package","foresight-netpackage","https://www.thenetreturn.com/products/foresight-gc3-with-net-return-package"],
+  ["foresight-gc3-with-simulator-bay","foresight-simpackage","https://www.thenetreturn.com/products/foresight-gc3-with-simulator-bay"],
+  ["full-swing-kit-net-return-package","full-swing-netpackage","https://www.thenetreturn.com/products/full-swing-kit-net-return-package"],
+  ["full-swing-kit-with-simulator-bay","full-swing-simpackage","https://www.thenetreturn.com/products/full-swing-kit-with-simulator-bay"],
+  ["uneekor-eye-mini-net-return-package-series","uneekor-mini-netpackage","https://www.thenetreturn.com/products/uneekor-eye-mini-net-return-package-series"],
+  ["uneekor-eye-mini-with-simulator-bay","uneekor-mini-simpackage","https://www.thenetreturn.com/products/uneekor-eye-mini-with-simulator-bay"],
+  ["uneekor-eye-mini-lite-net-return-package","uneekor-lite-netpackage","https://www.thenetreturn.com/products/uneekor-eye-mini-lite-net-return-package"],
+  ["uneekor-eye-mini-lite-with-simulator-bay","uneekor-lite-simpackage","https://www.thenetreturn.com/products/uneekor-eye-mini-lite-with-simulator-bay"],
+  ["upgrade-from-pro-to-platinum-turf","","https://www.thenetreturn.com/products/upgrade-from-pro-to-platinum-turf"],
+  ["floor-mounted-projector-case","","https://www.thenetreturn.com/products/floor-mounted-projector-case"],
+  ["simulation-and-gaming-computer","","https://www.thenetreturn.com/products/simulation-and-gaming-computer"],
+  ["simulation-gaming-laptop-golf-pc","","https://www.thenetreturn.com/products/simulation-gaming-laptop-golf-pc"],
+  ["benq-lu935st-laser-projector-with-5500-lumens-short-throw-lens","","https://www.thenetreturn.com/products/benq-lu935st-laser-projector-with-5500-lumens-short-throw-lens"],
+  ["epson-powerlite-l630su-full-hd-wuxga-short-throw-laser-projector","","https://www.thenetreturn.com/products/epson-powerlite-l630su-full-hd-wuxga-short-throw-laser-projector"],
+  ["benq-lk936st-5100-lumen-4k-uhd-short-throw-laser-dlp-home-theater-projector","","https://www.thenetreturn.com/products/benq-lk936st-5100-lumen-4k-uhd-short-throw-laser-dlp-home-theater-projector"],
+  ["benq-tk710sti-4k-3200lm-gaming-and-simulator-projector","","https://www.thenetreturn.com/products/benq-tk710sti-4k-3200lm-gaming-and-simulator-projector"],
+  ["projector-ceiling-mount-extension-bar-jr-adapter-up-to-50lbs","","https://www.thenetreturn.com/products/projector-ceiling-mount-extension-bar-jr-adapter-up-to-50lbs"],
+  ["universal-projector-ceiling-mount","","https://www.thenetreturn.com/products/universal-projector-ceiling-mount"],
+  ["face-impact-location-for-mevo-pro-package",null,"https://www.thenetreturn.com/products/face-impact-location-for-mevo-pro-package"],
+  ["pro-package-and-face-impact-location",null,"https://www.thenetreturn.com/products/pro-package-and-face-impact-location"],
+  ["pro-package",null,"https://www.thenetreturn.com/products/pro-package"],
+  ["mevo","flightscope-mevo-plus","https://www.thenetreturn.com/products/mevo"],
+  ["foresight-gc3s","foresight-gc3s","https://www.thenetreturn.com/products/foresight-gc3s"],
+  ["mevo-gen2",null,"https://www.thenetreturn.com/products/mevo-gen2"],
+  ["flightscope-i4-rangefinder",null,"https://www.thenetreturn.com/products/flightscope-i4-rangefinder"],
+  ["gpod-pauly-p",null,"https://www.thenetreturn.com/products/gpod-pauly-p"],
+  ["gpod-travel-sportsbox-3d-player-annual-swing-analysis",null,"https://www.thenetreturn.com/products/gpod-travel-sportsbox-3d-player-annual-swing-analysis"],
+  ["gpod",null,"https://www.thenetreturn.com/products/gpod"],
+  ["gpod-x",null,"https://www.thenetreturn.com/products/gpod-x"],
+  ["g-bundle-one-gpod-w-gpod-base",null,"https://www.thenetreturn.com/products/g-bundle-one-gpod-w-gpod-base"],
+  ["g-bundle-two-gpod-x-w-gpod-base",null,"https://www.thenetreturn.com/products/g-bundle-two-gpod-x-w-gpod-base"],
+  ["g-bundle-three-gpod-pauly-p-w-gpod-base",null,"https://www.thenetreturn.com/products/g-bundle-three-gpod-pauly-p-w-gpod-base"],
+  ["garmin-approach-r10","","https://www.thenetreturn.com/products/garmin-approach-r10"],
+  ["garmin-approach-r10-copy","","https://www.thenetreturn.com/products/garmin-approach-r10-copy"],
+  ["garmin-r50-with-simulator-bay","","https://www.thenetreturn.com/products/garmin-r50-with-simulator-bay"],
+  ["garmin-r50-with-net-package","","https://www.thenetreturn.com/products/garmin-r50-with-net-package"],
+  ["divot-board",null,"https://www.thenetreturn.com/products/divot-board"],
+  ["stack-radar-launch-monitor-club-speed-training",null,"https://www.thenetreturn.com/products/stack-radar-launch-monitor-club-speed-training"],
+  ["thestack-speed-trainer-award-winning-app",null,"https://www.thenetreturn.com/products/thestack-speed-trainer-award-winning-app"],
+  ["thestack-stack-radar-bundle",null,"https://www.thenetreturn.com/products/thestack-stack-radar-bundle"],
+  ["tee-claw-4-pack-green-and-yellow",null,"https://www.thenetreturn.com/products/tee-claw-4-pack-green-and-yellow"],
+  ["tee-claw-4-pack-black-and-yellow",null,"https://www.thenetreturn.com/products/tee-claw-4-pack-black-and-yellow"],
+  ["divot-board-turf-mat-4x5-bundle",null,"https://www.thenetreturn.com/products/divot-board-turf-mat-4x5-bundle"],
+  ["azalea-net","azalea-net","https://www.thenetreturn.com/products/azalea-net"],
+  ["azalea-package","azalea-package","https://www.thenetreturn.com/products/azalea-package"],
+  ["timeless",null,"https://www.thenetreturn.com/products/timeless"],
+  ["no-fly-zone-home-package","pro-package","https://www.thenetreturn.com/products/no-fly-zone-home-package"],
+  ["no-fly-zone-pro-package","pro-package","https://www.thenetreturn.com/products/no-fly-zone-pro-package"],
+  ["pro-8-no-fly-zone-package","pro-package","https://www.thenetreturn.com/products/pro-8-no-fly-zone-package"],
+  ["pro-9-no-fly-zone-package","pro-package","https://www.thenetreturn.com/products/pro-9-no-fly-zone-package"],
+  ["pro-10-no-fly-zone-package","pro-package","https://www.thenetreturn.com/products/pro-10-no-fly-zone-package"],
+];
+
+const COLLECTIONS = [
+  // [handle, suffix, productCount]
+  ["golf",null,173],["soccer",null,17],["baseball",null,19],["lacrosse",null,19],
+  ["hockey",null,17],["football","",7],["custom-nets","custom",1],
+  ["soccer-replacement-parts","",4],["baseball-replacement-parts",null,4],
+  ["lacrosse-replacement-parts",null,4],["football-replacement-parts","",3],
+  ["soccer-net-accessories",null,11],["baseball-net-accessories",null,13],
+  ["lacrosse-nets-1","coming-soon",0],["lacrosse-net-accessories",null,13],
+  ["hockey-goal-nets","",17],["football-nets-1","coming-soon",2],
+  ["football-net-accessories",null,6],["replacement-parts","",27],
+  ["all-products",null,192],["accessories","accessories",167],
+  ["nets","",6],["packages","packages",13],["net","",9],
+  ["home-series-replacement-parts","",4],["best-sellers","",56],
+  ["simulator-series-products","",43],["apparel","",0],
+  ["pro-series-assembly","assembly",5],["pro-series-mini-assembly","assembly",4],
+  ["pro-series-xl-assembly","",1],["home-series-assembly","assembly",3],
+  ["simulator-series-assembly","assembly",3],["extra-point-kicking-net-assembly","assembly",0],
+  ["net-return-jr-assembly","assembly",1],["accessories-assembly","assembly",9],
+  ["assembly","assembly-new",22],["golf-turf","",7],
+  ["golf-simulator-screens","",16],["best-selling-products",null,392],
+  ["newest-products",null,392],["globofilter-best-selling-products-index",null,392],
+  ["home","",51],["large-xl","",30],["pro-series-v2-large","",45],
+  ["turfs","",13],["bags","storage",16],["sandbags","",2],["misc","",20],["pro-series","",68],
+  ["mini-pro-series","",43],["jr-pro-series","",22],["side-barriers","",15],
+  ["skytrak","",4],["launch-monitor-accessories","",18],
+  ["foresight","foresight",2],["fullswing","full-swing",1],["phi-golf","",1],
+  ["black-friday-deals-accessories","",14],["frontpage",null,0],
+  ["general-accessories","accessories",70],["launch-monitors","",19],
+  ["home7x7","accessories-breaks",35],["pro-series-8-x-7-5","accessories-breaks",30],
+  ["large-pro-8-x-8","accessories-breaks",32],["large-pro-9-x-8","accessories-breaks",31],
+  ["large-pro-10-x-8","accessories-breaks",31],["large-pro-10-x-9-5","accessories-breaks",24],
+  ["junior","accessories-breaks",8],["mini-5-x-6","accessories-breaks",21],
+  ["football-nets","coming-soon",4],["lacrosse-nets","coming-soon",0],
+  ["you-may-also-like-cart","",4],["assembly-1","",5],
+  ["nets-1","cro-001",11],["packages-1","",12],["side-barriers-turf","",7],
+  ["accessories-1","accessories",25],["no-fly-zone","",8],
+  ["launch-monitors-dev","sim-landing-page",7],
+  ["products-that-qualify-for-discounts-do-not-delete","",315],
+  ["best-sellers-1","",11],["flightscope","flightscope",13],
+  ["nets-sims","",31],["bulletproof","bulletproof-series",3],
+  ["pro-series-nets","",6],["home-series-nets","",3],
+  ["pro-series-packages","",6],["home-series-packages","",2],
+  ["sim-bays","",3],["sim-accessories","",19],["uneekor","uneekor",2],
+  ["accessories-essentials","",11],["accessories-safety","",6],["accessories-simulation","",6],
+  ["quiz-recommendations-1","",3],["quiz-recommendations-5","",6],
+  ["quiz-recommendations-4","",17],["quiz-recommendations-3","",19],
+  ["quiz-recommendations-6","",1],["quiz-recommendations-7","",1],
+  ["quiz-recommendations-2","",5],["accessories-other","",6],
+  ["simulation","simulation",43],["fathers-day-nets","",5],
+  ["reseller-discount-products","",85],["bulletproof-packages","",3],
+  ["launch-monitor-net-package","",6],["launch-monitor-sim-bay","",6],
+  ["all-store-products","",388],["computers-projectors","",10],
+  ["pro-large-nets","",4],["pro-large-packages","",8],
+  ["sim-packages","",9],["commercial-simulator-bays","commercial-simulators",0],
+  ["accesories-on-sale","",17],["europe","",5],
+  ["pro-series-1","netsop",6],["home-series","nets",3],
+  ["pro-series-packages-1","packages",10],["home-series-packages-1","packagesop",3],
+  ["garmin","",2],["bfcm-nets","",7],["bfcm-packages","",11],
+  ["bfcm-accessories","",14],["bf-priority","",5],["sim-packages-1","",10],
+  ["best-sellers-bfcm","",8],["accessories-training-aids","",12],
+  ["azalea","azalea",2],["packages-master-sale","",9],
+  ["nets-sims-copy","",8],["no-fly-zone-packages","packages-no-fly",5],
+];
+
+const PAGES = [
+  // [handle, suffix, isPublished]
+  ["our-story","our-story",true],["gallery","gallery-new",false],
+  ["compare","compare",true],["golf-products","golf",false],
+  ["soccer-products","soccer",false],["football-products","football",false],
+  ["baseball-products","baseball",false],["contact-us","contact",true],
+  ["golf-packages","",false],["maps","",false],
+  ["testimonials","testimonials",true],["foresight","",true],
+  ["full-swing-golf","",false],["calculator","calculator",false],
+  ["black-friday-15-off-storewide-excludes-launch-projectors-projectors","",false],
+  ["become-an-affiliate","",true],
+  ["customizable-assets-affiliates-the-net-return","",true],
+  ["bryson-dechambeau-the-net-return","bryson",true],
+  ["our-story-1","",false],["accessories-for-your-net-size","accessories-for-net-size",true],
+  ["ambassador-program","ambassador",true],
+  ["assembly","assembly-new",true],["build-you-golf-simulator","page",false],
+  ["classic-pro-assembly",null,true],["contact","contact",true],
+  ["faqs","faqs2",true],["flex-screen-installation-video",null,true],
+  ["home-series-and-pro-series-v2-side-barrier-installation",null,true],
+  ["home-series-v2-assembly",null,true],
+  ["no-fly-zone-installation","",true],
+  ["assembly-1","",true],["pro-series-v2-assembly","",true],
+  ["large-8-pro-series-v2-assembly","",true],
+  ["large-9-pro-series-assembly","",true],
+  ["large-10-pro-series-v2-assembly","",true],
+  ["xl-pro-series-v2-assembly","",true],
+  ["mini-pro-series-assembly","",true],
+  ["universal-side-barriers-home-series-v2-assembly-videos","",true],
+  ["universal-side-barriers-pro-series-v2-assembly-video","",true],
+  ["universal-side-barriers-large-8-pro-series-v2-assembly-video","",true],
+  ["universal-side-barriers-large-9-pro-series-v2-assembly-video","",true],
+  ["universal-side-barriers-large-10-pro-series-v2-assembly-video","",true],
+  ["simulator-series-10-assembly","",true],["simulator-series-12-assembly","",true],
+  ["frame-pads-assembly","",true],["frame-wheels-assembly","",false],
+  ["net-guardian-assembly","",true],
+  ["pro-turf-putting-cup-tees-assembly","",true],
+  ["platinum-turf-assembly","",true],["xl-side-barriers-assembly","",true],
+  ["xl-simulator-valence-assembly","",true],
+  ["side-barriers-mini-assembly-video","",true],
+  ["home-series-v2-pro-package","",true],
+  ["pro-series-v2-golf-package-assembly-videos","",true],
+  ["large-8-v2-pro-package","",true],["large-9-v2-pro-package","",true],
+  ["large-10-v2-pro-package-assembly","",true],["xl-v2-pro-package","",true],
+  ["simulator-series-8-assembly-video","",true],
+  ["certified-partner-program","certified-partner",true],
+  ["affiliate-program","affiliate",true],
+  ["book-an-appointment-with-a-net-return-expert","book-an-appt",false],
+  ["thank-you","thank-you",true],["valence-assembly","",true],
+  ["optoma-projector-installation-videos","",true],
+  ["extra-point-assembly","",true],["junior-side-barriers-assembly","",true],
+  ["split-screen-assembly","",true],["target-2x2-assembly","",true],
+  ["custom-extra-point-nets","custom-extra-point-nets",false],
+  ["simulator-kit-assembly","",true],["simulator-valence-assembly","",true],
+  ["outdoor-cover-assembly","",true],["split-screen-introduction","",true],
+  ["platinum-package-assembly","",true],["pro-turf-assembly","",true],
+  ["adding-bounce-to-pro-turf","",true],
+  ["freeshipping-subscribe-page","postscript-FREESHIPPING-subscribe",false],
+  ["register","register",true],["govx-id-military-discount",null,true],
+  ["pro-series-jr-net-assembly","",true],["custom-sim-screens","",true],
+  ["copy-of-pro-series-jr-net-assembly","",true],
+  ["test","resellers",false],
+  ["high-converting-pages-page-using-5-reasons-why-for-the-net-return","alchemy.fullpage",false],
+  ["test-2","",false],["bombers-club-exclusive","bombersclub",false],
+  ["bfcm","bfcm",false],
+  ["rewind-menu-backup-page","rewind_menu_backup_do_not_delete",false],
+  ["horizontal-frame-pads","",true],
+  ["country-club-reps","countryclubreps",true],
+  ["3d-net-assembly","",true],["sim-series-v3-assembly","",true],
+  ["no-fly-zone-v2-assembly","",true],["3d-flex-screen-assembly","",true],
+  ["projectot-mount-assembly","",false],
+  ["flightscope","flightscope",true],["build-your-setup","build-your-setup",true],
+  ["masters","masters-sale",false],
+  ["bryson-net-giveaway-t-c","",false],
+  ["support","support",true],["setups","setups",true],
+  ["faq","faq",true],["quiz","octane-quiz",true],
+  ["team-net-return","teamnetreturn",true],
+  ["custom-extra-point-giveaway","giveaway-customxp",false],
+  ["fathers-day","fathers-day",false],["b2b-portal","resellers",true],
+  ["18th-club-giveaway","18th-club-giveaway",false],
+  ["labor-day-2024","labor-day",false],
+  ["big-deal-days","big-deal-days",false],
+  ["test-quiz","octane-quiz",false],
+  ["net-return-home-package-giveaway","",false],
+  ["home-giveaway","Forms - Home Giveaway",false],
+  ["top-videos","video",true],["holiday","holiday",false],
+  ["panthers","page",false],["negs","Forms - Home Giveaway",false],
+  ["browse-all-products","browse-all-products",true],
+  ["ryder-cup-sale","ryder-cup-sale",false],
+  ["ultimate-golf-giveaway","ultimate-golf-giveaway",false],
+  ["black-friday-sale","bfcm-landing",false],
+  ["holiday-sale","holiday-vm",false],
+  ["waranty-policy","page",true],
+  ["fundraiser-program","Forms - Fundraiser Program",true],
+  ["pga-show","negs",false],["spring-sale","spring-2026",false],
+  ["master-2026","masters-2026",false],
+  ["golf-net","golf-net",true],
+  ["indoor-golf-net","indoor-golf-net",false],
+  ["golf-practice-net","golf-practice-net",false],
+  ["backyard-golf-net","backyard-golf-net",false],
+];
+
+// Brand revamp specific mismatches — where a local file was built for a handle
+// but the live resource uses a different templateSuffix.
+const BRAND_REVAMP_MISMATCHES = {
+  product: {
+    "home-series": { liveHandle:"golf-and-multi-sport-nets", liveSuffix:"cro-002", note:"Brand-revamp built this file; live Home net uses cro-002." },
+    "pro-series":  { liveHandle:"pro-series-golf-net",       liveSuffix:"cro-002", note:"Brand-revamp built this file; live Pro net uses cro-002." },
+  },
+  collection: {
+    "nets-1":              { liveHandle:"nets-1",              liveSuffix:"cro-001",   note:"/collections/nets-1 is rendered by collection.cro-001.json" },
+    "general-accessories": { liveHandle:"general-accessories", liveSuffix:"accessories", note:"/collections/general-accessories is rendered by collection.accessories.json" },
+    "home-series":         { liveHandle:"home-series",         liveSuffix:"nets",      note:"/collections/home-series is rendered by collection.nets.json" },
+    "pro-series":          { liveHandle:"pro-series",          liveSuffix:"",          note:"/collections/pro-series is rendered by default collection.json" },
+  },
+};
+
+// Recommendation notes per template
+const NOTES = {
+  product: {
+    "cro-002": "Canonical net PDP. 8 active products use it (all Home/Pro/Junior/Mini/8/9/10/XL nets).",
+    "pro-package": "Canonical package PDP. 12 active packages including all No Fly Zone packages.",
+    "simseries": "Sim Bay PDP (Bay 8/10/12).",
+    "country-club-elite": "Ghost. Live CC Elite SKU uses accessories-no-material, not this. DELETE.",
+    "flightscope-mevo": "Gen1 Mevo retired. Mevo Gen2 active uses default. DELETE.",
+    "flightscope-mevo-plus-le": "Retired LE variant. DELETE.",
+    "flightscope-x3": "Retired. DELETE.",
+    "flightscope-netpackage": "Superseded by foresight/uneekor netpackages. DELETE if unused.",
+    "flightscope-simpackage": "Same as above. DELETE if unused.",
+    "home-package": "Consolidated under pro-package. DELETE.",
+    "home-series": "Brand-revamp orphan — live Home net uses cro-002. Reassign OR delete.",
+    "home-series-og": "Pre-revamp original. DELETE.",
+    "mczrmobile": "Old mobile-split MyCustomizer template. DELETE.",
+    "pre-order": "Fordeer Preorder template. DELETE if no preorder SKU.",
+    "pro-series": "Brand-revamp orphan — live Pro net uses cro-002. Reassign OR delete.",
+    "quick-buy-drawer": "Focal stock — only relevant if Quick Buy is enabled.",
+    "quick-buy-popover": "Same.",
+    "surfthing-computers": "Built then never assigned — live SurfThing computer uses default. DELETE.",
+    "surfthing-laptop": "Same. DELETE.",
+    "accessories-no-material": "MISSING FILE — 6 live products. Highest-priority orphan.",
+    "sand-bags": "MISSING — Sandbags falls to default.",
+    "hitting-mat": "MISSING — Pro Turf Replacement Panel falls to default.",
+    "net-guardian": "MISSING — Net Guardian falls to default.",
+    "precision-target": "MISSING — Precision Target falls to default.",
+    "side-barriers": "MISSING — Universal Side Barriers falls to default.",
+    "2x2-target": "MISSING — Square Target falls to default.",
+    "golf-impact-screens": "MISSING — Custom Sim Screen falls to default.",
+    "simulator-kits": "MISSING — Simulator Kit falls to default.",
+    "the-split-screen": "MISSING — Split Screen Accessory falls to default.",
+    "frame-pad": "MISSING — Frame Pads falls to default.",
+  },
+  collection: {
+    "accessories": "Used by /accessories (167), /general-accessories (70), /accessories-1 (25).",
+    "cro-001": "Powers /collections/nets-1 (the main brand nets landing).",
+    "packages": "Used by /packages and /pro-series-packages-1.",
+    "nets": "Used by /collections/home-series (handle is misleading).",
+    "netsop": "Used by /collections/pro-series-1 (legacy SEO landing).",
+    "packagesop": "Used by /home-series-packages-1.",
+    "general-accessories": "Brand-revamp orphan. Live general-accessories uses accessories template.",
+    "home-series": "Brand-revamp orphan. Live home-series uses nets template.",
+    "home-series-2": "Deprecation candidate per prior notes.",
+    "nets-1": "Brand-revamp orphan. Live nets-1 uses cro-001 template.",
+    "pro-series": "Brand-revamp orphan. Live pro-series uses default.",
+    "resellers": "Likely retired.",
+    "simulation.context.b2b": "B2B override of simulation — keep IF B2B is live.",
+    "accessories-breaks": "MISSING — 8 'accessories for net size' collections use this.",
+    "assembly": "MISSING — 7 assembly collections use this.",
+    "assembly-new": "MISSING — main /collections/assembly (22 products) uses this.",
+    "coming-soon": "MISSING — placeholder for lacrosse/football nets.",
+    "custom": "MISSING — /collections/custom-nets uses this.",
+    "packages-no-fly": "MISSING — /no-fly-zone-packages uses this.",
+    "sim-landing-page": "MISSING — /launch-monitors-dev uses this.",
+    "storage": "MISSING — /collections/bags (16 products) uses this.",
+  },
+  page: {
+    "contact": "Used by /pages/contact-us AND /pages/contact — duplicate, redirect one.",
+    "octane-quiz": "Used by /quiz (live) and /test-quiz (delete test page).",
+    "resellers": "Used by /b2b-portal (live) and /test (delete test page).",
+    "bfcm": "Hidden /pages/bfcm. Reusable yearly?",
+    "rewind_menu_backup_do_not_delete": "Rewind app backup. Keep, per filename.",
+    "assembly": "Superseded by assembly-new. DELETE.",
+    "bfcm-25": "Last year's BFCM. DELETE.",
+    "extrapoint": "Product template by this name exists; no PAGE uses this. DELETE.",
+    "home-package-giveaway": "Old promo. DELETE.",
+    "international": "International landing — investigate if used. DELETE if not.",
+    "list-collections": "Duplicate of theme-level list-collections.json. DELETE.",
+    "pga-show": "Live PGA Show page uses 'negs' template not this. DELETE.",
+    "quiz": "Quiz uses octane-quiz. DELETE this file.",
+    "uneekor": "No live Uneekor page (only collection). DELETE.",
+    "academy-landing": "Academy concept — DELETE unless in roadmap.",
+    "build-your-setup.context.b2b": "B2B override — keep IF B2B is live.",
+    "resellers.context.b2b": "B2B override — keep IF B2B is live.",
+    "golf-net": "MISSING — live SEO page /pages/golf-net renders default. URGENT.",
+    "accessories-for-net-size": "MISSING — live nav page. URGENT.",
+    "faqs2": "MISSING — /pages/faqs (FAQ Video) live. Decide redirect or build.",
+    "page": "MISSING — meta-recursive value; /pages/waranty-policy live with this bug.",
+    "indoor-golf-net": "MISSING — hidden SEO sibling of golf-net.",
+    "golf-practice-net": "MISSING — hidden SEO sibling.",
+    "backyard-golf-net": "MISSING — hidden SEO sibling.",
+    "book-an-appt": "MISSING — relevant to footer Book a Call CTA.",
+    "calculator": "MISSING — hidden.",
+    "gallery-new": "MISSING — hidden.",
+    "alchemy.fullpage": "MISSING — Alchemy app artifact.",
+    "bombersclub": "MISSING — hidden.",
+    "custom-extra-point-nets": "MISSING — hidden.",
+    "postscript-FREESHIPPING-subscribe": "MISSING — Postscript app subscribe page.",
+    "golf": "MISSING — hidden sport landing.",
+    "soccer": "MISSING — hidden sport landing.",
+    "football": "MISSING — hidden sport landing.",
+    "baseball": "MISSING — hidden sport landing.",
+  },
+};
+
+// =================================================================
+// COMPUTED INDEX — figure out who uses what
+// =================================================================
+function classify(kind) {
+  const localFiles = new Set(LOCAL[kind]);
+  const resources = kind === "product" ? PRODUCTS : kind === "collection" ? COLLECTIONS : PAGES;
+  const used = new Map(); // suffix → array of resources
+  const defaultUsers = [];
+
+  for (const r of resources) {
+    const [handle, suffix] = r;
+    const norm = (suffix == null || suffix === "") ? null : suffix;
+    if (norm === null) { defaultUsers.push(r); continue; }
+    if (!used.has(norm)) used.set(norm, []);
+    used.get(norm).push(r);
+  }
+
+  // build template list = union of local files + suffixes seen live
+  const allSuffixes = new Set([...localFiles, ...used.keys()]);
+  const templates = [];
+  for (const suffix of allSuffixes) {
+    const fileExists = localFiles.has(suffix);
+    const users = used.get(suffix) || [];
+    let category;
+    if (fileExists && users.length > 0) category = "used";
+    else if (fileExists && users.length === 0) category = "ghost";
+    else category = "orphan"; // !fileExists && users.length > 0
+    if (BRAND_REVAMP_MISMATCHES[kind] && BRAND_REVAMP_MISMATCHES[kind][suffix]) {
+      category = "mismatch";
+    }
+    templates.push({ suffix, fileExists, users, category });
+  }
+  // also include default
+  templates.push({ suffix:"(default)", fileExists:true, users:defaultUsers, category: defaultUsers.length ? "used" : "ghost", isDefault:true });
+  return templates;
+}
+
+const STATE = {
+  product:    classify("product"),
+  collection: classify("collection"),
+  page:       classify("page"),
+  tab: "products",
+  filter: "all",
+  status: "any",
+  q: "",
+  decisions: JSON.parse(localStorage.getItem("tnr.template.decisions") || "{}"),
+};
+
+function saveDecision(key, val) {
+  if (!val) delete STATE.decisions[key];
+  else STATE.decisions[key] = val;
+  localStorage.setItem("tnr.template.decisions", JSON.stringify(STATE.decisions));
+}
+
+// =================================================================
+// RENDER
+// =================================================================
+function matchesQuery(t, q) {
+  if (!q) return true;
+  q = q.toLowerCase();
+  if (t.suffix.toLowerCase().includes(q)) return true;
+  return t.users.some(u => (u[0]||"").toLowerCase().includes(q) || (u[2]||"").toLowerCase().includes(q));
+}
+function matchesStatus(t, status, kind) {
+  if (status === "any") return true;
+  if (kind !== "page") return true; // only pages have pub/unpub
+  // for pages, look at users' isPublished
+  if (status === "live")   return t.users.some(u => u[2] === true);
+  if (status === "hidden") return t.users.every(u => u[2] === false);
+  return true;
+}
+
+function tpl(kind, t) {
+  const liveCount = t.users.length;
+  const productSum = (kind === "collection") ? t.users.reduce((s,u)=>s+(u[2]||0),0) : null;
+  const liveTagged = (kind === "page") ? t.users.filter(u=>u[2]===true).length : 0;
+  const hiddenTagged = (kind === "page") ? t.users.filter(u=>u[2]===false).length : 0;
+
+  const cat = t.category;
+  const pill = {
+    used:     `<span class="pill pill-good">Used · ${liveCount}</span>`,
+    ghost:    `<span class="pill pill-ghost">Ghost · 0 users</span>`,
+    orphan:   `<span class="pill pill-orphan">Orphan · file missing</span>`,
+    mismatch: `<span class="pill pill-mismatch">Brand-revamp mismatch</span>`,
+  }[cat];
+  const cls = `card is-${cat === 'used' ? '' : cat} p-4 cursor-pointer`;
+  const fileLabel = t.isDefault ? `${kind}.json (default)` : `${kind}.${t.suffix}.json`;
+  const decision = STATE.decisions[`${kind}:${t.suffix}`];
+  const decBadge = decision ? `<span class="pill pill-neutral ml-1">${decision}</span>` : "";
+  const note = NOTES[kind]?.[t.suffix];
+
+  let summary = "";
+  if (kind === "page") {
+    summary = `${liveTagged} live · ${hiddenTagged} hidden`;
+  } else if (kind === "collection") {
+    summary = `${liveCount} collection${liveCount===1?'':'s'}${productSum?` · ${productSum} products total`:''}`;
+  } else {
+    summary = `${liveCount} product${liveCount===1?'':'s'}`;
+  }
+  const liveSamples = t.users.slice(0,3).map(u=>u[0]).join(", ") + (t.users.length>3?`, +${t.users.length-3} more`:"");
+  return `<div class="${cls}" data-kind="${kind}" data-suffix="${escapeAttr(t.suffix)}">
+    <div class="flex items-start justify-between gap-3">
+      <div class="min-w-0">
+        <div class="font-mono text-sm font-semibold truncate">${escapeHtml(fileLabel)}</div>
+        <div class="text-xs text-slate-400 mt-0.5">${summary}</div>
+      </div>
+      <div class="shrink-0 flex flex-col items-end gap-1">${pill}${decBadge}</div>
+    </div>
+    ${t.users.length ? `<div class="mt-2 text-xs text-slate-500 truncate">↳ ${escapeHtml(liveSamples)}</div>`:""}
+    ${note ? `<div class="mt-2 text-xs text-slate-400 border-t border-ink-800 pt-2 leading-relaxed">${escapeHtml(note)}</div>`:""}
+  </div>`;
+}
+
+function renderList(kind) {
+  const tpls = STATE[kind];
+  let filtered = tpls.filter(t => {
+    if (STATE.filter !== "all" && t.category !== STATE.filter) return false;
+    if (!matchesQuery(t, STATE.q)) return false;
+    if (!matchesStatus(t, STATE.status, kind)) return false;
+    return true;
+  });
+  // sort: orphan > mismatch > ghost > used; within group by liveCount desc
+  const order = { orphan:0, mismatch:1, ghost:2, used:3 };
+  filtered.sort((a,b)=> (order[a.category]-order[b.category]) || (b.users.length-a.users.length) || a.suffix.localeCompare(b.suffix));
+  const counter = document.getElementById("result-count");
+  counter.textContent = `${filtered.length} of ${tpls.length} templates`;
+  if (filtered.length === 0) {
+    return `<div class="text-center py-20 text-slate-500">No templates match these filters.</div>`;
+  }
+  return `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">${filtered.map(t=>tpl(kind,t)).join("")}</div>`;
+}
+
+function renderPlan() {
+  const phases = [
+    { title:"Phase 1 — Stop the bleeding (live broken pages)", time:"~1 hour", items:[
+      ["page:golf-net",            "Build page.golf-net.json OR change templateSuffix on /pages/golf-net (LIVE indexed SEO page)"],
+      ["page:accessories-for-net-size", "Same fix for /pages/accessories-for-your-net-size (LIVE nav entry)"],
+      ["page:page",                "Fix templateSuffix=\"page\" on /pages/waranty-policy (LIVE) — meta-recursive bug"],
+      ["page:faqs2",               "Decide /pages/faqs (FAQ Video, LIVE): redirect to /faq or build page.faqs2.json"],
+    ]},
+    { title:"Phase 2 — Backfill accessories paths", time:"half day", items:[
+      ["product:accessories-no-material", "6 live products fall to default — pull upstream or rebuild template"],
+      ["collection:accessories-breaks",   "8 \"accessories for your net size\" collections — high-traffic shopping path"],
+      ["collection:assembly",             "7 assembly collections need template OR reassign to default consciously"],
+      ["collection:assembly-new",         "Main /collections/assembly (22 products)"],
+      ["collection:storage",              "/collections/bags (16 products)"],
+      ["collection:custom",               "/collections/custom-nets (1)"],
+      ["collection:packages-no-fly",      "/collections/no-fly-zone-packages (5)"],
+    ]},
+    { title:"Phase 3 — Reconcile brand-revamp landmines", time:"~1 hour", items:[
+      ["product:home-series",            "Live Home net uses cro-002 — change suffix to home-series in Admin OR delete file"],
+      ["product:pro-series",             "Live Pro net uses cro-002 — same decision"],
+      ["collection:nets-1",              "Live /nets-1 uses cro-001 — change suffix OR fold work into collection.cro-001.json"],
+      ["collection:general-accessories", "Live uses accessories — change suffix OR fold into accessories template"],
+      ["collection:home-series",         "Live uses nets — same decision"],
+      ["collection:pro-series",          "Live uses default — same decision"],
+    ]},
+    { title:"Phase 4 — Delete confirmed dead", time:"~30 min", items:[
+      ["product:country-club-elite",     "Built, never assigned"],
+      ["product:flightscope-mevo",       "Gen1 retired"],
+      ["product:flightscope-mevo-plus-le","LE retired"],
+      ["product:flightscope-x3",         "Retired"],
+      ["product:flightscope-netpackage", "Superseded"],
+      ["product:flightscope-simpackage", "Superseded"],
+      ["product:home-package",           "Consolidated under pro-package"],
+      ["product:home-series-og",         "Pre-revamp original"],
+      ["product:mczrmobile",             "Old responsive split"],
+      ["product:surfthing-computers",    "Built, never assigned"],
+      ["product:surfthing-laptop",       "Built, never assigned"],
+      ["page:assembly",                  "Superseded by assembly-new"],
+      ["page:bfcm-25",                   "Last year's BFCM"],
+      ["page:extrapoint",                "Page never existed"],
+      ["page:home-package-giveaway",    "Old promo"],
+      ["page:list-collections",          "Duplicate of theme-level"],
+      ["page:pga-show",                  "PGA page uses 'negs'"],
+      ["page:quiz",                      "Canonical is octane-quiz"],
+      ["page:uneekor",                   "No live Uneekor page"],
+      ["collection:home-series-2",       "Deprecation candidate"],
+      ["collection:home-series",         "Brand-revamp orphan (if not reassigning)"],
+      ["collection:nets-1",              "Brand-revamp orphan (if not reassigning)"],
+      ["collection:general-accessories", "Brand-revamp orphan (if not reassigning)"],
+      ["collection:pro-series",          "Brand-revamp orphan (if not reassigning)"],
+    ]},
+    { title:"Phase 5 — Admin hygiene (no theme push)", time:"~30 min", items:[
+      ["__admin:test pages",        "Delete /test, /test-2, /test-quiz, /panthers, /our-story-1 in Admin"],
+      ["__admin:seasonal sweep",    "Decide: keep vs delete the 15 hidden seasonal campaigns (bfcm, holiday, fathers-day, ryder-cup-sale, masters, spring, etc.)"],
+      ["__admin:duplicate contact", "Redirect /contact-us → /contact (or pick canonical)"],
+      ["__admin:freshpull",         "Run `theme:pull` — see if any of the 37 orphan templates exist upstream"],
+    ]},
+  ];
+  const itemRow = (key, text) => {
+    const checked = STATE.decisions[`plan:${key}`] === "done";
+    return `<label class="flex items-start gap-3 px-3 py-2 rounded-md hover:bg-ink-800 cursor-pointer group">
+      <input type="checkbox" class="plan-check mt-0.5" data-key="${escapeAttr(key)}" ${checked?'checked':''}>
+      <div class="flex-1 ${checked?'line-through text-slate-500':''}">
+        <div class="text-sm">${escapeHtml(text)}</div>
+        <div class="text-xs text-slate-500 font-mono">${escapeHtml(key)}</div>
+      </div>
+    </label>`;
+  };
+  return phases.map(p=>`
+    <section class="card p-5 mb-4">
+      <div class="flex items-baseline justify-between mb-3">
+        <h3 class="text-base font-semibold">${escapeHtml(p.title)}</h3>
+        <span class="text-xs text-slate-400">${escapeHtml(p.time)}</span>
+      </div>
+      <div class="divide-y divide-ink-800">
+        ${p.items.map(([k,t])=>itemRow(k,t)).join("")}
+      </div>
+    </section>
+  `).join("");
+}
+
+function renderKey() {
+  return `
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="card p-5 space-y-3">
+      <h3 class="font-semibold mb-2">Categories</h3>
+      <div><span class="pill pill-good">Used</span> <span class="text-slate-400 text-sm ml-2">File exists, ≥1 live resource references it.</span></div>
+      <div><span class="pill pill-ghost">Ghost</span> <span class="text-slate-400 text-sm ml-2">File exists, ZERO live resources reference it. Delete candidate.</span></div>
+      <div><span class="pill pill-orphan">Orphan</span> <span class="text-slate-400 text-sm ml-2">Live resource has a templateSuffix that has no file → silently renders default.</span></div>
+      <div><span class="pill pill-mismatch">Brand-revamp mismatch</span> <span class="text-slate-400 text-sm ml-2">Brand-revamp dev built a file naming it after the handle, but the live resource's templateSuffix points elsewhere. The file isn't being used.</span></div>
+    </div>
+    <div class="card p-5 space-y-2 text-sm">
+      <h3 class="font-semibold mb-2">How to use this</h3>
+      <ol class="list-decimal list-inside space-y-1 text-slate-300">
+        <li>Switch tabs to <em>Products</em> / <em>Collections</em> / <em>Pages</em>.</li>
+        <li>Filter by category — start with <em>Orphan</em> to see what's actively broken.</li>
+        <li>Search with <kbd>/</kbd> to jump to a product handle, suffix, or URL.</li>
+        <li>Click a card → side drawer opens with the full user list + per-resource live URL. Mark a decision (Keep / Delete / Reassign / Investigate).</li>
+        <li>Open <em>Cleanup Plan</em> and tick off as we go.</li>
+        <li>Hit <em>Export decisions</em> at the top — downloads JSON + markdown of every call we made.</li>
+      </ol>
+    </div>
+    <div class="card p-5 col-span-full">
+      <h3 class="font-semibold mb-2">Why this matters</h3>
+      <p class="text-sm text-slate-300 leading-relaxed">Shopify routes by <code class="font-mono bg-ink-800 px-1.5 py-0.5 rounded">templateSuffix</code> on the resource (set in Admin), not by handle. If a templateSuffix references a file that doesn't exist, Shopify silently falls back to the default <code class="font-mono bg-ink-800 px-1.5 py-0.5 rounded">product.json</code> / <code class="font-mono bg-ink-800 px-1.5 py-0.5 rounded">collection.json</code> / <code class="font-mono bg-ink-800 px-1.5 py-0.5 rounded">page.json</code>. No error is shown to the merchant. That's why agency work has been quietly disappearing — the assignments are pointing at files that were deleted or never made it into the working theme.</p>
+    </div>
+  </div>`;
+}
+
+function openDrawer(kind, suffix) {
+  const t = STATE[kind].find(x => x.suffix === suffix);
+  if (!t) return;
+  const d = document.getElementById("drawer");
+  document.getElementById("drawer-kind").textContent = `${kind.toUpperCase()} template`;
+  document.getElementById("drawer-title").textContent = t.isDefault ? `${kind}.json (default)` : `${kind}.${t.suffix}.json`;
+  const cat = t.category;
+  const pill = {
+    used:     `<span class="pill pill-good">Used</span>`,
+    ghost:    `<span class="pill pill-ghost">Ghost — delete candidate</span>`,
+    orphan:   `<span class="pill pill-orphan">Orphan — file missing</span>`,
+    mismatch: `<span class="pill pill-mismatch">Brand-revamp mismatch</span>`,
+  }[cat];
+  const decKey = `${kind}:${t.suffix}`;
+  const decision = STATE.decisions[decKey];
+  document.getElementById("drawer-status").innerHTML = `${pill}
+    ${t.fileExists ? '<span class="pill pill-neutral">File present</span>':'<span class="pill pill-orphan">File missing</span>'}`;
+
+  // mismatch panel
+  let mismatchHtml = "";
+  if (cat === "mismatch") {
+    const m = BRAND_REVAMP_MISMATCHES[kind][t.suffix];
+    mismatchHtml = `<div class="card p-3 border-indigo-500/30 bg-indigo-500/5">
+      <div class="text-xs uppercase tracking-wider text-indigo-300 font-semibold mb-1">Handle ↔ Suffix landmine</div>
+      <div class="text-sm">Live <span class="font-mono text-indigo-200">/${kind === 'collection' ? 'collections/' : ''}${m.liveHandle}</span> is using suffix <span class="font-mono text-indigo-200">"${m.liveSuffix || '(default)'}"</span>, NOT <span class="font-mono">"${t.suffix}"</span>.</div>
+      <div class="text-xs text-slate-400 mt-2">${escapeHtml(m.note)}</div>
+      <div class="text-xs text-slate-400 mt-2"><strong>Two ways to fix:</strong> change templateSuffix in Admin so it points at this file, OR move the work in this file into the template the live resource actually uses.</div>
+    </div>`;
+  }
+
+  const note = NOTES[kind]?.[t.suffix];
+  const noteHtml = note ? `<div class="card p-3 bg-ink-800/40"><div class="text-xs uppercase tracking-wider text-slate-400 mb-1">Recommendation</div><div class="text-sm">${escapeHtml(note)}</div></div>` : "";
+
+  const usersHtml = t.users.length ? `
+    <div>
+      <div class="text-xs uppercase tracking-wider text-slate-400 mb-2">Live resources using this template (${t.users.length})</div>
+      <div class="space-y-1.5 max-h-[40vh] overflow-y-auto scrollbar pr-1">
+        ${t.users.map(u=>{
+          let pubBadge = "";
+          if (kind === "page") pubBadge = u[2] ? `<span class="pill pill-good">live</span>` : `<span class="pill pill-neutral">hidden</span>`;
+          let pcount = "";
+          if (kind === "collection") pcount = `<span class="pill pill-neutral">${u[2]||0} prod</span>`;
+          const url = kind === "product" ? u[2]
+                    : kind === "collection" ? `https://www.thenetreturn.com/collections/${u[0]}`
+                    : `https://www.thenetreturn.com/pages/${u[0]}`;
+          const urlHtml = url ? `<a href="${escapeAttr(url)}" target="_blank" class="ext text-xs">↗</a>` : "";
+          return `<div class="flex items-center gap-2 px-2 py-1.5 bg-ink-800/60 rounded-md text-sm">
+            <span class="font-mono text-xs flex-1 truncate">${escapeHtml(u[0])}</span>
+            ${pcount}${pubBadge}${urlHtml}
+          </div>`;
+        }).join("")}
+      </div>
+    </div>` : `<div class="text-sm text-slate-500 italic">No live resources reference this template.</div>`;
+
+  const setDec = (v) => `data-set="${v}" class="decision-btn ${v} ${decision===v?'on':''}"`;
+  const decisionPanel = `
+    <div>
+      <div class="text-xs uppercase tracking-wider text-slate-400 mb-2">My decision</div>
+      <div class="flex flex-wrap gap-2" id="decision-row">
+        <button ${setDec("keep")}>Keep</button>
+        <button ${setDec("delete")}>Delete file</button>
+        <button ${setDec("reassign")}>Reassign in Admin</button>
+        <button ${setDec("investigate")}>Investigate</button>
+        ${decision ? `<button data-set="" class="decision-btn">Clear</button>` : ""}
+      </div>
+    </div>
+  `;
+
+  document.getElementById("drawer-body").innerHTML = mismatchHtml + noteHtml + usersHtml + decisionPanel;
+  d.classList.remove("translate-x-full");
+
+  // bind decision buttons
+  document.querySelectorAll("#decision-row .decision-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const v = e.currentTarget.getAttribute("data-set") || "";
+      saveDecision(decKey, v);
+      openDrawer(kind, suffix); // re-render
+      rerender(); // update card badge
+    });
+  });
+}
+
+function closeDrawer() {
+  document.getElementById("drawer").classList.add("translate-x-full");
+}
+
+function rerender() {
+  for (const k of ["products","collections","pages","plan","key"]) {
+    document.getElementById(`tab-${k}`).classList.toggle("hidden", STATE.tab !== k);
+  }
+  // filters are hidden on plan/key tabs
+  document.getElementById("filters").style.display = (STATE.tab === "plan" || STATE.tab === "key") ? "none" : "flex";
+
+  const kind = STATE.tab === "products" ? "product" : STATE.tab === "collections" ? "collection" : STATE.tab === "pages" ? "page" : null;
+  if (kind) {
+    document.getElementById(`tab-${STATE.tab}`).innerHTML = renderList(kind);
+    // bind card clicks
+    document.querySelectorAll(`#tab-${STATE.tab} .card`).forEach(c=>{
+      c.addEventListener("click", () => openDrawer(c.dataset.kind, c.dataset.suffix));
+    });
+  } else if (STATE.tab === "plan") {
+    document.getElementById("tab-plan").innerHTML = renderPlan();
+    document.querySelectorAll(".plan-check").forEach(cb => {
+      cb.addEventListener("change", e => {
+        const k = e.target.dataset.key;
+        saveDecision(`plan:${k}`, e.target.checked ? "done" : "");
+        rerender();
+      });
+    });
+  } else if (STATE.tab === "key") {
+    document.getElementById("tab-key").innerHTML = renderKey();
+  }
+
+  // tab button active state
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.tab === STATE.tab);
+  });
+  // filter chip active state
+  document.querySelectorAll("[data-filter]").forEach(b => {
+    const f = b.dataset.filter;
+    b.classList.toggle("active", STATE.filter === f);
+    b.classList.toggle("warn",   STATE.filter === f && (f === "ghost"));
+    b.classList.toggle("danger", STATE.filter === f && (f === "orphan"));
+    b.classList.toggle("violet", STATE.filter === f && (f === "mismatch"));
+  });
+  document.querySelectorAll("[data-status]").forEach(b => {
+    b.classList.toggle("active", STATE.status === b.dataset.status);
+  });
+}
+
+function escapeHtml(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function escapeAttr(s) { return escapeHtml(s); }
+
+// =================================================================
+// EVENT WIRING
+// =================================================================
+document.querySelectorAll(".tab-btn").forEach(b => {
+  b.addEventListener("click", () => {
+    STATE.tab = b.dataset.tab;
+    rerender();
+  });
+});
+document.querySelectorAll("[data-filter]").forEach(b => {
+  b.addEventListener("click", () => {
+    STATE.filter = b.dataset.filter;
+    rerender();
+  });
+});
+document.querySelectorAll("[data-status]").forEach(b => {
+  b.addEventListener("click", () => {
+    STATE.status = b.dataset.status;
+    rerender();
+  });
+});
+document.getElementById("search").addEventListener("input", e => {
+  STATE.q = e.target.value.trim();
+  rerender();
+});
+document.getElementById("drawer-close").addEventListener("click", closeDrawer);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeDrawer();
+  if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+    e.preventDefault();
+    document.getElementById("search").focus();
+  }
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const dec = STATE.decisions;
+  const keys = Object.keys(dec).sort();
+  if (keys.length === 0) { alert("No decisions recorded yet. Click into templates and mark Keep / Delete / Reassign / Investigate."); return; }
+  const lines = ["# Template audit — my decisions", "", `Exported: ${new Date().toISOString()}`, "", "## By category", ""];
+  const byCat = { keep:[], delete:[], reassign:[], investigate:[], done:[] };
+  for (const k of keys) byCat[dec[k]]?.push(k);
+  for (const cat of ["delete","reassign","investigate","keep","done"]) {
+    if (!byCat[cat].length) continue;
+    lines.push(`### ${cat.toUpperCase()} (${byCat[cat].length})`);
+    for (const k of byCat[cat]) lines.push(`- \`${k}\``);
+    lines.push("");
+  }
+  const md = lines.join("\n");
+  const blob = new Blob([md], { type:"text/markdown" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `template-audit-decisions-${new Date().toISOString().slice(0,10)}.md`;
+  a.click();
+});
+
+rerender();
+</script>
+</body>
+</html>
