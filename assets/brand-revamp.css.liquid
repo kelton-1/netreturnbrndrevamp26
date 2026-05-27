@@ -1117,23 +1117,56 @@
 .mega-menu.mega-menu--brand {
   padding: 0;
 }
+
+/* Kill the Focal page-scrim — full-viewport `.mega-menu:after` rule
+   in theme.css line 8079 paints a black 30%-opacity backdrop below
+   the open mega-menu. On Shadow Green it reads as a hard shadow
+   band underneath the menu. Brand revamp doesn't want it. */
+.shopify-section-group-header-group .mega-menu:after,
+#shopify-section-header .mega-menu:after {
+  display: none;
+}
+
 .mega-menu--brand__grid {
   display: grid;
-  /* Text-first layout: nav column left, two image cards right. */
-  grid-template-columns: 1.2fr 1fr 1fr;
-  min-height: 480px;
+  /* Default desktop layout: nav column left, two cards stacked
+     vertically on the right. Capped width keeps all three menus
+     (Shop / Explore / Learn) visually equivalent — without this,
+     Explore/Learn (no nav column) sprawl wider than Shop. */
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+  max-width: 1100px;
+  margin: 0 auto;
+  min-height: 360px;
+  padding-block: 28px;
 }
+
+/* When there's no nav column (Explore / Learn — Shopify Navigation
+   has no children for these), drop the nav track entirely and let
+   the two hero cards split the row evenly. Keeps the outer footprint
+   identical to Shop without forcing a synthetic nav column. */
+.mega-menu--brand__grid:not(:has(.mega-menu--brand__nav)) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+}
+
+/* Nav column spans both rows so the two cards stack alongside it. */
+.mega-menu--brand__nav { grid-row: 1 / span 2; }
 .mega-menu--brand__card {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 32px;
+  padding: 22px 24px;
   overflow: hidden;
   isolation: isolate;
   color: rgb(var(--brand-white));
   text-decoration: none;
   border-left: 1px solid rgba(var(--brand-white), .05);
+  /* Cards stacked vertically alongside nav — explicit min-height
+     keeps each card legible without bloating overall menu height. */
+  min-height: 152px;
 }
 .mega-menu--brand__card-image {
   position: absolute;
@@ -1171,25 +1204,25 @@
   margin: 0;
   font-family: var(--brand-font-display);
   font-weight: 600;
-  font-size: clamp(28px, 2.4vw, 38px);
+  font-size: clamp(20px, 1.6vw, 26px);
   line-height: 1;
   letter-spacing: 0;
   text-transform: uppercase;
 }
 .mega-menu--brand__card-meta {
-  margin: 4px 0 14px;
+  margin: 3px 0 10px;
   font-family: var(--brand-font-body);
-  font-size: 15px;
+  font-size: 13px;
   color: rgba(var(--brand-white), .82);
 }
 .mega-menu--brand__card-cta { align-self: flex-start; }
 
 .mega-menu--brand__nav {
-  padding: 48px 56px;
+  padding: 28px 40px;
   background: rgb(var(--brand-black));
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px 40px;
+  gap: 20px 32px;
   align-content: start;
 }
 .mega-menu--brand__nav-header {
@@ -1207,7 +1240,7 @@
 .mega-menu--brand__nav-heading {
   margin: 0;
   font-family: var(--brand-font-display);
-  font-size: clamp(32px, 3vw, 48px);
+  font-size: clamp(22px, 2.2vw, 30px);
   font-weight: 600;
   line-height: .95;
   letter-spacing: 0;
@@ -1249,20 +1282,32 @@ a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
 .mega-menu--brand__nav-links a:hover { color: rgb(var(--brand-glow)); }
 
 .mega-menu--brand--shop .mega-menu--brand__nav {
-  padding-block: 32px 40px;
+  padding-block: 20px 28px;
 }
 .mega-menu--brand--shop .mega-menu--brand__nav-header {
-  padding-bottom: 12px;
+  padding-bottom: 8px;
 }
 
-
+/* Smaller laptop widths — keep the nav | stacked-cards model but
+   relax the nav padding so it doesn't push the cards too narrow. */
 @media (max-width: 1199px) {
-  .mega-menu--brand__grid { grid-template-columns: 1fr 1fr 1fr; }
+  .mega-menu--brand__nav { padding: 24px 28px; }
 }
+
+/* Tablet / narrow laptop — drop the nav inline with cards above it.
+   At this size the menu falls back to a single content column. */
 @media (max-width: 999px) {
-  .mega-menu--brand__grid { grid-template-columns: 1fr; min-height: auto; }
-  .mega-menu--brand__card { min-height: 240px; }
-  .mega-menu--brand__nav { padding: 32px 24px; grid-template-columns: 1fr 1fr; }
+  .mega-menu--brand__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    min-height: auto;
+  }
+  .mega-menu--brand__grid:not(:has(.mega-menu--brand__nav)) {
+    grid-template-columns: 1fr;
+  }
+  .mega-menu--brand__nav { grid-row: auto; padding: 28px 24px; grid-template-columns: 1fr 1fr; }
+  .mega-menu--brand__card { min-height: 200px; }
 }
 
 /* Mobile navigation drawer only. Product, filter, cart, and search drawers keep their own Focal styling. */
