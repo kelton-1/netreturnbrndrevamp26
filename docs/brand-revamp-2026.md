@@ -183,6 +183,26 @@ The homepage now needs social proof that matches the brand system instead of dro
 - Full Theme Check still exits on the known baseline `layout/theme.liquid` `ContentForHeaderModification` error.
 - Popup timing/stacking, desktop `Explore`/`Learn` hover screenshots, and mobile drawer visuals must be confirmed with marketing embeds enabled in a real storefront session. Automated preview was blocked first by an unrelated dirty `templates/index.json` section-count issue, then by Shopify's connection-verification screen after running the preview with that homepage file ignored.
 
+### Desktop mega-menu hover stability
+
+**Date:** 2026-05-26
+
+**Files**
+
+- `assets/theme.js`
+- `scripts/validate-header-footer-navigation.mjs`
+- `docs/header-footer-navigation-handoff.md`
+
+**Changes**
+
+- Added a short desktop close delay when the pointer leaves a top-level dropdown item, and cancels that close when the pointer enters the open dropdown panel.
+- Kept the close behavior immediate when the pointer leaves the document, so the menu does not get stuck open.
+- Added a validator assertion to keep this hover bridge from regressing.
+
+**Rationale**
+
+The brand header's roomier layout made the trip from `Shop` down into the full-width mega menu easy to interrupt. The fix preserves the Focal desktop-navigation model while making that pointer path forgiving enough for real shoppers.
+
 ---
 
 ## Brand fonts staged

@@ -37,6 +37,10 @@ Workspace: `/Users/kelton1/Developer/TheNetReturn/Shopify`
 - Stale sitewide BFCM/Black Friday header highlight CSS and JavaScript were removed from `sections/header.liquid`.
 - Footer trust strip is enabled above the advisory CTA.
 - Footer newsletter copy now promises setup tips and buying guides rather than generic news/deals.
+- 2026-05-26 desktop hover fix:
+  - Added a short close delay to the desktop navigation behavior so shoppers can move from `Shop` into the mega-menu panel without the dropdown disappearing mid-path.
+  - The delay is cancelled as soon as the pointer enters the open dropdown, so intentional movement into the panel keeps the menu alive while leaving the header area still closes it.
+  - Added this behavior to `scripts/validate-header-footer-navigation.mjs` so future header work checks for the regression.
 
 ## Decide In Shopify Admin
 
@@ -115,6 +119,8 @@ Confirmed in the rendered preview before Shopify connection verification appeare
 - 2026-05-21 update: local preview restarted at `http://127.0.0.1:9292` for development theme `149375975517`.
 - 2026-05-21 update: mobile DOM checks at 390px confirmed the full-screen drawer opens, uses Shopify Navigation content from `sidebar_navigation_menu`, and presents account/order/support utilities in the footer.
 - 2026-05-21 update: Shopify validation passed for the changed header/menu/config/CSS artifacts, and `node scripts/validate-header-footer-navigation.mjs` passed `13` checks.
+- 2026-05-26 update: `node scripts/validate-header-footer-navigation.mjs` now includes the desktop hover grace-period regression check.
+- 2026-05-26 update: local preview on `http://127.0.0.1:9292` confirmed the `Shop` mega menu remains open while moving through the header/menu gap into the dropdown. Screenshot: `output/playwright/header-hover-2026-05-26/shop-mega-menu-open.png`.
 - Conversion-first mobile quick links exist in the drawer markup in the approved order.
 - Stale BFCM selectors are absent from the rendered header.
 - Desktop/menu guided label text is present.

@@ -4972,17 +4972,38 @@ var DesktopNavigation = class extends CustomHTMLElement {
         })));
         animation.play();
       }
-      const leaveListener = (event) => {
-        if (event.relatedTarget !== null) {
-          this.closeDropdown(parentElement);
-          parentElement.removeEventListener("mouseleave", leaveListener);
+      let closingTimeout = null;
+      const cancelClose = () => {
+        if (closingTimeout) {
+          clearTimeout(closingTimeout);
+          closingTimeout = null;
         }
       };
+      const cleanupCloseListeners = () => {
+        parentElement.removeEventListener("mouseenter", cancelClose);
+        parentElement.removeEventListener("mouseleave", leaveListener);
+        dropdown.removeEventListener("mouseenter", cancelClose);
+        dropdown.removeEventListener("mouseleave", leaveListener);
+      };
+      const leaveListener = (event) => {
+        if (event.relatedTarget === null || parentElement.contains(event.relatedTarget)) {
+          return;
+        }
+        cancelClose();
+        closingTimeout = setTimeout(() => {
+          this.closeDropdown(parentElement);
+          cleanupCloseListeners();
+        }, 240);
+      };
       const leaveDocumentListener = () => {
+        cleanupCloseListeners();
         this.closeDropdown(parentElement);
         document.documentElement.removeEventListener("mouseleave", leaveDocumentListener);
       };
+      parentElement.addEventListener("mouseenter", cancelClose);
       parentElement.addEventListener("mouseleave", leaveListener);
+      dropdown.addEventListener("mouseenter", cancelClose);
+      dropdown.addEventListener("mouseleave", leaveListener);
       document.documentElement.addEventListener("mouseleave", leaveDocumentListener);
       openingTimeout = null;
       this.dispatchEvent(new CustomEvent("desktop-nav:dropdown:open", { bubbles: true }));

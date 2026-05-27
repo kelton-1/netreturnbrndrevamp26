@@ -14,6 +14,7 @@ const mobileMenu = read('snippets/mobile-menu.liquid');
 const desktopMenu = read('snippets/desktop-menu.liquid');
 const header = read('sections/header.liquid');
 const brandCss = read('assets/brand-revamp.css.liquid');
+const themeJs = read('assets/theme.js');
 const headerGroup = JSON.parse(stripShopifyJsonComment(read('sections/header-group.json')));
 const footerGroup = JSON.parse(stripShopifyJsonComment(read('sections/footer-group.json')));
 const brandDocs = read('docs/brand-revamp-2026.md');
@@ -61,6 +62,13 @@ check('brand CSS implements island header and full-screen dark mobile drawer', (
 check('desktop mega menu has guided decision-support label', () =>
   desktopMenu.includes('mega-menu__guided-title') &&
   desktopMenu.includes('Not sure where to start?')
+);
+
+check('desktop mega menu hover has a short grace period before closing', () =>
+  themeJs.includes('let closingTimeout = null') &&
+  themeJs.includes('parentElement.contains(event.relatedTarget)') &&
+  themeJs.includes('dropdown.addEventListener("mouseenter", cancelClose)') &&
+  themeJs.includes('}, 240);')
 );
 
 check('desktop Explore and Learn use brand mega menus with distinct imagery', () => {
