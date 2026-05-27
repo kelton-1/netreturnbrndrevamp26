@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Breadcrumb Concepts — TheNetReturn Brand Revamp</title>
+<style>
+  /* ============================================================
+     Brand tokens — approximations of the live brand-revamp.css.liquid
+     values, embedded here so this file is self-contained. Open it
+     locally with a double-click; no build required.
+     ============================================================ */
+  :root {
+    --brand-emerald: 0, 156, 67;
+    --brand-shadow: 35, 58, 53;     /* Shadow Green */
+    --brand-glow:   165, 230, 198;   /* Glow Green */
+    --brand-black:  16, 16, 16;
+    --brand-white:  244, 244, 244;
+    --brand-neon:   104, 253, 0;
+
+    --brand-font-display: "Crystal Ultra Condensed", "Bebas Neue", "Oswald", ui-sans-serif, system-ui, sans-serif;
+    --brand-font-accent:  "Miracle Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --brand-font-body:    Inter, ui-sans-serif, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    --brand-font-nav:     var(--brand-font-body);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--brand-font-body);
+    background: #f2f2f0;
+    color: rgb(var(--brand-black));
+  }
+  body { padding: 32px clamp(16px, 4vw, 48px); }
+
+  /* ============================================================
+     Page chrome
+     ============================================================ */
+  .page-head {
+    max-width: 1200px;
+    margin: 0 auto 32px;
+  }
+  .page-head h1 {
+    margin: 0 0 8px;
+    font-family: var(--brand-font-display);
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .page-head p {
+    margin: 0;
+    color: #555;
+    max-width: 720px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .toggle-row {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .toggle-label {
+    font-family: var(--brand-font-accent);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: #777;
+    margin-right: 8px;
+  }
+  .toggle-btn {
+    appearance: none;
+    border: 1px solid rgba(0,0,0,.15);
+    background: white;
+    padding: 6px 14px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all .15s ease;
+  }
+  .toggle-btn[aria-pressed="true"] {
+    background: rgb(var(--brand-black));
+    color: rgb(var(--brand-white));
+    border-color: rgb(var(--brand-black));
+  }
+
+  /* ============================================================
+     Concept grid
+     ============================================================ */
+  .grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .concept {
+    background: white;
+    border: 1px solid rgba(0,0,0,.08);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .concept__head {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .concept__title {
+    margin: 0 0 4px;
+    font-family: var(--brand-font-display);
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .concept__title .pill {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    font-family: var(--brand-font-accent);
+    font-size: 10px;
+    letter-spacing: .12em;
+    background: rgb(var(--brand-glow));
+    color: rgb(var(--brand-shadow));
+    border-radius: 999px;
+    text-transform: uppercase;
+    vertical-align: 4px;
+  }
+  .concept__desc {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* The mockup stage — shows header, breadcrumb, content stub. */
+  .stage {
+    position: relative;
+  }
+  .stage--light { background: #ffffff; }
+  .stage--dark  { background: #1a1a1a; }
+
+  /* Stage shared bits */
+  .stage__marquee {
+    background: rgb(var(--brand-glow));
+    color: rgb(var(--brand-shadow));
+    font-family: var(--brand-font-accent);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    padding: 8px 24px;
+    text-align: center;
+  }
+  .stage__header {
+    background: rgb(var(--brand-shadow));
+    color: rgb(var(--brand-white));
+    display: flex;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 24px;
+  }
+  .stage__nav {
+    display: flex;
+    gap: 28px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .stage__nav a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .stage__nav a::before {
+    content: "+";
+    color: rgb(var(--brand-emerald));
+    font-weight: 400;
+  }
+  .stage__logo {
+    flex: 1;
+    text-align: center;
+    font-family: var(--brand-font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+  .stage__icons {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    opacity: .85;
+  }
+  .stage__content {
+    padding: 32px 32px 48px;
+    min-height: 200px;
+  }
+  .stage--dark .stage__content { color: rgb(var(--brand-white)); }
+
+  /* Content stubs */
+  .content-pdp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .content-pdp__img {
+    aspect-ratio: 1 / 1;
+    background: #e8e8e6;
+    background-image:
+      linear-gradient(135deg, transparent 49%, rgba(0,0,0,.04) 50%, transparent 51%),
+      linear-gradient(45deg,  transparent 49%, rgba(0,0,0,.04) 50%, transparent 51%);
+    background-size: 10px 10px;
+    border-radius: 6px;
+  }
+  .stage--dark .content-pdp__img { background-color: #2a2a2a; }
+  .content-pdp__title {
+    margin: 0 0 8px;
+    font-family: var(--brand-font-display);
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .content-pdp__price {
+    font-family: var(--brand-font-body);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  .content-pdp__btn {
+    display: inline-block;
+    background: rgb(var(--brand-emerald));
+    color: white;
+    padding: 14px 28px;
+    font-family: var(--brand-font-accent);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+  }
+  .content-hero {
+    min-height: 280px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, rgb(var(--brand-shadow)) 0%, #0f1716 100%);
+    color: rgb(var(--brand-white));
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .content-hero__eyebrow {
+    font-family: var(--brand-font-accent);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: rgb(var(--brand-glow));
+    margin: 0 0 8px;
+  }
+  .content-hero__title {
+    margin: 0;
+    font-family: var(--brand-font-display);
+    font-size: 44px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  /* ============================================================
+     CONCEPT A1 — Slim inline (no ribbon) — light text variant
+     ============================================================ */
+  .crumb-a1 {
+    padding: 10px 32px 4px;
+    background: transparent;
+  }
+  .crumb-a1 ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    color: #6b6b6b;
+  }
+  .stage--dark .crumb-a1 ol { color: rgba(255,255,255,.55); }
+  .crumb-a1 a { color: #444; text-decoration: none; transition: color .15s ease; }
+  .stage--dark .crumb-a1 a { color: rgba(255,255,255,.75); }
+  .crumb-a1 a:hover { color: rgb(var(--brand-emerald)); }
+  .crumb-a1 .sep { color: #c0c0c0; font-size: 11px; }
+  .stage--dark .crumb-a1 .sep { color: rgba(255,255,255,.28); }
+  .crumb-a1 .current { color: rgb(var(--brand-black)); font-weight: 500; }
+  .stage--dark .crumb-a1 .current { color: rgb(var(--brand-white)); }
+
+  /* ============================================================
+     CONCEPT A2 — Slim inline, but inset INTO the dark hero
+     ============================================================ */
+  /* Same as A1 visually but positioned via negative margin into the hero */
+  .crumb-a2 {
+    padding: 10px 32px 4px;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    margin-bottom: -42px;
+  }
+  .crumb-a2 ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,.7);
+  }
+  .crumb-a2 a { color: rgba(255,255,255,.85); text-decoration: none; }
+  .crumb-a2 a:hover { color: rgb(var(--brand-glow)); }
+  .crumb-a2 .sep { color: rgba(255,255,255,.35); font-size: 11px; }
+  .crumb-a2 .current { color: white; font-weight: 500; }
+  /* Hero needs more top padding to accommodate the overlay */
+  .stage--a2 .content-hero { padding-top: 64px; }
+
+  /* ============================================================
+     CONCEPT B — Container-width pill (4% tint, rounded)
+     ============================================================ */
+  .crumb-b {
+    padding: 14px 32px 8px;
+    background: transparent;
+  }
+  .crumb-b ol {
+    list-style: none;
+    margin: 0;
+    padding: 7px 14px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    background: rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.06);
+    border-radius: 999px;
+    color: #555;
+  }
+  .stage--dark .crumb-b ol {
+    background: rgba(255,255,255,.06);
+    border-color: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.65);
+  }
+  .crumb-b a { color: #333; text-decoration: none; }
+  .stage--dark .crumb-b a { color: rgba(255,255,255,.85); }
+  .crumb-b a:hover { color: rgb(var(--brand-emerald)); }
+  .crumb-b .sep { color: rgba(0,0,0,.3); font-size: 11px; }
+  .stage--dark .crumb-b .sep { color: rgba(255,255,255,.3); }
+  .crumb-b .current { color: rgb(var(--brand-black)); font-weight: 500; }
+  .stage--dark .crumb-b .current { color: white; }
+
+  /* ============================================================
+     CONCEPT C — Slim opaque sliver (compressed dark ribbon)
+     ============================================================ */
+  .crumb-c {
+    background: rgb(var(--brand-black));
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 6px 32px;
+  }
+  .crumb-c ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3px 6px;
+    font-family: var(--brand-font-body);
+    font-size: 12px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.3;
+  }
+  .crumb-c a { color: rgba(255,255,255,.75); text-decoration: none; }
+  .crumb-c a:hover { color: rgb(var(--brand-emerald)); }
+  .crumb-c .sep { color: rgba(255,255,255,.28); font-size: 11px; }
+  .crumb-c .current { color: white; font-weight: 500; }
+
+  /* ============================================================
+     CONCEPT D — Header-integrated (row inside header bar)
+     ============================================================ */
+  .crumb-d-header {
+    background: rgb(var(--brand-shadow));
+    color: rgb(var(--brand-white));
+  }
+  .crumb-d-header__main {
+    display: flex;
+    align-items: center;
+    padding: 16px 32px;
+    gap: 24px;
+  }
+  .crumb-d-header__strip {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 8px 32px;
+    font-family: var(--brand-font-body);
+    font-size: 13px;
+    color: rgba(255,255,255,.55);
+    display: flex;
+    align-items: center;
+    gap: 4px 8px;
+  }
+  .crumb-d-header__strip ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+  }
+  .crumb-d-header__strip a {
+    color: rgba(255,255,255,.78);
+    text-decoration: none;
+  }
+  .crumb-d-header__strip a:hover { color: rgb(var(--brand-glow)); }
+  .crumb-d-header__strip .sep { color: rgba(255,255,255,.28); font-size: 11px; }
+  .crumb-d-header__strip .current { color: white; font-weight: 500; }
+  .crumb-d-content { padding: 32px 32px 48px; min-height: 200px; }
+
+  /* ============================================================
+     Current production (for reference)
+     ============================================================ */
+  .crumb-current {
+    background: rgb(var(--brand-black));
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 12px 32px;
+  }
+  .crumb-current ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 8px;
+    font-family: var(--brand-font-body);
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255,255,255,.55);
+  }
+  .crumb-current a { color: rgba(255,255,255,.75); text-decoration: none; }
+  .crumb-current a:hover { color: rgb(var(--brand-emerald)); }
+  .crumb-current .sep { color: rgba(255,255,255,.28); font-size: 12px; }
+  .crumb-current .current { color: white; font-weight: 500; }
+
+  /* ============================================================
+     Toggle visibility
+     ============================================================ */
+  body[data-context="pdp"] .stage--collection { display: none; }
+  body[data-context="collection"] .stage--pdp { display: none; }
+
+  /* ============================================================
+     Notes block under each mockup
+     ============================================================ */
+  .notes {
+    padding: 16px 24px 20px;
+    background: #fafafa;
+    border-top: 1px solid rgba(0,0,0,.06);
+    font-size: 13px;
+    color: #555;
+    line-height: 1.55;
+  }
+  .notes strong { color: rgb(var(--brand-black)); }
+  .notes ul { margin: 6px 0 0; padding-left: 18px; }
+
+  /* ============================================================
+     Mobile fallback
+     ============================================================ */
+  @media (max-width: 720px) {
+    .stage__nav { display: none; }
+    .stage__header { padding: 12px 16px; }
+    .stage__content { padding: 20px 16px 32px; }
+    .content-pdp { grid-template-columns: 1fr; }
+    .content-pdp__title { font-size: 28px; }
+  }
+</style>
+</head>
+<body data-context="pdp">
+
+<header class="page-head">
+  <h1>Breadcrumb Concepts</h1>
+  <p>
+    Four directions for the brand breadcrumb. Each concept is rendered with the same
+    multi-step trail (<em>Home › Packages › Pro Package</em>) so you can compare visual
+    weight side-by-side. Toggle between PDP context (white page) and collection-page
+    context (dark hero behind the breadcrumb) to see how each behaves.
+  </p>
+</header>
+
+<div class="toggle-row">
+  <span class="toggle-label">Context</span>
+  <button class="toggle-btn" aria-pressed="true"  data-ctx="pdp">PDP (light page)</button>
+  <button class="toggle-btn" aria-pressed="false" data-ctx="collection">Collection (dark hero)</button>
+</div>
+
+<div class="grid">
+
+  <!-- ========== CURRENT — for reference ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">Current production <span class="pill">Live now</span></h2>
+      <p class="concept__desc">
+        What's on the dev theme right now. Full black ribbon edge-to-edge under the header.
+        Owner's complaint: crowds the PDP.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-current">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-current">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content">
+        <div class="content-hero">
+          <p class="content-hero__eyebrow">Shop packages</p>
+          <h3 class="content-hero__title">Complete practice setups.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> heavy (dark band edge-to-edge, ~44px tall, full viewport width).
+      Three contiguous dark layers stack — header + breadcrumb + hero — on collection pages.
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT A1 ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">A1 · Slim inline, on page background <span class="pill">Recommended</span></h2>
+      <p class="concept__desc">
+        No ribbon. Breadcrumb sits inline at the top of the page container, on whatever the
+        page's natural background is. On PDPs (white background) it reads as dark gray
+        text. On collection pages the breadcrumb sits BEFORE the hero on the page background,
+        not on the hero itself.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-a1">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content" style="padding-top: 12px;">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-a1">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content" style="padding-top: 12px;">
+        <div class="content-hero">
+          <p class="content-hero__eyebrow">Shop packages</p>
+          <h3 class="content-hero__title">Complete practice setups.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> minimal (no background, ~16px tall total including padding).
+      Reference: Allbirds, Aritzia, Lululemon, On Running.
+      <ul>
+        <li>On dark pages, text auto-switches to a light variant via CSS.</li>
+        <li>On collection pages, the breadcrumb sits on the small white gap between the dark header and the dark hero. Reads as a quiet transition rather than another UI band.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT A2 ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">A2 · Slim inline, overlaid on dark hero (collection pages only)</h2>
+      <p class="concept__desc">
+        Same as A1, but on collection pages the breadcrumb is inset over the dark hero
+        itself (light text on dark hero). On PDPs (no hero), behaves like A1. Closer to
+        what Aritzia does on category landing pages.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-a1">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content" style="padding-top: 12px;">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light stage--a2">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <div class="stage__content" style="padding-top: 8px;">
+        <div style="position: relative;">
+          <nav class="crumb-a2">
+            <ol>
+              <li><a href="#">Home</a></li>
+              <li class="sep">›</li>
+              <li><a href="#">Packages</a></li>
+              <li class="sep">›</li>
+              <li class="current">Pro Package</li>
+            </ol>
+          </nav>
+          <div class="content-hero">
+            <p class="content-hero__eyebrow">Shop packages</p>
+            <h3 class="content-hero__title">Complete practice setups.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> minimal on PDPs, integrated into the hero on collection pages.
+      <ul>
+        <li>Removes the awkward "white gap between two dark blocks" of A1.</li>
+        <li>Requires a tiny bit more layout glue per template — the breadcrumb has to sit inside the hero's vertical space rather than above it.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT B ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">B · Container-width pill</h2>
+      <p class="concept__desc">
+        Keep a discrete breadcrumb element, but contained as a left-aligned pill inside
+        the page container — same width pattern as the new mega-menu. Subtle background
+        tint, rounded.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-b">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content" style="padding-top: 14px;">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-b">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content" style="padding-top: 14px;">
+        <div class="content-hero">
+          <p class="content-hero__eyebrow">Shop packages</p>
+          <h3 class="content-hero__title">Complete practice setups.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> low (pill is ~24px tall but only ~280px wide).
+      Brand-consistent with the contained mega-menu pattern.
+      <ul>
+        <li>Pill background auto-inverts based on page background (dark tint on light, light tint on dark).</li>
+        <li>Slightly more chrome than A but more discoverable as nav.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT C ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">C · Slim opaque sliver</h2>
+      <p class="concept__desc">
+        Keep the dark ribbon idea but compressed — half the vertical height of current,
+        smaller text. Minimal-change alternative if you want to stay close to current.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-c">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="stage__header">
+        <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+        <div class="stage__logo">NET RETURN</div>
+        <div class="stage__icons">✉ 🔍 👤 🛒</div>
+      </div>
+      <nav class="crumb-c">
+        <ol>
+          <li><a href="#">Home</a></li>
+          <li class="sep">›</li>
+          <li><a href="#">Packages</a></li>
+          <li class="sep">›</li>
+          <li class="current">Pro Package</li>
+        </ol>
+      </nav>
+      <div class="stage__content">
+        <div class="content-hero">
+          <p class="content-hero__eyebrow">Shop packages</p>
+          <h3 class="content-hero__title">Complete practice setups.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> medium (still a ribbon, but ~26px tall vs current ~44px).
+      <ul>
+        <li>Doesn't fundamentally change the architecture; just shrinks it.</li>
+        <li>Still gives you 3 stacked dark bands on collection pages — header + breadcrumb + hero.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT D ========== -->
+  <div class="concept">
+    <div class="concept__head">
+      <h2 class="concept__title">D · Header-integrated row</h2>
+      <p class="concept__desc">
+        Move the breadcrumb into the bottom of the header itself, separated by a hairline
+        divider. The header section grows by ~28px but there's no separate strip below.
+      </p>
+    </div>
+    <div class="stage stage--pdp stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="crumb-d-header">
+        <div class="crumb-d-header__main">
+          <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+          <div class="stage__logo">NET RETURN</div>
+          <div class="stage__icons">✉ 🔍 👤 🛒</div>
+        </div>
+        <div class="crumb-d-header__strip">
+          <ol>
+            <li><a href="#">Home</a></li>
+            <li class="sep">›</li>
+            <li><a href="#">Packages</a></li>
+            <li class="sep">›</li>
+            <li class="current">Pro Package</li>
+          </ol>
+        </div>
+      </div>
+      <div class="crumb-d-content">
+        <div class="content-pdp">
+          <div class="content-pdp__img"></div>
+          <div>
+            <h3 class="content-pdp__title">Pro Package</h3>
+            <p class="content-pdp__price">$1,499.00</p>
+            <button class="content-pdp__btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="stage stage--collection stage--light">
+      <div class="stage__marquee">+ 30-day risk-free trial + Free shipping over $250 + 3-year warranty +</div>
+      <div class="crumb-d-header">
+        <div class="crumb-d-header__main">
+          <nav class="stage__nav"><a href="#">Shop</a><a href="#">Explore</a><a href="#">Learn</a></nav>
+          <div class="stage__logo">NET RETURN</div>
+          <div class="stage__icons">✉ 🔍 👤 🛒</div>
+        </div>
+        <div class="crumb-d-header__strip">
+          <ol>
+            <li><a href="#">Home</a></li>
+            <li class="sep">›</li>
+            <li><a href="#">Packages</a></li>
+            <li class="sep">›</li>
+            <li class="current">Pro Package</li>
+          </ol>
+        </div>
+      </div>
+      <div class="crumb-d-content">
+        <div class="content-hero">
+          <p class="content-hero__eyebrow">Shop packages</p>
+          <h3 class="content-hero__title">Complete practice setups.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <strong>Visual weight:</strong> hidden inside the header — feels like one chrome block, not two.
+      <ul>
+        <li>Header gets taller; need to reconsider sticky-on-scroll behavior (does the breadcrumb scroll with it or condense?).</li>
+        <li>On home page the breadcrumb row hides, header collapses to original height.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.toggle-btn');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      document.body.setAttribute('data-context', btn.dataset.ctx);
+    });
+  });
+</script>
+
+</body>
+</html>
