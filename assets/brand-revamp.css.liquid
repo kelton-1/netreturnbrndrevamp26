@@ -1272,6 +1272,33 @@
   text-decoration: none;
 }
 a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
+
+/* Explore / Learn pattern — these mega-menus have Shopify Navigation
+   children but no grandchildren, so each top-level child renders via
+   .mega-menu--brand__nav-eyebrow with no .mega-menu--brand__nav-links
+   list beneath it. In Shop, eyebrows function as CATEGORY HEADERS
+   above a list of primary links (Pro Series, Home Series…). In
+   Explore / Learn the eyebrow IS the primary link — so the small
+   uppercase mono treatment reads as undersized compared to Shop's
+   actual link list. Promote it to a body-font primary-link size when
+   no .nav-links list exists in the column. */
+.mega-menu--brand__nav-col:not(:has(.mega-menu--brand__nav-links)) {
+  padding-top: 18px;
+}
+.mega-menu--brand__nav-col:not(:has(.mega-menu--brand__nav-links)) > .mega-menu--brand__nav-eyebrow {
+  font-family: var(--brand-font-body);
+  font-size: clamp(20px, 1.5vw, 24px);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.25;
+  color: rgba(var(--brand-white), .92);
+  padding-block: 4px;
+  transition: color .15s ease;
+}
+.mega-menu--brand__nav-col:not(:has(.mega-menu--brand__nav-links)) > a.mega-menu--brand__nav-eyebrow:hover {
+  color: rgb(var(--brand-glow));
+}
 .mega-menu--brand__nav-links {
   list-style: none;
   margin: 10px 0 0;
