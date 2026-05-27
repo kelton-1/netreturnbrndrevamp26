@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -686,9 +690,52 @@
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Decide",
+            "heading": "Compare every package",
+            "body": "See what's inside each bundle — net size, mat, barriers, sandbags, tees — in one quick table.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_nets": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Just the net?",
+            "heading": "Shop nets standalone",
+            "body": "Already have a mat and barriers? Buy the net on its own and skip the bundle.",
+            "cta_text": "Shop nets",
+            "link": "/collections/nets-1"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Spec your room with a real human. Free shipping advice on the way out.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_nets", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to keep moving.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "product-content",
     "rich_text_N4gkHJ",
@@ -704,6 +751,7 @@
     "faq_RV7iBD",
     "1711644225d9012714",
     "image_with_text_overlay_HTFUcx",
+    "brand_cross_links",
     "promotion_blocks_dtjiF9",
     "image_with_text_block_X66BNa"
   ]
