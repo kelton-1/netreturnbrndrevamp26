@@ -4946,6 +4946,23 @@ var DesktopNavigation = class extends CustomHTMLElement {
     this.delegate.on("shopify:block:deselect", (event) => this.closeDropdown(event.target.parentElement));
   }
   openDropdown(parentElement) {
+    // Sibling-close optimization (brand-revamp 2026):
+    // Before opening a new top-level dropdown, immediately close any
+    // sibling top-level dropdown that's still open. Without this, the
+    // previously-open trigger's aria-expanded="true" persists through
+    // the leaveListener's 240ms close-grace period — and because
+    // `.link--animated:after` shows the underline on either :hover OR
+    // [aria-expanded="true"], BOTH the old and the new trigger
+    // briefly display the animated underline simultaneously. That
+    // cross-item "shadow" reads as a bug. Force-closing the sibling
+    // here flips aria-expanded=false instantly so only one underline
+    // is visible per moment.
+    document.querySelectorAll('.header__linklist-item > .header__linklist-link[aria-expanded="true"]').forEach((openLink) => {
+      const openItem = openLink.parentElement;
+      if (openItem !== parentElement) {
+        this.closeDropdown(openItem, true);
+      }
+    });
     const menuItem = parentElement.querySelector("[aria-controls]"), dropdown = parentElement.querySelector(`#${menuItem.getAttribute("aria-controls")}`);
     this.currentMegaMenu = dropdown.classList.contains("mega-menu") ? dropdown : null;
     let openingTimeout = setTimeout(() => {
@@ -5014,16 +5031,19 @@ var DesktopNavigation = class extends CustomHTMLElement {
       }
     }, { once: true });
   }
-  closeDropdown(parentElement) {
+  closeDropdown(parentElement, forceImmediate = false) {
     const menuItem = parentElement.querySelector("[aria-controls]"), dropdown = parentElement.querySelector(`#${menuItem.getAttribute("aria-controls")}`);
     requestAnimationFrame(() => {
       dropdown.classList.add("is-closing");
       menuItem.setAttribute("aria-expanded", "false");
+      const hideDelay = forceImmediate
+        ? 0
+        : (dropdown.classList.contains("mega-menu") && this.currentMegaMenu !== dropdown ? 250 : 0);
       setTimeout(() => {
         dropdown.setAttribute("hidden", "");
         clearTimeout(this.openingTimeout);
         dropdown.classList.remove("is-closing");
-      }, dropdown.classList.contains("mega-menu") && this.currentMegaMenu !== dropdown ? 250 : 0);
+      }, hideDelay);
       this.dispatchEvent(new CustomEvent("desktop-nav:dropdown:close", { bubbles: true }));
     });
   }

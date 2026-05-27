@@ -1026,12 +1026,24 @@
   flex-shrink: 0;
   transition: background-color .15s ease, transform .2s ease;
 }
-.header__linklist-item > .header__linklist-link:hover {
+.header__linklist-item > .header__linklist-link:hover,
+.header__linklist-item > .header__linklist-link[aria-expanded="true"] {
   color: rgb(var(--brand-emerald));
 }
-.header__linklist-item > .header__linklist-link:hover::before {
+.header__linklist-item > .header__linklist-link:hover::before,
+.header__linklist-item > .header__linklist-link[aria-expanded="true"]::before {
   background-color: rgb(var(--brand-neon));
   transform: rotate(90deg);
+}
+
+/* Header nav underline timing — tighter than the global .3s default.
+   The Focal `.link--animated:after` rule reveals on :hover OR
+   [aria-expanded="true"]. Scope a faster transition here so the
+   reveal/retract feels paired with the color/glyph timing above
+   (≈.18s), and so cross-item traversal doesn't drag a slow underline
+   across the next item. */
+.header__linklist-item > .header__linklist-link.link--animated:after {
+  transition: transform .18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Icons: white, Emerald on hover. */
