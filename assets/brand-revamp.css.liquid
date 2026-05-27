@@ -6624,6 +6624,18 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
 /* --- Breadcrumb (brand-revamp 2026 — v2 polish) -----------
    Reads as navigation, not a uppercase label strip. Sentence-case
    body font, slightly larger, with refined separator + hover. */
+
+/* Hide Focal's legacy nav.breadcrumb when the brand breadcrumb is
+   also present on the page — main-product.liquid (line 71),
+   main-product-cro.liquid (line 46), main-product-azalea.liquid,
+   main-page, main-blog, collection-banner, and blog-post-banner all
+   render their own breadcrumb. Branded templates ship
+   brand-breadcrumb at the top, so without this rule the user sees
+   two breadcrumb bars stacked. The :has() check leaves the legacy
+   breadcrumb intact on pages that don't carry a brand-breadcrumb
+   yet, so unbranded templates degrade gracefully. */
+body:has(.brand-breadcrumb) .breadcrumb { display: none; }
+
 .brand-breadcrumb {
   background: rgb(var(--brand-black));
   border-bottom: 1px solid rgba(var(--brand-white), .06);
