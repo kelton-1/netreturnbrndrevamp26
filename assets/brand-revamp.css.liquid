@@ -6621,9 +6621,15 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
    first; pattern is reusable across other collection landings.
    ============================================================ */
 
-/* --- Breadcrumb (brand-revamp 2026 — v2 polish) -----------
-   Reads as navigation, not a uppercase label strip. Sentence-case
-   body font, slightly larger, with refined separator + hover. */
+/* --- Breadcrumb (brand-revamp 2026 — Concept A1) -----------
+   Slim inline, no ribbon. Sits at the top of the page container on
+   the page's natural background (no full-bleed dark band). Reference:
+   Allbirds, Aritzia, Lululemon, On Running.
+
+   The breadcrumb appears in the small gap between the dark header
+   and whatever comes next (dark collection hero, white PDP content).
+   On all live templates that gap is the page's white background, so
+   a dark-text-on-light variant works everywhere. */
 
 /* Hide Focal's legacy nav.breadcrumb when the brand breadcrumb is
    also present on the page — main-product.liquid (line 71),
@@ -6637,11 +6643,11 @@ body.tpl--index .brand-marquee-section ~ .shopify-section--header {
 body:has(.brand-breadcrumb) .breadcrumb { display: none; }
 
 .brand-breadcrumb {
-  background: rgb(var(--brand-black));
-  border-bottom: 1px solid rgba(var(--brand-white), .06);
+  background: transparent;
+  border: 0;
 }
 .brand-breadcrumb__inner {
-  padding: 12px 0;
+  padding: 10px 0 4px;
 }
 .brand-breadcrumb__list {
   list-style: none;
@@ -6652,16 +6658,16 @@ body:has(.brand-breadcrumb) .breadcrumb { display: none; }
   align-items: center;
   gap: 4px 8px;
   font-family: var(--brand-font-body);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
   line-height: 1.4;
-  color: rgba(var(--brand-white), .55);
+  color: rgba(var(--brand-black), .55);
 }
 .brand-breadcrumb__item { margin: 0; }
 .brand-breadcrumb__link {
-  color: rgba(var(--brand-white), .75);
+  color: rgba(var(--brand-black), .72);
   text-decoration: none;
   transition: color .18s ease;
 }
@@ -6670,18 +6676,41 @@ body:has(.brand-breadcrumb) .breadcrumb { display: none; }
   color: rgb(var(--brand-emerald));
 }
 .brand-breadcrumb__item--current {
-  color: rgb(var(--brand-white));
+  color: rgb(var(--brand-black));
   font-weight: 500;
 }
 .brand-breadcrumb__sep {
-  color: rgba(var(--brand-white), .28);
-  font-size: 12px;
+  color: rgba(var(--brand-black), .22);
+  font-size: 11px;
   user-select: none;
 }
 
+/* Dark-page fallback — applied when the breadcrumb is rendered on
+   a dark surface (any section ancestor uses one of the brand dark
+   color schemes, OR an explicit modifier class). Today every live
+   template puts the breadcrumb on the page's white background, so
+   this is defensive only. Add the modifier class via the section's
+   schema setting if a future template puts the breadcrumb on dark. */
+.brand-breadcrumb--on-dark .brand-breadcrumb__list {
+  color: rgba(var(--brand-white), .55);
+}
+.brand-breadcrumb--on-dark .brand-breadcrumb__link {
+  color: rgba(var(--brand-white), .75);
+}
+.brand-breadcrumb--on-dark .brand-breadcrumb__link:hover,
+.brand-breadcrumb--on-dark .brand-breadcrumb__link:focus-visible {
+  color: rgb(var(--brand-glow));
+}
+.brand-breadcrumb--on-dark .brand-breadcrumb__item--current {
+  color: rgb(var(--brand-white));
+}
+.brand-breadcrumb--on-dark .brand-breadcrumb__sep {
+  color: rgba(var(--brand-white), .28);
+}
+
 @media (max-width: 540px) {
-  .brand-breadcrumb__inner { padding: 10px 0; }
-  .brand-breadcrumb__list { font-size: 13px; gap: 3px 6px; }
+  .brand-breadcrumb__inner { padding: 8px 0 4px; }
+  .brand-breadcrumb__list { font-size: 12px; gap: 3px 6px; }
 }
 
 /* --- Series rail ------------------------------------------- */
