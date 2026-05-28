@@ -6713,6 +6713,54 @@ body:has(.brand-breadcrumb) .breadcrumb { display: none; }
   .brand-breadcrumb__list { font-size: 12px; gap: 3px 6px; }
 }
 
+/* ---------- A2: overlay into brand-collection-intro hero ----------
+   On collection pages the breadcrumb section sits between two dark
+   surfaces (header above, brand-collection-intro hero below). A1 on
+   its own leaves a thin white gap there. This rule detects the
+   "breadcrumb followed by collection intro" pattern via :has() and
+   overlays the breadcrumb onto the top of the hero with light text,
+   removing the gap.
+
+   - The breadcrumb's parent .shopify-section gets a negative margin-
+     bottom so the next section moves up to start under it.
+   - position: relative + z-index: 2 keeps the breadcrumb on top of
+     the now-overlapping hero.
+   - Light-text color tokens (the same ones used by the .on-dark
+     modifier) are applied conditionally.
+   - The hero's brand-collection-intro__inner picks up extra top
+     padding so its eyebrow + heading don't sit behind the breadcrumb.
+
+   PDPs and pages (no brand-collection-intro in the next section) are
+   unaffected — they keep A1's light page-background look. */
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) {
+  position: relative;
+  z-index: 2;
+  margin-bottom: -36px;
+}
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__list {
+  color: rgba(var(--brand-white), .58);
+}
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__link {
+  color: rgba(var(--brand-white), .78);
+}
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__link:hover,
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__link:focus-visible {
+  color: rgb(var(--brand-glow));
+}
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__item--current {
+  color: rgb(var(--brand-white));
+}
+.shopify-section:has(.brand-breadcrumb):has(+ .shopify-section .brand-collection-intro) .brand-breadcrumb__sep {
+  color: rgba(var(--brand-white), .32);
+}
+
+/* Pad the hero's content so it doesn't sit behind the overlaid
+   breadcrumb. Targets the inner content container of the intro
+   section that immediately follows the breadcrumb section. */
+.shopify-section:has(.brand-breadcrumb) + .shopify-section .brand-collection-intro {
+  padding-top: clamp(60px, 6vw, 84px);
+}
+
 /* --- Series rail ------------------------------------------- */
 .brand-series-rail {
   padding-block: clamp(56px, 8vw, 96px);
