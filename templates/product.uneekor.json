@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -273,15 +277,59 @@
         "include_horizontal_margins": true,
         "include_vertical_margins": true
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_other_monitors": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Compare brands",
+            "heading": "All launch monitors",
+            "body": "FlightScope, Foresight, Full Swing, Uneekor, Garmin — see every option side-by-side.",
+            "cta_text": "Browse all monitors",
+            "link": "/collections/simulation#launch-monitors"
+          }
+        },
+        "cross_build": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Build your sim setup",
+            "body": "Pair this Uneekor with the right net, screen, and projector in one flow.",
+            "cta_text": "Open builder",
+            "link": "/pages/build-your-setup"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a sim specialist",
+            "body": "Software stack, ceiling height, projector pick — real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_other_monitors", "cross_build", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to keep moving.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "product-content",
     "rich_text_whpMby",
     "gallery_QVNnBW",
     "faq_RV7iBD",
     "featured_collections_HzqG6E",
+    "brand_cross_links",
     "1711644225d9012714"
   ]
 }

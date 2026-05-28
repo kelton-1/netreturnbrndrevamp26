@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -562,9 +566,52 @@
         "include_horizontal_margins": true,
         "include_vertical_margins": true
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_packages": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Bundle it",
+            "heading": "Sim packages",
+            "body": "Bay + launch monitor + screen + projector — pre-spec'd bundles that ship as one setup.",
+            "cta_text": "Shop sim packages",
+            "link": "/collections/simulation#simulator-packages"
+          }
+        },
+        "cross_addons": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Finish it",
+            "heading": "Sim add-ons",
+            "body": "Screens, valences, frame pads, and No Fly Zone — the parts that turn a bay into a finished room.",
+            "cta_text": "Shop add-ons",
+            "link": "/collections/simulation#simulator-add-ons"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a sim specialist",
+            "body": "Ceiling height, launch monitor pick, projector mount — get it spec'd by someone who's done dozens.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_packages", "cross_addons", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to finish the bay.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "product-content",
     "text_with_icons_wPPDRK",
@@ -574,6 +621,7 @@
     "faq_RV7iBD",
     "gallery_WX6Wym",
     "featured_collections_HzqG6E",
+    "brand_cross_links",
     "promotion_blocks_dtjiF9",
     "1711644225d9012714"
   ]

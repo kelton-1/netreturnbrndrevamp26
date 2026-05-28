@@ -9,6 +9,10 @@
  */
 {
   "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "settings": {}
+    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -249,15 +253,59 @@
         "include_horizontal_margins": true,
         "include_vertical_margins": true
       }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_nets": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Pair it",
+            "heading": "Shop nets",
+            "body": "No Fly Zone bolts onto our Pro Series nets. Browse the lineup if you need a frame to pair with this.",
+            "cta_text": "Shop nets",
+            "link": "/collections/nets-1"
+          }
+        },
+        "cross_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Complete it",
+            "heading": "More safety gear",
+            "body": "Side barriers, frame pads, sandbags — every accessory built around the net.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories#safety"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Not sure if No Fly Zone is right for your space? Real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_nets", "cross_accessories", "cross_call"],
+      "settings": {
+        "eyebrow": "Keep exploring",
+        "heading": "Three ways to keep building.",
+        "surface": "glow",
+        "columns": 3
+      }
     }
   },
   "order": [
+    "brand_breadcrumb",
     "main",
     "product-content",
     "video_Lq6H84",
     "video_8TWceU",
     "faq_L3YRFm",
     "product-recommendations",
+    "brand_cross_links",
     "1713971222a271d416"
   ]
 }
