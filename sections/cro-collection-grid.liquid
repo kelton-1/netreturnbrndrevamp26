@@ -1,7 +1,8 @@
 {% comment %}
   CRO-001: Enhanced Collection Grid
   Products from: pro-series-nets + home-series-nets
-  Reviews: Hardcoded 5-star with configurable store-wide count (editable in theme settings)
+  Reviews: Per-product Judge.me rating/count (product.metafields.reviews.*),
+           hydrated client-side. No invented store-wide number.
   Filters: Ideal For, Net Size, Price, Availability
   Default order: Ideal For rank, out of stock always last
 {% endcomment %}
@@ -12,9 +13,6 @@
 {%- assign pro_collection = collections['pro-series-nets'] -%}
 {%- assign home_collection = collections['home-series-nets'] -%}
 {%- assign total_products = home_collection.products.size | plus: pro_collection.products.size -%}
-
-{%- assign review_count = section.settings.review_count | default: 2007 -%}
-{%- assign review_rating = section.settings.review_rating | default: '5.0' -%}
 
 <div id="cro-collection" class="cro-collection-section" data-section-id="{{ section.id }}">
 
@@ -203,16 +201,29 @@
             <div class="cro-product-card__info">
               <a href="{{ product.url }}" class="cro-product-card__title-link"><h3 class="cro-product-card__title">{{ product.title }}</h3></a>
               {%- if secondary_text != blank -%}<p class="cro-product-card__size">{{ secondary_text }}</p>{%- endif -%}
-              <div class="cro-product-card__reviews">
-                <div class="cro-stars" aria-label="{{ review_rating }} out of 5 stars">
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+              {%- comment -%}
+                Per-product reviews from the Judge.me-backed metafields.
+                No store-wide number is stamped on every card. If a
+                product has no verified reviews, render the Judge.me
+                preview badge so it hydrates with the real rating
+                client-side (same pattern as the brand product card).
+              {%- endcomment -%}
+              {%- assign card_rating = product.metafields.reviews.rating.value -%}
+              {%- assign card_review_count = product.metafields.reviews.rating_count.value -%}
+              {%- if card_rating != blank and card_review_count != blank and card_review_count != 0 -%}
+                <div class="cro-product-card__reviews">
+                  <div class="cro-stars" aria-label="{{ card_rating }} out of 5 stars">
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  </div>
+                  <span class="cro-reviews-text">{{ card_rating }} ({{ card_review_count }} reviews)</span>
                 </div>
-                <span class="cro-reviews-text">{{ review_rating }} ({{ review_count }} reviews)</span>
-              </div>
+              {%- else -%}
+                <div class="cro-product-card__reviews jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-auto-install="false"></div>
+              {%- endif -%}
               <div class="cro-product-card__price">
                 {%- if product.price_varies -%}<span class="cro-price">From {{ product.price_min | money }}</span>
                 {%- elsif product.compare_at_price > product.price -%}<span class="cro-price cro-price--sale">{{ product.price | money }}</span><span class="cro-price cro-price--compare">{{ product.compare_at_price | money }}</span>
@@ -287,16 +298,29 @@
             <div class="cro-product-card__info">
               <a href="{{ product.url }}" class="cro-product-card__title-link"><h3 class="cro-product-card__title">{{ product.title }}</h3></a>
               {%- if secondary_text != blank -%}<p class="cro-product-card__size">{{ secondary_text }}</p>{%- endif -%}
-              <div class="cro-product-card__reviews">
-                <div class="cro-stars" aria-label="{{ review_rating }} out of 5 stars">
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
-                  <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+              {%- comment -%}
+                Per-product reviews from the Judge.me-backed metafields.
+                No store-wide number is stamped on every card. If a
+                product has no verified reviews, render the Judge.me
+                preview badge so it hydrates with the real rating
+                client-side (same pattern as the brand product card).
+              {%- endcomment -%}
+              {%- assign card_rating = product.metafields.reviews.rating.value -%}
+              {%- assign card_review_count = product.metafields.reviews.rating_count.value -%}
+              {%- if card_rating != blank and card_review_count != blank and card_review_count != 0 -%}
+                <div class="cro-product-card__reviews">
+                  <div class="cro-stars" aria-label="{{ card_rating }} out of 5 stars">
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f5a623" stroke="#f5a623" stroke-width="1"/></svg>
+                  </div>
+                  <span class="cro-reviews-text">{{ card_rating }} ({{ card_review_count }} reviews)</span>
                 </div>
-                <span class="cro-reviews-text">{{ review_rating }} ({{ review_count }} reviews)</span>
-              </div>
+              {%- else -%}
+                <div class="cro-product-card__reviews jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-auto-install="false"></div>
+              {%- endif -%}
               <div class="cro-product-card__price">
                 {%- if product.price_varies -%}<span class="cro-price">From {{ product.price_min | money }}</span>
                 {%- elsif product.compare_at_price > product.price -%}<span class="cro-price cro-price--sale">{{ product.price | money }}</span><span class="cro-price cro-price--compare">{{ product.compare_at_price | money }}</span>
@@ -500,16 +524,8 @@ document.addEventListener('DOMContentLoaded', function() {
       "label": "Show filter bar"
     },
     {
-      "type": "text",
-      "id": "review_rating",
-      "label": "Review rating (e.g. 5.0)",
-      "default": "5.0"
-    },
-    {
-      "type": "text",
-      "id": "review_count",
-      "label": "Total review count (store-wide)",
-      "default": "2007"
+      "type": "paragraph",
+      "content": "Reviews are sourced per-product from the Judge.me review metafields and hydrate client-side. Products with no reviews hide the rating — no store-wide number is invented."
     }
   ],
   "presets": [

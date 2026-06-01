@@ -26,10 +26,20 @@
       {% endif %}
       <h1 class="product-meta__title heading h3 mt-0">{{ product.title }}</h1>
       <!-- Start of Judge.me code -->
+        {%- comment -%}
+          Per-product rating + count (never the store-wide all_reviews_count).
+          jdgm-preview-badge hydrates live; static span is the SSR fallback,
+          shown only when this product has verified reviews.
+        {%- endcomment -%}
+        {%- assign pdp_rating = product.metafields.reviews.rating.value -%}
+        {%- assign pdp_review_count = product.metafields.reviews.rating_count.value -%}
         <div style='{{ jm_style }}' class='jdgm-widget jdgm-preview-badge' data-id='{{ product.id }}' data-auto-install='false'>
-        {{ product.metafields.judgeme.badge }} <span class="reivew-count">{{ product.metafields.reviews.rating.value }} ({{ shop.metafields.judgeme.all_reviews_count }} reviews)</span>
+        {{ product.metafields.judgeme.badge }}{%- if pdp_rating != blank and pdp_review_count != blank and pdp_review_count != 0 -%} <span class="reivew-count">{{ pdp_rating }} ({{ pdp_review_count }} reviews)</span>{%- endif -%}
         </div>
-        <p class="golfer-trust">50,000+ golfers trust this net</p>  
+        {%- comment -%} Dynamic trust line — per-product custom.trust_line metafield, hidden when unset. {%- endcomment -%}
+        {%- if product.metafields.custom.trust_line != blank -%}
+          <p class="golfer-trust">{{ product.metafields.custom.trust_line }}</p>
+        {%- endif -%}
       <!-- End of Judge.me code -->
 
       {% comment %} <h1 class="product-meta__title heading h3 mt-0">{{ product.title }}</h1>

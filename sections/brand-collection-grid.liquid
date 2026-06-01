@@ -15,8 +15,6 @@
   assign eyebrow = section.settings.eyebrow
   assign heading = section.settings.heading
   assign surface = section.settings.surface | default: 'white'
-  assign card_review_rating = section.settings.review_rating | default: '4.9'
-  assign card_review_count = section.settings.review_count | default: 2007
 -%}
 
 <style>
@@ -97,13 +95,17 @@
           <div class="brand-collection-grid__inner-list">
             {%- for product in collection.products -%}
               {% if product.tags contains 'hidden' %}{% continue %}{% endif %}
+              {%- comment -%}
+                Reviews are intentionally NOT passed in. The card sources
+                per-product review data from product.metafields.reviews.*
+                (and hydrates the Judge.me badge client-side) so every
+                card shows its OWN rating — no invented store-wide number.
+              {%- endcomment -%}
               {%- render 'product-item-brand',
                   product: product,
                   collection: collection,
                   sizes_attribute: sizes_attribute,
-                  reveal: settings.stagger_products_apparition,
-                  review_rating: card_review_rating,
-                  review_count: card_review_count
+                  reveal: settings.stagger_products_apparition
               -%}
             {%- endfor -%}
           </div>
@@ -198,22 +200,8 @@
       "default": 4
     },
     {
-      "type": "header",
-      "content": "Social proof"
-    },
-    {
-      "type": "text",
-      "id": "review_rating",
-      "label": "Review rating",
-      "info": "Hardcoded average shown under each product. Mirrors the CRO grid pattern. Example: 4.9",
-      "default": "4.9"
-    },
-    {
-      "type": "text",
-      "id": "review_count",
-      "label": "Review count",
-      "info": "Hardcoded review-count number shown alongside the stars.",
-      "default": "2007"
+      "type": "paragraph",
+      "content": "Reviews are sourced per-product from the Judge.me review metafields and hydrate client-side. Cards with no reviews simply hide the rating — no store-wide number is invented."
     }
   ],
   "presets": [

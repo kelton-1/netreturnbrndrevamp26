@@ -22,7 +22,7 @@
 
        {%- capture trust_icon -%}
          {%- if custom_icon != blank -%}
-           {{- custom_icon | image_url: width: custom_icon.width | image_tag: loading: 'lazy', sizes: '24px', widths: '24,48,72,96', class: 'product-tabs__trust-icon' -}}
+           {{- custom_icon | image_url: width: custom_icon.width | image_tag: loading: 'lazy', sizes: '24px', widths: '24,48,72,96', class: 'product-tabs__trust-icon', alt: '' -}}
          {%- else -%}
            {%- render 'icon' with trust_block.settings[icon_setting], class: 'product-tabs__trust-icon' -%}
          {%- endif -%}
@@ -60,7 +60,7 @@
 
        {%- capture trust_icon -%}
          {%- if custom_icon != blank -%}
-           {{- custom_icon | image_url: width: custom_icon.width | image_tag: loading: 'lazy', sizes: '24px', widths: '24,48,72,96', class: 'product-tabs__trust-icon' -}}
+           {{- custom_icon | image_url: width: custom_icon.width | image_tag: loading: 'lazy', sizes: '24px', widths: '24,48,72,96', class: 'product-tabs__trust-icon', alt: '' -}}
          {%- else -%}
            {%- render 'icon' with trust_block.settings[icon_setting], class: 'product-tabs__trust-icon' -%}
          {%- endif -%}
@@ -133,7 +133,7 @@
                        {%- assign image = value.variant.featured_media | default: value.variant.product.featured_media -%}
                        <div class="variant-swatch">
                          <input class="variant-swatch__radio visually-hidden" type="radio" name="option{{ option.position }}" form="{{ product_form_id }}" id="{{ option_id }}-{{ forloop.index }}" value="{{ value | escape }}" data-bind-value="{{ option_id }}-value" {% if value == option.selected_value %}checked="checked"{% endif %} aria-label="{{ value | escape }}">
-                         <label class="variant-swatch__item" for="{{ option_id }}-{{ forloop.index }}"><span class="visually-hidden">{{ value }}</span>{{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 64px, 72px', sizes: '64,72,128,144,192,216', class: 'variant-swatch__image' -}}</label>
+                         <label class="variant-swatch__item" for="{{ option_id }}-{{ forloop.index }}"><span class="visually-hidden">{{ value }}</span>{{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 64px, 72px', sizes: '64,72,128,144,192,216', class: 'variant-swatch__image', alt: value -}}</label>
                        </div>
                      {%- endfor -%}
                    </div>
@@ -378,7 +378,7 @@
            {%- if block.settings[title_key] != blank -%}
              <div class="cro-trust-card">
                {%- if block.settings[icon_key] != blank -%}
-                 {{ block.settings[icon_key] | image_url: width: 56 | image_tag: loading: 'lazy', class: 'cro-trust-card-icon' }}
+                 {{ block.settings[icon_key] | image_url: width: 56 | image_tag: loading: 'lazy', class: 'cro-trust-card-icon', alt: '' }}
                {%- endif -%}
                <strong class="cro-trust-title">{{ block.settings[title_key] }}</strong>
                {%- if block.settings[desc_key] != blank -%}
@@ -409,7 +409,7 @@
                  >
                    <div class="cro-feat-media cro-feat-media--interactive">
                      {%- if block.settings[img_key] != blank -%}
-                       {{ block.settings[img_key] | image_url: width: 400 | image_tag: loading: 'lazy', class: 'cro-feat-photo' }}
+                       {{ block.settings[img_key] | image_url: width: 400 | image_tag: loading: 'lazy', class: 'cro-feat-photo', alt: block.settings[cap_key] }}
                      {%- else -%}
                        <video class="cro-feat-thumb-video" muted playsinline preload="metadata" aria-hidden="true">
                          <source src="{{ block.settings[vid_key] }}" type="video/mp4">
@@ -427,7 +427,7 @@
                  <div class="cro-feat-static">
                    <div class="cro-feat-media">
                      {%- if block.settings[img_key] != blank -%}
-                       {{ block.settings[img_key] | image_url: width: 400 | image_tag: loading: 'lazy', class: 'cro-feat-photo' }}
+                       {{ block.settings[img_key] | image_url: width: 400 | image_tag: loading: 'lazy', class: 'cro-feat-photo', alt: block.settings[cap_key] }}
                      {%- else -%}
                        <div class="cro-feat-ph"></div>
                      {%- endif -%}

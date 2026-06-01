@@ -51,14 +51,26 @@
   endif
 
   comment
-    Hardcoded social-proof rating, exactly as the CRO grid does it.
-    Falls back to passed-in args (from brand-collection-grid section
-    settings), then to a sensible default. Per-product review counts
-    will come from Judge.me badges injected client-side, not from this
-    Liquid layer — same as the CRO card.
+    Per-product review rating + count from the Judge.me-backed Shopify
+    Product Reviews metafield (product.metafields.reviews.*). This is
+    the same source the PDP and microdata-schema snippet read from, so
+    the card stays consistent with the rest of the site.
+
+    Section-level overrides (review_rating, review_count args) still
+    win when explicitly passed — this is used for curated/featured
+    cards where the merchant wants a specific number displayed.
+
+    NO INVENTED FALLBACK. If the product has no real review data and
+    no override was passed, the reviews block is suppressed entirely.
+    Displaying an invented "4.9 / 2007 reviews" on every card is an
+    advertising-claim risk (FTC) — fixed per cowork audit S1.
   endcomment
-  assign card_rating = review_rating | default: '4.9'
-  assign card_review_count = review_count | default: 2007
+  assign card_rating = review_rating | default: product.metafields.reviews.rating.value
+  assign card_review_count = review_count | default: product.metafields.reviews.rating_count.value
+  assign has_reviews = false
+  if card_rating != blank and card_review_count != blank and card_review_count != 0
+    assign has_reviews = true
+  endif
 -%}
 
 <product-item
@@ -131,14 +143,23 @@
       <p class="brand-product-card__spec">{{ secondary_text }}</p>
     {%- endif -%}
 
-    <div class="brand-product-card__reviews" aria-label="{{ card_rating }} out of 5 stars">
-      <span class="brand-product-card__stars" aria-hidden="true">
-        {%- for i in (1..5) -%}
-          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
-        {%- endfor -%}
-      </span>
-      <span class="brand-product-card__reviews-text">{{ card_rating }} ({{ card_review_count }} reviews)</span>
-    </div>
+    {%- if has_reviews -%}
+      <div class="brand-product-card__reviews" aria-label="{{ card_rating }} out of 5 stars">
+        <span class="brand-product-card__stars" aria-hidden="true">
+          {%- for i in (1..5) -%}
+            <svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/></svg>
+          {%- endfor -%}
+        </span>
+        <span class="brand-product-card__reviews-text">{{ card_rating }} ({{ card_review_count }} reviews)</span>
+      </div>
+    {%- else -%}
+      {%- comment -%}
+        No verified review data for this product. Inject a Judge.me
+        preview badge that will hydrate client-side with the real
+        rating once jdgm.js loads — same pattern the PDP uses.
+      {%- endcomment -%}
+      <div class="brand-product-card__reviews brand-product-card__reviews--jdgm jdgm-widget jdgm-preview-badge" data-id="{{ product.id }}" data-auto-install="false"></div>
+    {%- endif -%}
 
     <div class="brand-product-card__price-group">
       {%- if product.price_varies -%}

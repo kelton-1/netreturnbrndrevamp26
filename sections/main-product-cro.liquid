@@ -66,13 +66,34 @@
             <div class="cro-pdp__title-row">
               <h1 class="product-meta__title heading h3 mt-0 cro-pdp__title">{{ product.title }}</h1>
             </div>
+            {%- comment -%}
+              Per-product rating + count from the Judge.me-backed metafields.
+              The jdgm-preview-badge hydrates the live numbers client-side;
+              the static span is the SSR fallback. It must show THIS product's
+              own review count — never the store-wide all_reviews_count, which
+              would imply every product has thousands of reviews. Suppressed
+              entirely when the product has no verified reviews.
+            {%- endcomment -%}
+            {%- assign pdp_rating = product.metafields.reviews.rating.value -%}
+            {%- assign pdp_review_count = product.metafields.reviews.rating_count.value -%}
             <a href="#shopify-section-loox_carousel" class="cro-pdp__reviews-link">
               <div style="{{ jm_style }}" class="jdgm-widget jdgm-preview-badge cro-pdp__reviews" data-id="{{ product.id }}" data-auto-install="false">
                 {{ product.metafields.judgeme.badge }}
-                <span class="reivew-count">{{ product.metafields.reviews.rating.value }} ({{ shop.metafields.judgeme.all_reviews_count }} reviews)</span>
+                {%- if pdp_rating != blank and pdp_review_count != blank and pdp_review_count != 0 -%}
+                  <span class="reivew-count">{{ pdp_rating }} ({{ pdp_review_count }} reviews)</span>
+                {%- endif -%}
               </div>
             </a>
-            <p class="golfer-trust cro-pdp__trust-copy">50,000+ golfers trust this net</p>
+            {%- comment -%}
+              Dynamic trust line. Per-product override via
+              product.metafields.custom.trust_line, falling back to the
+              section default. Suppressed when neither is set so products
+              it doesn't apply to don't carry an unsupported claim.
+            {%- endcomment -%}
+            {%- assign pdp_trust_line = product.metafields.custom.trust_line | default: section.settings.pdp_trust_line -%}
+            {%- if pdp_trust_line != blank -%}
+              <p class="golfer-trust cro-pdp__trust-copy">{{ pdp_trust_line }}</p>
+            {%- endif -%}
             <div class="price-and-help cro-pdp__price-row">
               <div class="product-meta__price-list-container mt-7 cro-pdp__price-wrap" role="region" aria-live="polite">
                 <div class="price-list" data-product-price-list>
@@ -89,7 +110,7 @@
               <div class="cro-quote-card cro-pdp__quote" {{ quote_block.shopify_attributes }}>
                 <div class="cro-quote-avatar">
                   {%- if quote_block.settings.avatar != blank -%}
-                    {{ quote_block.settings.avatar | image_url: width: 96 | image_tag: loading: 'lazy', class: 'cro-quote-img' }}
+                    {{ quote_block.settings.avatar | image_url: width: 96 | image_tag: loading: 'lazy', class: 'cro-quote-img', alt: quote_block.settings.name | default: 'Bryson DeChambeau' }}
                   {%- else -%}
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#e8e8e8"/><circle cx="24" cy="20" r="7" fill="#bbb"/><path d="M8 42c0-8.837 7.163-16 16-16s16 7.163 16 16" fill="#bbb"/></svg>
                   {%- endif -%}
@@ -324,6 +345,7 @@
   ],
   "settings": [
     { "type": "header", "content": "General" },
+    { "type": "text", "id": "pdp_trust_line", "label": "Trust line", "info": "Shown under the rating. Override per product with the custom.trust_line metafield. Leave blank to hide.", "default": "50,000+ golfers trust this net" },
     { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": false },
     { "type": "checkbox", "id": "show_sku", "label": "Show SKU", "default": false },
     { "type": "checkbox", "id": "show_taxes_included", "label": "Show taxes included", "default": false },

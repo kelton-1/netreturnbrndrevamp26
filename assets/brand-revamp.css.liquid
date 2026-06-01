@@ -457,12 +457,15 @@
 }
 
 .brand-btn--primary {
+  /* Black label on Emerald (per cowork audit A1). White on #009C43 measured
+     3.60:1 — failed WCAG AA 4.5:1. Black on Emerald is ~10.4:1 and matches
+     the hover state's color, so the transition is just a background shift.
+     Visual: still feels confidently brand-Emerald; reads on any screen. */
   background: rgb(var(--brand-emerald));
-  color: rgb(var(--brand-white));
+  color: rgb(var(--brand-black));
 }
 .brand-btn--primary:hover {
-  /* Restored the original Emerald → Neon flip on hover. The lift + Emerald
-     shadow stays. */
+  /* Original Emerald → Neon flip on hover. Black label carries through. */
   background: rgb(var(--brand-neon));
   color: rgb(var(--brand-black));
   transform: translateY(-2px);
@@ -2188,21 +2191,61 @@ a.mega-menu--brand__nav-eyebrow:hover { color: rgb(var(--brand-glow)); }
   height: auto;
 }
 
-/* Footer aside (copyright + locale selector). */
+/* Footer aside (copyright + locale selector + payment methods).
+   Per cowork audit D6: the previous restyle inherited Focal's
+   `display: flex; flex-wrap: nowrap` at ≥1000px and added uppercase
+   to all children — which caused the powered-by link, copyright,
+   locale selector, and payment row to collide on narrower desktops.
+   Redeclare a robust wrapping layout, and only apply uppercase to
+   the small button labels — not to legal/copyright copy. */
 .footer__aside {
   border-top: 1px solid rgba(var(--brand-white), .08);
   padding-block: 24px;
   font-family: var(--brand-font-accent);
   font-size: 11px;
   letter-spacing: 0;
-  text-transform: uppercase;
   opacity: .7;
+  /* Layout: wrap to multiple rows below ~1100px instead of colliding. */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  align-items: center;
+  /* Children with margin-inline-start: auto (Focal default on
+     .footer__follow-and-payment) still push to the right edge when
+     there's room; when wrapping, they drop cleanly to a new row. */
 }
-.footer__aside .popover-button {
+.footer__aside .footer__copyright {
+  /* Legal copy stays sentence/title case, not uppercase. */
+  text-transform: none;
+  font-size: 11px;
+  letter-spacing: .02em;
+  white-space: normal;
+}
+.footer__aside .footer__copyright a {
+  /* "Ecommerce Software by Shopify" — let it wrap naturally. */
+  white-space: nowrap;
+}
+.footer__aside .popover-button,
+.footer__aside .select,
+.footer__aside .footer__payment-methods-label {
   color: rgb(var(--brand-white));
   font-size: 11px;
-  letter-spacing: 0;
+  letter-spacing: .1em;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+.footer__aside .footer__follow-and-payment {
+  /* Don't fight the natural flex flow when wrapping. */
+  margin-inline-start: auto;
+}
+@media (max-width: 740px) {
+  .footer__aside {
+    gap: 14px 18px;
+  }
+  .footer__aside .footer__follow-and-payment {
+    margin-inline-start: 0;
+    width: 100%;
+  }
 }
 
 /* ============================================================
@@ -6832,12 +6875,44 @@ body:has(.brand-breadcrumb) .breadcrumb { display: none; }
 }
 
 .brand-series-card__frame {
+  position: relative;
   display: block;
   aspect-ratio: 4 / 3;
-  background: rgb(var(--brand-shadow));
+  background-color: rgb(var(--brand-shadow));
+  /* Per cowork audit D3: cards with no `image` AND no `default_image_filename`
+     were rendering as flat dark blocks. Layer a tile pattern + Precision+
+     glyph backdrop so the frame reads intentional even when imagery is
+     unset. The :has(.brand-series-card__image) selector hides the
+     decorative backdrop the moment a real image is present. */
+  background-image:
+    url("{{ 'pattern-grid-tile-white.svg' | asset_url }}");
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  background-position: center;
   overflow: hidden;
 }
+.brand-series-card__frame::before {
+  /* Precision+ glyph centerpiece for the placeholder treatment.
+     Hidden when a real image fills the frame. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("{{ 'precision-plus-white.svg' | asset_url }}");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: clamp(48px, 12%, 96px);
+  opacity: .22;
+  pointer-events: none;
+}
+.brand-series-card__frame:has(.brand-series-card__image) {
+  background-image: none;
+}
+.brand-series-card__frame:has(.brand-series-card__image)::before {
+  display: none;
+}
 .brand-series-card__image {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;

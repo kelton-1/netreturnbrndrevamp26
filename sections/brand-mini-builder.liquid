@@ -78,43 +78,58 @@
         live bundle summary, primary CTA.
       {%- endcomment -%}
       <div class="brand-mini-builder__form-col">
+        {%- comment -%}
+          Per cowork audit D5: step badges (01/02/03/04/05) were hardcoded
+          per step, so when a collection was unconfigured the visible badges
+          skipped (e.g. "01 / 02 / 05") while the counter said "Step 3 of 3".
+          Fix: render the badge from a counter that only advances for
+          rendered steps. The data-bb-go indices stay tied to component
+          identity (1=net, 2=mat, 3=monitor, 4=screen, 5=extras) so the
+          JS state machine is untouched.
+        {%- endcomment -%}
+        {%- assign rendered_step = 0 -%}
         <ol class="brand-mini-builder__steps" role="list" data-bb-steps>
           {%- if nets_collection != blank -%}
+            {%- assign rendered_step = rendered_step | plus: 1 -%}
             <li class="brand-mini-builder__step-tab">
               <button type="button" class="brand-mini-builder__step-button" data-bb-go="1" aria-current="step">
-                <span class="brand-mini-builder__step-num">01</span>
+                <span class="brand-mini-builder__step-num">{% if rendered_step < 10 %}0{% endif %}{{ rendered_step }}</span>
                 <span class="brand-mini-builder__step-shortlabel">{{ step_1_short }}</span>
               </button>
             </li>
           {%- endif -%}
           {%- if mats_collection != blank -%}
+            {%- assign rendered_step = rendered_step | plus: 1 -%}
             <li class="brand-mini-builder__step-tab">
               <button type="button" class="brand-mini-builder__step-button" data-bb-go="2">
-                <span class="brand-mini-builder__step-num">02</span>
+                <span class="brand-mini-builder__step-num">{% if rendered_step < 10 %}0{% endif %}{{ rendered_step }}</span>
                 <span class="brand-mini-builder__step-shortlabel">{{ step_2_short }}</span>
               </button>
             </li>
           {%- endif -%}
           {%- if launch_monitors_collection != blank -%}
+            {%- assign rendered_step = rendered_step | plus: 1 -%}
             <li class="brand-mini-builder__step-tab">
               <button type="button" class="brand-mini-builder__step-button" data-bb-go="3">
-                <span class="brand-mini-builder__step-num">03</span>
+                <span class="brand-mini-builder__step-num">{% if rendered_step < 10 %}0{% endif %}{{ rendered_step }}</span>
                 <span class="brand-mini-builder__step-shortlabel">{{ step_3_short }}</span>
               </button>
             </li>
           {%- endif -%}
           {%- if screens_collection != blank -%}
+            {%- assign rendered_step = rendered_step | plus: 1 -%}
             <li class="brand-mini-builder__step-tab">
               <button type="button" class="brand-mini-builder__step-button" data-bb-go="4">
-                <span class="brand-mini-builder__step-num">04</span>
+                <span class="brand-mini-builder__step-num">{% if rendered_step < 10 %}0{% endif %}{{ rendered_step }}</span>
                 <span class="brand-mini-builder__step-shortlabel">{{ step_4_short }}</span>
               </button>
             </li>
           {%- endif -%}
           {%- if accessories_collection != blank -%}
+            {%- assign rendered_step = rendered_step | plus: 1 -%}
             <li class="brand-mini-builder__step-tab">
               <button type="button" class="brand-mini-builder__step-button" data-bb-go="5">
-                <span class="brand-mini-builder__step-num">05</span>
+                <span class="brand-mini-builder__step-num">{% if rendered_step < 10 %}0{% endif %}{{ rendered_step }}</span>
                 <span class="brand-mini-builder__step-shortlabel">{{ step_5_short }}</span>
               </button>
             </li>
