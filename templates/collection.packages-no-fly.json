@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_packages": { "type": "crumb", "settings": { "label": "Packages", "link": "/collections/packages" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "No Fly Zone Packages", "link": "" } }
+      },
+      "block_order": ["crumb_home", "crumb_packages", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "No Fly Zone Packages",
+        "heading": "Outdoor-first. Nothing escapes.",
+        "body": "<p>Backyard-ready packages with side barriers and weight kits engineered to contain every shot. Built for outdoor practice and full-yard freedom.</p>",
+        "primary_label": "Shop No Fly Zone",
+        "primary_link": "#packages",
+        "secondary_label": "Compare nets",
+        "secondary_link": "/pages/compare",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_filters": false,
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "grid_density": "default",
+        "show_count": true
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_all_packages": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse",
+            "heading": "All packages",
+            "body": "Home, Pro, and No Fly Zone packages — pick the one that fits your space.",
+            "cta_text": "All packages",
+            "link": "/collections/packages"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Find your fit",
+            "heading": "Compare every net",
+            "body": "Width, weight, price, and use case for all eight nets — side by side.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Outdoor setup question? We've placed thousands of yards. Tell us yours.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_all_packages", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to land the right setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "main",
+    "brand_cross_links"
+  ]
+}

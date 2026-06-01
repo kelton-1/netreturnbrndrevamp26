@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_support": { "type": "crumb", "settings": { "label": "Support", "link": "/pages/support" } },
+        "crumb_assembly": { "type": "crumb", "settings": { "label": "Assembly", "link": "/collections/assembly" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "{{ collection.title }}", "link": "" } }
+      },
+      "block_order": ["crumb_home", "crumb_support", "crumb_assembly", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Assembly parts",
+        "heading": "Replacement parts for your series.",
+        "body": "<p>Frame parts, panels, and the specific pieces sized for this net family. Order what you need; we'll ship it fast.</p>",
+        "primary_label": "All assembly + parts",
+        "primary_link": "/collections/assembly",
+        "secondary_label": "Talk to support",
+        "secondary_link": "/pages/contact",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_filters": true,
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "grid_density": "default",
+        "show_count": true
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_all_assembly": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse all",
+            "heading": "Every replacement part",
+            "body": "Across all net families — frame parts, panels, hardware.",
+            "cta_text": "All assembly",
+            "link": "/collections/assembly"
+          }
+        },
+        "cross_faqs": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Setup help",
+            "heading": "Assembly guides",
+            "body": "Step-by-step videos for every series, usually under five minutes.",
+            "cta_text": "Open guides",
+            "link": "/pages/faqs"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Stuck on a part lookup? We'll get you the right SKU.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_all_assembly", "cross_faqs", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to get back up.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "main",
+    "brand_cross_links"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_accessories": { "type": "crumb", "settings": { "label": "Accessories", "link": "/collections/general-accessories" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "Storage + bags", "link": "" } }
+      },
+      "block_order": ["crumb_home", "crumb_accessories", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "Storage + bags",
+        "heading": "Pack down. Travel light.",
+        "body": "<p>Carry bags and storage built for Net Return frames and accessories. Take your setup to the range, the studio, or storage between sessions.</p>",
+        "primary_label": "Shop all accessories",
+        "primary_link": "/collections/general-accessories",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_filters": true,
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "grid_density": "default",
+        "show_count": true
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse",
+            "heading": "All accessories",
+            "body": "Side barriers, frame pads, targets, replacement panels, sim add-ons.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Find your net",
+            "heading": "Compare every model",
+            "body": "Net + package size guidance — pick the one that fits where you'll train.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Need a bag sized for your specific frame? We'll point you at it.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_accessories", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Finish the kit.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "main",
+    "brand_cross_links"
+  ]
+}

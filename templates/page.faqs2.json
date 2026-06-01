@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": {
+          "type": "crumb",
+          "settings": {
+            "label": "Home",
+            "link": "/"
+          }
+        },
+        "crumb_support": {
+          "type": "crumb",
+          "settings": {
+            "label": "Support",
+            "link": "/pages/support"
+          }
+        },
+        "crumb_current": {
+          "type": "crumb",
+          "settings": {
+            "label": "FAQ Videos",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["crumb_home", "crumb_support", "crumb_current"],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_text_faq": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Prefer reading?",
+            "heading": "Browse the text FAQ",
+            "body": "Every question, sorted by topic, in plain text.",
+            "cta_text": "Open FAQ",
+            "link": "/pages/faq"
+          }
+        },
+        "cross_assembly": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Setup",
+            "heading": "Assembly + sizing guides",
+            "body": "Step-by-step videos for every net and package — usually under five minutes.",
+            "cta_text": "Open guides",
+            "link": "/pages/assembly"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "If the video doesn't answer it, we will. Real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_text_faq", "cross_assembly", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Still have a question?",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "main",
+    "brand_cross_links"
+  ]
+}

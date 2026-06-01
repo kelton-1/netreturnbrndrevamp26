@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": {
+          "type": "crumb",
+          "settings": {
+            "label": "Home",
+            "link": "/"
+          }
+        },
+        "crumb_accessories": {
+          "type": "crumb",
+          "settings": {
+            "label": "Accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "crumb_current": {
+          "type": "crumb",
+          "settings": {
+            "label": "For your net size",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["crumb_home", "crumb_accessories", "crumb_current"],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Step 1",
+            "heading": "Not sure of your net size?",
+            "body": "Open compare to find your net first — accessories are sized to fit a specific frame.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_all_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse",
+            "heading": "All accessories",
+            "body": "Frame pads, side barriers, targets, replacement panels, storage — every add-on in one place.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Tell us your model and use case — we'll match the right accessories.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_compare", "cross_all_accessories", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to shop accessories.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "main",
+    "brand_cross_links"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_accessories": { "type": "crumb", "settings": { "label": "Accessories", "link": "/collections/general-accessories" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "{{ collection.title }}", "link": "" } }
+      },
+      "block_order": ["crumb_home", "crumb_accessories", "crumb_current"],
+      "settings": {}
+    },
+    "brand_collection_intro": {
+      "type": "brand-collection-intro",
+      "settings": {
+        "eyebrow": "For your net size",
+        "heading": "Accessories sized to your frame.",
+        "body": "<p>Every accessory below is matched to this net size. Frame pads, side barriers, targets, replacement panels, and storage — fitted to your setup.</p>",
+        "primary_label": "Shop all accessories",
+        "primary_link": "/collections/general-accessories",
+        "secondary_label": "Compare net sizes",
+        "secondary_link": "/pages/compare",
+        "overlay_opacity": 55,
+        "surface": "shadow"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_filters": true,
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "grid_density": "default",
+        "show_count": true
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_all_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse all",
+            "heading": "Every accessory",
+            "body": "Sized for every Net Return model — frame pads, side barriers, targets, replacement panels, storage.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Not sure of your net size?",
+            "heading": "Compare every model",
+            "body": "Width, weight, price, and use case for all eight nets — side by side.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Tell us your model and use case — we'll match the right accessories.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_all_accessories", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Three ways to finish the setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "brand_collection_intro",
+    "main",
+    "brand_cross_links"
+  ]
+}

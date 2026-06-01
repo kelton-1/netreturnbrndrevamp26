@@ -1,0 +1,119 @@
+{
+  "sections": {
+    "brand_breadcrumb": {
+      "type": "brand-breadcrumb",
+      "blocks": {
+        "crumb_home": { "type": "crumb", "settings": { "label": "Home", "link": "/" } },
+        "crumb_accessories": { "type": "crumb", "settings": { "label": "Accessories", "link": "/collections/general-accessories" } },
+        "crumb_current": { "type": "crumb", "settings": { "label": "{{ product.title }}", "link": "" } }
+      },
+      "block_order": ["crumb_home", "crumb_accessories", "crumb_current"],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "color_mode": "none",
+            "variant_image_options": "",
+            "size_chart_page": "",
+            "hide_option_labels": false
+          }
+        },
+        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": false,
+            "atc_button_background": "rgba(0,0,0,0)",
+            "atc_button_text_color": "rgba(0,0,0,0)",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)"
+          }
+        },
+        "description": { "type": "description", "settings": {} }
+      },
+      "block_order": [
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "show_vendor": true,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": false,
+        "show_sticky_add_to_cart": true,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": false,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "related_products": {
+      "type": "product-recommendations",
+      "settings": {
+        "title": "More from this series",
+        "recommendations_count": 4
+      }
+    },
+    "brand_cross_links": {
+      "type": "brand-cross-links",
+      "blocks": {
+        "cross_more_accessories": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Browse",
+            "heading": "More accessories",
+            "body": "Frame pads, side barriers, targets, replacement panels, storage — every add-on for your Net Return setup.",
+            "cta_text": "Shop accessories",
+            "link": "/collections/general-accessories"
+          }
+        },
+        "cross_compare": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Pick your net",
+            "heading": "Compare every net",
+            "body": "Accessories are sized to fit a specific net frame. Open compare to confirm your size first.",
+            "cta_text": "Open compare",
+            "link": "/pages/compare"
+          }
+        },
+        "cross_call": {
+          "type": "cross_link",
+          "settings": {
+            "eyebrow": "Ask",
+            "heading": "Talk to a Net Return expert",
+            "body": "Not sure which size fits your model? Real humans, fast answers.",
+            "cta_text": "Book a call",
+            "link": "/pages/contact"
+          }
+        }
+      },
+      "block_order": ["cross_more_accessories", "cross_compare", "cross_call"],
+      "settings": {
+        "eyebrow": "Next step",
+        "heading": "Finish the setup.",
+        "surface": "glow",
+        "columns": 3
+      }
+    }
+  },
+  "order": [
+    "brand_breadcrumb",
+    "main",
+    "related_products",
+    "brand_cross_links"
+  ]
+}
