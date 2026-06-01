@@ -1,0 +1,33 @@
+query BlogPostsForAgentExport($first: Int = 50, $after: String) {
+  articles(first: $first, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      id
+      title
+      handle
+      author {
+        name
+      }
+      blog {
+        id
+        title
+        handle
+      }
+      body
+      summary
+      publishedAt
+      createdAt
+      updatedAt
+      tags
+      image {
+        url
+        altText
+        width
+        height
+      }
+    }
+  }
+}

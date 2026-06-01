@@ -1,0 +1,676 @@
+{
+  "articles": {
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "eyJsYXN0X2lkIjoxMTQ2NDU1MDgsImxhc3RfdmFsdWUiOiIyMDEzLTAzLTAxIDE1OjM0OjAwLjAwMDAwMCJ9"
+    },
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/113118980",
+        "title": "Illinois State - Football",
+        "handle": "113118980-illinois-state-football",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Illinois State Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0134_1024.jpg?6018096670863841760\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Illinois State Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0137_1024.jpg?6018096670863841760\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Illinois State Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0147_1024.jpg?9833180543470532773\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Illinois State Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0134_1024.jpg?6018096670863841760\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-14T21:31:00Z",
+        "createdAt": "2016-03-14T21:34:38Z",
+        "updatedAt": "2020-02-20T12:57:12Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/15054161",
+        "title": "Sky Golf - Roberto Borgatti",
+        "handle": "15054161-sky-golf-roberto-borgatti",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"//player.vimeo.com/video/83481979\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"webkitallowfullscreen\" mozallowfullscreen=\"mozallowfullscreen\" allowfullscreen=\"allowfullscreen\"></iframe>\n<p><a href=\"http://vimeo.com/83481979\"> </a></p>",
+        "summary": "<iframe src=\"//player.vimeo.com/video/83481979\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"webkitallowfullscreen\" mozallowfullscreen=\"mozallowfullscreen\" allowfullscreen=\"allowfullscreen\"></iframe>",
+        "publishedAt": "2014-03-14T17:12:00Z",
+        "createdAt": "2014-08-06T16:26:02Z",
+        "updatedAt": "2020-02-20T12:41:12Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182129",
+        "title": "Christopher Lane",
+        "handle": "13182129-christopher-lane",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Chris_Lane_Apartment_Photo1_e8ad111c-ade9-410e-84ac-9eff10928614_grande.GIF?17610665814101417580\" alt=\"Chris Lane in Apartment with Net Return Pro Series\"></p>\n<p>The Net is Supa!</p>\n<div></div>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Chris_Lane_Apartment_Photo1_e8ad111c-ade9-410e-84ac-9eff10928614_grande.GIF?17610665814101417580\" alt=\"Chris Lane in Apartment with Net Return Pro Series\">",
+        "publishedAt": "2014-03-14T05:00:00Z",
+        "createdAt": "2014-03-27T20:39:13Z",
+        "updatedAt": "2020-02-20T12:44:47Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182181",
+        "title": "Ricky Krautman",
+        "handle": "13182181-ricky-krautman",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/products/extrapoint3_1_grande.jpeg?v=1417364356\" alt=\"\"></p>\n<p> The Net Return has been a tremendous benefit to me as a former D1 Kicker at Syracuse and now a Pro Kicker for the Roc City Thunder Indoor Football Team. During my limited warm up times the Net Return allows me more reps and is a huge time saver as you don't waste time retrieving balls-The footballs come right back at you quickly and accurately.</p>\n<p>Assembly is quick and painless and has held up for me in horrible weather conditions. I strongly recommend the Net Return without hesitation. Watch the video on the Net Return and watch me kick-Before endorsing this product I spent hours kicking into it and I am thankful the Net Return put together such an outstanding product.</p>\n<p>Ricky Krautman<br>Pro Kicker and Coach<br>ricky@krautmankicking.com</p>\n<p>www.krautmankicking.com</p>",
+        "summary": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/products/extrapoint3_1_grande.jpeg?v=1417364356\" alt=\"\"></p>",
+        "publishedAt": "2014-03-13T22:30:00Z",
+        "createdAt": "2014-03-27T20:42:49Z",
+        "updatedAt": "2020-02-20T12:42:38Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/25688324",
+        "title": "Ingolf Goetz - Ontario, Canada",
+        "handle": "25688324-ingolf-goetz-ontario-canada",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/127759014\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n<div>Hi Paul,</div>\n<div></div>\n<div>I wanted to send you a note to thank you for the net. Tristan is enjoying the practice of his tennis game. I am attaching a short little video with him in action.<br><br>All the best,<br><br>Ingolf Goetz<br>Ontario, Canada</div>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/127759014\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2014-03-12T21:34:00Z",
+        "createdAt": "2015-05-13T20:10:37Z",
+        "updatedAt": "2020-02-20T12:41:28Z",
+        "tags": [
+          "Tennis"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/113016452",
+        "title": "Arkansas Razorbacks",
+        "handle": "113016452-arkansas-razorbacks",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Arkansas Razorbacks Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/arkansas_lower_sleeve_1_1024.jpg?10141582648100264474\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Arkansas Razorbacks Side View of Kicking Net Logo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/arkansas_side_view_upper_copy_1_1024.jpg?10141582648100264474\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Arkansas Kicking Net Full Side View of Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Arkansas_Side_View_Full.jpg?10141582648100264474\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Arkansas Razorbacks Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/arkansas_lower_sleeve_1_1024.jpg?10141582648100264474\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-11T21:35:00Z",
+        "createdAt": "2016-03-11T22:36:08Z",
+        "updatedAt": "2020-02-20T12:56:01Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182269",
+        "title": "Carl Derian - Troy, Michigan",
+        "handle": "13182269-carl-derian-troy-michigan",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"Carl Derian Pro Series Golf Net in Basement\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/CarlDerianPhoto_0a15f20d-7420-4e07-bcee-cb33aa5c3066.jpg?630576867274350767\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Carl Derian Pro Series Golf Net in Basement\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/CarlDerianPhoto2.jpg?630576867274350767\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>I've had the net up for about a week, I've been hitting about 50 balls in the morning and 50 in the evening. I have a ceiling height of 7'9″, plenty of clearance for a full swing. The net is a higher quality than what I thought, the ball is fully absorbed by the net and design of the frame.</p>\n<p class=\"p1\"><span style=\"line-height: 1.2; font-family: Helvetica, Arial, sans-serif; font-size: 14px;\">I am really impressed!</span></p>\n<p class=\"p1\"> </p>\n<p><br>Carl Derian<br>Troy, MI</p>\n<style type=\"text/css\"><!--\np.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}\n--></style>\n<p class=\"p1\"> </p>",
+        "summary": "<img alt=\"Carl Derian Pro Series Golf Net in Basement\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/CarlDerianPhoto_0a15f20d-7420-4e07-bcee-cb33aa5c3066.jpg?630576867274350767\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-11T05:00:00Z",
+        "createdAt": "2014-03-27T20:46:24Z",
+        "updatedAt": "2020-02-20T13:02:12Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182453",
+        "title": "Dr. Jeffrey B. Sommer - TPI Level 3",
+        "handle": "13182453-dr-jeffrey-b-sommer-tpi-level-3",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>The Net Return allows me to maximize training sessions with my clients.</p>\n<p>Increased repetition improves muscle memory, creates endurance, and enhances neuromuscular education. This enables me to help clients play their best, pain-free, golf.</p>\n<p>Dr. Jeffrey B. Sommer<br>Titleist Performance Institute Level 3 Medical Golf Fitness Instructor<br>884 Route 22 East<br>Somerville, NJ 08876</p>",
+        "summary": "<p>The Net Return allows me to maximize training sessions with my clients.</p>\n<p>Increased repetition improves muscle memory, creates endurance, and enhances neuromuscular education. This enables me to help clients play their best, pain-free, golf.</p>\n<p>Dr. Jeffrey B. Sommer<br>Titleist Performance Institute Level 3 Medical Golf Fitness Instructor<br>884 Route 22 East<br>Somerville, NJ 08876</p>",
+        "publishedAt": "2014-03-09T06:00:00Z",
+        "createdAt": "2014-03-27T20:53:19Z",
+        "updatedAt": "2020-02-20T13:02:59Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/112735044",
+        "title": "Blair Hillmer - Saskatchewan, Canada",
+        "handle": "112735044-blair-hillmer-saskatchewan-canada",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"Blair Hillmer Garage\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-08_at_8.16.43_AM.png?9747915404360297705\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Photo Courtesy of Blair Hillmer</p>",
+        "summary": "<img alt=\"Blair Hillmer Garage\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-08_at_8.16.43_AM.png?9747915404360297705\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-08T13:17:00Z",
+        "createdAt": "2016-03-08T13:17:54Z",
+        "updatedAt": "2020-02-20T12:54:57Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182689",
+        "title": "Dewey Bookholdt",
+        "handle": "13182689-dewey-bookholdt",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><span><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Dewey_Golf_Net_Basement.jpg?1532062976873931086\" alt=\"Dewey Basement Golf Net Photo\" width=\"650\" height=\"434\"></span></p>\n<span style=\"line-height: 1.4;\">My ten year old daughter has become a golf nut like her dad and wanted a practice net for our basement. After an exhaustive search into the many available options it became obvious to me that the product that fit our needs the best was the NetReturn. We have an unfinished area in our basement with high ceilings and plenty of room to swing every club in the bag.</span><br>\n<p>I purchased the Pro Package for Golf version of the NetReturn which includes a 6×10 premium artificial turf plus the NetReturn with side barriers.</p>\n<p>The NetReturn is stupid easy to assemble. I don't have any mechanical ability whatsoever and was able to complete the assembly in less than 10 minutes. The tubular aluminum frame has color coded ends that you simply snap together. A super high quality nylon sleeve attached to the net slides over the tubular aluminum frame with ease. It is a really smart design.</p>\n<p>The net cleverly returns the ball to you very gently regardless of the speed of the ball going into the net. A 160 mph drive comes back to you at the same rate as a gentle little chip or pitch. The net also gives you some feedback regarding the direction of your shots, as straight shots are returned straight back and shots blocked or pulled offline are returned at an angle. All in all, I am extremely pleased with the net and my daughter loves it. We are both looking forward to sharpening our ballstriking skills and keeping our golf muscles in shape over the winter months. There are definitely cheaper options, but this product is so perfectly designed that I think it is well worth the price.</p>\n<p><span>Dewey Bookholdt</span><br><span>Columbus, NJ</span></p>\n<p> </p>\n<p> </p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Dewey_Golf_Net_Basement.jpg?1532062976873931086\" alt=\"Dewey Basement Golf Net Photo\" width=\"650\" height=\"434\">",
+        "publishedAt": "2014-03-06T06:00:00Z",
+        "createdAt": "2014-03-27T21:00:52Z",
+        "updatedAt": "2020-02-20T12:45:50Z",
+        "tags": [
+          "Golf Net"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88800772",
+        "title": "Western Kentucky University - Men's Golf",
+        "handle": "88800772-western-kentucky-university-mens-golf",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p> </p>\n<p style=\"text-align: left;\"><img alt=\"Western Kentucky University Men's Golf Team\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/WesternKentuckyMensGolfTeam.png?13350454841345767438\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>\"What an amazing product. So simple and easy to set up. We have 6 nets and can set them all up in just a few minutes.</p>\n<p>You really only need one ball to practice with because it comes right back to you every time! I highly recommend this the Net return to any one interested in practicing anywhere indoors.\"</p>\n<p>Thanks so much Paul!</p>\n<p>Have a great summer! Cheers!</p>\n<p style=\"text-align: left;\"> </p>\n<p>Phillip Hatchett</p>\n<p>WKU Men's Head Golf Coach</p>",
+        "summary": "<img alt=\"Western Kentucky University Men's Golf Team\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/WesternKentuckyMensGolfTeam.png?13350454841345767438\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-05T21:40:00Z",
+        "createdAt": "2016-02-29T21:39:58Z",
+        "updatedAt": "2020-02-20T12:53:25Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/15237245",
+        "title": "John Hughes - Mahwah, NJ",
+        "handle": "15237245-john-hughes-mahwah-nj",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"John Hughes Basement Pro Series Net and Golf Turf\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/JohnHughes_LindseyInserra.jpeg?5557238050053053914\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"> </p>\n<p>\"The net is awesome, I love it! The ceiling in my basement is just high enough to swing a driver - perfect set up!\"</p>\n<p>- John Hughes, Mahwah, NJ</p>",
+        "summary": "<img alt=\"John Hughes Basement Pro Series Net and Golf Turf\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/JohnHughes_LindseyInserra.jpeg?5557238050053053914\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-03T16:52:00Z",
+        "createdAt": "2014-08-29T16:52:47Z",
+        "updatedAt": "2020-02-20T12:48:15Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183481",
+        "title": "Arlen \"Biff\" Brown - King George, Virginia",
+        "handle": "13183481-arlen-biff-brown-king-george-virginia",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>WOW!!!!!…. Awesome product!!…… very seldom do you get something that actually does what it says it will do. Everything about this order has been terrific, the product, shipping, ease of assembly and quality.</p>\n<p>Paul, it's been a pleasure dealing with you and your company. If I can ever help in any way or if you have someone in this area who wants to hit some balls before buying just let me know.</p>\n<p>Thanks!<br>Arlen \"Biff\" Brown<br>King George, VA</p>\n<div class=\"facebook_share\"></div>",
+        "summary": "<p>WOW!!!!!…. Awesome product!!…… very seldom do you get something that actually does what it says it will do. Everything about this order has been terrific, the product, shipping, ease of assembly and quality.</p>\n<p>Paul, it's been a pleasure dealing with you and your company. If I can ever help in any way or if you have someone in this area who wants to hit some balls before buying just let me know.</p>\n<p>Thanks!<br>Arlen \"Biff\" Brown<br>King George, VA</p>\n<div class=\"facebook_share\"></div>",
+        "publishedAt": "2014-03-03T06:00:00Z",
+        "createdAt": "2014-03-27T21:30:46Z",
+        "updatedAt": "2020-02-20T13:06:57Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88900996",
+        "title": "Ruth - New Jersey",
+        "handle": "88900996-ruth-new-jersey",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/156984094\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/156984094\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2014-03-02T20:24:00Z",
+        "createdAt": "2016-03-02T20:25:24Z",
+        "updatedAt": "2020-02-20T12:51:13Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183493",
+        "title": "Chris Ball - Grand Rapids, Michigan",
+        "handle": "13183493-chris-ball-grand-rapids-michigan",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>This is a very high quality product.</p>\n<p>One of the reasons I was always hesitant to purchase a net is because I wasn't sure of the durability of many products on the market. This is a product that is built for many years of use. I feel that The Net Return is well worth the investment and I would highly recommend this product for people who want to improve their game. I will always take quality over the cheapest price. I love the it!</p>\n<p>Chris Ball</p>\n<span>Grand Rapids, MI</span>",
+        "summary": "<p>This is a very high quality product.</p>\n<p>One of the reasons I was always hesitant to purchase a net is because I wasn't sure of the durability of many products on the market. This is a product that is built for many years of use. I feel that The Net Return is well worth the investment and I would highly recommend this product for people who want to improve their game. I will always take quality over the cheapest price. I love the it!</p>\n<p>Chris Ball</p>\n<span>Grand Rapids, MI</span>",
+        "publishedAt": "2014-03-02T06:00:00Z",
+        "createdAt": "2014-03-27T21:31:04Z",
+        "updatedAt": "2020-02-20T13:07:07Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183505",
+        "title": "Steve Campbell - Salem College Men's Golf Coach",
+        "handle": "13183505-steve-campbell-salem-college-mens-golf-coach",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p> </p>\n<p style=\"text-align: left;\"><img alt=\"Salem College Men's Golf Team 2016\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-11_at_5.44.30_PM.png?12003095586754560715\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>The Net Return is outstanding !!</p>\n<p>Needing just one ball to practice, (no matter what club you hit the ball comes back to its original spot) there are no longer 500 or more golf balls in our old driving net, the practice room always looks great. As a training tool it's fantastic because the return of the ball shows either a push or a pull. It really helps the players on their follow through.</p>\n<p>Great product and very reasonably priced to fit any budget.</p>\n<p>Hats off to the engineering,</p>\n<p>Steve Campbell, Men's Golf Coach<br>Salem State College - Go Vikings!<br>Salem, MA</p>",
+        "summary": "<img alt=\"Salem College Men's Golf Team 2016\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-11_at_5.44.30_PM.png?12003095586754560715\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-03-01T06:00:00Z",
+        "createdAt": "2014-03-27T21:31:26Z",
+        "updatedAt": "2020-02-20T12:56:16Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88750980",
+        "title": "Military Medical Centers and VA Hospitals",
+        "handle": "88750980-military-medical-centers-and-va-hospitals",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/NetReturn_GSOT_grande.png?1539141391856144704\" alt=\"Golf Supports Our Troops - VA Hospitals\"></p>\n<p>Courtesy of Golf Supports Our Troops</p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/NetReturn_GSOT_grande.png?1539141391856144704\" alt=\"Golf Supports Our Troops - VA Hospitals\">",
+        "publishedAt": "2014-02-28T19:01:00Z",
+        "createdAt": "2016-02-28T19:00:38Z",
+        "updatedAt": "2020-02-20T13:08:53Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183513",
+        "title": "Darrin Stephens - Goldsboro, North Carolina",
+        "handle": "13183513-darrin-stephens-goldsboro-north-carolina",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>The product you sold me has been nothing short of OUTSTANDING!</p>\n<p>I could not be more pleased with the net, turf and tee turf. I have probably hit somewhere in the neighborhood of 300 balls so far. Congratulations on a great design and a great product. It is everything you said it was and then some. In fact, I just dropped my \"range plan\" at my local club ($240.00 per year) now that I have the Net Return.</p>\n<p>Darrin Stephens<br>Goldsboro, NC</p>",
+        "summary": "<p>The product you sold me has been nothing short of OUTSTANDING!</p>\n<p>I could not be more pleased with the net, turf and tee turf. I have probably hit somewhere in the neighborhood of 300 balls so far. Congratulations on a great design and a great product. It is everything you said it was and then some. In fact, I just dropped my \"range plan\" at my local club ($240.00 per year) now that I have the Net Return.</p>\n<p>Darrin Stephens<br>Goldsboro, NC</p>",
+        "publishedAt": "2014-02-28T06:00:00Z",
+        "createdAt": "2014-03-27T21:31:48Z",
+        "updatedAt": "2020-02-20T13:07:17Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183517",
+        "title": "Douglas Keller - West Chester, Pennsylvania",
+        "handle": "13183517-douglas-keller-west-chester-pennsylvania",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>This is an awesome product! I setup it up in 5 minutes. The net is high quality and allows me to practice in my garage. I have also been using it for Soccer, Lacrosse and Baseball.</p>\n<p>The design is GREAT!</p>\n<p>Douglas Keller<br>West Chester, PA</p>",
+        "summary": "<p>This is an awesome product! I setup it up in 5 minutes. The net is high quality and allows me to practice in my garage. I have also been using it for Soccer, Lacrosse and Baseball.</p>\n<p>The design is GREAT!</p>\n<p>Douglas Keller<br>West Chester, PA</p>",
+        "publishedAt": "2014-02-27T06:00:00Z",
+        "createdAt": "2014-03-27T21:32:04Z",
+        "updatedAt": "2020-02-20T13:07:27Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182773",
+        "title": "Tom Landers - Golfing Magazine",
+        "handle": "13182773-tom-landers-golfing-magazine",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>Many sports nets would shred to pieces under the stress of a 200 mph golf shot. Others might rocket the shot back at the golfer like a bullet, causing serious safety concerns. Only The Net Return sports nets are designed to safely absorb up to 200 mph shots and gently return the ball back to the ball-striker's feet.</p>\n<p>The Net Return's innovative Pro Series training nets utilize a patent pending design feature that absorbs the shot and then gently returns the ball to the feet of the athlete offering the versatility to practice anything from hitting golf balls to soccer shooting techniques, whether in an outdoor or indoor setting. The patent pending return feature uses the momentum generated from the ball hitting the net to send the ball softly back to the user's feet. This feature greatly increases efficiency and quality of practice time by reducing the time spent chasing after balls.</p>\n<p>The Net Return Pro Series nets stand 7' 5\" tall, 8' wide and 3'6\" deep and is made of a lightweight 1.5' tubular aluminum frame and weighs approximately 28 pounds, making it very easy to transport. The sleeved net is made of heavyweight polyester and the entire structure can be easily assembled without tools thanks to the Push Button Quick Color Connect System. The Push Button Quick Color Connect System ensures assembly, by a single person, in less than five minutes.</p>\n<p><span>Golf Magazine Review by Tom Landers</span></p>",
+        "summary": "<p>Many sports nets would shred to pieces under the stress of a 200 mph golf shot. Others might rocket the shot back at the golfer like a bullet, causing serious safety concerns. Only The Net Return sports nets are designed to safely absorb up to 200 mph shots and gently return the ball back to the ball-striker's feet.</p>\n<p>The Net Return's innovative Pro Series training nets utilize a patent pending design feature that absorbs the shot and then gently returns the ball to the feet of the athlete offering the versatility to practice anything from hitting golf balls to soccer shooting techniques, whether in an outdoor or indoor setting. The patent pending return feature uses the momentum generated from the ball hitting the net to send the ball softly back to the user's feet. This feature greatly increases efficiency and quality of practice time by reducing the time spent chasing after balls.</p>",
+        "publishedAt": "2014-02-26T06:00:00Z",
+        "createdAt": "2014-03-27T21:03:31Z",
+        "updatedAt": "2020-02-20T13:07:40Z",
+        "tags": [
+          "Golfing Magazine"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183537",
+        "title": "Charles Veeder - Middle Grove, New York",
+        "handle": "13183537-charles-veeder-middle-grove-new-york",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>I operate a golf training and club making facility and I am writing you to let you know how impressed I am with the Net Return \"Pro Series\" that I recently ordered from your company.</p>\n<p>In my 15 plus years of teaching, I must say that this is the highest quality and most user friendly net system that I have ever used for my business. It is easy to put up and take down to use at trade shows and it is great for lessons and club fittings. Also high quality commercial construction. You have a real winner in \"The Net Return\".</p>\n<p style=\"text-align: left;\"><img alt=\"Chuck Veeder - CV Golf Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-20_at_8.52.34_PM.png?9753758156689753054\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Charles Veeder</p>\n<p>USGTF Instructor and True Temper PFC Fitting Center</p>\n<p>CVGolf.biz</p>",
+        "summary": "<img alt=\"Chuck Veeder - CV Golf Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Screen_Shot_2016-03-20_at_8.52.34_PM.png?9753758156689753054\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-02-24T06:00:00Z",
+        "createdAt": "2014-03-27T21:32:45Z",
+        "updatedAt": "2020-02-20T13:08:15Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182797",
+        "title": "Chuck Stogel - CBS Sports",
+        "handle": "13182797-chuck-stogel-cbs-sports",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div></div>\n<p>Some sports net's would shred if struck with a high-velocity golf shot. Others would dangerously rocket the ball back at the golfer. Our testers loved The Net Return, which sets up easily and can be used indoors or outdoors; extremely strong, gently absorbing every shot from every club.</p>\n<p>A great training tool for golf!</p>\n<p>Chuck Stogel</p>\n<p><span>CBS Sports</span></p>",
+        "summary": "<div></div>\n<p>Some sports net's would shred if struck with a high-velocity golf shot. Others would dangerously rocket the ball back at the golfer. Our testers loved The Net Return, which sets up easily and can be used indoors or outdoors; extremely strong, gently absorbing every shot from every club.</p>\n<p>A great training tool for golf!</p>\n<p>Chuck Stogel</p>\n<p><span>CBS Sports</span></p>",
+        "publishedAt": "2014-02-23T06:00:00Z",
+        "createdAt": "2014-03-27T21:04:31Z",
+        "updatedAt": "2020-02-20T13:01:48Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183549",
+        "title": "Jay Sapovits - Wentworth Hills Golf Club",
+        "handle": "13183549-jay-sapovits-wentworth-hills-golf-club",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>I love your net. LOVE!</p>\n<p>Jay Sapovits<br>Managing Director<br>Wentworth Hills Golf Club</p>",
+        "summary": "<p>I love your net. LOVE!</p>\n<p>Jay Sapovits<br>Managing Director<br>Wentworth Hills Golf Club</p>",
+        "publishedAt": "2014-02-22T06:00:00Z",
+        "createdAt": "2014-03-27T21:33:00Z",
+        "updatedAt": "2020-02-20T13:07:54Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13182913",
+        "title": "Harold Farley - Titusville, Pennsylvania",
+        "handle": "13182913-harold-farley-titusville-pennsylvania",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"Harold Farley Golf Net in Garage\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/GolfNet-Garage_grande.jpeg?11407859695752544313\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\" width=\"271\" height=\"362\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/GolfNet-Garage2_grande.jpeg?14249330126220251212\" alt=\"Harold Farley Golf Net in Garage \" width=\"269\" height=\"358\"></p>\n<p>Paul, I like it so much I don't know where to start so here goes…</p>\n<p>I purchased The Net Return because I live in the Pennsylvania countryside and practice requires a drive of 30+ miles or so. I first saw the Net Return in Naples, Florida at a friends house. He gave me your contact info and I went to the web site. Everything I read was exactly what I experienced when the net and mat arrived (which was 3 days after purchase).</p>\n<p>I set it up the next morning this was pretty easy. I have been practicing daily. So far in just a short time I have improved my aim and direction. I am hitting the ball solid and getting some improvement in my distance. I like the fact that it is convenient and I have added a mirror to help with my alignment.</p>\n<p>Overall everything your web site has promised has happened – I couldn't be happier.</p>\n<p>Thank You,<br>Harold Farley<br>Titusville, PA</p>",
+        "summary": "<img alt=\"Harold Farley Golf Net in Garage\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/GolfNet-Garage_grande.jpeg?11407859695752544313\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\" width=\"271\" height=\"362\">",
+        "publishedAt": "2014-02-20T06:00:00Z",
+        "createdAt": "2014-03-27T21:08:49Z",
+        "updatedAt": "2020-02-20T13:02:00Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183597",
+        "title": "Bonnie O'Brien - Greely, Ontario Canada",
+        "handle": "13183597-bonnie-obrien-greely-ontario-canada",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>Just wanted to let you know that we have setup the net in the garage and think it is awesome!</p>\n<p>I am a golf beginner and did not enjoy the driving ranges as I was too self conscious. I use the net everyday and have already improved immensely.</p>\n<p>Looking forward to a Canadian winter of indoor golf. Hats off to you for the great engineering.</p>\n<p>Thanks Again,</p>\n<p>Bonnie O'Brien</p>",
+        "summary": "<p>Just wanted to let you know that we have setup the net in the garage and think it is awesome!</p>\n<p>I am a golf beginner and did not enjoy the driving ranges as I was too self conscious. I use the net everyday and have already improved immensely.</p>\n<p>Looking forward to a Canadian winter of indoor golf. Hats off to you for the great engineering.</p>\n<p>Thanks Again,</p>\n<p>Bonnie O'Brien</p>",
+        "publishedAt": "2014-02-17T06:00:00Z",
+        "createdAt": "2014-03-27T21:35:32Z",
+        "updatedAt": "2020-02-20T13:01:09Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183029",
+        "title": "Jeff Perry - Illinois",
+        "handle": "13183029-jeff-perry-illinois",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p> </p>\n<p style=\"text-align: left;\"><img alt=\"Jeffrey Perry Golf Turf\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_8_1.JPG?15440599586058005942\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p style=\"text-align: left;\"><img alt=\"Jeffrey Perry Golf Backyard Green\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_7.JPG?4516308713539756365\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>After installing a 30'x39' synthetic putting/chipping green in my backyard last fall, I decided to purchaseThe Net Return to further practice muscle memory for my golf swing.</p>\n<p>Paul Crawley did an excellent job of walking me through all the benefits and options of The Net Return including size, side barriers, mat type and potential location at my home.</p>\n<p>I ultimately decided that The Net Return would fit nicely on the northern most portion of the putting/chipping green without obstructing the green when not in use. I also decided to use the side barriers for guests or my kids who may have a wayward shot. When not in use, the side barriers can be placed behind The Net Return.</p>\n<p>I also opted to go with the 6'x10' Pro Turf to get the full \"return effect\" while not disturbing the putting surface with clubs or torque from my golf swing. When not in use, the turf rolls up nicely and can be removed from the putting green.</p>\n<p>Now I can work on more aspects of my game all in one place at home!</p>\n<p>Paul, thanks again for the personal consultation and producing such a great product, continued success.</p>\n<p>Regards,</p>\n<p>Jeff Perry</p>",
+        "summary": "<img alt=\"Jeffrey Perry Golf Turf\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_8_1.JPG?15440599586058005942\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-02-15T06:00:00Z",
+        "createdAt": "2014-03-27T21:12:18Z",
+        "updatedAt": "2020-02-20T12:48:40Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183625",
+        "title": "Paul Dunbar - South Setauket, New York",
+        "handle": "13183625-paul-dunbar-south-setauket-new-york",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p>Just love the NetReturn. Been using mine for years.</p>\n<p>No longer do I drive 2 or 3 nights a week to the local driving range, (which actually closed so they could put up homes), I just step out into my backyard. This saves me time and money and provides me the flexibility to practice on my schedule and also use the brand of golf ball I normally play.</p>\n<p>One of the best birthday presents I have ever gotten.</p>\n<p>Paul Dunbar</p>\n<span>South Setauket, NY</span>",
+        "summary": "<p>Just love the NetReturn. Been using mine for years.</p>\n<p>No longer do I drive 2 or 3 nights a week to the local driving range, (which actually closed so they could put up homes), I just step out into my backyard. This saves me time and money and provides me the flexibility to practice on my schedule and also use the brand of golf ball I normally play.</p>\n<p>One of the best birthday presents I have ever gotten.</p>\n<p>Paul Dunbar</p>\n<span>South Setauket, NY</span>",
+        "publishedAt": "2014-02-14T06:00:00Z",
+        "createdAt": "2014-03-27T21:36:50Z",
+        "updatedAt": "2020-02-20T12:59:50Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13183065",
+        "title": "Jason Lee - Gardena, California",
+        "handle": "13183065-jason-lee-gardena-california",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p> </p>\n<p style=\"text-align: left;\"><img alt=\"Jason Lee Pro Series Golf Net in Home\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_5.jpg?12948656129276351758\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Fantastic!</p>\n<p>Jason Lee</p>\n<p>Gardena, CA</p>",
+        "summary": "<img alt=\"Jason Lee Pro Series Golf Net in Home\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_5.jpg?12948656129276351758\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2014-02-13T06:00:00Z",
+        "createdAt": "2014-03-27T21:15:07Z",
+        "updatedAt": "2020-02-20T12:57:36Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/114645956",
+        "title": "Wagner College - Staten Island, New York",
+        "handle": "114645956-wagner-college-staten-island-new-york",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_20.jpg?1858944932079763378\" alt=\"Wagner College Football Kicking Net\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_20.jpg?1858944932079763378\" alt=\"Wagner College Football Kicking Net\">",
+        "publishedAt": "2014-02-01T15:47:00Z",
+        "createdAt": "2016-04-01T14:48:16Z",
+        "updatedAt": "2020-02-20T13:12:02Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13197825",
+        "title": "Brian Grenda - Weston, Florida",
+        "handle": "13197825-brian-grenda-weston-florida",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/T-X5H2tGPlc?feature=player_embedded\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>\n<p>Brian Grenda</p>\n<p>PT, DPT, CSCS, COMT</p>",
+        "summary": "<iframe width=\"640\" height=\"360\" src=\"//www.youtube.com/embed/T-X5H2tGPlc?feature=player_embedded\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe>",
+        "publishedAt": "2013-10-11T05:00:00Z",
+        "createdAt": "2014-03-28T14:00:56Z",
+        "updatedAt": "2020-02-20T12:59:15Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/13197769",
+        "title": "Jay Cohen - Long Island, NY",
+        "handle": "13197769-jay-cohen-long-island-ny",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><iframe width=\"650\" height=\"660\" src=\"//www.youtube.com/embed/4UITPWdElHk?feature=player_embedded\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe></p>\n<p>Dear Paul</p>\n<p>It was great seeing you at the PGA Show last month. I have attached a video of me using the net in my garage. I don't even have to break it down as my wife can still fit her car in. I have saved hundreds of dollars by not having to pay $10.00 at the range each time.</p>\n<p>The \"Net\" is Awesome!</p>\n<p>Sincerely,<br>Jay Cohen<br>Long Island, NY</p>\n<p> </p>",
+        "summary": "<iframe width=\"650\" height=\"660\" src=\"//www.youtube.com/embed/4UITPWdElHk?feature=player_embedded\" frameborder=\"0\" allowfullscreen=\"allowfullscreen\"></iframe>",
+        "publishedAt": "2013-10-11T05:00:00Z",
+        "createdAt": "2014-03-28T13:56:52Z",
+        "updatedAt": "2020-02-20T12:59:04Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/114593284",
+        "title": "Missouri State - Football",
+        "handle": "114593284-missouri-state-football",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Missouri State Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_1.jpg?14188942893335014379\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\"></div>\n<div style=\"text-align: left;\">\n<img alt=\"\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_2_large.jpg?14188942893335014379\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\"><img alt=\"Missouri State Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/1_4ee8344c-b073-4e08-a586-d4e1b7099b40.jpg?14188942893335014379\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Missouri State Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/2_f702ef26-ac48-4ce6-9afb-1812d1876746.jpg?14188942893335014379\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Missouri State Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_1.jpg?14188942893335014379\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\">",
+        "publishedAt": "2013-03-31T18:37:00Z",
+        "createdAt": "2016-03-31T18:37:22Z",
+        "updatedAt": "2020-02-20T13:11:39Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/114645508",
+        "title": "Monmouth College - Football",
+        "handle": "114645508-monmouth-college-football",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Monmouth College Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_19.jpg?16369136739020469433\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Monmouth College Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/2_4ccd7284-5d6f-4e06-a456-962c0ff66bc6.jpg?16369136739020469433\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Monmouth College Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/1_a09ff48e-2b9d-443c-8e7c-71a406b38351.jpg?16369136739020469433\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Monmouth College Football Custom Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_19.jpg?16369136739020469433\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2013-03-01T15:34:00Z",
+        "createdAt": "2016-04-01T14:35:54Z",
+        "updatedAt": "2020-02-20T13:11:52Z",
+        "tags": [],
+        "image": null
+      }
+    ]
+  }
+}

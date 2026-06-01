@@ -1,0 +1,373 @@
+{
+  "articles": {
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": "eyJsYXN0X2lkIjoxMTQ2NDU1MDgsImxhc3RfdmFsdWUiOiIyMDEzLTAzLTAxIDE1OjM0OjAwLjAwMDAwMCJ9"
+    },
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/113118980",
+        "title": "Illinois State - Football",
+        "handle": "113118980-illinois-state-football",
+        "isPublished": true,
+        "publishedAt": "2014-03-14T21:31:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/15054161",
+        "title": "Sky Golf - Roberto Borgatti",
+        "handle": "15054161-sky-golf-roberto-borgatti",
+        "isPublished": true,
+        "publishedAt": "2014-03-14T17:12:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182129",
+        "title": "Christopher Lane",
+        "handle": "13182129-christopher-lane",
+        "isPublished": true,
+        "publishedAt": "2014-03-14T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182181",
+        "title": "Ricky Krautman",
+        "handle": "13182181-ricky-krautman",
+        "isPublished": true,
+        "publishedAt": "2014-03-13T22:30:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/25688324",
+        "title": "Ingolf Goetz - Ontario, Canada",
+        "handle": "25688324-ingolf-goetz-ontario-canada",
+        "isPublished": true,
+        "publishedAt": "2014-03-12T21:34:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113016452",
+        "title": "Arkansas Razorbacks",
+        "handle": "113016452-arkansas-razorbacks",
+        "isPublished": true,
+        "publishedAt": "2014-03-11T21:35:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182269",
+        "title": "Carl Derian - Troy, Michigan",
+        "handle": "13182269-carl-derian-troy-michigan",
+        "isPublished": true,
+        "publishedAt": "2014-03-11T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182453",
+        "title": "Dr. Jeffrey B. Sommer - TPI Level 3",
+        "handle": "13182453-dr-jeffrey-b-sommer-tpi-level-3",
+        "isPublished": true,
+        "publishedAt": "2014-03-09T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/112735044",
+        "title": "Blair Hillmer - Saskatchewan, Canada",
+        "handle": "112735044-blair-hillmer-saskatchewan-canada",
+        "isPublished": true,
+        "publishedAt": "2014-03-08T13:17:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182689",
+        "title": "Dewey Bookholdt",
+        "handle": "13182689-dewey-bookholdt",
+        "isPublished": true,
+        "publishedAt": "2014-03-06T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88800772",
+        "title": "Western Kentucky University - Men's Golf",
+        "handle": "88800772-western-kentucky-university-mens-golf",
+        "isPublished": true,
+        "publishedAt": "2014-03-05T21:40:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/15237245",
+        "title": "John Hughes - Mahwah, NJ",
+        "handle": "15237245-john-hughes-mahwah-nj",
+        "isPublished": true,
+        "publishedAt": "2014-03-03T16:52:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183481",
+        "title": "Arlen \"Biff\" Brown - King George, Virginia",
+        "handle": "13183481-arlen-biff-brown-king-george-virginia",
+        "isPublished": true,
+        "publishedAt": "2014-03-03T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88900996",
+        "title": "Ruth - New Jersey",
+        "handle": "88900996-ruth-new-jersey",
+        "isPublished": true,
+        "publishedAt": "2014-03-02T20:24:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183493",
+        "title": "Chris Ball - Grand Rapids, Michigan",
+        "handle": "13183493-chris-ball-grand-rapids-michigan",
+        "isPublished": true,
+        "publishedAt": "2014-03-02T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183505",
+        "title": "Steve Campbell - Salem College Men's Golf Coach",
+        "handle": "13183505-steve-campbell-salem-college-mens-golf-coach",
+        "isPublished": true,
+        "publishedAt": "2014-03-01T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88750980",
+        "title": "Military Medical Centers and VA Hospitals",
+        "handle": "88750980-military-medical-centers-and-va-hospitals",
+        "isPublished": true,
+        "publishedAt": "2014-02-28T19:01:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183513",
+        "title": "Darrin Stephens - Goldsboro, North Carolina",
+        "handle": "13183513-darrin-stephens-goldsboro-north-carolina",
+        "isPublished": true,
+        "publishedAt": "2014-02-28T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183517",
+        "title": "Douglas Keller - West Chester, Pennsylvania",
+        "handle": "13183517-douglas-keller-west-chester-pennsylvania",
+        "isPublished": true,
+        "publishedAt": "2014-02-27T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182773",
+        "title": "Tom Landers - Golfing Magazine",
+        "handle": "13182773-tom-landers-golfing-magazine",
+        "isPublished": true,
+        "publishedAt": "2014-02-26T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183537",
+        "title": "Charles Veeder - Middle Grove, New York",
+        "handle": "13183537-charles-veeder-middle-grove-new-york",
+        "isPublished": true,
+        "publishedAt": "2014-02-24T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182797",
+        "title": "Chuck Stogel - CBS Sports",
+        "handle": "13182797-chuck-stogel-cbs-sports",
+        "isPublished": true,
+        "publishedAt": "2014-02-23T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183549",
+        "title": "Jay Sapovits - Wentworth Hills Golf Club",
+        "handle": "13183549-jay-sapovits-wentworth-hills-golf-club",
+        "isPublished": true,
+        "publishedAt": "2014-02-22T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13182913",
+        "title": "Harold Farley - Titusville, Pennsylvania",
+        "handle": "13182913-harold-farley-titusville-pennsylvania",
+        "isPublished": true,
+        "publishedAt": "2014-02-20T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183597",
+        "title": "Bonnie O'Brien - Greely, Ontario Canada",
+        "handle": "13183597-bonnie-obrien-greely-ontario-canada",
+        "isPublished": true,
+        "publishedAt": "2014-02-17T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183029",
+        "title": "Jeff Perry - Illinois",
+        "handle": "13183029-jeff-perry-illinois",
+        "isPublished": true,
+        "publishedAt": "2014-02-15T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183625",
+        "title": "Paul Dunbar - South Setauket, New York",
+        "handle": "13183625-paul-dunbar-south-setauket-new-york",
+        "isPublished": true,
+        "publishedAt": "2014-02-14T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183065",
+        "title": "Jason Lee - Gardena, California",
+        "handle": "13183065-jason-lee-gardena-california",
+        "isPublished": true,
+        "publishedAt": "2014-02-13T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114645956",
+        "title": "Wagner College - Staten Island, New York",
+        "handle": "114645956-wagner-college-staten-island-new-york",
+        "isPublished": true,
+        "publishedAt": "2014-02-01T15:47:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13197825",
+        "title": "Brian Grenda - Weston, Florida",
+        "handle": "13197825-brian-grenda-weston-florida",
+        "isPublished": true,
+        "publishedAt": "2013-10-11T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13197769",
+        "title": "Jay Cohen - Long Island, NY",
+        "handle": "13197769-jay-cohen-long-island-ny",
+        "isPublished": true,
+        "publishedAt": "2013-10-11T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114593284",
+        "title": "Missouri State - Football",
+        "handle": "114593284-missouri-state-football",
+        "isPublished": true,
+        "publishedAt": "2013-03-31T18:37:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114645508",
+        "title": "Monmouth College - Football",
+        "handle": "114645508-monmouth-college-football",
+        "isPublished": true,
+        "publishedAt": "2013-03-01T15:34:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      }
+    ]
+  }
+}

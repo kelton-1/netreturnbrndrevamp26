@@ -1,0 +1,1056 @@
+{
+  "articles": {
+    "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJsYXN0X2lkIjo4ODkwNjYyOCwibGFzdF92YWx1ZSI6IjIwMTYtMDItMDIgMjE6NDU6MDAuMDAwMDAwIn0="
+    },
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/230957009",
+        "title": "Jamie 2017 PGA Show",
+        "handle": "jamie-2017-pga-show",
+        "author": {
+          "name": "Affirm Collaborator"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/206714605\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n<p><a href=\"https://vimeo.com/206714605\">Jamie2017PGAShow</a> from <a href=\"https://vimeo.com/thenetreturn\">The Net Return</a> on <a href=\"https://vimeo.com\">Vimeo</a>.</p>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/206714605\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2017-03-13T17:56:00Z",
+        "createdAt": "2017-03-13T17:56:48Z",
+        "updatedAt": "2020-02-20T13:03:05Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/230956945",
+        "title": "Dave Pezzino 2017 PGA Show",
+        "handle": "dave-pezzino-2017-pga-show",
+        "author": {
+          "name": "Affirm Collaborator"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/206716608\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>\n<p><a href=\"https://vimeo.com/206716608\">DavePezzino2017PGAShow</a> from <a href=\"https://vimeo.com/thenetreturn\">The Net Return</a> on <a href=\"https://vimeo.com\">Vimeo</a>.</p>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/206716608\" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2017-03-13T17:54:00Z",
+        "createdAt": "2017-03-13T17:54:32Z",
+        "updatedAt": "2020-02-20T13:03:16Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/4182573083",
+        "title": "Jeremy Parnell - Mentone, California",
+        "handle": "jeremy-parnell-mentone-california",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_4_b5eda5eb-f971-4e40-8d77-8bcaf63fc3a2.jpg?v=1520793723\" alt=\"Jeremy Parnell - Home Series Golf Net by Pool\"></p>\n<p>Dear Paul,</p>\n<meta charset=\"utf-8\">\n<p><span>I would like to personally thank you for my unit I have received from you. I purchased the Home Series with side barriers and mat. I am very impressed with the quality of each item and also how easy it was to put up. It was very compact once built and fit beside my pool perfectly. Not to mention it looks amazing! Anyhow, I just wanted to send a picture of my set up and send my thanks. </span></p>\n<p><span>Jeremy</span></p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_4_b5eda5eb-f971-4e40-8d77-8bcaf63fc3a2.jpg?v=1520793723\" alt=\"Jeremy Parnell - Home Series Golf Net by Pool\">",
+        "publishedAt": "2017-03-11T05:00:00Z",
+        "createdAt": "2018-03-11T18:45:26Z",
+        "updatedAt": "2020-02-20T12:51:50Z",
+        "tags": [
+          "Golf Net"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/230396497",
+        "title": "New England Patriots",
+        "handle": "patriots",
+        "author": {
+          "name": "Affirm Collaborator"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Congratulations---New-England-Patriots.jpg?v=1488385939\" alt=\"\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Congratulations---New-England-Patriots.jpg?v=1488385939\" alt=\"\">",
+        "publishedAt": "2017-03-01T16:28:00Z",
+        "createdAt": "2017-03-01T16:28:50Z",
+        "updatedAt": "2020-02-20T13:03:23Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/2000px-New_England_Patriots_logo_svg.png?v=1488385852",
+          "altText": "",
+          "width": 1600,
+          "height": 749
+        }
+      },
+      {
+        "id": "gid://shopify/Article/3752263707",
+        "title": "Adaptive Golf Showcase - 2018 PGA Merchandise Show",
+        "handle": "adaptive-golf-showcase-2018-pga-merchandise-show",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/AdaptiveGolfDisplay2018PGAShow.jpg?v=1517500398\" alt=\"Adaptive Golf - 2018 PGA Show\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/AdaptiveGolfDisplay2018PGAShow.jpg?v=1517500398\" alt=\"Adaptive Golf - 2018 PGA Show\">",
+        "publishedAt": "2017-02-01T15:54:00Z",
+        "createdAt": "2018-02-01T15:54:39Z",
+        "updatedAt": "2020-02-20T12:52:11Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/228983953",
+        "title": "Clemson Tigers",
+        "handle": "clemson-tigers",
+        "author": {
+          "name": "Affirm Collaborator"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Congratulations---Clemson-Tigers-3.jpg?v=1484156722\" alt=\"\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Congratulations---Clemson-Tigers-3.jpg?v=1484156722\" alt=\"\">",
+        "publishedAt": "2017-01-11T17:45:00Z",
+        "createdAt": "2017-01-11T17:48:22Z",
+        "updatedAt": "2020-02-20T13:03:57Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/Untitled-2.png?v=1484156902",
+          "altText": "",
+          "width": 600,
+          "height": 607
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228983633",
+        "title": "Jim Gauley - Zillah, WA",
+        "handle": "jim-gauley-zillah-wa",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/002.JPG?v=1484155046\" alt=\"\"><br> </p>\n<p style=\"text-align: left;\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/003.JPG?v=1484155110\" alt=\"\"></p>\n<p style=\"text-align: left;\"><span><em>\"Fantastic Product!\"</em> - <strong>Jim Gauley</strong></span></p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/002.JPG?v=1484155046\" alt=\"\"><br> ",
+        "publishedAt": "2017-01-11T17:20:00Z",
+        "createdAt": "2017-01-11T17:20:10Z",
+        "updatedAt": "2020-02-20T13:04:08Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/228917777",
+        "title": "4th Quarter 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "4th-quarter-2016-win-a-net-winner-announced",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4471877",
+          "title": "The Net Return News",
+          "handle": "news"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p>January 6, 2016</p>\n<p>Congratulations to our 4th Quarter, 2016 Winner of a Pro Series Net - Eric Silagy from Palm Beach Gardens, Florida!</p>\n<p>Eric,  we truly appreciate you entering our \"Win-A-Net\" contest. Your Pro Series net will ship out next week.</p>\n<p>Sincerely,</p>\n<p>- Paul</p>",
+        "summary": "<meta charset=\"utf-8\">\n<p>January 6, 2016</p>\n<p>Congratulations to our 4th Quarter, 2016 Winner of a Pro Series Net - Eric Silagy from Palm Beach Gardens, Florida!</p>\n<p>Eric,  we truly appreciate you entering our \"Win-A-Net\" contest. Your Pro Series net will ship out next week.</p>\n<p>Sincerely,</p>\n<p>- Paul</p>",
+        "publishedAt": "2017-01-06T15:55:00Z",
+        "createdAt": "2017-01-06T15:54:18Z",
+        "updatedAt": "2020-02-20T13:04:20Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/Win-A-Net-Logo.jpg?v=1483736796",
+          "altText": "",
+          "width": 370,
+          "height": 253
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228450513",
+        "title": "Mike Howell - Woodstock, Georgia",
+        "handle": "mike-howell-woodstock-georgia",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/MikeHowell.jpg?v=1481567788\" alt=\"Mike Howell - Pro Series Mini Setup in Basement\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/MikeHowell.jpg?v=1481567788\" alt=\"Mike Howell - Pro Series Mini Setup in Basement\">",
+        "publishedAt": "2016-12-12T18:37:00Z",
+        "createdAt": "2016-12-12T18:37:08Z",
+        "updatedAt": "2020-02-20T13:04:50Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/228395601",
+        "title": "JDWalburg - Minnesota",
+        "handle": "jdwalburg-minnesota",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/JDWalburg.jpg?v=1481396625\" alt=\"Home Series Golf Net in Gymnasium\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/JDWalburg.jpg?v=1481396625\" alt=\"Home Series Golf Net in Gymnasium\">",
+        "publishedAt": "2016-12-10T19:04:00Z",
+        "createdAt": "2016-12-10T19:04:12Z",
+        "updatedAt": "2020-02-20T13:09:55Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/227865096",
+        "title": "Dome Corporation (Japan Under Armour)- Hosei University",
+        "handle": "under-armour-japan-hosei-university",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<meta charset=\"utf-8\">\n<div><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Unknown.jpeg?v=1479226188\" alt=\"Under Armour Japan - Hosei University\"></div>\n<div></div>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Unknown.jpeg?v=1479226188\" alt=\"Under Armour Japan - Hosei University\">",
+        "publishedAt": "2016-11-15T16:12:00Z",
+        "createdAt": "2016-11-15T16:12:48Z",
+        "updatedAt": "2020-02-20T13:10:10Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/2846425115",
+        "title": "Terry Yakle - Quincy, Illinois",
+        "handle": "terry-yakle-quincy-illinois",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p><span><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_3_bae492d3-0044-40f6-b4da-eb59be271eb7.jpg?v=1510261685\" alt=\"Terry Yakle - Garage Golf Net Pro Series\"></span></p>\n<p><span>Hi Paul,</span></p>\n<div>I am overly pleased with my net return purchase.  Forty years ago I was a fairly decent bogey golfer without ever taking a lesson.  A couple of friends tricked me into playing golf and I became instantly hooked on the game.  I think it helped that I was very athletic in my prime and still very much so even now at the age of 69..  Eventually it took too much of my time considering work and raising four daughters.  The wife, rightfully so, thought i spent too much time on the golf course so i reluctantly gave up the game for the next 35 or so years.  The thirty sixth year I tried playing again and the enjoyment once experienced became total frustration.  I was lucky to even hit a ball let alone make it go where I had intended.  The net return was going to be my last try at the game I once enjoyed and I am so happy I shelled out the coin.</div>\n<div></div>\n<div>The net return has dramatically altered that frustration I was having with making ball contact.  I've only had it a few weeks and the improvement in my contact and swing is truly a remarkable transformation.  I've been hard at work smashing a couple hundred balls a day and my excitement for golf has returned, no pun intended.  I'm feeling positive that I'll improve on my bogey golf memories.  I was hesitant in the purchase, but so fortunate that I jumped that hurdle.  I'm certain that investing twice the money in lessons wouldn't have been as beneficial.  It's not how far you hit the ball, but how well. =)</div>\n<div></div>\n<div>I can't thank you enough for making this product available.</div>\n<div></div>\n<div>Respectfully,</div>\n<div>Terry </div>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_3_bae492d3-0044-40f6-b4da-eb59be271eb7.jpg?v=1510261685\" alt=\"Terry Yakle - Garage Golf Net Pro Series\">",
+        "publishedAt": "2016-11-09T21:08:00Z",
+        "createdAt": "2017-11-09T21:08:38Z",
+        "updatedAt": "2020-02-20T12:52:58Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/225285640",
+        "title": "Thomas Lyons - Florida",
+        "handle": "thomas-lyons-florida",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0359_fc43fe3c-8159-47fe-9977-cd5c1610eace_1024x1024.jpg?v=1476391193\" alt=\"\"></p>\n<p><span><em>\"Great product. Best on the market!\"</em> -  <strong>Thomas Lyons, Florida</strong></span></p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0359_fc43fe3c-8159-47fe-9977-cd5c1610eace_1024x1024.jpg?v=1476391193\" alt=\"\">",
+        "publishedAt": "2016-10-13T19:53:00Z",
+        "createdAt": "2016-10-13T20:04:02Z",
+        "updatedAt": "2020-02-20T13:10:38Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/224147208",
+        "title": "3rd Quarter 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "3rd-quarter-2016-win-a-net-winner-announced",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4471877",
+          "title": "The Net Return News",
+          "handle": "news"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p>October 3rd, 2016</p>\n<p>Congratulations to our 3rd Quarter, 2016 Winner of a Pro Series Net - Brandon Taylor from Stockton, California!</p>\n<p>Brandon,  we truly appreciate you entering our \"Win-A-Net\" contest. Your Pro Series net will ship out this week.</p>\n<p>Sincerely,</p>\n<p>- Paul</p>",
+        "summary": "<p>October 3rd, 2016</p>\n<p>Congratulations to our 3rd Quarter, 2016 Winner of a Pro Series Net - Brandon Taylor from Stockton, California!</p>",
+        "publishedAt": "2016-10-03T16:26:00Z",
+        "createdAt": "2016-10-03T16:26:08Z",
+        "updatedAt": "2020-02-20T13:10:49Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/win-net_1024x1024_d21c0b52-184c-4280-8ad5-a597135ce0a3.jpg?v=1475512027",
+          "altText": "",
+          "width": 370,
+          "height": 253
+        }
+      },
+      {
+        "id": "gid://shopify/Article/220253192",
+        "title": "Eric Arango - Henderson, Nevada",
+        "handle": "eric-arango-henderson-nevada",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Eric Arango - Golf Net Return in Living Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/EricLivingRoomGolfNet.png?v=1472931846\" style=\"float: none; margin: 10px;\"></div>",
+        "summary": "<img alt=\"Eric Arango - Golf Net Return in Living Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/EricLivingRoomGolfNet.png?v=1472931846\" style=\"float: none; margin: 10px;\">",
+        "publishedAt": "2016-09-03T19:44:00Z",
+        "createdAt": "2016-09-03T19:44:50Z",
+        "updatedAt": "2020-02-20T13:11:13Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/12957777",
+        "title": "New York Jets",
+        "handle": "12957777-new-york-jets",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/products/madeusaextrapoint_1_1_grande.png?v=1417364356\" alt=\"\"></p>\n<p>“Before field goal attempts, The Net Return Extra Point allows kickers more warm up reps. With the old nets, the ball would go in the back of the net and stay there, and a lot of times players’ helmets would get caught when they retrieved it. I always talk to the kickers from the opposing teams, and they’ve liked the new net, too. I think in a few years it’ll be the standard in the league.”</p>\n<p>- New York Jets</p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/1.png?1008358820685192843\" alt=\"Nick Folk - New York Jets Kicker\"></p>\n<p>Paul and Gurbuz meeting Nick Folk at the New York Jets Florham Park, NJ Training Facility (Preseason 2016)</p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/5.png?5544287102616867767\" alt=\"Andrew Johnson - Assistant Equipment Manager (New York Jets)\"></p>\n<p>Andrew Johnson - Assistant Equipment Manager (New York Jets / Preseason 2016)</p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/products/madeusaextrapoint_1_1_grande.png?v=1417364356\" alt=\"\">",
+        "publishedAt": "2016-08-17T20:08:00Z",
+        "createdAt": "2014-03-18T19:10:59Z",
+        "updatedAt": "2022-01-10T23:08:39Z",
+        "tags": [
+          "Bergen Record Article"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/237770961",
+        "title": "Norman Kronstadt - Weston, FL.",
+        "handle": "norman-kronstadt-weston-fl",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Norm_Testimonial.jpg?v=1501869647\" alt=\"Norman Kronstadt Testimonial Golf Net on Side Porch\" style=\"display: block; margin-left: auto; margin-right: auto;\"></p>\n<meta charset=\"utf-8\">\n<p><span>Dear Paul,</span></p>\n<meta charset=\"utf-8\">\n<p><span>Love this net; quality is outstanding and the auto ball return is a big plus; no problem hitting all clubs including driver into it!<br></span></p>\n<p>Sincerely,</p>\n<p>Norman Kronstadt </p>\n<p>Weston, Florida</p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Norm_Testimonial.jpg?v=1501869647\" alt=\"Norman Kronstadt Testimonial Golf Net on Side Porch\" style=\"display: block; margin-left: auto; margin-right: auto;\">",
+        "publishedAt": "2016-08-04T18:04:00Z",
+        "createdAt": "2017-08-04T18:04:20Z",
+        "updatedAt": "2020-02-20T12:53:46Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/118203972",
+        "title": "2nd Quarter 2016 - Win-A-Net Winner Announced!",
+        "handle": "118203972-2nd-quarter-2016-win-a-net-winner-announced",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4471877",
+          "title": "The Net Return News",
+          "handle": "news"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p>Congratulations to our 2nd Quarter, 2016 Winner of a Pro Series Net - Scott Clemens!</p>\n<p>Scott Clemens we truly appreciate you entering our \"Win-A-Net\" contest for the 2nd Quarter, 2016. Your Pro Series net will ship out on June 7th.</p>\n<p>All the best,</p>\n<p>- Paul</p>",
+        "summary": "<p>Congratulations to our 2nd Quarter, 2016 Winner of a Pro Series Net - Scott Clemens!</p>",
+        "publishedAt": "2016-06-03T03:15:00Z",
+        "createdAt": "2016-06-03T03:14:03Z",
+        "updatedAt": "2020-02-20T13:16:59Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/win-net_1e2c20c8-ee88-4de3-8613-d20e35b67c3b.jpg?v=1466436407",
+          "altText": null,
+          "width": 370,
+          "height": 253
+        }
+      },
+      {
+        "id": "gid://shopify/Article/232566033",
+        "title": "SkyTrak Golf",
+        "handle": "skytrak-golf-1",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_ce441b35-bed3-41a5-a898-b161d500624e.jpg?v=1492882700\" alt=\"SkyTrak Golf\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_ce441b35-bed3-41a5-a898-b161d500624e.jpg?v=1492882700\" alt=\"SkyTrak Golf\">",
+        "publishedAt": "2016-04-22T17:39:00Z",
+        "createdAt": "2017-04-22T17:39:21Z",
+        "updatedAt": "2020-02-20T12:54:55Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/232132881",
+        "title": "Healthy Drive - Australia",
+        "handle": "healthy-drive-australia",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Australia1.jpg?v=1492011866\" alt=\"Australia Golf Net \"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Australia2.jpg?v=1492011959\" alt=\"Australia Golf Net 2\"></p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Australia1.jpg?v=1492011866\" alt=\"Australia Golf Net \">",
+        "publishedAt": "2016-04-12T15:47:00Z",
+        "createdAt": "2017-04-12T15:47:14Z",
+        "updatedAt": "2020-02-20T12:55:10Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/113158724",
+        "title": "1st Quarter, 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "113158724-1st-quarter-2016-win-a-net-winner-announced",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4471877",
+          "title": "The Net Return News",
+          "handle": "news"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p>Congratulations to Eddie Riedel our 1st Quarter, 2016 Winner of a Pro Series Net!</p>\n<p>Eddie Riedel we truly appreciate you entering our \"Win-A-Net\" contest for the 1st quarter. Your Pro Series net will ship out on March 16th.</p>\n<p>All the best,</p>\n<p>- Paul</p>",
+        "summary": "<p>Congratulations to Eddie Riedel our 1st Quarter, 2016 Winner of a Pro Series Net!</p>",
+        "publishedAt": "2016-03-14T16:20:00Z",
+        "createdAt": "2016-03-15T16:06:40Z",
+        "updatedAt": "2020-02-20T13:16:50Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/win-net_263677f8-994f-4748-92c2-0ad21a82f53d.jpg?v=1466436429",
+          "altText": null,
+          "width": 370,
+          "height": 253
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88745412",
+        "title": "Titleist Performance Institute",
+        "handle": "88745412-titleist-performance-institute",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p>The Net Return is a new hitting net made out of heavy duty netting, that is designed in such a way that the ball returns to your feet after every swing. This net is easy to setup and packs into a duffle bag for storage or travel. It can be used for multiple sports and gives you the ability to practice your sport in the comfort of your home.</p>\n<p>There are many less expensive nets on the market but they fall short in quality which may lead to safety issues. If you want to hit golf balls at full speed and want something that will stand the test of time then you should look at the \"The Net Return\".</p>\n<p> <img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DavePhillipsTPI-JPEGHigh.jpg?278714179541177729\" alt=\"Dave Phillips TPI\"></p>\n<p>Dave Phillips<br>Titleist Performance Institute</p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DavePhillipsTPI-JPEGHigh.jpg?278714179541177729\" alt=\"Dave Phillips TPI\">",
+        "publishedAt": "2016-03-05T14:17:00Z",
+        "createdAt": "2016-02-28T14:16:34Z",
+        "updatedAt": "2020-02-20T12:54:08Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/DavePhillipsTPILogo.jpeg?v=1456668994",
+          "altText": null,
+          "width": 272,
+          "height": 184
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88815172",
+        "title": "Office Golf - San Francisco, California",
+        "handle": "88815172-office-golf-san-francisco-california",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Office Golf Rooftop 5\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/OfficeGolfRooftop5.png?5756825992160693376\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\"><img alt=\"Office Golf Rooftop 6\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/OfficeGolfRooftop3.png?5756825992160693376\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Office Golf Rooftop 4\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/OfficeGolfRooftop4.png?5756825992160693376\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Office Golf Rooftop\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/11848983_1485967128367822_1953038190_n.jpg?6939995938611476035\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\">\n</div>\n<div style=\"text-align: left;\">\n<img alt=\"Office Golf Beach\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/11005284_896774410367777_1530122921_n_285b166e-59ad-468e-bb11-b823b163601f.jpg?6939995938611476035\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/10899438_1375121116125438_2080422786_n.jpg?6939995938611476035\" alt=\"Office Golf Beach 2\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/10914698_333482643516354_1184548230_n_b8320207-6c64-4908-af4f-bedc8c501496.jpg?6939995938611476035\" alt=\"Office Golf Rooftop 2\">\n</div>\n<div style=\"text-align: left;\"></div>\n<div style=\"text-align: left;\">Photos Courtesy of - Office Golf</div>\n<div style=\"text-align: left;\">www.TheOfficeGolf.com</div>",
+        "summary": "<img alt=\"Office Golf Rooftop 5\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/OfficeGolfRooftop5.png?5756825992160693376\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\">",
+        "publishedAt": "2016-03-05T03:52:00Z",
+        "createdAt": "2016-03-01T03:55:48Z",
+        "updatedAt": "2020-02-20T12:58:14Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88749636",
+        "title": "Natali Gulbis - Fox and Friends",
+        "handle": "88749636-natali-gulbis-fox-and-friends",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/157039822\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/157039822\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2016-03-04T18:04:00Z",
+        "createdAt": "2016-02-28T18:03:40Z",
+        "updatedAt": "2020-02-20T12:54:25Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88726596",
+        "title": "Product Review - Dan at Golf Geek",
+        "handle": "88726596-product-review-dan-at-golf-geek",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/156963729\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/156963729\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2016-03-04T17:01:00Z",
+        "createdAt": "2016-02-27T17:01:54Z",
+        "updatedAt": "2020-02-20T12:52:44Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88747844",
+        "title": "Dallas Cowboys",
+        "handle": "88747844-dallas-cowboys",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Bailey_Follow_Thru_grande.jpg?5440627646625217475\" alt=\"Dallas Cowboys on New York Giants Sideline Kicking Net\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Bailey_Follow_Thru_grande.jpg?5440627646625217475\" alt=\"Dallas Cowboys on New York Giants Sideline Kicking Net\">",
+        "publishedAt": "2016-03-04T16:28:00Z",
+        "createdAt": "2016-02-28T16:29:31Z",
+        "updatedAt": "2020-02-20T12:53:12Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/112734404",
+        "title": "Urban Golf Performance - Los Angeles, California",
+        "handle": "112734404-urban-golf-performance-los-angeles-california",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"Backyard Golf Net Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0793.JPG?6096564200175976179\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p> </p>\n<p>Photo Courtesy of Brian Gallagher - Urban Golf Performance Center</p>\n<p>www.ugp.la</p>\n<p> </p>",
+        "summary": "<img alt=\"Backyard Golf Net Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0793.JPG?6096564200175976179\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-03-04T12:55:00Z",
+        "createdAt": "2016-03-08T12:58:31Z",
+        "updatedAt": "2020-02-20T12:54:37Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88751620",
+        "title": "SkyTrak Golf",
+        "handle": "88751620-skytrak-golf",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"> <img alt=\"SkyTrak Golf with Net Return Mini Pro Series\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/SkyTrakWithMini_grande.png?1031196633508550769\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p><iframe src=\"https://player.vimeo.com/video/157047851\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe></p>\n<p>Photos and Video Courtesy of SkyTrak Golf</p>",
+        "summary": "<img alt=\"SkyTrak Golf with Net Return Mini Pro Series\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/SkyTrakWithMini_grande.png?1031196633508550769\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-03-01T19:33:00Z",
+        "createdAt": "2016-02-28T19:33:12Z",
+        "updatedAt": "2020-02-20T12:49:11Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88816580",
+        "title": "Swim4Purpose - Ellicott City, Maryland",
+        "handle": "88816580-swim4purpose-ellicott-city-maryland",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Swim 4 Purpose Deck Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Swim4PurposeDeck.JPG?847840589920284032\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Swim 4 Purpose Golf Instruction\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Swim4PurposeGolf.jpg?8584102493505592859\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Swim 4 Purpose Deck Photo\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Swim4PurposeDeck.JPG?847840589920284032\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-03-01T04:14:00Z",
+        "createdAt": "2016-03-01T04:14:19Z",
+        "updatedAt": "2020-02-20T12:48:56Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88801668",
+        "title": "Augustana College - Men's and Women's Golf Practice Facility",
+        "handle": "88801668-augustana-college-mens-and-womens-golf-practice-facility",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"Augustana College Indoor Golf Nets\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/AugustanaCollegeIndoorFacility.jpg?12619917786264337506\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Paul,</p>\n<p>Here's the facility at Augustana College for indoor practicing.</p>\n<p>The Women are currently ranked 14th in the national division II.</p>\n<p>The nets have been great!</p>\n<p>Sincerely,</p>\n<p>Coralee Jorgensen</p>",
+        "summary": "<img alt=\"Augustana College Indoor Golf Nets\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/AugustanaCollegeIndoorFacility.jpg?12619917786264337506\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-29T21:59:00Z",
+        "createdAt": "2016-02-29T21:58:38Z",
+        "updatedAt": "2020-02-20T12:48:26Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88789956",
+        "title": "Pure Fitness - Chicago, Illinois",
+        "handle": "88789956-pure-fitness-chicago-illinois",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Pure Fitness Chicago\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/PureFitness2.jpg?12097335026344564625\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></div>",
+        "summary": "<img alt=\"Pure Fitness Chicago\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/PureFitness2.jpg?12097335026344564625\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-29T18:10:00Z",
+        "createdAt": "2016-02-29T18:13:25Z",
+        "updatedAt": "2020-02-20T12:48:02Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88787844",
+        "title": "McNulty Family - Port Perry, Ontario",
+        "handle": "88787844-mcnulty-family-port-perry-ontario",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"> </p>\n<p style=\"text-align: left;\"><img alt=\"McNulty Family Living Room Ontario\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/McNulty_Family_Golf.jpg?6245251410496108538\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>McNulty Family - Feb. 2009</p>\n<p style=\"text-align: left;\"><img alt=\"Jake and Sam McNulty - Golf Major Champs 2013\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/JakeAndSamMajorChamps2013.jpg?6245251410496108538\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Update - Jake and Sam McNulty Major Champs 2013</p>\n<p> </p>",
+        "summary": "<img alt=\"McNulty Family Living Room Ontario\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/McNulty_Family_Golf.jpg?6245251410496108538\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-29T17:37:00Z",
+        "createdAt": "2016-02-29T17:42:37Z",
+        "updatedAt": "2020-02-20T12:47:19Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88786500",
+        "title": "Kim Leonardich - Santa Cruz, CA",
+        "handle": "88786500-kim-leonardich-santa-cruz-ca",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Kim Leonardich Backyard Pro Package\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_3107.JPG?10186448713113075710\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></div>",
+        "summary": "<img alt=\"Kim Leonardich Backyard Pro Package\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_3107.JPG?10186448713113075710\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-29T17:19:00Z",
+        "createdAt": "2016-02-29T17:20:55Z",
+        "updatedAt": "2020-02-20T12:47:06Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88784260",
+        "title": "Gavin - First Grader Winning Field Goal Kick",
+        "handle": "88784260-gavin-first-grader-winning-field-goal-kick",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><iframe src=\"https://player.vimeo.com/video/157159755\" width=\"500\" height=\"888\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe></p>\n<p>Paul,</p>\n<p>I wanted to send you a film of my 7 year old Son Gavin.</p>\n<p>He joined a 1st grade Flag Football team in Frisco,TX and is the only kid out of 288 players able to pull off a 20 yard field goal!!! This is much to do with your net Santa brought him.</p>\n<p>We have it set up in our Garage and he would go outside and kick till his leg was numb!!! Thank you for allowing this to happen. When we first start kicks we were not able to kick it 10 yards in the air. Much less over a 10 foot cross bar!! This has been a major learning experience for Gavin. He truly understands the meaning of sticking with something, anything is possible!!!</p>\n<p>Currently his flag team, The Saints, is the only undefeated first grade team out of 18. Kicking an extra point is worth 2 points and a field goal is worth 3. His kicks have won 3 close games and have intimidated the other team big time. So far this year he is 11 for 12!!!! Thank you from a proud father!!!</p>\n<p>- Jeff Marshall, Frisco, TX </p>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/157159755\" width=\"500\" height=\"888\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2016-02-29T16:50:00Z",
+        "createdAt": "2016-02-29T16:50:34Z",
+        "updatedAt": "2020-02-20T12:46:32Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88780868",
+        "title": "George Jamgochian - Franklin Lakes, NJ",
+        "handle": "88780868-george-jamgochian-franklin-lakes-nj",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"George Jamgochian Pro Series Net in Driveway\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/GolfNetDriveway_1.jpg?12276789385105617794\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></div>",
+        "summary": "<img alt=\"George Jamgochian Pro Series Net in Driveway\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/GolfNetDriveway_1.jpg?12276789385105617794\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-29T15:39:00Z",
+        "createdAt": "2016-02-29T15:41:40Z",
+        "updatedAt": "2020-02-20T12:46:19Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88780484",
+        "title": "David Charles - St. Lucia",
+        "handle": "88780484-david-charles-st-lucia",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"David Charles Golf Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_1_2.jpg?3406451675730644877\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\"><img alt=\"David Charles Golf Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_2_3.jpg?3406451675730644877\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"David Charles Golf Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/photo_1_2.jpg?3406451675730644877\" style=\"float: none; margin-top: 10px; margin-bottom: 10px;\">",
+        "publishedAt": "2016-02-29T15:34:00Z",
+        "createdAt": "2016-02-29T15:36:52Z",
+        "updatedAt": "2020-02-20T12:46:05Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88757124",
+        "title": "Bill Bigler - Shreveport, Louisiana",
+        "handle": "88757124-bill-bigler-shreveport-louisiana",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p style=\"text-align: left;\"><img alt=\"\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_1789.JPG?1794528251918126292\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p><span>Dear Paul and Team,</span></p>\n<p><span>I bought your net and love it. It is easy to put together with the video, light weight and yet the \"pillow\" effect is amazing. I swing my drive at about 105-106 and there is no sound!!. And the return is great.</span><br><br><span>Attached are some pictures of my \"outside man cave\". Actually my wife loves this too. We sit on our veranda, I grill and in between hit shots. Wow!</span></p>\n<p>Keep up the great work.</p>\n<p> </p>",
+        "summary": "<img alt=\"\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_1789.JPG?1794528251918126292\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-28T23:08:00Z",
+        "createdAt": "2016-02-28T23:15:45Z",
+        "updatedAt": "2020-02-20T12:45:21Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88756932",
+        "title": "Foresight Sports - GC2 Launch Monitors",
+        "handle": "88756932-foresight-sports-gc2-launch-monitors",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Foresight Sports Launch Monitor Residential\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/ForeSightSports_grande.png?2932743473998923647\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></div>\n<div style=\"text-align: left;\">Photo Courtesy of Foresight Sports</div>",
+        "summary": "<img alt=\"Foresight Sports Launch Monitor Residential\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/ForeSightSports_grande.png?2932743473998923647\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-28T22:57:00Z",
+        "createdAt": "2016-02-28T22:57:53Z",
+        "updatedAt": "2020-02-20T12:45:06Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88751172",
+        "title": "U.S. Military - Iraq",
+        "handle": "88751172-u-s-military-iraq",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img alt=\"U.S. Military - Golf Net Iraq\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FOB_Mahmudiyah_Baghdad1_1_grande.jpg?1392170641577364154\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"U.S. Military Iraq - Golf Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Afghan_Golf_Net_1_grande.JPG?1392170641577364154\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"U.S. Military Iraq - Golf Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FOB_Baghdad_Golf_Net_4_1_grande.jpg?1392170641577364154\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></p>\n<p>Photos Courtesy of - Golf Supports Our Troops</p>",
+        "summary": "<img alt=\"U.S. Military - Golf Net Iraq\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FOB_Mahmudiyah_Baghdad1_1_grande.jpg?1392170641577364154\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-28T19:11:00Z",
+        "createdAt": "2016-02-28T19:15:11Z",
+        "updatedAt": "2020-02-20T12:44:30Z",
+        "tags": [
+          "Golf Net Iraq U.S. Military"
+        ],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88750724",
+        "title": "U.S. Military - Afghanistan",
+        "handle": "88750724-u-s-military-afghanistan",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\"><img alt=\"Forward Operating Base Afghanistan\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FOB_Golf_Net_Afghanistan_2.JPG?9265110421305630124\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"></div>\n<div style=\"text-align: left;\">Photo Courtesy of - Golf Supports Our Troops</div>",
+        "summary": "<img alt=\"Forward Operating Base Afghanistan\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FOB_Golf_Net_Afghanistan_2.JPG?9265110421305630124\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-28T18:44:00Z",
+        "createdAt": "2016-02-28T18:44:34Z",
+        "updatedAt": "2020-02-20T12:43:53Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88747076",
+        "title": "Dave DuPriest",
+        "handle": "88747076-dave-dupriest",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<meta charset=\"utf-8\">\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DaveDuPriest1_grande.jpg?5440627646625217475\" alt=\"Dave DuPriest\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DaveDuPriest2.jpg?5440627646625217475\" alt=\"Dave DuPriest\"></p>\n<p>Here are a couple photos of your nets in my Wilmington, MA. office. Thanks for the great product!</p>\n<p>Sincerely,</p>\n<p>Dave DuPriest<br>CGFI-FP3, Certified Junior Golf Fitness Coach, CSCS<br>P: 978-447-5328<br>60 Concord St. Suite F-110,<br>Wilmington Ma. 01887<br>www.NorthShore.FitGolf.Com</p>\n<p> </p>",
+        "summary": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DaveDuPriest1_grande.jpg?5440627646625217475\" alt=\"Dave DuPriest\"></p>",
+        "publishedAt": "2016-02-28T16:06:00Z",
+        "createdAt": "2016-02-28T16:06:11Z",
+        "updatedAt": "2020-02-20T12:46:41Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88726980",
+        "title": "Evolution Fitness Chicago - Pro Series Golf Practice",
+        "handle": "88726980-evolution-fitness-chicago-pro-series-golf-practice",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/156964653\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/156964653\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2016-02-27T17:13:00Z",
+        "createdAt": "2016-02-27T17:13:36Z",
+        "updatedAt": "2020-02-20T12:39:00Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88726020",
+        "title": "Dr. Dan Fuentes",
+        "handle": "88726020-dr-dan-fuentes",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DrDanFuentesGarageProSeriesNet_grande.jpg?5252301572807422696\" alt=\"Dr. Dan Fuentes Pro Series Golf Net in His Garage\">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/DrDanFuentesGarageProSeriesNet_grande.jpg?5252301572807422696\" alt=\"Dr. Dan Fuentes Pro Series Golf Net in His Garage\">",
+        "publishedAt": "2016-02-27T16:38:00Z",
+        "createdAt": "2016-02-27T16:38:07Z",
+        "updatedAt": "2020-02-20T12:39:23Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88725764",
+        "title": "Nascar Driver - Kevin Harvick",
+        "handle": "88725764-nascar-driver-kevin-harvick",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/KevinHarvickNetReturn_grande.jpg?17404518514679541394\" alt=\"Kevin Harvick Nascar Driver Using a Net Return Pro Series Golf Net \">",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/KevinHarvickNetReturn_grande.jpg?17404518514679541394\" alt=\"Kevin Harvick Nascar Driver Using a Net Return Pro Series Golf Net \">",
+        "publishedAt": "2016-02-27T16:18:00Z",
+        "createdAt": "2016-02-27T16:18:01Z",
+        "updatedAt": "2020-02-20T12:43:08Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/87322628",
+        "title": "Bardonia Physical Therapy Commercial",
+        "handle": "87322628-bardonia-physical-therapy-commercial",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<iframe src=\"https://player.vimeo.com/video/157032196\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "summary": "<iframe src=\"https://player.vimeo.com/video/157032196\" width=\"650\" height=\"365\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>",
+        "publishedAt": "2016-02-22T20:26:00Z",
+        "createdAt": "2016-02-22T20:29:01Z",
+        "updatedAt": "2020-02-20T12:42:07Z",
+        "tags": [],
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/articles/Screen_Shot_2016-02-22_at_3.26.51_PM.png?v=1456172941",
+          "altText": null,
+          "width": 1279,
+          "height": 676
+        }
+      },
+      {
+        "id": "gid://shopify/Article/229109649",
+        "title": "Chuck Veeder - Middle Grove, NY",
+        "handle": "chuck-veeder-middle-grove-ny",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0571.JPG?v=1484596200\" alt=\"\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0575.JPG?v=1484596204\" alt=\"\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0577.JPG?v=1484596209\" alt=\"\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0586.JPG?v=1484596217\" alt=\"\"></p>\n<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0587.JPG?v=1484596224\" alt=\"\"></p>\n<p> </p>\n<p><iframe src=\"https://player.vimeo.com/video/199713291\" width=\"640\" height=\"1138\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe></p>\n<p><em>\"We have been teaching jr. golf using the Net Return Jr. indoors and it has been working great. Easy to set up - can use all clubs utilizing foam balls, allows up to set up multiple hitting stations (which allows for juniors not to loose focus so they can continuously hit balls)\" </em><strong>﻿- Chuck Veeder</strong></p>\n<p> </p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/IMG_0571.JPG?v=1484596200\" alt=\"\">",
+        "publishedAt": "2016-02-16T20:05:00Z",
+        "createdAt": "2017-01-16T20:08:09Z",
+        "updatedAt": "2020-02-20T13:03:36Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/113247556",
+        "title": "Kurt Cummings - Fishers, Indiana",
+        "handle": "113247556-kurt-cummings-fishers-indiana",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"Kurt Cummings Home Golf Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FORESIGHT_GC2.jpg?14498682711969037396\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Kurt Cummings Home Golf Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_7.jpg?14498682711969037396\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Kurt Cummings Home Golf Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_8_9c61f5c4-ca2e-46d1-ae7b-85a9e6eea025.jpg?14498682711969037396\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"Kurt Cummings Home Golf Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/2.jpg?14498682711969037396\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">\n</div>",
+        "summary": "<img alt=\"Kurt Cummings Home Golf Room\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/FORESIGHT_GC2.jpg?14498682711969037396\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-16T16:43:00Z",
+        "createdAt": "2016-03-16T15:43:30Z",
+        "updatedAt": "2020-02-20T13:08:40Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/85360900",
+        "title": "Phillip Vickers - Minus 12 Degrees in Minnesota",
+        "handle": "85360900-phillip-vickers-minus-12-degrees-in-minnesota",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Phillip_Vickers_-_Testimonial_large.jpg?2653088372101601338\" alt=\"Phillip Vickers Testimonial\" width=\"514\" height=\"514\"></p>\n<meta charset=\"utf-8\">\n<p><span>My wife and I have been using the net for about two weeks here in Minnesota. It's minus 12 here and we are hitting golf balls. Great product and worth the money. Yes we are watching the Golf Channel. </span></p>\n<p><span>Phil Vickers</span></p>\n<p> </p>",
+        "summary": "<p><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Phillip_Vickers_-_Testimonial_large.jpg?2653088372101601338\" alt=\"Phillip Vickers Testimonial\" width=\"514\" height=\"514\"></p>",
+        "publishedAt": "2016-02-06T19:09:00Z",
+        "createdAt": "2016-02-06T19:08:03Z",
+        "updatedAt": "2020-02-20T12:38:11Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88817412",
+        "title": "Ernest Sports",
+        "handle": "88817412-ernest-sports",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<p style=\"text-align: left;\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_15.jpg?8686360230448624765\" alt=\"Ernest Sports Booth with Net Return Pro Series Golf Nets\"></p>\n<p>Makers of the E16 Launch Monitor</p>\n<p>Photo from 2014 PGA Show</p>",
+        "summary": "<img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_15.jpg?8686360230448624765\" alt=\"Ernest Sports Booth with Net Return Pro Series Golf Nets\">",
+        "publishedAt": "2016-02-05T04:22:00Z",
+        "createdAt": "2016-03-01T04:22:15Z",
+        "updatedAt": "2020-02-20T13:10:37Z",
+        "tags": [],
+        "image": null
+      },
+      {
+        "id": "gid://shopify/Article/88906628",
+        "title": "San Diego Chargers",
+        "handle": "88906628-san-diego-chargers",
+        "author": {
+          "name": "Paul Crawley"
+        },
+        "blog": {
+          "id": "gid://shopify/Blog/4473505",
+          "title": "Testimonials",
+          "handle": "testimonials"
+        },
+        "body": "<div style=\"text-align: left;\">\n<img alt=\"San Diego Chargers Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/1_9629d1aa-53dc-48b5-9e07-ddcd46c69038.jpg?1843445471891121088\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img alt=\"San Diego Chargers Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/2_d9d4b01a-c3c5-4a97-b664-ebeea4d69fe1.jpg?1843445471891121088\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\"><img src=\"//cdn.shopify.com/s/files/1/0405/2925/files/Untitled_design_6.jpg?1843445471891121088\" alt=\"San Diego Chargers Football Kicking Net\">\n</div>",
+        "summary": "<img alt=\"San Diego Chargers Football Kicking Net\" src=\"//cdn.shopify.com/s/files/1/0405/2925/files/1_9629d1aa-53dc-48b5-9e07-ddcd46c69038.jpg?1843445471891121088\" style=\"margin-top: 10px; margin-bottom: 10px; float: none;\">",
+        "publishedAt": "2016-02-02T21:45:00Z",
+        "createdAt": "2016-03-02T21:46:00Z",
+        "updatedAt": "2020-02-20T13:11:01Z",
+        "tags": [],
+        "image": null
+      }
+    ]
+  }
+}

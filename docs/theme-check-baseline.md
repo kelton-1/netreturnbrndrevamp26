@@ -54,3 +54,13 @@ Fixed locally:
 ### Defer
 
 - Warnings for deprecated filters, remote assets, orphaned snippets, unused assigns, deprecated includes, deprecated fonts, and locale HTML should be handled in smaller follow-up batches after the errors are reduced.
+
+## 2026-06-01 Product Recommendations Follow-Up
+
+```text
+417 files inspected with 160 total offenses found across 88 files.
+1 errors.
+159 warnings.
+```
+
+Delta from the prior 417-file brand-revamp baseline: two deprecated `include` warnings were removed from `sections/product-recommendations.liquid` by replacing the carousel arrow icon calls with `render`. The one remaining error is still the pre-existing `ContentForHeaderModification` in `layout/theme.liquid`.

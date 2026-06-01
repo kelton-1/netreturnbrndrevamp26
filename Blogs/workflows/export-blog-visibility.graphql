@@ -1,0 +1,19 @@
+query BlogVisibilityForAgentExport($first: Int = 50, $after: String) {
+  articles(first: $first, after: $after, sortKey: PUBLISHED_AT, reverse: true) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      id
+      title
+      handle
+      isPublished
+      publishedAt
+      blog {
+        title
+        handle
+      }
+    }
+  }
+}

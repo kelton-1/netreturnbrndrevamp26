@@ -28,6 +28,7 @@ Quick map of what's here. Order within each group is alphabetical, not chronolog
 
 - **[qa-notes.md](qa-notes.md)** — Preview QA log. Append when running storefront-flow checks.
 - **[manual-qa-checklist.md](manual-qa-checklist.md)** — Manual checklist for verifying the preview theme.
+- **[cart-variant-investigation.md](cart-variant-investigation.md)** — Static cart/add-to-cart variant path investigation and validator notes.
 
 ## Performance
 

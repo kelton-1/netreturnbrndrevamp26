@@ -25,6 +25,15 @@ npm 11.9.0
 Shopify CLI 3.94.3
 ```
 
+Update note from 2026-05-28:
+
+```text
+Global/user-local Shopify CLI was updated to 4.1.0 at /Users/kelton1/.local/bin/shopify.
+The project dev dependency in package.json/node_modules remains @shopify/cli@3.94.3.
+```
+
+Future agents should be aware that direct commands such as `PATH=/Users/kelton1/.local/bin:$PATH shopify version` resolve to Shopify CLI `4.1.0`, while npm scripts may still use the project-local `@shopify/cli@3.94.3` depending on npm's PATH resolution. If a blog/admin pipeline or theme command behaves differently between direct `shopify ...` and `npm run theme:*`, check both versions before debugging Shopify auth or API behavior.
+
 The project has a local dev dependency on `@shopify/cli` and scripts for normal theme work:
 
 ```json

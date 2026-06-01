@@ -262,6 +262,7 @@ Things I want to validate by actually viewing the page on the dev theme:
 - **What:** Standard Shopify recommendations algorithm. Likely surfaces similar products — competing nets, not complements.
 - **Why it matters:** "You may also like" suggests alternatives to the current product (reduces certainty of purchase). Complementary products (P-03 above) suggests additions (increases AOV).
 - **Recommendation:** Tie this together with P-03: when complementary products are enabled, retitle this to "More from this series" or "Compare similar nets" and let the complementary block own the "complete your setup" surface.
+- **Status (2026-06-01):** Product recommendation headings were retitled to "More from this series" in the section default and active product templates that explicitly set the old heading. Cart recommendations remain separate and continue to use the CT-03 "Complete your setup" lane.
 - **Severity:** S2 · **Effort:** E1 · **Priority:** **P2** (depends on P-03 landing first)
 
 ### Product page summary

@@ -1,0 +1,13 @@
+query ProductsForBlogLinks($query: String!) {
+  products(first: 20, query: $query) {
+    nodes {
+      id
+      title
+      handle
+      status
+      productType
+      onlineStoreUrl
+      descriptionHtml
+    }
+  }
+}

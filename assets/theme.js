@@ -5496,7 +5496,7 @@ var ProductForm = class extends HTMLFormElement {
 
       // Upgrade Line item properties
       let upgradeValue = null;
-      if( upgradePropertyLabel && variant.properties[upgradePropertyLabel] ) {
+      if (typeof upgradePropertyLabel !== "undefined" && variant.properties && variant.properties[upgradePropertyLabel]) {
         upgradeValue = variant.properties[upgradePropertyLabel];
       }
 

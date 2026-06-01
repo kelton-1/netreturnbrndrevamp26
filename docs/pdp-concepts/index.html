@@ -1,0 +1,1375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TheNetReturn PDP Concept Lab</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root {
+      --emerald: #009c43;
+      --glow: #a5e6c6;
+      --neon: #68fd00;
+      --shadow: #233a35;
+      --black: #050706;
+      --ink: #101715;
+      --muted: #67716d;
+      --line: #dce4df;
+      --paper: #f7faf8;
+      --white: #ffffff;
+      --steel: #eef3f1;
+      --caution: #f0b429;
+      --radius: 8px;
+      --max: 1440px;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .lab-top {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
+      background: rgba(5, 7, 6, .94);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .lab-top__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 142px;
+      height: auto;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      text-transform: uppercase;
+      font-size: 10px;
+      color: var(--emerald);
+      letter-spacing: 0;
+      margin: 0 0 7px;
+      font-weight: 700;
+    }
+
+    .lab-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .lab-nav::-webkit-scrollbar { display: none; }
+
+    .tab-btn,
+    .mode-btn,
+    .option-btn,
+    .plain-btn,
+    .chip-btn {
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+      border-radius: var(--radius);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease, color .16s ease;
+    }
+
+    .tab-btn {
+      min-width: max-content;
+      padding: 8px 11px;
+      border-color: rgba(255, 255, 255, .2);
+      background: rgba(255, 255, 255, .08);
+      color: rgba(255, 255, 255, .82);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background: var(--glow);
+      color: var(--black);
+      border-color: var(--glow);
+    }
+
+    .lab-link {
+      color: var(--black);
+      background: var(--neon);
+      padding: 8px 11px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-weight: 800;
+      font-size: 10px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .lab-hero {
+      background: var(--black);
+      color: var(--white);
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 560px);
+      overflow: hidden;
+    }
+
+    .lab-hero__media {
+      position: relative;
+      min-height: 500px;
+      isolation: isolate;
+    }
+
+    .lab-hero__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .lab-hero__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, .08), rgba(0, 0, 0, .66));
+      z-index: 1;
+    }
+
+    .lab-hero__copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(28px, 5vw, 64px);
+      margin-left: -12vw;
+      max-width: 660px;
+    }
+
+    .lab-hero h1 {
+      margin: 0;
+      font-size: clamp(42px, 6.2vw, 82px);
+      line-height: .94;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .lab-hero p {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: clamp(16px, 1.4vw, 18px);
+      line-height: 1.45;
+      max-width: 520px;
+    }
+
+    .lab-summary {
+      max-width: var(--max);
+      margin: -28px auto 0;
+      padding: 0 22px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .1);
+    }
+
+    .summary-strip > div {
+      padding: 15px;
+      border-right: 1px solid var(--line);
+      min-width: 0;
+    }
+
+    .summary-strip > div:last-child {
+      border-right: 0;
+    }
+
+    .summary-strip strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.18;
+      margin-top: 5px;
+    }
+
+    .concept {
+      display: none;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 22px 68px;
+      scroll-margin-top: 86px;
+    }
+
+    #concepts {
+      scroll-margin-top: 86px;
+    }
+
+    .concept.is-active {
+      display: block;
+    }
+
+    .concept-header {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(300px, .62fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .concept-header h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1;
+      margin: 22px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .concept-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .mode-switcher {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 18px;
+    }
+
+    .mode-btn {
+      padding: 10px 13px;
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .mode-btn[aria-pressed="true"],
+    .option-btn[aria-pressed="true"],
+    .chip-btn[aria-pressed="true"] {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .fit-layout {
+      grid-template-columns: minmax(0, 1fr) minmax(380px, .72fr);
+      align-items: start;
+    }
+
+    .selector-panel,
+    .buy-panel,
+    .spec-panel,
+    .visual-panel,
+    .deck-panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .selector-panel {
+      padding: 20px;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .option-btn {
+      min-height: 78px;
+      padding: 12px 13px;
+      text-align: left;
+    }
+
+    .option-btn b {
+      display: block;
+      font-size: 15px;
+      line-height: 1.18;
+      margin-bottom: 5px;
+    }
+
+    .option-btn span {
+      display: block;
+      color: inherit;
+      opacity: .72;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+    }
+
+    .step {
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .selector-panel h3,
+    .step h3 {
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.22;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip-btn {
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .buy-panel {
+      position: sticky;
+      top: 76px;
+      overflow: hidden;
+    }
+
+    .buy-panel__image {
+      aspect-ratio: 1.18 / .72;
+      background: var(--steel);
+      overflow: hidden;
+    }
+
+    .buy-panel__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buy-panel__body {
+      padding: 20px;
+    }
+
+    .buy-panel h3 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .price-line {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin: 11px 0 14px;
+    }
+
+    .price-line strong {
+      font-size: 25px;
+    }
+
+    .price-line span,
+    .small-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .primary-cta {
+      width: 100%;
+      border: 0;
+      background: var(--emerald);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .secondary-cta {
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid var(--black);
+      color: var(--black);
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin: 14px 0 0;
+    }
+
+    .fact {
+      background: var(--steel);
+      border-radius: var(--radius);
+      padding: 11px;
+      min-height: 68px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .fact strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .advisor {
+      margin-top: 14px;
+      border-left: 3px solid var(--emerald);
+      background: #f0f8f3;
+      padding: 12px;
+      color: var(--shadow);
+      line-height: 1.48;
+      font-size: 13px;
+    }
+
+    .studio-shell {
+      background: var(--black);
+      color: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(360px, 1fr) minmax(330px, 420px);
+      min-height: 650px;
+    }
+
+    .studio-stage {
+      position: relative;
+      min-height: 580px;
+      background:
+        linear-gradient(180deg, rgba(0, 156, 67, .16), rgba(0, 0, 0, 0) 34%),
+        #0d1110;
+      overflow: hidden;
+    }
+
+    .studio-stage::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 9%;
+      height: 36%;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: 52px 52px;
+      transform: perspective(680px) rotateX(62deg);
+      transform-origin: bottom;
+      border: 1px solid rgba(255, 255, 255, .09);
+    }
+
+    .sim-object {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      translate: -50% -50%;
+      width: min(64vw, 620px);
+      aspect-ratio: 1.22 / 1;
+      border: 14px solid #0a0f0c;
+      border-bottom-width: 24px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, .46);
+      background: rgba(255, 255, 255, .06);
+      transition: width .25s ease, border-color .25s ease;
+    }
+
+    .sim-object::before {
+      content: "";
+      position: absolute;
+      inset: 7%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, .04));
+      border: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .sim-object::after {
+      content: "";
+      position: absolute;
+      left: 46%;
+      right: 46%;
+      top: 100%;
+      height: 44%;
+      background: var(--emerald);
+      opacity: .7;
+      filter: blur(18px);
+    }
+
+    .studio-callout {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      max-width: 340px;
+      padding: 15px;
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .16);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+    }
+
+    .studio-callout strong {
+      display: block;
+      font-size: 20px;
+      line-height: 1.12;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .studio-callout span {
+      color: rgba(255, 255, 255, .74);
+      line-height: 1.45;
+      font-size: 14px;
+    }
+
+    .studio-controls {
+      background: #111715;
+      border-left: 1px solid rgba(255, 255, 255, .11);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .studio-controls h3 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+
+    .studio-controls .step h3 {
+      font-size: 21px;
+      line-height: 1.08;
+    }
+
+    .studio-controls .step {
+      border-color: rgba(255, 255, 255, .13);
+    }
+
+    .studio-controls .chip-btn,
+    .studio-controls .option-btn {
+      background: rgba(255, 255, 255, .07);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, .18);
+    }
+
+    .studio-controls .chip-btn[aria-pressed="true"],
+    .studio-controls .option-btn[aria-pressed="true"] {
+      background: var(--glow);
+      color: var(--black);
+      border-color: var(--glow);
+    }
+
+    .bundle-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .toggle-row {
+      display: grid;
+      grid-template-columns: 20px 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .toggle-row input {
+      accent-color: var(--neon);
+    }
+
+    .toggle-row b {
+      display: block;
+      font-size: 12px;
+    }
+
+    .toggle-row span {
+      color: rgba(255, 255, 255, .64);
+      font-size: 12px;
+    }
+
+    .studio-total {
+      margin-top: 16px;
+      padding: 14px;
+      background: var(--glow);
+      color: var(--black);
+      border-radius: var(--radius);
+    }
+
+    .studio-total span {
+      display: block;
+      font-family: var(--mono);
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+
+    .studio-total strong {
+      display: block;
+      font-size: 26px;
+    }
+
+    .deck-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, 330px) minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .deck-menu {
+      position: sticky;
+      top: 76px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .deck-menu .option-btn {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      min-height: auto;
+      align-items: center;
+    }
+
+    .deck-workspace {
+      display: grid;
+      gap: 18px;
+    }
+
+    .deck-panel {
+      padding: 20px;
+    }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .comparison th,
+    .comparison td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 11px 10px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    .comparison th {
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .comparison tr.is-active td {
+      background: #eff8f2;
+      font-weight: 800;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .proof-card {
+      background: var(--steel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      min-height: 118px;
+    }
+
+    .proof-card b {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .proof-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.42;
+    }
+
+    .sticky-convert {
+      position: static;
+      width: min(960px, calc(100% - 28px));
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 12px;
+      align-items: center;
+      margin: 0 auto 42px;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      background: rgba(5, 7, 6, .94);
+      color: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .16);
+      backdrop-filter: blur(14px);
+    }
+
+    .sticky-convert b {
+      display: block;
+    }
+
+    .sticky-convert span {
+      color: rgba(255, 255, 255, .64);
+      font-size: 13px;
+    }
+
+    .sticky-convert button {
+      border: 0;
+      border-radius: var(--radius);
+      padding: 11px 14px;
+      font-family: var(--mono);
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .sticky-convert .buy {
+      background: var(--neon);
+      color: var(--black);
+    }
+
+    .sticky-convert .help {
+      background: rgba(255, 255, 255, .12);
+      color: var(--white);
+    }
+
+    .doc-note {
+      max-width: var(--max);
+      margin: 0 auto 80px;
+      padding: 0 22px;
+    }
+
+    .doc-note__inner {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 1020px) {
+      .lab-top__inner,
+      .concept-header,
+      .fit-layout,
+      .studio-shell,
+      .deck-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .lab-top__inner {
+        gap: 10px;
+      }
+
+      .brand,
+      .lab-link {
+        justify-self: center;
+      }
+
+      .lab-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .lab-hero__copy {
+        margin-left: 0;
+        margin-top: -180px;
+        min-height: 260px;
+        justify-content: end;
+      }
+
+      .buy-panel,
+      .deck-menu {
+        position: static;
+      }
+
+      .summary-strip,
+      .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .lab-hero__media {
+        min-height: 430px;
+      }
+
+      .lab-hero h1 {
+        font-size: 42px;
+      }
+
+      .summary-strip,
+      .facts,
+      .option-grid,
+      .proof-grid,
+      .sticky-convert {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-strip > div {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .summary-strip > div:last-child {
+        border-bottom: 0;
+      }
+
+      .concept {
+        padding-top: 42px;
+      }
+
+      .studio-stage {
+        min-height: 520px;
+      }
+
+      .sim-object {
+        width: 78vw;
+      }
+
+      .sticky-convert {
+        width: calc(100% - 28px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="lab-top">
+    <div class="lab-top__inner">
+      <div class="brand">
+        <img src="../../assets/nr-wordmark-white.png" alt="The Net Return">
+      </div>
+      <nav class="lab-nav" aria-label="Concept navigation">
+        <button class="tab-btn" type="button" data-concept-tab="fit" aria-selected="true">01 Fit Finder</button>
+        <button class="tab-btn" type="button" data-concept-tab="studio" aria-selected="false">02 Studio Configurator</button>
+        <button class="tab-btn" type="button" data-concept-tab="deck" aria-selected="false">03 Spec Deck</button>
+      </nav>
+      <a class="lab-link" href="#concepts">Concept Lab</a>
+    </div>
+  </header>
+
+  <section class="lab-hero">
+    <div class="lab-hero__media">
+      <img src="../../assets/brand-hero-train-with-intent-desktop.jpg" alt="Golfer training with The Net Return">
+    </div>
+    <div class="lab-hero__copy">
+      <p class="eyebrow">PDP concept lab / isolated prototype</p>
+      <h1>Choose once. Swing sooner.</h1>
+      <p>Three interactive directions for a premium PDP that still keeps Home, Pro, packages, and sim bay selection in one decision flow.</p>
+    </div>
+  </section>
+
+  <div class="lab-summary" aria-label="Source analysis summary">
+    <div class="summary-strip">
+      <div>
+        <p class="eyebrow">Current win</p>
+        <strong>One PDP, many sizes</strong>
+      </div>
+      <div>
+        <p class="eyebrow">Conversion job</p>
+        <strong>Reduce selection anxiety</strong>
+      </div>
+      <div>
+        <p class="eyebrow">Brand job</p>
+        <strong>Premium, technical, confident</strong>
+      </div>
+      <div>
+        <p class="eyebrow">Scope</p>
+        <strong>No theme files touched</strong>
+      </div>
+    </div>
+  </div>
+
+  <main id="concepts">
+    <section class="concept is-active" id="concept-fit" data-concept="fit">
+      <div class="concept-header">
+        <div>
+          <p class="eyebrow">Concept 01</p>
+          <h2>Fit Finder PDP</h2>
+        </div>
+        <p>Make the top of PDP behave like a guided fitting surface. The shopper chooses use case, space, and size without leaving the page, while the buy panel stays calm and decisive.</p>
+      </div>
+
+      <div class="mode-switcher" aria-label="Product family">
+        <button class="mode-btn" data-mode="nets" aria-pressed="true">Nets</button>
+        <button class="mode-btn" data-mode="packages" aria-pressed="false">Packages</button>
+        <button class="mode-btn" data-mode="sims" aria-pressed="false">Sim Bays</button>
+      </div>
+
+      <div class="grid fit-layout">
+        <div class="selector-panel">
+          <div class="steps">
+            <div>
+              <p class="eyebrow">Step 1</p>
+              <h3>Pick the setup type</h3>
+              <div class="option-grid" data-fit-options></div>
+            </div>
+            <div class="step">
+              <p class="eyebrow">Step 2</p>
+              <h3>Tell us how you will use it</h3>
+              <div class="chip-row">
+                <button class="chip-btn" data-fit-use="Garage" aria-pressed="true">Garage</button>
+                <button class="chip-btn" data-fit-use="Backyard" aria-pressed="false">Backyard</button>
+                <button class="chip-btn" data-fit-use="Studio" aria-pressed="false">Studio</button>
+                <button class="chip-btn" data-fit-use="Commercial" aria-pressed="false">Commercial</button>
+              </div>
+            </div>
+            <div class="step">
+              <p class="eyebrow">Step 3</p>
+              <h3>Confirm the model</h3>
+              <div class="chip-row" data-fit-models></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="buy-panel" aria-live="polite">
+          <div class="buy-panel__image"><img data-fit-image src="../../assets/brand-category-nets.jpg" alt="Selected setup"></div>
+          <div class="buy-panel__body">
+            <p class="eyebrow" data-fit-kicker>Recommended net</p>
+            <h3 data-fit-title>Pro</h3>
+            <div class="price-line">
+              <strong data-fit-price>$795</strong>
+              <span data-fit-price-note>starting price</span>
+            </div>
+            <button class="primary-cta" type="button">Add to cart</button>
+            <button class="secondary-cta" type="button">Compare sizes</button>
+            <div class="facts">
+              <div class="fact"><span>Dimensions</span><strong data-fit-size>8 ft W x 7 ft 6 in H</strong></div>
+              <div class="fact"><span>Depth</span><strong data-fit-depth>3 ft 6 in</strong></div>
+              <div class="fact"><span>Best for</span><strong data-fit-ideal>Home / Garage</strong></div>
+              <div class="fact"><span>Confidence</span><strong data-fit-proof>225 MPH return</strong></div>
+            </div>
+            <div class="advisor" data-fit-advice>
+              Best fit for a golfer who wants more height and width than Home without overwhelming a normal garage.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="concept" id="concept-studio" data-concept="studio">
+      <div class="concept-header">
+        <div>
+          <p class="eyebrow">Concept 02</p>
+          <h2>Studio Configurator</h2>
+        </div>
+        <p>Pull the sim bay and package idea up into an interactive build surface: choose bay, add turf or launch-monitor paths, see the setup respond, then convert from a sticky summary.</p>
+      </div>
+
+      <div class="studio-shell">
+        <div class="studio-stage">
+          <div class="sim-object" data-studio-object></div>
+          <div class="studio-callout">
+            <strong data-studio-title>Simulator Bay 10</strong>
+            <span data-studio-copy>Balanced size for a dedicated home golf room with a more immersive screen than Sim 8.</span>
+          </div>
+        </div>
+        <aside class="studio-controls">
+          <p class="eyebrow">Build the bay</p>
+          <h3>Room-ready selection</h3>
+          <div class="step">
+            <h3>Choose bay width</h3>
+            <div class="chip-row" data-studio-models></div>
+          </div>
+          <div class="step">
+            <h3>Include popular add-ons</h3>
+            <div class="bundle-list">
+              <label class="toggle-row">
+                <input type="checkbox" data-addon="proTurf" checked>
+                <span><b>Pro Turf</b><span>Hitting surface for immediate practice.</span></span>
+                <b>$599</b>
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" data-addon="platinumTurf">
+                <span><b>Platinum Turf</b><span>Premium modular hitting and putting surface.</span></span>
+                <b>$1,995</b>
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" data-addon="launch">
+                <span><b>Launch monitor path</b><span>Guide shopper to FlightScope, Foresight, Full Swing, Garmin, or Uneekor.</span></span>
+                <b>Guide</b>
+              </label>
+              <label class="toggle-row">
+                <input type="checkbox" data-addon="expert">
+                <span><b>Expert room check</b><span>Surface ceiling height, depth, and projector questions before purchase.</span></span>
+                <b>Free</b>
+              </label>
+            </div>
+          </div>
+          <div class="studio-total">
+            <span>Current build</span>
+            <strong data-studio-total>$3,094</strong>
+            <p class="small-note" data-studio-note>Bay + Pro Turf. Concept pricing only.</p>
+          </div>
+          <button class="primary-cta" type="button">Add build to cart</button>
+          <button class="secondary-cta" type="button">Ask a sim specialist</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="concept" id="concept-deck" data-concept="deck">
+      <div class="concept-header">
+        <div>
+          <p class="eyebrow">Concept 03</p>
+          <h2>Spec Deck PDP</h2>
+        </div>
+        <p>For a premium shopper who wants proof, specs, and selection clarity fast. The PDP becomes a product deck: selectable model list, technical table, proof cards, and a clean conversion rail.</p>
+      </div>
+
+      <div class="deck-layout">
+        <nav class="deck-menu" aria-label="Model selector" data-deck-models></nav>
+        <div class="deck-workspace">
+          <div class="deck-panel">
+            <p class="eyebrow">Selected model</p>
+            <h3 data-deck-title style="font-size:34px;line-height:1.04;margin:0 0 10px;text-transform:uppercase;">Pro</h3>
+            <p data-deck-summary style="color:var(--muted);line-height:1.55;margin:0;max-width:760px;">The workhorse choice for serious home practice: wider than Home, still garage-friendly, and ready for launch-monitor use.</p>
+          </div>
+          <div class="deck-panel" style="overflow-x:auto;">
+            <p class="eyebrow">Compare the family</p>
+            <table class="comparison">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Size</th>
+                  <th>Ideal for</th>
+                  <th>Depth</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody data-deck-table></tbody>
+            </table>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-card"><b>Automatic return</b><span>Keep the patented ball-return claim close to the buy decision, not buried below the fold.</span></div>
+            <div class="proof-card"><b>225 MPH</b><span>Use technical proof as a confidence badge across Home, Pro, and package paths.</span></div>
+            <div class="proof-card"><b>Indoor or outdoor</b><span>Clarify where each model shines while still keeping all models selectable.</span></div>
+            <div class="proof-card"><b>Advisor ready</b><span>Route uncertain shoppers to expert help without forcing them off the PDP.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="sticky-convert" aria-live="polite">
+    <div>
+      <b data-sticky-title>Pro</b>
+      <span data-sticky-meta>8 ft W x 7 ft 6 in H / Home and garage / $795</span>
+    </div>
+    <button class="help" type="button">Expert help</button>
+    <button class="buy" type="button">Add to cart</button>
+  </aside>
+
+  <section class="doc-note">
+    <div class="doc-note__inner">
+      <p><strong>Prototype note:</strong> this is a standalone concept file. It uses existing local brand assets and hardcoded sample product data only for brainstorming. It is not connected to Shopify forms, inventory, variants, checkout, or live theme sections.</p>
+    </div>
+  </section>
+
+  <script>
+    const assets = {
+      nets: "../../assets/brand-category-nets.jpg",
+      packages: "../../assets/brand-category-packages.jpg",
+      sims: "../../assets/brand-category-simulation.jpg"
+    };
+
+    const productData = {
+      nets: {
+        label: "Nets",
+        kicker: "Recommended net",
+        options: [
+          { id: "standalone", title: "Net only", text: "Fastest path for shoppers who already have turf or a bay." },
+          { id: "home", title: "Home use", text: "Compact spaces, garages, backyards, and families." },
+          { id: "pro", title: "Pro practice", text: "Larger hitting area for serious training." },
+          { id: "small", title: "Small space", text: "Mini and Junior choices stay visible." }
+        ],
+        models: [
+          { id: "home", name: "Home", price: 695, size: "7 ft W x 7 ft H", depth: "3 ft 6 in", ideal: "Home / Garage", proof: "225 MPH return", advice: "The cleanest fit for most home garages and backyard practice stations.", width: 48 },
+          { id: "pro", name: "Pro", price: 795, size: "8 ft W x 7 ft 6 in H", depth: "3 ft 6 in", ideal: "Home / Garage", proof: "225 MPH return", advice: "Best fit for a golfer who wants more height and width than Home without overwhelming a normal garage.", width: 55 },
+          { id: "pro8", name: "Pro 8", price: 895, size: "8 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Garage / Yard", proof: "225 MPH return", advice: "Adds height for golfers who want a larger visual target and more confident driver work.", width: 58 },
+          { id: "pro9", name: "Pro 9", price: 995, size: "9 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Large yard", proof: "225 MPH return", advice: "A stronger outdoor or studio choice when width is available.", width: 64 },
+          { id: "pro10", name: "Pro 10", price: 1095, size: "10 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Commercial", proof: "225 MPH return", advice: "For commercial installs, coaches, and buyers who want a broad hitting zone.", width: 70 },
+          { id: "proxl", name: "Pro XL", price: 1599, size: "10 ft W x 9 ft 6 in H", depth: "3 ft 6 in", ideal: "Pro training", proof: "225 MPH return", advice: "The most premium net-only choice for a taller, more commanding practice footprint.", width: 76 },
+          { id: "mini", name: "Mini", price: 549, size: "5 ft W x 6 ft H", depth: "2 ft 4 in", ideal: "Small spaces", proof: "225 MPH return", advice: "A compact choice for tighter indoor rooms, warmups, and portable practice.", width: 35 },
+          { id: "junior", name: "Junior", price: 295, size: "4 ft 6 in W x 4 ft 6 in H", depth: "3 ft 6 in", ideal: "Kids", proof: "225 MPH return", advice: "Keeps the family path visible without making adult shoppers hunt for it.", width: 30 }
+        ]
+      },
+      packages: {
+        label: "Packages",
+        kicker: "Recommended package",
+        options: [
+          { id: "complete", title: "Complete kit", text: "Net, turf, barriers, sandbags, tees, and duffel." },
+          { id: "garage", title: "Garage setup", text: "A ready-to-swing practice station." },
+          { id: "premium", title: "Premium turf", text: "Surface upgrades and protection made clearer." },
+          { id: "compare", title: "Compare bundles", text: "Bring the package table into the selection flow." }
+        ],
+        models: [
+          { id: "home-package", name: "Home Package", price: 1499, size: "7 ft W x 7 ft H", depth: "3 ft 6 in", ideal: "Home / Garage", proof: "Complete kit", advice: "A simple one-box answer for the shopper who wants the full practice station.", width: 48 },
+          { id: "pro-package", name: "Pro Package", price: 1499, size: "8 ft W x 7 ft 6 in H", depth: "3 ft 6 in", ideal: "Home / Garage", proof: "Complete kit", advice: "The package PDP should make the upgrade from net-only feel obvious and valuable.", width: 55 },
+          { id: "pro8-package", name: "Pro 8 Package", price: 1699, size: "8 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Garage / Yard", proof: "Complete kit", advice: "Best for shoppers who want a taller target and the full practice surface included.", width: 58 },
+          { id: "pro9-package", name: "Pro 9 Package", price: 1799, size: "9 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Large yard", proof: "Complete kit", advice: "A strong outdoor bundle where the PDP can sell safety and space confidence.", width: 64 },
+          { id: "pro10-package", name: "Pro 10 Package", price: 2497, size: "10 ft W x 8 ft H", depth: "3 ft 6 in", ideal: "Commercial", proof: "Complete kit", advice: "This should read less like a SKU and more like a serious training station.", width: 70 },
+          { id: "proxl-package", name: "Pro XL Package", price: 1399, size: "10 ft W x 9 ft 6 in H", depth: "3 ft 6 in", ideal: "Pro training", proof: "Complete kit", advice: "A premium card can explain why XL is a commitment to space, not just a bigger frame.", width: 76 },
+          { id: "mini-package", name: "Mini Package", price: 1199, size: "5 ft W x 6 ft H", depth: "2 ft 4 in", ideal: "Small spaces", proof: "Complete kit", advice: "Keep the compact bundle visible for apartment, junior, and tight-room shoppers.", width: 35 }
+        ]
+      },
+      sims: {
+        label: "Sim Bays",
+        kicker: "Recommended sim bay",
+        options: [
+          { id: "bay", title: "Bay only", text: "Screen, frame, netting, pads, and side barriers." },
+          { id: "room", title: "Room fit", text: "Width, height, and depth become first-class decisions." },
+          { id: "package", title: "Package path", text: "Lead into monitor and projector bundles." },
+          { id: "addons", title: "Add-ons", text: "Turf and launch monitor guidance stay attached." }
+        ],
+        models: [
+          { id: "sim8", name: "Sim Bay 8", price: 1995, size: "8 ft W bay", depth: "3 ft 6 in", ideal: "Compact room", proof: "Screen + bay", advice: "Use this as the entry path for indoor simulation without hiding room-fit guidance.", width: 46 },
+          { id: "sim10", name: "Sim Bay 10", price: 2495, size: "10 ft W bay", depth: "3 ft 6 in", ideal: "Home sim room", proof: "Screen + bay", advice: "Balanced size for a dedicated home golf room with a more immersive screen than Sim 8.", width: 61 },
+          { id: "sim12", name: "Sim Bay 12", price: 2995, size: "12 ft W bay", depth: "3 ft 6 in", ideal: "Premium studio", proof: "Screen + bay", advice: "This should feel like the flagship bay path with room-fit proof and expert help close by.", width: 76 }
+        ]
+      }
+    };
+
+    const state = {
+      concept: "fit",
+      mode: "nets",
+      modelId: "pro",
+      fitUse: "Garage",
+      studioModelId: "sim10",
+      deckModelId: "pro"
+    };
+
+    const money = value => "$" + value.toLocaleString("en-US");
+
+    function currentGroup() {
+      return productData[state.mode];
+    }
+
+    function currentModel() {
+      return currentGroup().models.find(model => model.id === state.modelId) || currentGroup().models[0];
+    }
+
+    function setPressed(containerSelector, attr, value) {
+      document.querySelectorAll(containerSelector).forEach(button => {
+        button.setAttribute("aria-pressed", button.getAttribute(attr) === value ? "true" : "false");
+      });
+    }
+
+    function renderFit() {
+      const group = currentGroup();
+      if (!group.models.some(model => model.id === state.modelId)) {
+        state.modelId = group.models[0].id;
+      }
+      const model = currentModel();
+      const options = document.querySelector("[data-fit-options]");
+      const models = document.querySelector("[data-fit-models]");
+
+      options.innerHTML = group.options.map(option => `
+        <button class="option-btn" type="button" data-fit-type="${option.id}" aria-pressed="${option.id === group.options[0].id}">
+          <b>${option.title}</b>
+          <span>${option.text}</span>
+        </button>
+      `).join("");
+
+      models.innerHTML = group.models.map(item => `
+        <button class="chip-btn" type="button" data-fit-model="${item.id}" aria-pressed="${item.id === state.modelId}">
+          ${item.name}
+        </button>
+      `).join("");
+
+      document.querySelector("[data-fit-image]").src = assets[state.mode];
+      document.querySelector("[data-fit-kicker]").textContent = group.kicker;
+      document.querySelector("[data-fit-title]").textContent = model.name;
+      document.querySelector("[data-fit-price]").textContent = money(model.price);
+      document.querySelector("[data-fit-size]").textContent = model.size;
+      document.querySelector("[data-fit-depth]").textContent = model.depth;
+      document.querySelector("[data-fit-ideal]").textContent = model.ideal;
+      document.querySelector("[data-fit-proof]").textContent = model.proof;
+      document.querySelector("[data-fit-advice]").textContent = `${state.fitUse} path: ${model.advice}`;
+      renderSticky(model);
+    }
+
+    function renderSticky(model) {
+      document.querySelector("[data-sticky-title]").textContent = model.name;
+      document.querySelector("[data-sticky-meta]").textContent = `${model.size} / ${model.ideal} / ${money(model.price)}`;
+    }
+
+    function renderStudio() {
+      const group = productData.sims;
+      const model = group.models.find(item => item.id === state.studioModelId) || group.models[1];
+      const container = document.querySelector("[data-studio-models]");
+      container.innerHTML = group.models.map(item => `
+        <button class="chip-btn" type="button" data-studio-model="${item.id}" aria-pressed="${item.id === state.studioModelId}">
+          ${item.name}
+        </button>
+      `).join("");
+
+      const addons = Array.from(document.querySelectorAll("[data-addon]")).reduce((sum, input) => {
+        if (!input.checked) return sum;
+        if (input.dataset.addon === "proTurf") return sum + 599;
+        if (input.dataset.addon === "platinumTurf") return sum + 1995;
+        return sum;
+      }, 0);
+
+      document.querySelector("[data-studio-title]").textContent = model.name;
+      document.querySelector("[data-studio-copy]").textContent = model.advice;
+      document.querySelector("[data-studio-object]").style.width = `min(78vw, ${model.width * 9}px)`;
+      document.querySelector("[data-studio-total]").textContent = money(model.price + addons);
+      document.querySelector("[data-studio-note]").textContent = addons ? "Bay plus selected add-ons. Concept pricing only." : "Bay only. Concept pricing only.";
+      renderSticky(model);
+    }
+
+    function renderDeck() {
+      const group = productData.nets;
+      const model = group.models.find(item => item.id === state.deckModelId) || group.models[1];
+      document.querySelector("[data-deck-models]").innerHTML = group.models.map(item => `
+        <button class="option-btn" type="button" data-deck-model="${item.id}" aria-pressed="${item.id === state.deckModelId}">
+          <b>${item.name}</b>
+          <span>${item.ideal}</span>
+          <strong>${money(item.price)}</strong>
+        </button>
+      `).join("");
+
+      document.querySelector("[data-deck-title]").textContent = model.name;
+      document.querySelector("[data-deck-summary]").textContent = model.advice;
+      document.querySelector("[data-deck-table]").innerHTML = group.models.map(item => `
+        <tr class="${item.id === state.deckModelId ? "is-active" : ""}">
+          <td>${item.name}</td>
+          <td>${item.size}</td>
+          <td>${item.ideal}</td>
+          <td>${item.depth}</td>
+          <td>${money(item.price)}</td>
+        </tr>
+      `).join("");
+      renderSticky(model);
+    }
+
+    function showConcept(id) {
+      state.concept = id;
+      document.querySelectorAll("[data-concept]").forEach(section => {
+        section.classList.toggle("is-active", section.dataset.concept === id);
+      });
+      document.querySelectorAll("[data-concept-tab]").forEach(button => {
+        button.setAttribute("aria-selected", button.dataset.conceptTab === id ? "true" : "false");
+      });
+      if (id === "fit") renderFit();
+      if (id === "studio") renderStudio();
+      if (id === "deck") renderDeck();
+      document.querySelector(`#concept-${id}`).scrollIntoView({ block: "start" });
+    }
+
+    document.addEventListener("click", event => {
+      const conceptTab = event.target.closest("[data-concept-tab]");
+      if (conceptTab) showConcept(conceptTab.dataset.conceptTab);
+
+      const mode = event.target.closest("[data-mode]");
+      if (mode) {
+        state.mode = mode.dataset.mode;
+        setPressed("[data-mode]", "data-mode", state.mode);
+        renderFit();
+      }
+
+      const fitModel = event.target.closest("[data-fit-model]");
+      if (fitModel) {
+        state.modelId = fitModel.dataset.fitModel;
+        renderFit();
+      }
+
+      const fitUse = event.target.closest("[data-fit-use]");
+      if (fitUse) {
+        state.fitUse = fitUse.dataset.fitUse;
+        setPressed("[data-fit-use]", "data-fit-use", state.fitUse);
+        renderFit();
+      }
+
+      const studioModel = event.target.closest("[data-studio-model]");
+      if (studioModel) {
+        state.studioModelId = studioModel.dataset.studioModel;
+        renderStudio();
+      }
+
+      const deckModel = event.target.closest("[data-deck-model]");
+      if (deckModel) {
+        state.deckModelId = deckModel.dataset.deckModel;
+        renderDeck();
+      }
+    });
+
+    document.addEventListener("change", event => {
+      if (event.target.matches("[data-addon]")) {
+        renderStudio();
+      }
+    });
+
+    renderFit();
+    renderStudio();
+    renderDeck();
+  </script>
+</body>
+</html>

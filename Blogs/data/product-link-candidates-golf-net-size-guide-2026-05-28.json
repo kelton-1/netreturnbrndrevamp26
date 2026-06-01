@@ -1,0 +1,110 @@
+{
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/6853581144157",
+        "title": "Pro Turf",
+        "handle": "pro-turf-golf-practice-mat",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/pro-turf-golf-practice-mat",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p><a href=\"https://www.thenetreturn.com/collections/general-accessories#essentials\" target=\"_blank\" title=\"General accesories\" rel=\"noopener\">The Net Return</a> Pro Turf is a 6′×10′ golf practice surface designed exclusively for Net Return nets. It features a 42 oz nylon face with 5 mm foam backing, giving you a cushioned, realistic feel that rolls up like a carpet when not in use. Use it indoors or outdoors for hitting and putting, with continuous ball return and two rubber tees included.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/proturf1.jpg?v=1716395180",
+          "altText": "A piece of green artificial grass carpet with an underside, likely for indoor or outdoor decoration or sports use."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/6853618925661",
+        "title": "Side Barriers",
+        "handle": "universal-side-barriers",
+        "status": "ACTIVE",
+        "productType": "Golf Nets & Net Accessories",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/universal-side-barriers",
+        "descriptionHtml": "<p>Side Barriers ensure that mishit golf balls never leave the hitting area. If you are using your net indoors or in an area where errant balls are a safety concern, Side Barriers are highly recommended.<br></p>\n<p>Many golfers also choose to add Side Barriers when considering \"Friends and Family\" hitting into the net. If you are an accomplished golfer or using the net outdoors where safety is not a concern, Side Barriers are not required.</p>\n<p>The Net Return <b></b>Side Barriers are made of polyester netting, setup in under five minutes and can be easily stored or transported in your duffle bag. Each Side Barrier is individually cut and sewn by hand.</p>\n<p>All our Side Barriers, with the exception of Heavy Duty Side Barriers are sold in pairs (right and left), can be extended straight out or set up on wider angles if that is more suitable to you. Each set of Side Barriers are extended out by using sandbags, four are provided (one for each Side Barrier) and two on the rear of the frame.</p>\n<p>When not in use, Side Barriers can be walked into the front of the frame to help recover any lost floor space. Simply pick up each sandbag, walk in and place on the side of the frame. It's that simple...<br><br><meta charset=\"utf-8\"><em>Listing is for Side Barriers only. Net and frame not included.</em><br></p>\n<p><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/nwWAa_lF4dw\" title=\"YouTube video player\"></iframe></p>\n<p><strong>If you own a Pro Series Classic Net, look to purchase the Pro Series Classic Side Barriers instead.</strong></p>\n<p style=\"text-align: center;\"><strong><meta charset=\"utf-8\">Be sure to check out our videos (below) for easy assembly and installation instructions</strong></p>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/sidebarriers.jpg?v=1715973855",
+          "altText": "A large black mesh golf ball collector, designed to capture and store golf balls during practice."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7068203778141",
+        "title": "Home",
+        "handle": "golf-and-multi-sport-nets",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/golf-and-multi-sport-nets",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p><meta charset=\"utf-8\"><meta charset=\"utf-8\">The Net Return offers you the flexibility to practice on your own time. Use it for golf, soccer, baseball, softball, lacrosse, and more with automatic ball return and a stable, easy-setup frame. Built to last with high-quality materials and an industry-leading 3-year warranty, our nets can withstand ball speeds of 225 mph so you can practice with confidence.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/Home2_1b5f2a08-22fe-484c-ba83-8a8f1cfeaee5.jpg?v=1716224967",
+          "altText": "A black and gray sports rebounder net with a sturdy frame and protective padding."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7068640215133",
+        "title": "Pro",
+        "handle": "pro-series-golf-net",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/pro-series-golf-net",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p>The Pro golf net gives you a 8'w x 7'6\"h hitting area for confident swings at home. It returns the ball automatically, packs down fast and works indoors or outdoors with a stable frame. Ideal for players who want more height and width than the standard net without overwhelming a garage or spare room.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/Pro2_f14bc7d9-d6c1-4ed9-b76e-4f5de7d5df73.jpg?v=1771316875",
+          "altText": "Golf goal backstop with a black frame and netted barrier designed to catch stray pucks."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7068658729053",
+        "title": "Pro 8",
+        "handle": "large-8-pro-series-golf-net",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/large-8-pro-series-golf-net",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p>Large 8 Pro Series golf net gives you an 8' × 8' hitting area for confident swings at home. It returns the ball automatically, packs down fast and works indoors or outdoors with a stable frame. Ideal for players who want more height and width than the standard net without overwhelming a garage or spare room.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/8Pro2_c880f5f5-0a3a-4eed-aef0-ae992f6aa8b5.jpg?v=1716225104",
+          "altText": "A black, free-standing sports net with a rectangular frame and curved upper corners, designed for practicing shots and catches."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7072101138525",
+        "title": "Home Package",
+        "handle": "home-golf-net-package",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/home-golf-net-package",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p>The Home Golf Net Package gives you a 7′×7′ net plus turf, side barriers, sandbags and tees in one ready-to-go bundle. Designed for golfers who want an affordable but complete setup, it works indoors or outdoors and offers automatic ball return. Ideal as a first serious home practice station or as a simple base for a future simulator build.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/PackagePhoto.jpg?v=1714149732",
+          "altText": "A portable golf practice net with a green hitting mat and two golf tees set up for use indoors or outdoors."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7072102088797",
+        "title": "Pro Package",
+        "handle": "pro-package-golf-net-setup",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/pro-package-golf-net-setup",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p>The Net Return Pro Package is a complete 8′×7′6″ home golf practice setup. You get the Pro Series net, side barriers, Pro Turf, sandbags, rubber tees and a duffle bag, all working together as a ready-made training bay. Set it up in a garage, yard or studio and go from zero to structured practice in minutes.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/PackagePhoto_57b15833-8fae-4b50-b17a-f161c13db5b5.jpg?v=1771316905",
+          "altText": "Golf practice net with a green mat and target area, set up for use."
+        }
+      },
+      {
+        "id": "gid://shopify/Product/7072415383645",
+        "title": "Simulator Bay 8",
+        "handle": "simulator-bay-8-golf-simulator-setup",
+        "status": "ACTIVE",
+        "productType": "Golf Training Aid",
+        "onlineStoreUrl": "https://www.thenetreturn.com/products/simulator-bay-8-golf-simulator-setup",
+        "descriptionHtml": "<style>\n  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap');\n\n  .custom-box {\n    border: 2px solid #ddd;\n    border-radius: 12px;\n    padding: 20px;\n    margin-bottom: 15px;\n    background-color: #ffffff;\n    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);\n    font-family: 'Inter', sans-serif;\n  }\n\n  .custom-box h3 {\n    margin-top: 0;\n    margin-bottom: 12px;\n    font-size: 1.25rem;\n    font-weight: 700;\n    color: #1a1a1a;\n    display: flex;\n    align-items: center;\n    gap: 5px;\n  }\n\n  .custom-box p,\n  .custom-box li {\n    font-size: 1rem;\n    color: #333;\n    line-height: 1.6;\n  }\n\n  .custom-box ul {\n    margin: 0;\n    padding-left: 22px;\n  }\n</style>\n<div class=\"custom-box\">\n<h3>Description</h3>\n<p><a href=\"https://www.thenetreturn.com/collections/simulation#simulator-bays\" target=\"_blank\" title=\"Simulator Bay \" rel=\"noopener\">The Net Return</a> Simulator Series 8 bay is an 8′-wide enclosure built specifically for golf simulators. It combines a sturdy frame, integrated impact screen area and side netting to keep shots contained in front of the projector. Perfect for garages or tighter rooms, it pairs with launch monitors and turf to turn small spaces into accurate, immersive practice studios.</p>\n</div>",
+        "featuredImage": {
+          "url": "https://cdn.shopify.com/s/files/1/0405/2925/files/Sim1_6f3061a4-21b6-4b29-ae97-251c689d3665.jpg?v=1714145965",
+          "altText": "Indoor golf simulator setup with large screen displaying a golf course scene, surrounded by black netting."
+        }
+      }
+    ]
+  }
+}

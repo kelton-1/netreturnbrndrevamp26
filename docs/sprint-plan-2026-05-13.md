@@ -117,6 +117,8 @@ Known example errors:
 
 ## Workstream 4: Cart 400 / Variant Handling Investigation
 
+**Status (2026-06-01):** Static investigation and normal product add-to-cart smoke test complete in [cart-variant-investigation.md](cart-variant-investigation.md). One low-risk guard was added in `assets/theme.js` so products without the optional upgrade block do not break the post-add cart refresh path.
+
 **Intent:** Understand and protect the fix implied by the source theme name.
 
 **Likely Areas To Inspect**
@@ -130,11 +132,12 @@ Known example errors:
 
 **Sprint Tasks**
 
-- [ ] Search for cart API calls, variant ID handling, and add-to-cart form serialization.
-- [ ] Identify how disabled/unavailable variants are represented in Liquid and JavaScript.
-- [ ] Test add-to-cart with a normal product variant and an unavailable/disabled variant if one is discoverable.
-- [ ] Document the current behavior in `docs/cart-variant-investigation.md`.
-- [ ] Add a small guard or fix only if a reproducible issue is found locally.
+- [x] Search for cart API calls, variant ID handling, and add-to-cart form serialization.
+- [x] Identify how disabled/unavailable variants are represented in Liquid and JavaScript.
+- [x] Test add-to-cart with a normal product variant.
+- [ ] Test add-to-cart with an unavailable/disabled variant if one is discoverable.
+- [x] Document the current behavior in `docs/cart-variant-investigation.md`.
+- [x] Add a small guard or fix only if a reproducible issue is found locally.
 
 **Acceptance Criteria**
 

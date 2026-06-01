@@ -1,0 +1,560 @@
+{
+  "articles": {
+    "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJsYXN0X2lkIjoxMzE4MzI0OSwibGFzdF92YWx1ZSI6IjIwMTQtMDMtMTYgMDU6MDA6MDAuMDAwMDAwIn0="
+    },
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/229225233",
+        "title": "Stephen Curry - Backyard Putting Green with Pro Series Net",
+        "handle": "stephen-curry-backyard-putting-green",
+        "isPublished": true,
+        "publishedAt": "2016-01-21T15:05:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113244164",
+        "title": "Roger Schultz - Crescent City, California",
+        "handle": "113244164-roger-schultz-crescent-city-california",
+        "isPublished": true,
+        "publishedAt": "2016-01-16T16:03:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/118478020",
+        "title": "Sydney Harbour Bridge - Sydney, Australia",
+        "handle": "118478020-sydney-harbour-bridge-sydney-australia",
+        "isPublished": true,
+        "publishedAt": "2016-01-09T14:42:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88905668",
+        "title": "SkyTrak Golf",
+        "handle": "88905668-skytrak-golf",
+        "isPublished": true,
+        "publishedAt": "2016-01-03T21:39:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88817668",
+        "title": "KVest - 3D Motion Capture",
+        "handle": "88817668-kvest-3d-motion-capture",
+        "isPublished": true,
+        "publishedAt": "2016-01-03T04:31:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/82588356",
+        "title": "4th Quarter \"Win-A-Net\" Winner Announced",
+        "handle": "82588356-4th-quarter-win-a-net-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2016-01-02T22:54:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228767377",
+        "title": "Ian Necus - La Crescenta, California",
+        "handle": "ian-necus-la-crescenta-california",
+        "isPublished": true,
+        "publishedAt": "2015-12-27T19:22:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114273476",
+        "title": "Mark - East Brunswick, New Jersey",
+        "handle": "114273476-mark-east-brunswick-new-jersey",
+        "isPublished": true,
+        "publishedAt": "2015-12-27T16:58:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228395729",
+        "title": "The Net Return - Soccer Practice",
+        "handle": "the-net-return-soccer-practice",
+        "isPublished": true,
+        "publishedAt": "2015-12-10T19:33:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114421444",
+        "title": "Jacksonville Jaguars NFL",
+        "handle": "114421444-jacksonville-jaguars-nfl",
+        "isPublished": true,
+        "publishedAt": "2015-11-30T15:55:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/227865544",
+        "title": "Jacob Sever",
+        "handle": "jacob-sever",
+        "isPublished": true,
+        "publishedAt": "2015-11-15T16:38:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113555332",
+        "title": "Wake Forest University - Demon Deacons Football",
+        "handle": "113555332-wake-forest-university-demon-deacons-football",
+        "isPublished": true,
+        "publishedAt": "2015-10-21T00:26:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183461",
+        "title": "Horace Pennix - Gambrills, Maryland",
+        "handle": "13183461-horace-pennix-gambrills-maryland",
+        "isPublished": true,
+        "publishedAt": "2015-10-05T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/2035712027",
+        "title": "Brad Downs - Farmington, Missouri",
+        "handle": "brad-downs-farmington-missouri",
+        "isPublished": true,
+        "publishedAt": "2015-09-21T16:22:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/220253000",
+        "title": "Florida International University - Extra Point Kicking Net",
+        "handle": "florida-international-university-extra-point-kicking-net",
+        "isPublished": true,
+        "publishedAt": "2015-09-03T19:14:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114690244",
+        "title": "Nike - World Cup Soccer Net",
+        "handle": "114690244-nike-world-cup-soccer-net",
+        "isPublished": true,
+        "publishedAt": "2015-09-02T17:19:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/220209864",
+        "title": "Juan Camilo Hernandez - Bogota, Columbia",
+        "handle": "juan-camilo-hernandez-bogota-columbia",
+        "isPublished": true,
+        "publishedAt": "2015-08-31T14:09:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88817924",
+        "title": "Paralympic Experience - Adaptive Golf Institute",
+        "handle": "88817924-paralympic-experience-adaptive-golf-institute",
+        "isPublished": true,
+        "publishedAt": "2015-07-30T03:43:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113041348",
+        "title": "Augustana College - Football",
+        "handle": "113041348-augustana-college-football",
+        "isPublished": true,
+        "publishedAt": "2015-07-12T17:40:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/34866500",
+        "title": "June - \"Win-a-Net\" Contest Winner Announced",
+        "handle": "34866500-june-win-a-net-contest-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2015-07-03T17:35:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/34837764",
+        "title": "Improved Pro Series Frame",
+        "handle": "34837764-improved-pro-series-frame",
+        "isPublished": true,
+        "publishedAt": "2015-07-02T18:45:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/112899076",
+        "title": "Sixth Division - Chandler, Arizona",
+        "handle": "112899076-sixth-division-chandler-arizona",
+        "isPublished": true,
+        "publishedAt": "2015-06-02T19:44:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88817796",
+        "title": "Françoise and Thierry Le Guilloux - Nante, France",
+        "handle": "88817796-francoise-and-thierry-le-guilloux-nante-france",
+        "isPublished": true,
+        "publishedAt": "2015-04-30T03:33:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88900484",
+        "title": "Bill Stafford - Milltown, New Jersey",
+        "handle": "88900484-bill-stafford-milltown-new-jersey",
+        "isPublished": true,
+        "publishedAt": "2015-04-23T19:15:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183473",
+        "title": "Lyndon Lobo - Edmonton Alberta, Canada",
+        "handle": "13183473-lyndon-lobo-edmonton-alberta-canada",
+        "isPublished": true,
+        "publishedAt": "2015-04-04T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88898116",
+        "title": "About Golf - Golf Simulators 2009 PGA Show",
+        "handle": "88898116-about-golf-golf-simulators-2009-pga-show",
+        "isPublished": true,
+        "publishedAt": "2015-04-02T17:52:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114273156",
+        "title": "Greg - Garden State Golf Expo",
+        "handle": "114273156-greg-garden-state-golf-expo",
+        "isPublished": true,
+        "publishedAt": "2015-03-27T15:45:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113016324",
+        "title": "Louisville Cardinals",
+        "handle": "113016324-louisville-cardinals",
+        "isPublished": true,
+        "publishedAt": "2015-03-11T21:26:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/112735364",
+        "title": "Jason Geil - Lexington, Kentucky",
+        "handle": "112735364-jason-geil-lexington-kentucky",
+        "isPublished": true,
+        "publishedAt": "2015-03-08T12:23:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88906884",
+        "title": "Florida State University",
+        "handle": "88906884-florida-state-university",
+        "isPublished": true,
+        "publishedAt": "2015-03-04T21:51:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88900740",
+        "title": "Rick Joyce - Freehold, New Jersey",
+        "handle": "88900740-rick-joyce-freehold-new-jersey",
+        "isPublished": true,
+        "publishedAt": "2015-03-02T20:18:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183565",
+        "title": "Jonathan Wellum - Toronto, Canada",
+        "handle": "13183565-jonathan-wellum-toronto-canada",
+        "isPublished": true,
+        "publishedAt": "2015-02-21T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183573",
+        "title": "Steve Griffiths - Greenwich, Connecticut",
+        "handle": "13183573-steve-griffiths-greenwich-connecticut",
+        "isPublished": true,
+        "publishedAt": "2015-02-19T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183265",
+        "title": "Michael Gabbay - Los Angeles, California",
+        "handle": "13183265-michael-gabbay-los-angeles-california",
+        "isPublished": true,
+        "publishedAt": "2015-02-07T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88900292",
+        "title": "Jonathan Brisbane - Decatur, Georgia",
+        "handle": "88900292-jonathan-brisbane-decatur-georgia",
+        "isPublished": true,
+        "publishedAt": "2015-01-02T20:10:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183581",
+        "title": "Bland McCartha - Beaverton, Oregon",
+        "handle": "13183581-bland-mccartha-beaverton-oregon",
+        "isPublished": true,
+        "publishedAt": "2014-12-18T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113216900",
+        "title": "Washington State University Football",
+        "handle": "113216900-washington-state-university-football",
+        "isPublished": true,
+        "publishedAt": "2014-12-16T01:39:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228450641",
+        "title": "Rob Momono - Pinole, California",
+        "handle": "rob-momono-pinole-california",
+        "isPublished": true,
+        "publishedAt": "2014-12-12T18:48:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183533",
+        "title": "William Morton - Plymouth, Massachusetts",
+        "handle": "13183533-william-morton-plymouth-massachusetts",
+        "isPublished": true,
+        "publishedAt": "2014-11-25T06:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114242372",
+        "title": "Carroll High School Football - Dayton, Ohio",
+        "handle": "114242372-carroll-high-school-football-dayton-ohio",
+        "isPublished": true,
+        "publishedAt": "2014-08-26T03:48:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113556036",
+        "title": "Reality Realty Professionals",
+        "handle": "113556036-reality-realty-professionals",
+        "isPublished": true,
+        "publishedAt": "2014-06-21T00:38:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114299204",
+        "title": "Colgate University",
+        "handle": "114299204-colgate-university",
+        "isPublished": true,
+        "publishedAt": "2014-04-28T14:33:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13424189",
+        "title": "New Product Release - Pro Series XL",
+        "handle": "13424189-new-product-release-pro-series-xl",
+        "isPublished": true,
+        "publishedAt": "2014-04-06T17:07:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114353924",
+        "title": "University of Georgia Bulldogs - Football",
+        "handle": "114353924-university-of-georgia-bulldogs-football",
+        "isPublished": true,
+        "publishedAt": "2014-03-29T15:30:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114272388",
+        "title": "Decorah Vikings Football - Decorah, Iowa",
+        "handle": "114272388-decorah-vikings-football-decorah-iowa",
+        "isPublished": true,
+        "publishedAt": "2014-03-27T15:19:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/114249668",
+        "title": "Kansas State Football",
+        "handle": "114249668-kansas-state-football",
+        "isPublished": true,
+        "publishedAt": "2014-03-26T15:26:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13181653",
+        "title": "Ford Newell - TPC Wakefield Plantation",
+        "handle": "13181653-ford-newell-tpc-wakefield-plantation",
+        "isPublished": true,
+        "publishedAt": "2014-03-23T06:30:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13181821",
+        "title": "Toshiyo Hayashi",
+        "handle": "13181821-toshiyo-hayashi",
+        "isPublished": true,
+        "publishedAt": "2014-03-21T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13181997",
+        "title": "Matt Papes",
+        "handle": "13181997-matt-papes",
+        "isPublished": true,
+        "publishedAt": "2014-03-17T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/13183249",
+        "title": "Coach Dave Jennings - Central Alabama Community College",
+        "handle": "13183249-coach-dave-jennings-central-alabama-community-college",
+        "isPublished": true,
+        "publishedAt": "2014-03-16T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      }
+    ]
+  }
+}

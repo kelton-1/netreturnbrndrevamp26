@@ -1,0 +1,560 @@
+{
+  "articles": {
+    "pageInfo": {
+      "hasNextPage": true,
+      "endCursor": "eyJsYXN0X2lkIjo4ODkwNjYyOCwibGFzdF92YWx1ZSI6IjIwMTYtMDItMDIgMjE6NDU6MDAuMDAwMDAwIn0="
+    },
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/230957009",
+        "title": "Jamie 2017 PGA Show",
+        "handle": "jamie-2017-pga-show",
+        "isPublished": true,
+        "publishedAt": "2017-03-13T17:56:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/230956945",
+        "title": "Dave Pezzino 2017 PGA Show",
+        "handle": "dave-pezzino-2017-pga-show",
+        "isPublished": true,
+        "publishedAt": "2017-03-13T17:54:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/4182573083",
+        "title": "Jeremy Parnell - Mentone, California",
+        "handle": "jeremy-parnell-mentone-california",
+        "isPublished": true,
+        "publishedAt": "2017-03-11T05:00:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/230396497",
+        "title": "New England Patriots",
+        "handle": "patriots",
+        "isPublished": true,
+        "publishedAt": "2017-03-01T16:28:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/3752263707",
+        "title": "Adaptive Golf Showcase - 2018 PGA Merchandise Show",
+        "handle": "adaptive-golf-showcase-2018-pga-merchandise-show",
+        "isPublished": true,
+        "publishedAt": "2017-02-01T15:54:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228983953",
+        "title": "Clemson Tigers",
+        "handle": "clemson-tigers",
+        "isPublished": true,
+        "publishedAt": "2017-01-11T17:45:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228983633",
+        "title": "Jim Gauley - Zillah, WA",
+        "handle": "jim-gauley-zillah-wa",
+        "isPublished": true,
+        "publishedAt": "2017-01-11T17:20:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228917777",
+        "title": "4th Quarter 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "4th-quarter-2016-win-a-net-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2017-01-06T15:55:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228450513",
+        "title": "Mike Howell - Woodstock, Georgia",
+        "handle": "mike-howell-woodstock-georgia",
+        "isPublished": true,
+        "publishedAt": "2016-12-12T18:37:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/228395601",
+        "title": "JDWalburg - Minnesota",
+        "handle": "jdwalburg-minnesota",
+        "isPublished": true,
+        "publishedAt": "2016-12-10T19:04:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/227865096",
+        "title": "Dome Corporation (Japan Under Armour)- Hosei University",
+        "handle": "under-armour-japan-hosei-university",
+        "isPublished": true,
+        "publishedAt": "2016-11-15T16:12:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/2846425115",
+        "title": "Terry Yakle - Quincy, Illinois",
+        "handle": "terry-yakle-quincy-illinois",
+        "isPublished": true,
+        "publishedAt": "2016-11-09T21:08:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/225285640",
+        "title": "Thomas Lyons - Florida",
+        "handle": "thomas-lyons-florida",
+        "isPublished": true,
+        "publishedAt": "2016-10-13T19:53:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/224147208",
+        "title": "3rd Quarter 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "3rd-quarter-2016-win-a-net-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2016-10-03T16:26:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/220253192",
+        "title": "Eric Arango - Henderson, Nevada",
+        "handle": "eric-arango-henderson-nevada",
+        "isPublished": true,
+        "publishedAt": "2016-09-03T19:44:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/12957777",
+        "title": "New York Jets",
+        "handle": "12957777-new-york-jets",
+        "isPublished": true,
+        "publishedAt": "2016-08-17T20:08:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/237770961",
+        "title": "Norman Kronstadt - Weston, FL.",
+        "handle": "norman-kronstadt-weston-fl",
+        "isPublished": true,
+        "publishedAt": "2016-08-04T18:04:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/118203972",
+        "title": "2nd Quarter 2016 - Win-A-Net Winner Announced!",
+        "handle": "118203972-2nd-quarter-2016-win-a-net-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2016-06-03T03:15:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/232566033",
+        "title": "SkyTrak Golf",
+        "handle": "skytrak-golf-1",
+        "isPublished": true,
+        "publishedAt": "2016-04-22T17:39:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/232132881",
+        "title": "Healthy Drive - Australia",
+        "handle": "healthy-drive-australia",
+        "isPublished": true,
+        "publishedAt": "2016-04-12T15:47:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113158724",
+        "title": "1st Quarter, 2016 - \"Win-A-Net\" Winner Announced",
+        "handle": "113158724-1st-quarter-2016-win-a-net-winner-announced",
+        "isPublished": true,
+        "publishedAt": "2016-03-14T16:20:00Z",
+        "blog": {
+          "title": "The Net Return News",
+          "handle": "news"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88745412",
+        "title": "Titleist Performance Institute",
+        "handle": "88745412-titleist-performance-institute",
+        "isPublished": true,
+        "publishedAt": "2016-03-05T14:17:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88815172",
+        "title": "Office Golf - San Francisco, California",
+        "handle": "88815172-office-golf-san-francisco-california",
+        "isPublished": true,
+        "publishedAt": "2016-03-05T03:52:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88749636",
+        "title": "Natali Gulbis - Fox and Friends",
+        "handle": "88749636-natali-gulbis-fox-and-friends",
+        "isPublished": true,
+        "publishedAt": "2016-03-04T18:04:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88726596",
+        "title": "Product Review - Dan at Golf Geek",
+        "handle": "88726596-product-review-dan-at-golf-geek",
+        "isPublished": true,
+        "publishedAt": "2016-03-04T17:01:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88747844",
+        "title": "Dallas Cowboys",
+        "handle": "88747844-dallas-cowboys",
+        "isPublished": true,
+        "publishedAt": "2016-03-04T16:28:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/112734404",
+        "title": "Urban Golf Performance - Los Angeles, California",
+        "handle": "112734404-urban-golf-performance-los-angeles-california",
+        "isPublished": true,
+        "publishedAt": "2016-03-04T12:55:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88751620",
+        "title": "SkyTrak Golf",
+        "handle": "88751620-skytrak-golf",
+        "isPublished": true,
+        "publishedAt": "2016-03-01T19:33:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88816580",
+        "title": "Swim4Purpose - Ellicott City, Maryland",
+        "handle": "88816580-swim4purpose-ellicott-city-maryland",
+        "isPublished": true,
+        "publishedAt": "2016-03-01T04:14:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88801668",
+        "title": "Augustana College - Men's and Women's Golf Practice Facility",
+        "handle": "88801668-augustana-college-mens-and-womens-golf-practice-facility",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T21:59:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88789956",
+        "title": "Pure Fitness - Chicago, Illinois",
+        "handle": "88789956-pure-fitness-chicago-illinois",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T18:10:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88787844",
+        "title": "McNulty Family - Port Perry, Ontario",
+        "handle": "88787844-mcnulty-family-port-perry-ontario",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T17:37:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88786500",
+        "title": "Kim Leonardich - Santa Cruz, CA",
+        "handle": "88786500-kim-leonardich-santa-cruz-ca",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T17:19:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88784260",
+        "title": "Gavin - First Grader Winning Field Goal Kick",
+        "handle": "88784260-gavin-first-grader-winning-field-goal-kick",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T16:50:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88780868",
+        "title": "George Jamgochian - Franklin Lakes, NJ",
+        "handle": "88780868-george-jamgochian-franklin-lakes-nj",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T15:39:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88780484",
+        "title": "David Charles - St. Lucia",
+        "handle": "88780484-david-charles-st-lucia",
+        "isPublished": true,
+        "publishedAt": "2016-02-29T15:34:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88757124",
+        "title": "Bill Bigler - Shreveport, Louisiana",
+        "handle": "88757124-bill-bigler-shreveport-louisiana",
+        "isPublished": true,
+        "publishedAt": "2016-02-28T23:08:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88756932",
+        "title": "Foresight Sports - GC2 Launch Monitors",
+        "handle": "88756932-foresight-sports-gc2-launch-monitors",
+        "isPublished": true,
+        "publishedAt": "2016-02-28T22:57:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88751172",
+        "title": "U.S. Military - Iraq",
+        "handle": "88751172-u-s-military-iraq",
+        "isPublished": true,
+        "publishedAt": "2016-02-28T19:11:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88750724",
+        "title": "U.S. Military - Afghanistan",
+        "handle": "88750724-u-s-military-afghanistan",
+        "isPublished": true,
+        "publishedAt": "2016-02-28T18:44:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88747076",
+        "title": "Dave DuPriest",
+        "handle": "88747076-dave-dupriest",
+        "isPublished": true,
+        "publishedAt": "2016-02-28T16:06:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88726980",
+        "title": "Evolution Fitness Chicago - Pro Series Golf Practice",
+        "handle": "88726980-evolution-fitness-chicago-pro-series-golf-practice",
+        "isPublished": true,
+        "publishedAt": "2016-02-27T17:13:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88726020",
+        "title": "Dr. Dan Fuentes",
+        "handle": "88726020-dr-dan-fuentes",
+        "isPublished": true,
+        "publishedAt": "2016-02-27T16:38:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88725764",
+        "title": "Nascar Driver - Kevin Harvick",
+        "handle": "88725764-nascar-driver-kevin-harvick",
+        "isPublished": true,
+        "publishedAt": "2016-02-27T16:18:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/87322628",
+        "title": "Bardonia Physical Therapy Commercial",
+        "handle": "87322628-bardonia-physical-therapy-commercial",
+        "isPublished": true,
+        "publishedAt": "2016-02-22T20:26:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/229109649",
+        "title": "Chuck Veeder - Middle Grove, NY",
+        "handle": "chuck-veeder-middle-grove-ny",
+        "isPublished": true,
+        "publishedAt": "2016-02-16T20:05:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/113247556",
+        "title": "Kurt Cummings - Fishers, Indiana",
+        "handle": "113247556-kurt-cummings-fishers-indiana",
+        "isPublished": true,
+        "publishedAt": "2016-02-16T16:43:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/85360900",
+        "title": "Phillip Vickers - Minus 12 Degrees in Minnesota",
+        "handle": "85360900-phillip-vickers-minus-12-degrees-in-minnesota",
+        "isPublished": true,
+        "publishedAt": "2016-02-06T19:09:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88817412",
+        "title": "Ernest Sports",
+        "handle": "88817412-ernest-sports",
+        "isPublished": true,
+        "publishedAt": "2016-02-05T04:22:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      },
+      {
+        "id": "gid://shopify/Article/88906628",
+        "title": "San Diego Chargers",
+        "handle": "88906628-san-diego-chargers",
+        "isPublished": true,
+        "publishedAt": "2016-02-02T21:45:00Z",
+        "blog": {
+          "title": "Testimonials",
+          "handle": "testimonials"
+        }
+      }
+    ]
+  }
+}
