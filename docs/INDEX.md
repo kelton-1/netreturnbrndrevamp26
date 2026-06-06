@@ -45,6 +45,7 @@ Quick map of what's here. Order within each group is alphabetical, not chronolog
 
 ## Tooling / agent context
 
+- **[section-store-workflow.md](section-store-workflow.md)** — Research + playbook for the Section Store app and the Claude Code "done-for-you PDP" workflow. How Section Store sections land in the theme (`SS`/`ss-*` native Liquid), how they fit our CRO product-page architecture, the two integration paths (buy+adapt vs recreate-as-block), safety rules, and a worked decomposition of the viral "Runner Hydration" PDP onto Net Return.
 - **[superpowers/](superpowers/)** — Extra agent skill scaffolding from a prior session.
 
 ## File naming convention going forward
